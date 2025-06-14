@@ -17,10 +17,7 @@
 --------------------------------------------------------------------------------
 
 library IEEE;
-
 use IEEE.std_logic_1164.all;
-
-
 
 entity Acquisition is
 generic (
@@ -32,20 +29,18 @@ port (
 	MAX_INPUT_I     : IN  std_logic_vector(1 downto 0); -- MAX INPUT IN PHASE SIGNAL
     MAX_INPUT_Q     : IN  std_logic_vector(1 downto 0); -- MAX INPUT QUADRATURE SIGNAL
     MAX_INPUT_CLK   : IN  std_logic; -- MAX INPUT CLOCK
-    port_name2 : OUT std_logic_vector(1 downto 0)  -- example
-    --<other_ports>;
 );
 end Acquisition;
+
 architecture architecture_Acquisition of Acquisition is
    -- signal, component etc. declarations
 	signal Frequency_offset_data : std_logic_vector(9 downto 0); -- example
 	signal cos_signal, sin_signal : std_logic_vector(data_width-1 downto 0) ; -- example
 	signal I1_signal, Q1_signal, I2_signal, Q2_signal : std_logic_vector(data_width downto 0) ; -- example
 	signal FFT_I_signal, FFT_Q_signal, FFT_X_signal, FFT_Y_signal : std_logic_vector(24 downto 0) ; -- example
-    signal IFFT_out_real, IFFT_out_imag : std_logic_vector(23 downto 0); -- Verificar
-    signal GC_FFT_real, GC_FFT_imag : std_logic_vector(23 downto 0);  -- Verificar
-    signal mult_real, mult_imag : std_logic_vector(47 downto 0);      -- Verificar
+    signal IFFT_out_real, IFFT_out_imag : std_logic_vector(31 downto 0); -- Verificar
     signal IFFT_in_real, IFFT_in_imag : std_logic_vector(23 downto 0); -- Verificar
+    --singal CA_CONJ_real, CA_CONJ_imag : std_logic_vector(31 downto 0); -- Verificar
 
     component COREDDS_C0 is
     -- Port list
@@ -99,18 +94,15 @@ architecture architecture_Acquisition of Acquisition is
     );
     end component;
     
-    component Multiplier -- Verificar
+    component complex_multiplier_C0 is
     generic(
-        data_width : integer := 24 --Verificar
+        data_width : integer := 32
     );
     port(
-        go  : in std_logic;
-        clk : in std_logic;
-        rst : in std_logic; 
-        A   : in std_logic_vector(data_width-1 downto 0);
-        B   : in std_logic_vector(data_width-1 downto 0);  
-        MSB : out std_logic_vector(data_width-1 downto 0); 
-        LSB : out std_logic_vector(data_width-1 downto 0);   
+        --Inputs
+        
+        --Outputs
+        
     );
     
     component UAL is
@@ -138,11 +130,8 @@ begin
    SUM_I: UAL generic map(data_width) port map(I1_signal,Q2_signal,'0',FFT_I_signal(data_width downto 0),FFT_I_signal(23));
    SUM_Q: UAL generic map(data_width) port map(I2_signal,Q1_signal,'0',FFT_Q_signal(data_width downto 0),FFT_Q_signal(23));
    FFT_IQ: COREFFT_C0 port map(clk,FFT_Q_signal,FFT_I_signal,'1','1','1','1','0',open,FFT_X_signal,FFT_Y_signal,open,open);
+   
    IFFT_IQ: COREFFT_C0 port map(clk, FFT_X_signal, FFT_Y_signal,'1','1','1','1','0',open,IFFT_out_real,IFFT_out_imag,open,open); -- Verificar
-   --MULT5: Multiplier  generic map(24) port map('1','1','1',open,FFT_X_signal,CA_FFT, IFFT_in_I1(47 downto 24), IFFT_in_I1(23 downto 0));
-   MULT_RE1: Multiplier  generic map(24) port map('1',CLK,'0',FFT_X_signal,GC_FFT_real,mult_real(47 downto 24),mult_real(23 downto 0));
-   MULT_RE2: Multiplier  generic map(24) port map('1',CLK,'0',FFT_X_signal,GC_FFT_real,mult_real(47 downto 24),mult_real(23 downto 0)); -- Editar
-   --MULT_IM1:
-   --MULT_IM2:
+   
    
 end architecture_Acquisition;

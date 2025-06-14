@@ -32,7 +32,7 @@ KEY VendorTechnology_VCCI_1.8_VOLTR "EXT"
 KEY VendorTechnology_VCCI_2.5_VOLTR "EXT"
 KEY VendorTechnology_VCCI_3.3_VOLTR "EXT"
 KEY VendorTechnology_VOLTR "EXT"
-KEY ProjectLocation "/home/arthur/Desktop/projects_gnss/Implementaçao_teste_GNSS/Implementacao_teste"
+KEY ProjectLocation "/home/arthur/Desktop/projects_gnss/radio-occultation-doc/Implementaçao_teste_GNSS/Implementacao_teste"
 KEY ProjectDescription ""
 KEY UseRootLocationForLinkedFiles "FALSE"
 KEY RootLocationENVForLinkedFiles ""
@@ -46,31 +46,77 @@ KEY SimulationType "VERILOG"
 KEY Vendor "Actel"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
-CURREV=1
+VALUE="Impl2",NUM=2
+CURREV=2
+ENDLIST
+LIST LIBRARIES
+COREFFT_LIB
+ENDLIST
+LIST LIBRARY_COREFFT_LIB
+ALIAS=COREFFT_LIB
+COMPILE_OPTION=COMPILE
+CUSTOMPATH=false
 ENDLIST
 LIST GlobalIncludeFileList
 ENDLIST
 LIST FileManager
 VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
 STATE="utd"
-TIME="1748356108"
+TIME="1748455549"
 SIZE="11104"
 LIBRARY="COREFFT_LIB"
 IS_READONLY="TRUE"
 ENDFILE
+VALUE "<project>/component/Microsemi/SolutionCore/complex_multiplier/1.0.27/complex_multiplier.cxf,actgen_cxf"
+STATE="utd"
+TIME="1749837465"
+SIZE="799"
+PARENT="<project>/component/work/complex_multiplier_C0/complex_multiplier_C0.cxf"
+ENDFILE
+VALUE "<project>/component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/complex_multiplier.vhd,hdl"
+STATE="utd"
+TIME="1749837465"
+SIZE="13243"
+PARENT="<project>/component/Microsemi/SolutionCore/complex_multiplier/1.0.27/complex_multiplier.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>/component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/round_sat.vhd,hdl"
+STATE="utd"
+TIME="1749837465"
+SIZE="1594"
+PARENT="<project>/component/Microsemi/SolutionCore/complex_multiplier/1.0.27/complex_multiplier.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>/component/work/complex_multiplier_C0/complex_multiplier_C0.cxf,actgen_cxf"
+STATE="utd"
+TIME="1749837465"
+SIZE="3254"
+ENDFILE
+VALUE "<project>/component/work/complex_multiplier_C0/complex_multiplier_C0.vhd,hdl"
+STATE="utd"
+TIME="1749837465"
+SIZE="4549"
+PARENT="<project>/component/work/complex_multiplier_C0/complex_multiplier_C0.cxf"
+IS_READONLY="TRUE"
+ENDFILE
 VALUE "<project>/hdl/Acquisition.vhd,hdl"
 STATE="utd"
-TIME="1748375552"
-SIZE="5752"
+TIME="1749850726"
+SIZE="4861"
 ENDFILE
-VALUE "<project>/hdl/GoldCodeGenerator.vhd,hdl"
+VALUE "<project>/hdl/L1_CA_generator.vhd,hdl"
 STATE="utd"
-TIME="1747420714"
-SIZE="2223"
+TIME="1748957858"
+SIZE="6811"
+ENDFILE
+VALUE "<project>/hdl/LFSR_generator.vhd,hdl"
+STATE="utd"
+TIME="1748957829"
+SIZE="5804"
 ENDFILE
 VALUE "<project>/hdl/Multiplier_simplified.vhd,hdl"
 STATE="utd"
-TIME="1744889535"
+TIME="1748455549"
 SIZE="1334"
 ENDFILE
 ENDLIST
@@ -192,24 +238,46 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 HDL;hdl/Acquisition.vhd;0
-HDL;hdl/hdl/Multiplier.vhd;0
-HDL;hdl/GoldCodeGenerator.vhd;0
+HDL;component/work/complex_multiplier_C0/complex_multiplier_C0.vhd;0
+HDL;hdl/L1_CA_generator.vhd;0
 ACTIVEVIEW;hdl/Acquisition.vhd
 ENDLIST
 LIST ModuleSubBlockList
-LIST "Acquisition::work","hdl/Acquisition.vhd","FALSE","FALSE"
-SUBBLOCK "COREDDS_C0::work","","FALSE","FALSE"
-SUBBLOCK "Multiplier_simplified::work","hdl/Multiplier_simplified.vhd","FALSE","FALSE"
-SUBBLOCK "UAL::work","","FALSE","FALSE"
-SUBBLOCK "COREFFT_C0::work","","FALSE","FALSE"
+LIST "COMPLEX_MULTIPLIER::work","component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/complex_multiplier.vhd","FALSE","FALSE"
+SUBBLOCK "round_SAT::work","component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/round_sat.vhd","FALSE","FALSE"
 ENDLIST
-LIST "COREDDS_C0::work","","FALSE","FALSE"
+LIST "complex_multiplier_C0::work","component/work/complex_multiplier_C0/complex_multiplier_C0.vhd","TRUE","FALSE"
+SUBBLOCK "COMPLEX_MULTIPLIER::work","component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/complex_multiplier.vhd","FALSE","FALSE"
 ENDLIST
-LIST "COREFFT_C0::work","","FALSE","FALSE"
+LIST "LFSR_generator::work","hdl/LFSR_generator.vhd","FALSE","FALSE"
+ENDLIST
+LIST "L1_CA_generator::work","hdl/L1_CA_generator.vhd","FALSE","FALSE"
+SUBBLOCK "LFSR_generator::work","hdl/LFSR_generator.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Multiplier_simplified::work","hdl/Multiplier_simplified.vhd","FALSE","FALSE"
 ENDLIST
-LIST "UAL::work","","FALSE","FALSE"
+LIST "round_SAT::work","component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/round_sat.vhd","FALSE","FALSE"
+ENDLIST
+LIST "bhv_dirac::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+ENDLIST
+LIST "bhv_fEdge_ce::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+ENDLIST
+LIST "bhv_gen::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+SUBBLOCK "bhvEdge::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+SUBBLOCK "bhv_dirac::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+SUBBLOCK "bhv_fEdge_ce::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+SUBBLOCK "bhv_lfsr::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+SUBBLOCK "bhv_step::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+ENDLIST
+LIST "bhv_lfsr::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+ENDLIST
+LIST "bhv_step::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+ENDLIST
+LIST "bhvClockGen::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+ENDLIST
+LIST "bhvDelay::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+ENDLIST
+LIST "bhvEdge::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
 ENDLIST
 ENDLIST
 LIST ActiveTestBenchList
