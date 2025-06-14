@@ -32,7 +32,7 @@ KEY VendorTechnology_VCCI_1.8_VOLTR "EXT"
 KEY VendorTechnology_VCCI_2.5_VOLTR "EXT"
 KEY VendorTechnology_VCCI_3.3_VOLTR "EXT"
 KEY VendorTechnology_VOLTR "EXT"
-KEY ProjectLocation "/home/arthur/Desktop/projects_gnss/radio-occultation-doc/Implementaçao_teste_GNSS/Implementacao_teste"
+KEY ProjectLocation "/home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/Implementacao_teste"
 KEY ProjectDescription ""
 KEY UseRootLocationForLinkedFiles "FALSE"
 KEY RootLocationENVForLinkedFiles ""
@@ -101,8 +101,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/hdl/Acquisition.vhd,hdl"
 STATE="utd"
-TIME="1749850726"
-SIZE="4861"
+TIME="1749919861"
+SIZE="5421"
 ENDFILE
 VALUE "<project>/hdl/L1_CA_generator.vhd,hdl"
 STATE="utd"
@@ -238,8 +238,6 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 HDL;hdl/Acquisition.vhd;0
-HDL;component/work/complex_multiplier_C0/complex_multiplier_C0.vhd;0
-HDL;hdl/L1_CA_generator.vhd;0
 ACTIVEVIEW;hdl/Acquisition.vhd
 ENDLIST
 LIST ModuleSubBlockList
