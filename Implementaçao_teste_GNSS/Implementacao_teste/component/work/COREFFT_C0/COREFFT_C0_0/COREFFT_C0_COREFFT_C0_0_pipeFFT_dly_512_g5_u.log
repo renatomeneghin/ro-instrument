@@ -1,0 +1,58 @@
+
+****************
+Macro Parameters
+****************
+
+Name                            : COREFFT_C0_COREFFT_C0_0_pipeFFT_dly_512_g5_u
+Family                          : PolarFireSOC
+Output Format                   : VERILOG
+Type                            : URAM
+Block Enable Polarity           : None
+Reset Polarity                  : None
+Read Clock Edge                 : Rising
+R_ADDR Sync-reset Polarity      : None
+R_DATA Sync-reset Polarity      : None
+R_ADDR Async-reset Polarity     : None
+R_DATA Async-reset Polarity     : None
+R_ADDR Enable Polarity          : None
+R_DATA Enable Polarity          : None
+Write Clock Edge                : Rising
+Write Enable Polarity           : Active High
+Write Depth                     : 512
+Write Width                     : 66
+Read Depth                      : 512
+Read Width                      : 66
+R_ADDR Pipeline                 : Register
+R_DATA Pipeline                 : Register
+Portname R_DATA                 : rD
+Portname R_CLK                  : rClk
+Portname R_ADDR_SRST            : RA_ADDR_SRST
+Portname R_DATA_SRST            : R_DATA_SRST
+Portname R_ADDR_ARST            : RA_ADDR_ARST
+Portname R_DATA_ARST            : R_DATA_ARST
+Portname R_ADDR_EN              : RA_ADDR_EN
+Portname R_DATA_EN              : R_DATA_EN
+Portname BLK_EN                 : 
+Portname R_ADDR                 : rAddr
+Portname Write Clock            : wClk
+Portname Write Address          : wAddr
+Portname Write Data             : wD
+Portname Write Enable           : wEn
+Portname Single Clock           : 
+Portname Single Async-reset     : 
+LPM_HINT                        : 
+Device                          : 250
+RAM Type                        : Micro SRAM
+Optimized for                   : Speed
+Clocks                          : Independent Read and Write Clocks
+Initialize RAM                  : False
+Lock access                     : Off
+ACCESS_BUSY                     : Disabled
+
+Cascade Configuration: 
+     Read  Port configuration       : 64x12
+     Write Port configuration       : 64x12
+     Number of blocks depth wise: 8
+     Number of blocks width wise: 6
+
+Wrote Verilog netlist to /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/Implementacao_teste/component/work/COREFFT_C0/COREFFT_C0_0//COREFFT_C0_COREFFT_C0_0_pipeFFT_dly_512_g5_u.v.

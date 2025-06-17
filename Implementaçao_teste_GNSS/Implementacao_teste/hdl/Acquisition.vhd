@@ -28,7 +28,7 @@ port (
 	CLK : IN  std_logic; -- example
 	MAX_INPUT_I     : IN  std_logic_vector(1 downto 0); -- MAX INPUT IN PHASE SIGNAL
     MAX_INPUT_Q     : IN  std_logic_vector(1 downto 0); -- MAX INPUT QUADRATURE SIGNAL
-    MAX_INPUT_CLK   : IN  std_logic; -- MAX INPUT CLOCK
+    MAX_INPUT_CLK   : IN  std_logic -- MAX INPUT CLOCK
 );
 end Acquisition;
 
@@ -38,9 +38,13 @@ architecture architecture_Acquisition of Acquisition is
 	signal cos_signal, sin_signal : std_logic_vector(data_width-1 downto 0) ; -- example
 	signal I1_signal, Q1_signal, I2_signal, Q2_signal : std_logic_vector(data_width downto 0); -- example
 	signal FFT_I_signal, FFT_Q_signal, FFT_X_signal, FFT_Y_signal : std_logic_vector(24 downto 0); -- example
-    --signal FFT_CA_in_real, FFT_CA_out_real, FFT_CA_in_imag, FFT_CA_out_imag : std_logic_vector ();
-    signal FFT_CA_CONJ_real, FFT_CA_CONJ_imag : std_logic_vector(31 downto 0); -- Verificar
-    signal IFFT_in_real, IFFT_in_imag, IFFT_out_real, IFFT_out_imag : std_logic_vector(31 downto 0); -- Verificar
+    signal FFT_CA_in_real, FFT_CA_out_real, FFT_CA_in_imag, FFT_CA_out_imag : std_logic_vector (23 downto 0); -- Verificar
+    signal CA_CONJ_out_imag : std_logic_vector (23 downto 0); -- Verificar
+    signal mult_out_real, mult_out_imag : std_logic_vector(32 downto 0); -- Verificar
+    signal IFFT_in_real_temp, TFFT_in_imag_temp : std_logic_vector(31 downto 0); -- Verificar
+    signal IFFT_out_real, IFFT_out_imag : std_logic_vector(31 downto 0); -- Verificar
+    signal final_out_real, final_out_imag : std_logic_vector(23 downto 0); -- Verificar
+    signal final_out_real_scaled, final_out_imag_scaled : std_logic_vector(23 downto 0); -- Verificar
     
     component COREDDS_C0 is
     -- Port list
@@ -59,7 +63,7 @@ architecture architecture_Acquisition of Acquisition is
         );
     end component;
     
-    component COREFFT_C0 is
+    component COREFFT_C0 is -- Streaming FFT
     -- Port list
     port(
         -- Inputs
@@ -70,16 +74,35 @@ architecture architecture_Acquisition of Acquisition is
         NGRST       : in  std_logic;
         READ_OUTP   : in  std_logic;
         SLOWCLK     : in  std_logic;
-        INVERSE     : in  std_logic;
         -- Outputs
         BUF_READY   : out std_logic;
         DATAO_IM    : out std_logic_vector(23 downto 0);
         DATAO_RE    : out std_logic_vector(23 downto 0);
         DATAO_VALID : out std_logic;
         OUTP_READY  : out std_logic
-        );
+    );
     end component;
     
+    component COREFFT_C1 is -- In-Place FFT
+    -- Port list
+    port(
+        -- Inputs
+        CLK         : in  std_logic;
+        DATAI_IM    : in  std_logic_vector(23 downto 0);
+        DATAI_RE    : in  std_logic_vector(23 downto 0);
+        DATAI_VALID : in  std_logic;
+        NGRST       : in  std_logic;
+        READ_OUTP   : in  std_logic;
+        SLOWCLK     : in  std_logic;
+        -- Outputs
+        BUF_READY   : out std_logic;
+        DATAO_IM    : out std_logic_vector(23 downto 0);
+        DATAO_RE    : out std_logic_vector(23 downto 0);
+        DATAO_VALID : out std_logic;
+        OUTP_READY  : out std_logic
+    );
+    end component;
+
     component complex_multiplier_C0 is
     -- Port list
     port(
@@ -95,6 +118,7 @@ architecture architecture_Acquisition of Acquisition is
         cimag_o  : out std_logic_vector(32 downto 0);
         creal_o  : out std_logic_vector(32 downto 0)
     );
+    end component
     
     component Multiplier_simplified is
     generic(
@@ -126,17 +150,18 @@ architecture architecture_Acquisition of Acquisition is
     
 begin
 
-   -- architecture body
-   SINE_GENERATOR: COREDDS_C0 port map (CLK,Frequency_offset_data, '0','1','1','1',cos_signal,open,sin_signal);
-   MULT1: Multiplier_simplified generic map(data_width) port map(cos_signal,MAX_INPUT_I,I1_signal);
-   MULT2: Multiplier_simplified generic map(data_width) port map(sin_signal,MAX_INPUT_Q,Q1_signal);
-   MULT3: Multiplier_simplified generic map(data_width) port map(sin_signal,MAX_INPUT_I,I2_signal);
-   MULT4: Multiplier_simplified generic map(data_width) port map(cos_signal,MAX_INPUT_Q,I2_signal);
-   SUM_I: UAL generic map(data_width) port map(I1_signal,Q2_signal,'0',FFT_I_signal(data_width downto 0),FFT_I_signal(23));
-   SUM_Q: UAL generic map(data_width) port map(I2_signal,Q1_signal,'0',FFT_Q_signal(data_width downto 0),FFT_Q_signal(23));
-   FFT_IQ: COREFFT_C0 port map(CLK,FFT_Q_signal,FFT_I_signal,'1','1','1','1','0',open,FFT_X_signal,FFT_Y_signal,open,open);
-   FFT_CA: 
-   MULT5: complex_multiplier_C0 port map (FFT_X_signal, FFT_Y_signal, FFT_CA_CONJ_imag, FFT_CA_CONJ_real, "CLK", "RST", IFFT_in_imag, IFFT_in_real); -- Verificar
-   IFFT: COREFFT_C0 port map(CLK, IFFT_in_imag, IFFT_in_real,'1','1','1','1','1',open,IFFT_out_imag,IFFT_out_real,open,open); -- Verificar
+    -- architecture body
+    SINE_GENERATOR: COREDDS_C0 port map (CLK,Frequency_offset_data, '0','1','1','1',cos_signal,open,sin_signal);
+    MULT1: Multiplier_simplified generic map(data_width) port map(cos_signal,MAX_INPUT_I,I1_signal);
+    MULT2: Multiplier_simplified generic map(data_width) port map(sin_signal,MAX_INPUT_Q,Q1_signal);
+    MULT3: Multiplier_simplified generic map(data_width) port map(sin_signal,MAX_INPUT_I,I2_signal);
+    MULT4: Multiplier_simplified generic map(data_width) port map(cos_signal,MAX_INPUT_Q,I2_signal);
+    SUM_I: UAL generic map(data_width) port map(I1_signal,Q2_signal,'0',FFT_I_signal(data_width downto 0),FFT_I_signal(23));
+    SUM_Q: UAL generic map(data_width) port map(I2_signal,Q1_signal,'0',FFT_Q_signal(data_width downto 0),FFT_Q_signal(23));
+    FFT_IQ: COREFFT_C0 port map(CLK,FFT_Q_signal,FFT_I_signal,'1','1','1','1',open,FFT_X_signal,FFT_Y_signal,open,open);
+    --FFT_CA: COREFFT_C1 port map(CLK,FFT_CA_in_imag,FFT_CA_in_real,'1','1','1','1',open,FFT_CA_out_imag,FFT_CA_out_real,open,open); -- Verificar
+    --MULT5: complex_multiplier_C0 port map (FFT_X_signal, FFT_Y_signal, not FFT_CA_out_imag, FFT_CA_out_real, "CLK", "RST", IFFT_in_imag, IFFT_in_real); -- Verificar
+    --IFFT: COREFFT_C0 port map(CLK, IFFT_in_imag, IFFT_in_real,'1','1','1','1',open,IFFT_out_imag,IFFT_out_real,open,open); -- Verificar
+    -- Terminar
    
 end architecture_Acquisition;
