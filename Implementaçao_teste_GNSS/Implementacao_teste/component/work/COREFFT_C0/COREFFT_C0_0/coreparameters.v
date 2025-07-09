@@ -1,12 +1,12 @@
 //--------------------------------------------------------------------
-// Created by Microsemi SmartDesign Mon Jun 16 16:02:05 2025
+// Created by Microsemi SmartDesign Tue Jul  1 12:25:09 2025
 // Parameters for COREFFT
 //--------------------------------------------------------------------
 
 
 parameter AXI4S_IN_DATA = 32;
 parameter AXI4S_OUT_DATA = 32;
-parameter CFG_ARCH = 2;
+parameter CFG_ARCH = 1;
 parameter DATA_BITS = 32;
 parameter FAMILY = 27;
 parameter FFT_SIZE = 1024;
@@ -15,7 +15,7 @@ parameter INVERSE = 0;
 parameter MEMBUF = 0;
 parameter NATIV_AXI4 = 0;
 parameter ORDER = 0;
-parameter POINTS = 256;
+parameter POINTS = 1024;
 parameter SCALE = 0;
 parameter SCALE_EXP_ON = 0;
 parameter SCALE_ON = 1;
@@ -35,4 +35,4 @@ parameter STAGE_12 = 0;
 parameter testbench = 1;
 parameter TWID_BITS = 32;
 parameter URAM_MAXDEPTH = 512;
-parameter WIDTH = 18;
+parameter WIDTH = 32;

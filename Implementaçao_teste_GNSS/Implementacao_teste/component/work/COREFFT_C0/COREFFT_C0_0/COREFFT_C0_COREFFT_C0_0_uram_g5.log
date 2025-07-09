@@ -3,7 +3,7 @@
 Macro Parameters
 ****************
 
-Name                            : COREFFT_C0_COREFFT_C0_0_pipeFFT_dly_16_g5_u
+Name                            : COREFFT_C0_COREFFT_C0_0_uram_g5
 Family                          : PolarFireSOC
 Output Format                   : VERILOG
 Type                            : URAM
@@ -18,10 +18,10 @@ R_ADDR Enable Polarity          : None
 R_DATA Enable Polarity          : None
 Write Clock Edge                : Rising
 Write Enable Polarity           : Active High
-Write Depth                     : 16
-Write Width                     : 68
-Read Depth                      : 16
-Read Width                      : 68
+Write Depth                     : 512
+Write Width                     : 64
+Read Depth                      : 512
+Read Width                      : 64
 R_ADDR Pipeline                 : Register
 R_DATA Pipeline                 : Register
 Portname R_DATA                 : rD
@@ -52,7 +52,7 @@ ACCESS_BUSY                     : Disabled
 Cascade Configuration: 
      Read  Port configuration       : 64x12
      Write Port configuration       : 64x12
-     Number of blocks depth wise: 1
+     Number of blocks depth wise: 8
      Number of blocks width wise: 6
 
-Wrote Verilog netlist to /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/Implementacao_teste/component/work/COREFFT_C0/COREFFT_C0_0//COREFFT_C0_COREFFT_C0_0_pipeFFT_dly_16_g5_u.v.
+Wrote Verilog netlist to /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/Implementacao_teste/component/work/COREFFT_C0/COREFFT_C0_0//COREFFT_C0_COREFFT_C0_0_uram_g5.v.

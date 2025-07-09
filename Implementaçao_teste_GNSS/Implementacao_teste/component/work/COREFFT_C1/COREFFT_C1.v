@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Jun 17 00:15:49 2025
+// Created by SmartDesign Tue Jul  1 12:25:31 2025
 // Version: 2023.2 2023.2.0.8
 //////////////////////////////////////////////////////////////////////
 
@@ -20,7 +20,7 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:COREFFT:8.1.100} -compone
 "DATA_BITS:18"  \
 "FFT_SIZE:256"  \
 "FPGA_FAMILY:27"  \
-"INVERSE:0"  \
+"INVERSE:1"  \
 "MEMBUF:0"  \
 "NATIV_AXI4:false"  \
 "ORDER:0"  \
@@ -28,19 +28,19 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:COREFFT:8.1.100} -compone
 "SCALE:1"  \
 "SCALE_EXP_ON:false"  \
 "SCALE_ON:true"  \
-"SCALE_SCH:255"  \
+"SCALE_SCH:171"  \
 "STAGE_1:true"  \
 "STAGE_2:true"  \
-"STAGE_3:true"  \
+"STAGE_3:false"  \
 "STAGE_4:true"  \
-"STAGE_5:true"  \
+"STAGE_5:false"  \
 "STAGE_6:true"  \
-"STAGE_7:true"  \
+"STAGE_7:false"  \
 "STAGE_8:true"  \
-"STAGE_9:true"  \
-"STAGE_10:true"  \
-"STAGE_11:true"  \
-"STAGE_12:true"  \
+"STAGE_9:false"  \
+"STAGE_10:false"  \
+"STAGE_11:false"  \
+"STAGE_12:false"  \
 "TWID_BITS:18"  \
 "URAM_MAXDEPTH:0"  \
 "WIDTH:32"   }
@@ -98,11 +98,11 @@ wire          NGRST;
 wire          OUTP_READY_net_0;
 wire          READ_OUTP;
 wire          SLOWCLK;
-wire   [31:0] DATAO_IM_net_1;
-wire   [31:0] DATAO_RE_net_1;
 wire          DATAO_VALID_net_1;
 wire          BUF_READY_net_1;
 wire          OUTP_READY_net_1;
+wire   [31:0] DATAO_IM_net_1;
+wire   [31:0] DATAO_RE_net_1;
 //--------------------------------------------------------------------
 // TiedOff Nets
 //--------------------------------------------------------------------
@@ -120,16 +120,16 @@ assign AXI4_S_CONFIGI_const_net_0 = 8'h00;
 //--------------------------------------------------------------------
 // Top level output port assignments
 //--------------------------------------------------------------------
-assign DATAO_IM_net_1    = DATAO_IM_net_0;
-assign DATAO_IM[31:0]    = DATAO_IM_net_1;
-assign DATAO_RE_net_1    = DATAO_RE_net_0;
-assign DATAO_RE[31:0]    = DATAO_RE_net_1;
 assign DATAO_VALID_net_1 = DATAO_VALID_net_0;
 assign DATAO_VALID       = DATAO_VALID_net_1;
 assign BUF_READY_net_1   = BUF_READY_net_0;
 assign BUF_READY         = BUF_READY_net_1;
 assign OUTP_READY_net_1  = OUTP_READY_net_0;
 assign OUTP_READY        = OUTP_READY_net_1;
+assign DATAO_IM_net_1    = DATAO_IM_net_0;
+assign DATAO_IM[31:0]    = DATAO_IM_net_1;
+assign DATAO_RE_net_1    = DATAO_RE_net_0;
+assign DATAO_RE[31:0]    = DATAO_RE_net_1;
 //--------------------------------------------------------------------
 // Component instances
 //--------------------------------------------------------------------
@@ -141,7 +141,7 @@ COREFFT_C1_COREFFT_C1_0_COREFFT #(
         .DATA_BITS      ( 18 ),
         .FFT_SIZE       ( 256 ),
         .FPGA_FAMILY    ( 27 ),
-        .INVERSE        ( 0 ),
+        .INVERSE        ( 1 ),
         .MEMBUF         ( 0 ),
         .NATIV_AXI4     ( 0 ),
         .ORDER          ( 0 ),
@@ -149,7 +149,7 @@ COREFFT_C1_COREFFT_C1_0_COREFFT #(
         .SCALE          ( 1 ),
         .SCALE_EXP_ON   ( 0 ),
         .SCALE_ON       ( 1 ),
-        .SCALE_SCH      ( 255 ),
+        .SCALE_SCH      ( 171 ),
         .TWID_BITS      ( 18 ),
         .URAM_MAXDEPTH  ( 0 ),
         .WIDTH          ( 32 ) )
@@ -158,8 +158,6 @@ COREFFT_C1_0(
         .CLK                   ( CLK ),
         .SLOWCLK               ( SLOWCLK ),
         .NGRST                 ( NGRST ),
-        .DATAI_IM              ( DATAI_IM ),
-        .DATAI_RE              ( DATAI_RE ),
         .DATAI_VALID           ( DATAI_VALID ),
         .READ_OUTP             ( READ_OUTP ),
         .START                 ( VCC_net ), // tied to 1'b1 from definition
@@ -169,27 +167,29 @@ COREFFT_C1_0(
         .RST                   ( GND_net ), // tied to 1'b0 from definition
         .AXI4_S_DATAI_TVALID   ( GND_net ), // tied to 1'b0 from definition
         .AXI4_S_TLASTI         ( GND_net ), // tied to 1'b0 from definition
-        .AXI4_S_TDATAI         ( AXI4_S_TDATAI_const_net_0 ), // tied to 48'h000000000000 from definition
         .AXI4_M_DATAO_TREADY   ( VCC_net ), // tied to 1'b1 from definition
         .AXI4_S_CONFIGI_TVALID ( GND_net ), // tied to 1'b0 from definition
-        .AXI4_S_CONFIGI        ( AXI4_S_CONFIGI_const_net_0 ), // tied to 8'h00 from definition
         .AXI4_M_CONFIGO_TREADY ( GND_net ), // tied to 1'b0 from definition
+        .DATAI_IM              ( DATAI_IM ),
+        .DATAI_RE              ( DATAI_RE ),
+        .AXI4_S_TDATAI         ( AXI4_S_TDATAI_const_net_0 ), // tied to 48'h000000000000 from definition
+        .AXI4_S_CONFIGI        ( AXI4_S_CONFIGI_const_net_0 ), // tied to 8'h00 from definition
         // Outputs
-        .DATAO_IM              ( DATAO_IM_net_0 ),
-        .DATAO_RE              ( DATAO_RE_net_0 ),
         .DATAO_VALID           ( DATAO_VALID_net_0 ),
         .BUF_READY             ( BUF_READY_net_0 ),
         .OUTP_READY            ( OUTP_READY_net_0 ),
         .PONG                  (  ),
-        .SCALE_EXP             (  ),
         .OVFLOW_FLAG           (  ),
         .RFS                   (  ),
         .AXI4_S_DATAI_TREADY   (  ),
         .AXI4_M_DATAO_TVALID   (  ),
-        .AXI4_M_TDATAO         (  ),
         .AXI4_M_TLASTO         (  ),
         .AXI4_S_CONFIGI_TREADY (  ),
         .AXI4_M_CONFIGO_TVALID (  ),
+        .DATAO_IM              ( DATAO_IM_net_0 ),
+        .DATAO_RE              ( DATAO_RE_net_0 ),
+        .SCALE_EXP             (  ),
+        .AXI4_M_TDATAO         (  ),
         .AXI4_M_CONFIGO        (  ) 
         );
 
