@@ -307,17 +307,12 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/hdl/Acquisition.vhd,hdl"
 STATE="utd"
-TIME="1751390964"
-SIZE="6625"
-ENDFILE
-VALUE "<project>/hdl/L1_CA_generator.vhd,hdl"
-STATE="utd"
-TIME="1748957858"
-SIZE="6811"
+TIME="1752258350"
+SIZE="7551"
 ENDFILE
 VALUE "<project>/hdl/LFSR_generator.vhd,hdl"
 STATE="utd"
-TIME="1748957829"
+TIME="1752238932"
 SIZE="5804"
 ENDFILE
 VALUE "<project>/hdl/Multiplier_simplified.vhd,hdl"
@@ -444,6 +439,7 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 HDL;hdl/Acquisition.vhd;0
+HDL;hdl/LFSR_generator.vhd;0
 ACTIVEVIEW;hdl/Acquisition.vhd
 ENDLIST
 LIST ModuleSubBlockList
@@ -462,9 +458,6 @@ LIST "COREFFT_C1::work","component/work/COREFFT_C1/COREFFT_C1.v","TRUE","FALSE"
 SUBBLOCK "COREFFT_C1_COREFFT_C1_0_COREFFT::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/COREFFT_TOP.v","FALSE","FALSE"
 ENDLIST
 LIST "LFSR_generator::work","hdl/LFSR_generator.vhd","FALSE","FALSE"
-ENDLIST
-LIST "L1_CA_generator::work","hdl/L1_CA_generator.vhd","FALSE","FALSE"
-SUBBLOCK "LFSR_generator::work","hdl/LFSR_generator.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Multiplier_simplified::work","hdl/Multiplier_simplified.vhd","FALSE","FALSE"
 ENDLIST
