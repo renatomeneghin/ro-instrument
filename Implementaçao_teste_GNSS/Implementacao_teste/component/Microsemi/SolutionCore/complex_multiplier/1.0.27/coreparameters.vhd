@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- Created by Microsemi SmartDesign Fri Jun 13 14:57:45 2025
+-- Created by Microsemi SmartDesign Wed Aug  6 13:54:27 2025
 -- Parameters for complex_multiplier
 ----------------------------------------------------------------------
 

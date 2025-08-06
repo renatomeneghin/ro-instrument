@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Tue Jul  1 12:25:09 2025
+// Created by SmartDesign Wed Aug  6 13:55:25 2025
 // Version: 2023.2 2023.2.0.8
 //////////////////////////////////////////////////////////////////////
 
@@ -24,7 +24,7 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:COREFFT:8.1.100} -compone
 "MEMBUF:0"  \
 "NATIV_AXI4:false"  \
 "ORDER:0"  \
-"POINTS:1024"  \
+"POINTS:4096"  \
 "SCALE:0"  \
 "SCALE_EXP_ON:false"  \
 "SCALE_ON:true"  \
@@ -145,7 +145,7 @@ COREFFT_C0_COREFFT_C0_0_COREFFT #(
         .MEMBUF         ( 0 ),
         .NATIV_AXI4     ( 0 ),
         .ORDER          ( 0 ),
-        .POINTS         ( 1024 ),
+        .POINTS         ( 4096 ),
         .SCALE          ( 0 ),
         .SCALE_EXP_ON   ( 0 ),
         .SCALE_ON       ( 1 ),

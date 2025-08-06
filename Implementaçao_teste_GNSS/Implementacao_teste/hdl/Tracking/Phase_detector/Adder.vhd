@@ -9,7 +9,7 @@ use work.all;
 
 --------------------------------------------------------------
 
-entity UAL is
+entity adder is
 generic(
 	data_width : integer := 64
 );
@@ -21,20 +21,20 @@ port(
 	S:	out std_logic_vector(data_width-1 downto 0);
 	Cout:	out std_logic
 );
-end UAL;
+end adder;
 
 --------------------------------------------------------------
-architecture arq_UAL of UAL is
+architecture arq_adder of adder is
 
 signal C: std_logic_vector(data_width downto 0);
 
 begin
 	C(0)	<= Cin;
 	loop_add : for i in 0 to data_width - 1 generate
-		S(i) 	<= A(i) xor B(i) xor C(i);
-		C(i+1) 	<= (A(i) and B(i)) or (A(i) and C(i)) or (B(i) and C(i));
+		S(i) 	<= A(i) xor not B(i) xor C(i);
+		C(i+1) 	<= (A(i) and not B(i)) or (A(i) and C(i)) or (not B(i) and C(i));
 	end generate;
-	Cout 	<= C(64);
-end arq_UAL;
+	Cout 	<= C(data_width);
+end arq_adder;
 
 --------------------------------------------------------------

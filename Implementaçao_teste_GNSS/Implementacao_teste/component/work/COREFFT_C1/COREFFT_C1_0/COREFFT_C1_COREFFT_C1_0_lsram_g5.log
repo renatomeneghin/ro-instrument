@@ -20,9 +20,9 @@ Read Clock Edge                 : Rising
 Write Clock Edge                : Rising
 A_REN Polarity                  : None
 B_REN Polarity                  : None
-Write Depth                     : 512
+Write Depth                     : 2048
 Write Width                     : 64
-Read Depth                      : 512
+Read Depth                      : 2048
 Read Width                      : 64
 Portname DataIn                 : DI
 Portname DataOut                : DO
@@ -72,9 +72,9 @@ Lock access                     : Off
 ACCESS_BUSY                     : Disabled
 
 Cascade Configuration: 
-     Write Port configuration   : 512x40
-     Read Port configuration    : 512x40
+     Write Port configuration   : 2048x10
+     Read Port configuration    : 2048x10
      Number of blocks depth wise: 1
-     Number of blocks width wise: 2
+     Number of blocks width wise: 7
 
 Wrote Verilog netlist to /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/Implementacao_teste/component/work/COREFFT_C1/COREFFT_C1_0//COREFFT_C1_COREFFT_C1_0_lsram_g5.v.

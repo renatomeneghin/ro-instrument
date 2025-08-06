@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------
-// Created by Microsemi SmartDesign Tue Jul  1 12:25:09 2025
+// Created by Microsemi SmartDesign Wed Aug  6 13:55:25 2025
 // Parameters for COREFFT
 //--------------------------------------------------------------------
 
@@ -15,7 +15,7 @@ parameter INVERSE = 0;
 parameter MEMBUF = 0;
 parameter NATIV_AXI4 = 0;
 parameter ORDER = 0;
-parameter POINTS = 1024;
+parameter POINTS = 4096;
 parameter SCALE = 0;
 parameter SCALE_EXP_ON = 0;
 parameter SCALE_ON = 1;

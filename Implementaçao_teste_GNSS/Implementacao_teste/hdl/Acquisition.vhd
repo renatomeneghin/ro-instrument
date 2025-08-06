@@ -39,22 +39,9 @@ architecture architecture_Acquisition of Acquisition is
 	signal I1_signal, Q1_signal, I2_signal, Q2_signal : std_logic_vector(data_width downto 0); -- example
 	signal FFT_I_signal, FFT_Q_signal, FFT_X_signal, FFT_Y_signal : std_logic_vector(24 downto 0); -- example
     -- Verificar
-    signal FFT_CA_in_real, FFT_CA_out_real, FFT_CA_in_imag, FFT_CA_out_imag : std_logic_vector (23 downto 0); 
-    signal CA_CONJ_out_imag : std_logic_vector (23 downto 0); 
-    signal mult_out_real, mult_out_imag : std_logic_vector(32 downto 0);
-    signal IFFT_in_real_temp, IFFT_in_imag_temp : std_logic_vector(31 downto 0);
-    signal IFFT_out_real, IFFT_out_imag : std_logic_vector(31 downto 0);
-    -- Verificar
-    signal ca_bit : std_logic;
-    signal ca_bit_valid : std_logic;
-    signal ca_mem_bit : std_logic;
-    signal ca_counter : unsigned(9 downto 0);
-    signal ca_reset_counter : std_logic;
-    signal mem_addr_reg : unsigned(31 downto 0);
-    signal ca_bit_buffer : std_logic_vector(31 downto 0);
-    signal bit_index : integer range 0 to 31;  
-    
-    CA_CONJ_out_imag <= std_logic_vector(-signed(FFT_CA_out_imag));
+    signal FFT_CA_in, FFT_CA_out_real, FFT_CA_out_imag: std_logic_vector(15 downto 0);
+    signal 
+    signal IFFT_in_real, IFFT_in_imag, IFFT_out_real, IFFT_out_imag : std_logic_vector(15 downto 0);
     
     component COREDDS_C0 is
     -- Port list
@@ -70,7 +57,7 @@ architecture architecture_Acquisition of Acquisition is
         COSINE         : out std_logic_vector(11 downto 0);
         INIT_OVER      : out std_logic;
         SINE           : out std_logic_vector(11 downto 0)
-        );
+    );
     end component;
     
     component COREFFT_C0 is -- In-Place FFT
@@ -128,7 +115,7 @@ architecture architecture_Acquisition of Acquisition is
         cimag_o  : out std_logic_vector(32 downto 0);
         creal_o  : out std_logic_vector(32 downto 0)
     );
-    end component
+    end component;
     
     component Multiplier_simplified is
     generic(
@@ -144,7 +131,7 @@ architecture architecture_Acquisition of Acquisition is
     );
     end component;
     
-    component UAL is
+    component Somador is
     generic(
         data_width : integer := 64
     );
@@ -158,21 +145,16 @@ architecture architecture_Acquisition of Acquisition is
     );
     end component;
     
-    component LFSR_generator is
-    generic(
-        WIDTH : integer := 10;
-        WIDTH_CMP : integer := 10;
-    );
+    component L1_CA_generator is
     port(
-        rst	: in STD_LOGIC;									-- reset
-		seed	: in STD_LOGIC_VECTOR (WIDTH-1 downto 0);	-- initial state
-		tap	: in STD_LOGIC_VECTOR (WIDTH-1 downto 0);	-- XOR taps for input
-		RESET : in STD_LOGIC_VECTOR (WIDTH-1 downto 0); -- reset at this state
-		output : in STD_LOGIC_VECTOR (WIDTH-1 downto 0);-- phase selector taps		
-		SEQ : out STD_LOGIC;							-- 1 bit output
-		count_cmp : in STD_LOGIC_VECTOR (WIDTH_CMP-1 downto 0); -- reset after X clocks
-		ENABLE : in STD_LOGIC;								-- Enable high (to freeze the LSFR)
-		valid : out STD_LOGIC;
+        clk : in std_logic;
+        rst	: in std_logic;		
+        PRN : out std_logic;			
+        ENABLE : in std_logic;
+        valid_out : out std_logic;
+        epoch : out std_logic;
+        epoch_advce : out std_logic;
+        SAT : in integer range 0 to 31 -- 32 GPS
     );
     end component;
     
@@ -184,13 +166,12 @@ begin
     MULT2: Multiplier_simplified generic map(data_width) port map(sin_signal,MAX_INPUT_Q,Q1_signal);
     MULT3: Multiplier_simplified generic map(data_width) port map(sin_signal,MAX_INPUT_I,I2_signal);
     MULT4: Multiplier_simplified generic map(data_width) port map(cos_signal,MAX_INPUT_Q,I2_signal);
-    SUM_I: UAL generic map(data_width) port map(I1_signal,Q2_signal,'0',FFT_I_signal(data_width downto 0),FFT_I_signal(23));
-    SUM_Q: UAL generic map(data_width) port map(I2_signal,Q1_signal,'0',FFT_Q_signal(data_width downto 0),FFT_Q_signal(23));
-    FFT_IQ: COREFFT_C0 port map(CLK,FFT_Q_signal,FFT_I_signal,'1','1','1','1',open,FFT_X_signal,FFT_Y_signal,open,open);
-    --CA_LFSR: LFSR_generator generic map(data_width, WIDTH_CMP) port map(); -- Verificar
-    FFT_CA: COREFFT_C1 port map(CLK,FFT_CA_in_imag,FFT_CA_in_real,'1','1','1','1',open,FFT_CA_out_imag,FFT_CA_out_real,open,open); -- Verificar
-    MULT5: complex_multiplier_C0 port map (FFT_X_signal, FFT_Y_signal, CA_CONJ_out_imag, FFT_CA_out_real, CLK, '1', IFFT_in_imag, IFFT_in_real); -- Verificar
-    IFFT: COREFFT_C0 port map(CLK, IFFT_in_imag, IFFT_in_real,'1','1','1','1',open,IFFT_out_imag,IFFT_out_real,open,open); -- Verificar
-    
+    SUM_I: Somador generic map(data_width) port map(I1_signal,Q2_signal,'0',FFT_I_signal(data_width downto 0),FFT_I_signal(23));
+    SUM_Q: Somador generic map(data_width) port map(I2_signal,Q1_signal,'0',FFT_Q_signal(data_width downto 0),FFT_Q_signal(23));
+    FFT_IQ: COREFFT_C0 port map(MAX_INPUT_CLK,FFT_Q_signal,FFT_I_signal,'1','1','1','1',open,FFT_X_signal,FFT_Y_signal,open,open);
+    --CA_CODE: L1_CA_generator port map(CLK,"RESET",);
+    FFT_CA: COREFFT_C0 port map(MAX_INPUT_CLK,open,FFT_CA_in,'1','1','1','1',open,FFT_CA_out_imag,FFT_CA_out_real,open,open); --Verificar
+    --MULT5: complex_multiplier_C0 port map (FFT_X_signal,FFT_Y_signal,"CA_CONJ_out_imag","CA_CONJ_out_real",MAX_INPUT_CLK,'1',IFFT_in_imag,IFFT_in_real); -- Verificar
+    IFFT: COREFFT_C1 port map(MAX_INPUT_CLK, IFFT_in_imag, IFFT_in_real,'1','1','1','0',open,IFFT_out_imag,IFFT_out_real,open,open); -- Verificar
     
 end architecture_Acquisition;
