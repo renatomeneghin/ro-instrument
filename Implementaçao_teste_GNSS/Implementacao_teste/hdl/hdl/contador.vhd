@@ -29,12 +29,12 @@ begin
  	process(clk, init, PE) is
 	begin
 		if init = '1' then
-			EA <= (others => '1');
+			EA <= (others => '0');
 		elsif clk'event and clk= '1' then
 			EA <= PE;
 		end if;
 	end process;
-	PE <= unsigned(EA) - 1;
+	PE <= unsigned(EA) + 1;
 	count <= EA;
 end arq_contador;
 

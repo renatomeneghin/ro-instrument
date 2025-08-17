@@ -1,0 +1,16 @@
+Project Name: ro-instrument
+Location: F:\Users\Renato\Documents\UFSC\Monografia\ro-instrument
+Description: 
+Preferred HDL Type: VHDL
+
+#-----------------------------------------------------
+                  Device Details
+#-----------------------------------------------------
+
+Part Number    : MPF050T-1FCSG325E
+Family         : PolarFire
+Die            : MPF050T
+Package        : FCSG325
+Speed          : -1
+Core Voltage   : 1.0
+Range          : EXT

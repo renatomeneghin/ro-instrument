@@ -1,2 +1,10 @@
-[project]
-Project_Minor_Version = 1
+[Library]
+others = $MODEL_TECH/../modelsim.ini
+PolarFire = C:/Microchip/Libero_SoC_v2024.2/Designer/lib/questasim/precompiled/vlog/polarfire
+syncad_vhdl_lib = C:\Microchip\Libero_SoC_v2024.2\Designer/lib/actel/syncad_vhdl_lib
+
+[vcom]
+VHDL93 = 1
+
+[vsim]
+IterationLimit = 5000
