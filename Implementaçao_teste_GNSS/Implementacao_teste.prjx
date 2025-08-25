@@ -604,7 +604,10 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 HDL;hdl/Acquisition.vhd;0
-ACTIVEVIEW;hdl/Acquisition.vhd
+HDL;hdl/Tracking/Tracking (copy 1).vhd;0
+HDL;hdl/Tracking/PRN/PRN_EPL.vhd;0
+HDL;hdl/Tracking/Tracking.vhd;0
+ACTIVEVIEW;hdl/Tracking/Tracking (copy 1).vhd
 ENDLIST
 LIST ModuleSubBlockList
 LIST "Acquisition::work","hdl/Acquisition.vhd","FALSE","FALSE"
