@@ -38,7 +38,7 @@ architecture architecture_Acquisition of Acquisition is
    -- signal, component etc. declarations
 	signal Frequency_offset_data : std_logic_vector(9 downto 0); -- example
 	signal cos_signal, sin_signal : std_logic_vector(data_width-1 downto 0) ; -- example
-	signal I1_signal, Q1_signal, I2_signal, Q2_signal : std_logic_vector(data_width downto 0); -- example
+	signal I1_signal, Q1_signal, I2_signal, Q2_signal, Q2_signal_n: std_logic_vector(data_width downto 0); -- example
 	signal FFT_I_signal, FFT_Q_signal, FFT_X_signal, FFT_Y_signal : std_logic_vector(24 downto 0); -- example
     -- Verificar
     signal FFT_CA_in_real, FFT_CA_out_real, FFT_CA_in_imag, FFT_CA_out_imag : std_logic_vector (32 downto 0); 
@@ -195,14 +195,25 @@ begin
     
     -- Entrada
     MULT1: Multiplier_simplified generic map(data_width) port map(cos_signal,MAX_INPUT_I,I1_signal);
-    MULT2: Multiplier_simplified generic map(data_width) port map(sin_signal,MAX_INPUT_Q,Q1_signal);
-    MULT3: Multiplier_simplified generic map(data_width) port map(sin_signal,MAX_INPUT_I,I2_signal);
-    MULT4: Multiplier_simplified generic map(data_width) port map(cos_signal,MAX_INPUT_Q,I2_signal);
-    SUM_I: UAL generic map(data_width) port map(I1_signal,Q2_signal,'0',FFT_I_signal(data_width downto 0),FFT_I_signal(23));
+    MULT2: Multiplier_simplified generic map(data_width) port map(sin_signal,MAX_INPUT_I,I2_signal);
+    MULT3: Multiplier_simplified generic map(data_width) port map(sin_signal,MAX_INPUT_Q,Q2_signal);
+    MULT4: Multiplier_simplified generic map(data_width) port map(cos_signal,MAX_INPUT_Q,Q1_signal);
+	Q2_signal_n <= not(Q2_signal);
+    SUM_I: UAL generic map(data_width) port map(I1_signal,Q2_signal_n,'1',FFT_I_signal(data_width downto 0),FFT_I_signal(23));
     SUM_Q: UAL generic map(data_width) port map(I2_signal,Q1_signal,'0',FFT_Q_signal(data_width downto 0),FFT_Q_signal(23));
     
-    -- Código CA
-    CA_CODE: L1_CA_generator port map(CA_CLK, CA_RST,CA_PRN, CA_ENABLE, CA_valid, CA_epoch, open, SAT_int); -- Verificar
+    -- CÃ³digo CA
+	CA_CODE: L1_CA_generator 
+	   port map(
+	     clk        => CA_CLK,
+	     rst        => CA_RST,
+	     PRN        => CA_PRN,
+	     ENABLE     => CA_ENABLE,
+	     valid_out  => CA_valid,
+	     epoch      => CA_epoch,
+	     epoch_advce => open,
+	     SAT        => SAT_int
+	   );
     FFT_CA_in_real(0) <= '1';
     FFT_CA_in_real(data_width downto 1) <= (others => CA_PRN);
     
@@ -210,11 +221,11 @@ begin
     FFT_IQ: COREFFT_C0 port map(CLK,FFT_Q_signal,FFT_I_signal,'1','1','1','1',open,FFT_X_signal,FFT_Y_signal,open,open);
     FFT_CA: COREFFT_C1 port map(CLK,FFT_CA_in_imag,FFT_CA_in_real,'1','1','1','1',open,FFT_CA_out_imag,FFT_CA_out_real,open,open); -- Verificar
     
-    -- Correlação
+    -- CorrelaÃ§Ã£o
     MULT5: complex_multiplier_C0 port map (FFT_X_signal, FFT_Y_signal, CA_CONJ_out_imag, FFT_CA_out_real, CLK, '1', IFFT_in_imag, IFFT_in_real); -- Verificar
     IFFT: COREFFT_C0 port map(CLK, IFFT_in_imag, IFFT_in_real,'1','1','1','1',open,IFFT_out_imag,IFFT_out_real,open,open); -- Verificar
     
-    CA_CONJ_out_imag <= std_logic_vector(-signed(FFT_CA_out_imag));
+    CA_CONJ_out_imag <= std_logic_vector(resize(-signed(FFT_CA_out_imag), 24));
     SAT_int <= to_integer(unsigned(count_state(9 downto 4)));
     Frequency_offset_data <= count_state(3 downto 0);
 
