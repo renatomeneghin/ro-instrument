@@ -38,10 +38,26 @@ architecture architecture_Acquisition of Acquisition is
 	signal cos_signal, sin_signal : std_logic_vector(data_width-1 downto 0) ; -- example
 	signal I1_signal, Q1_signal, I2_signal, Q2_signal : std_logic_vector(data_width downto 0); -- example
 	signal FFT_I_signal, FFT_Q_signal, FFT_X_signal, FFT_Y_signal : std_logic_vector(24 downto 0); -- example
-    -- Verificar
-    signal FFT_CA_in, FFT_CA_out_real, FFT_CA_out_imag: std_logic_vector(15 downto 0);
-    signal 
+     -- Verificar
+    signal FFT_CA_in, FFT_CA_out_real, FFT_CA_out_imag : std_logic_vector(23 downto 0);
+    signal FFT_CA_valid, PRN_bit, PRN_valid  : std_logic;
     signal IFFT_in_real, IFFT_in_imag, IFFT_out_real, IFFT_out_imag : std_logic_vector(15 downto 0);
+    
+    process(CLK)
+    begin
+        if rising_edge(CLK) then
+            if PRN_valid = '1' then
+                if PRN_bit = '1' then
+                    FFT_CA_in <= X"7FFFFF"; -- +1
+                else
+                    FFT_CA_in <= X"800000"; -- -1
+                end if;
+                FFT_CA_valid <= '1';
+            else
+                FFT_CA_valid <= '0';
+            end if;
+        end if;
+    end process;
     
     component COREDDS_C0 is
     -- Port list
@@ -170,7 +186,7 @@ begin
     SUM_Q: Somador generic map(data_width) port map(I2_signal,Q1_signal,'0',FFT_Q_signal(data_width downto 0),FFT_Q_signal(23));
     FFT_IQ: COREFFT_C0 port map(MAX_INPUT_CLK,FFT_Q_signal,FFT_I_signal,'1','1','1','1',open,FFT_X_signal,FFT_Y_signal,open,open);
     --CA_CODE: L1_CA_generator port map(CLK,"RESET",);
-    FFT_CA: COREFFT_C0 port map(MAX_INPUT_CLK,open,FFT_CA_in,'1','1','1','1',open,FFT_CA_out_imag,FFT_CA_out_real,open,open); --Verificar
+    FFT_CA: COREFFT_C0 port map(MAX_INPUT_CLK,'0',FFT_CA_in,'1','1','1','1',open,FFT_CA_out_imag,FFT_CA_out_real,open,open); --Verificar
     --MULT5: complex_multiplier_C0 port map (FFT_X_signal,FFT_Y_signal,"CA_CONJ_out_imag","CA_CONJ_out_real",MAX_INPUT_CLK,'1',IFFT_in_imag,IFFT_in_real); -- Verificar
     IFFT: COREFFT_C1 port map(MAX_INPUT_CLK, IFFT_in_imag, IFFT_in_real,'1','1','1','0',open,IFFT_out_imag,IFFT_out_real,open,open); -- Verificar
     
