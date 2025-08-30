@@ -79,19 +79,24 @@ architecture architecture_Acquisition of Acquisition is
     
     component COREFFT_C0 is -- In-Place FFT
     -- Port list
+	generic map (
+	    points  => 4096,  -- FFT de 4096 pontos
+	    width   => 16,    -- entradas de 16 bits
+	    inverse => 0      -- FFT direta
+	)
     port(
         -- Inputs
         CLK         : in  std_logic;
-        DATAI_IM    : in  std_logic_vector(23 downto 0);
-        DATAI_RE    : in  std_logic_vector(23 downto 0);
+        DATAI_IM    : in  std_logic_vector(width downto 0);
+        DATAI_RE    : in  std_logic_vector(width downto 0);
         DATAI_VALID : in  std_logic;
         NGRST       : in  std_logic;
         READ_OUTP   : in  std_logic;
         SLOWCLK     : in  std_logic;
         -- Outputs
         BUF_READY   : out std_logic;
-        DATAO_IM    : out std_logic_vector(23 downto 0);
-        DATAO_RE    : out std_logic_vector(23 downto 0);
+        DATAO_IM    : out std_logic_vector(width downto 0);
+        DATAO_RE    : out std_logic_vector(width downto 0);
         DATAO_VALID : out std_logic;
         OUTP_READY  : out std_logic
     );
@@ -99,19 +104,24 @@ architecture architecture_Acquisition of Acquisition is
     
     component COREFFT_C1 is -- In-Place FFT
     -- Port list
+	generic map (
+	    points  => 4096,  -- FFT de 4096 pontos
+	    width   => 16,    -- entradas de 16 bits
+	    inverse => 0      -- FFT direta
+	)
     port(
         -- Inputs
         CLK         : in  std_logic;
-        DATAI_IM    : in  std_logic_vector(23 downto 0);
-        DATAI_RE    : in  std_logic_vector(23 downto 0);
+        DATAI_IM    : in  std_logic_vector(width downto 0);
+        DATAI_RE    : in  std_logic_vector(width downto 0);
         DATAI_VALID : in  std_logic;
         NGRST       : in  std_logic;
         READ_OUTP   : in  std_logic;
         SLOWCLK     : in  std_logic;
         -- Outputs
         BUF_READY   : out std_logic;
-        DATAO_IM    : out std_logic_vector(23 downto 0);
-        DATAO_RE    : out std_logic_vector(23 downto 0);
+        DATAO_IM    : out std_logic_vector(width downto 0);
+        DATAO_RE    : out std_logic_vector(width downto 0);
         DATAO_VALID : out std_logic;
         OUTP_READY  : out std_logic
     );
@@ -218,12 +228,67 @@ begin
     FFT_CA_in_real(data_width downto 1) <= (others => CA_PRN);
     
     --FFT
-    FFT_IQ: COREFFT_C0 port map(CLK,FFT_Q_signal,FFT_I_signal,'1','1','1','1',open,FFT_X_signal,FFT_Y_signal,open,open);
-    FFT_CA: COREFFT_C1 port map(CLK,FFT_CA_in_imag,FFT_CA_in_real,'1','1','1','1',open,FFT_CA_out_imag,FFT_CA_out_real,open,open); -- Verificar
+    FFT_IQ : COREFFT_C0
+	generic map (
+	    points  => 4096,  -- FFT de 4096 pontos
+	    width   => 16,    -- entradas de 16 bits
+	    inverse => 0      -- FFT direta
+	)
+	port map (
+	    CLK         => CLK,                -- clock de processamento
+	    DATAI_IM    => FFT_Q_signal(width downto 0), -- parte imaginária (Q)
+	    DATAI_RE    => FFT_I_signal(width downto 0), -- parte real (I)
+	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados válidos
+	    READ_OUTP   => '1',                -- habilita leitura da saída
+	    NGRST       => '1',                -- reset ativo baixo (não resetado)
+	    BUF_READY   => open,               -- não usado aqui
+	    DATAO_IM    => FFT_X_signal(width downto 0), -- saída imag
+	    DATAO_RE    => FFT_Y_signal(width downto 0), -- saída real
+	    DATAO_VALID => open,               -- válido quando saída ativa
+	    OUTP_READY  => open
+	);
+		
+    FFT_CA: COREFFT_C0
+	generic map (
+	    points  => 4096,  -- FFT de 4096 pontos
+	    width   => 16,    -- entradas de 16 bits
+	    inverse => 0      -- FFT direta
+	)
+	port map (
+	    CLK         => CLK,                -- clock de processamento
+	    DATAI_IM    => FFT_CA_in_imag(15 downto 0), -- parte imaginária (Q)
+	    DATAI_RE    => FFT_CA_in_real(15 downto 0), -- parte real (I)
+	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados válidos
+	    READ_OUTP   => '1',                -- habilita leitura da saída
+	    NGRST       => '1',                -- reset ativo baixo (não resetado)
+	    BUF_READY   => open,               -- não usado aqui
+	    DATAO_IM    => FFT_X_signal(width downto 0), -- saída imag
+	    DATAO_RE    => FFT_Y_signal(width downto 0), -- saída real
+	    DATAO_VALID => open,               -- válido quando saída ativa
+	    OUTP_READY  => open
+	);
     
     -- Correlação
     MULT5: complex_multiplier_C0 port map (FFT_X_signal, FFT_Y_signal, CA_CONJ_out_imag, FFT_CA_out_real, CLK, '1', IFFT_in_imag, IFFT_in_real); -- Verificar
-    IFFT: COREFFT_C0 port map(CLK, IFFT_in_imag, IFFT_in_real,'1','1','1','1',open,IFFT_out_imag,IFFT_out_real,open,open); -- Verificar
+    IFFT: COREFFT_C0 
+	generic map (
+	    points  => 4096,  -- FFT de 4096 pontos
+	    width   => 24,    -- entradas de 16 bits
+	    inverse => 1      -- FFT direta
+	)
+	port map (
+	    CLK         => CLK,                -- clock de processamento
+	    DATAI_IM    => IFFT_in_imag(width downto 0), -- parte imaginária (Q)
+	    DATAI_RE    => IFFT_in_real(width downto 0), -- parte real (I)
+	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados válidos
+	    READ_OUTP   => '1',                -- habilita leitura da saída
+	    NGRST       => '1',                -- reset ativo baixo (não resetado)
+	    BUF_READY   => open,               -- não usado aqui
+	    DATAO_IM    => IFFT_out_imag(width downto 0), -- saída imag
+	    DATAO_RE    => IFFT_out_real(width downto 0), -- saída real
+	    DATAO_VALID => open,               -- válido quando saída ativa
+	    OUTP_READY  => open
+	);
     
     CA_CONJ_out_imag <= std_logic_vector(resize(-signed(FFT_CA_out_imag), 24));
     SAT_int <= to_integer(unsigned(count_state(9 downto 4)));
