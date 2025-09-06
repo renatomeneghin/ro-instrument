@@ -32,7 +32,7 @@ KEY VendorTechnology_VCCI_1.8_VOLTR "EXT"
 KEY VendorTechnology_VCCI_2.5_VOLTR "EXT"
 KEY VendorTechnology_VCCI_3.3_VOLTR "EXT"
 KEY VendorTechnology_VOLTR "EXT"
-KEY ProjectLocation "/home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/Implementacao_teste"
+KEY ProjectLocation "/home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS"
 KEY ProjectDescription ""
 KEY UseRootLocationForLinkedFiles "FALSE"
 KEY RootLocationENVForLinkedFiles ""
@@ -429,8 +429,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/hdl/Acquisition.vhd,hdl"
 STATE="utd"
-TIME="1754523590"
-SIZE="6547"
+TIME="1756503911"
+SIZE="7022"
 ENDFILE
 VALUE "<project>/hdl/Multiplier_simplified.vhd,hdl"
 STATE="utd"
@@ -604,6 +604,8 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 HDL;hdl/Acquisition.vhd;0
+HDL;hdl/L1_CA_generator.vhd;0
+HDL;hdl/LFSR_generator.vhd;0
 ACTIVEVIEW;hdl/Acquisition.vhd
 ENDLIST
 LIST ModuleSubBlockList
