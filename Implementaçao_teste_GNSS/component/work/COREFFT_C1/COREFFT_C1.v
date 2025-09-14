@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Wed Aug  6 14:01:28 2025
+// Created by SmartDesign Sun Sep 14 20:39:50 2025
 // Version: 2023.2 2023.2.0.8
 //////////////////////////////////////////////////////////////////////
 
@@ -20,12 +20,12 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:COREFFT:8.1.100} -compone
 "DATA_BITS:18"  \
 "FFT_SIZE:256"  \
 "FPGA_FAMILY:27"  \
-"INVERSE:1"  \
+"INVERSE:0"  \
 "MEMBUF:0"  \
 "NATIV_AXI4:false"  \
 "ORDER:0"  \
 "POINTS:4096"  \
-"SCALE:1"  \
+"SCALE:0"  \
 "SCALE_EXP_ON:false"  \
 "SCALE_ON:true"  \
 "SCALE_SCH:171"  \
@@ -141,12 +141,12 @@ COREFFT_C1_COREFFT_C1_0_COREFFT #(
         .DATA_BITS      ( 18 ),
         .FFT_SIZE       ( 256 ),
         .FPGA_FAMILY    ( 27 ),
-        .INVERSE        ( 1 ),
+        .INVERSE        ( 0 ),
         .MEMBUF         ( 0 ),
         .NATIV_AXI4     ( 0 ),
         .ORDER          ( 0 ),
         .POINTS         ( 4096 ),
-        .SCALE          ( 1 ),
+        .SCALE          ( 0 ),
         .SCALE_EXP_ON   ( 0 ),
         .SCALE_ON       ( 1 ),
         .SCALE_SCH      ( 171 ),

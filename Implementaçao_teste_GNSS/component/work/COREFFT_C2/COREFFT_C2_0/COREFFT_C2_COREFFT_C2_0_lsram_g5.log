@@ -3,7 +3,7 @@
 Macro Parameters
 ****************
 
-Name                            : COREFFT_C0_COREFFT_C0_0_lsram_g5
+Name                            : COREFFT_C2_COREFFT_C2_0_lsram_g5
 Family                          : PolarFireSOC
 Output Format                   : VERILOG
 Type                            : RAM
@@ -77,4 +77,4 @@ Cascade Configuration:
      Number of blocks depth wise: 1
      Number of blocks width wise: 7
 
-Wrote Verilog netlist to /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFFT_C0/COREFFT_C0_0//COREFFT_C0_COREFFT_C0_0_lsram_g5.v.
+Wrote Verilog netlist to /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFFT_C2/COREFFT_C2_0//COREFFT_C2_COREFFT_C2_0_lsram_g5.v.

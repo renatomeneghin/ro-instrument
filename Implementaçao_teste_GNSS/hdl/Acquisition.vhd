@@ -80,8 +80,8 @@ architecture architecture_Acquisition of Acquisition is
     port(
         -- Inputs
         CLK         : in  std_logic;
-        DATAI_IM    : in  std_logic_vector(23 downto 0);
-        DATAI_RE    : in  std_logic_vector(23 downto 0);
+        DATAI_IM    : in  std_logic_vector(7 downto 0);
+        DATAI_RE    : in  std_logic_vector(7 downto 0);
         DATAI_VALID : in  std_logic;
         NGRST       : in  std_logic;
         READ_OUTP   : in  std_logic;
@@ -96,6 +96,26 @@ architecture architecture_Acquisition of Acquisition is
     end component;
     
     component COREFFT_C1 is -- In-Place FFT
+    -- Port list
+    port(
+        -- Inputs
+        CLK         : in  std_logic;
+        DATAI_IM    : in  std_logic_vector(7 downto 0);
+        DATAI_RE    : in  std_logic_vector(7 downto 0);
+        DATAI_VALID : in  std_logic;
+        NGRST       : in  std_logic;
+        READ_OUTP   : in  std_logic;
+        SLOWCLK     : in  std_logic;
+        -- Outputs
+        BUF_READY   : out std_logic;
+        DATAO_IM    : out std_logic_vector(23 downto 0);
+        DATAO_RE    : out std_logic_vector(23 downto 0);
+        DATAO_VALID : out std_logic;
+        OUTP_READY  : out std_logic
+    );
+    end component;
+    
+    component COREFFT_C2 is -- In-Place IFFT
     -- Port list
     port(
         -- Inputs
@@ -185,8 +205,8 @@ begin
     SUM_Q: Somador generic map(data_width) port map(I2_signal,Q1_signal,'0',FFT_Q_signal(data_width downto 0),FFT_Q_signal(23));
     FFT_IQ: COREFFT_C0 port map(MAX_INPUT_CLK,FFT_Q_signal,FFT_I_signal,'1','1','1','1',open,FFT_X_signal,FFT_Y_signal,open,open);
     CA_CODE: L1_CA_generator port map(CLK,'0',PRN_bit,'1',PRN_valid,open,open,"completar com o SV"); --Verificar
-    FFT_CA: COREFFT_C0 port map(MAX_INPUT_CLK,'0',FFT_CA_in,'1','1','1','1',open,FFT_CA_out_imag,FFT_CA_out_real,open,open); --Verificar
+    FFT_CA: COREFFT_C1 port map(MAX_INPUT_CLK,'0',FFT_CA_in,'1','1','1','1',open,FFT_CA_out_imag,FFT_CA_out_real,open,open); --Verificar
     MULT5: complex_multiplier_C0 port map (FFT_X_signal,FFT_Y_signal,"CA_CONJ_out_imag","CA_CONJ_out_real",MAX_INPUT_CLK,'1',IFFT_in_imag,IFFT_in_real); -- Verificar
-    IFFT: COREFFT_C1 port map(MAX_INPUT_CLK,IFFT_in_imag,IFFT_in_real,'1','1','1','0',open,IFFT_out_imag,IFFT_out_real,open,open); -- Verificar
+    IFFT: COREFFT_C2 port map(MAX_INPUT_CLK,IFFT_in_imag,IFFT_in_real,'1','1','1','0',open,IFFT_out_imag,IFFT_out_real,open,open); -- Verificar
     
 end architecture_Acquisition;
