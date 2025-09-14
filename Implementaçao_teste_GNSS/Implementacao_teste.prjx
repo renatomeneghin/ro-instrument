@@ -429,8 +429,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/hdl/Acquisition.vhd,hdl"
 STATE="utd"
-TIME="1756503911"
-SIZE="7022"
+TIME="1757865632"
+SIZE="7058"
 ENDFILE
 VALUE "<project>/hdl/Multiplier_simplified.vhd,hdl"
 STATE="utd"
