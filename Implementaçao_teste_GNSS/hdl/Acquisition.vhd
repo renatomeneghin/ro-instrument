@@ -18,6 +18,7 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 entity Acquisition is
 generic (
@@ -34,29 +35,15 @@ end Acquisition;
 
 architecture architecture_Acquisition of Acquisition is
    -- signal, component etc. declarations
-	signal Frequency_offset_data : std_logic_vector(9 downto 0); -- example
-	signal cos_signal, sin_signal : std_logic_vector(data_width-1 downto 0) ; -- example
-	signal I1_signal, Q1_signal, I2_signal, Q2_signal : std_logic_vector(data_width downto 0); -- example
-	signal FFT_I_signal, FFT_Q_signal, FFT_X_signal, FFT_Y_signal : std_logic_vector(24 downto 0); -- example
+	signal Frequency_offset_data : std_logic_vector(9 downto 0);
+	signal cos_signal, sin_signal : std_logic_vector(data_width-1 downto 0);
+	signal I1_signal, Q1_signal, I2_signal, Q2_signal : std_logic_vector(data_width downto 0);
+	signal FFT_I_signal, FFT_Q_signal : std_logic_vector(7 downto 0); 
+    signal FFT_X_signal, FFT_Y_signal : std_logic_vector(15 downto 0);
     signal FFT_CA_in, FFT_CA_out_real, FFT_CA_out_imag : std_logic_vector(23 downto 0);
-    signal FFT_CA_valid, PRN_bit, PRN_valid  : std_logic;
-    signal IFFT_in_real, IFFT_in_imag, IFFT_out_real, IFFT_out_imag : std_logic_vector(15 downto 0);
-    
-    process(CLK)
-    begin
-        if rising_edge(CLK) then
-            if PRN_valid = '1' then
-                if PRN_bit = '1' then
-                    FFT_CA_in <= X"7FFFFF"; -- +1
-                else
-                    FFT_CA_in <= X"800000"; -- -1
-                end if;
-                FFT_CA_valid <= '1';
-            else
-                FFT_CA_valid <= '0';
-            end if;
-        end if;
-    end process;
+    signal FFT_CA_valid, PRN_bit, PRN_valid : std_logic;
+    signal IFFT_in_real, IFFT_in_imag, IFFT_out_real, IFFT_out_imag : std_logic_vector(23 downto 0);
+    signal SV : integer range 0 to 31 := 0;
     
     component COREDDS_C0 is
     -- Port list
@@ -194,95 +181,169 @@ architecture architecture_Acquisition of Acquisition is
     end component;
     
 begin
-
-    -- architecture body
+    process(CLK)
+    begin
+        if rising_edge(CLK) then
+            if PRN_valid = '1' then
+                if PRN_bit = '1' then
+                    FFT_CA_in <= X"7FFFFF"; -- +1
+                else
+                    FFT_CA_in <= X"800000"; -- -1
+                end if;
+                FFT_CA_valid <= '1';
+            else
+                FFT_CA_valid <= '0';
+            end if;
+        end if;
+    end process;
+    
     SINE_GENERATOR: COREDDS_C0 
     port map (
-        CLK            => CLK;
-        FREQ_OFFSET    => Frequency_offset_data;
-        FREQ_OFFSET_WE => '0';
-        INIT           => '1';
-        NGRST          => '1';
-        RSTN           => '1';
-        COSINE         => cos_signal;
-        INIT_OVER      => open;
+        CLK            => CLK,
+        FREQ_OFFSET    => Frequency_offset_data,
+        FREQ_OFFSET_WE => '0',
+        INIT           => '1',
+        NGRST          => '1',
+        RSTN           => '1',
+        COSINE         => cos_signal,
+        INIT_OVER      => open,
         SINE           => sin_signal
     );
     
     MULT1: Multiplier_simplified 
-    generic map(data_width) 
+    generic map (
+        data_width => data_width
+    ) 
     port map(
-        A => cos_signal;
-        B => MAX_INPUT_I;
+        A => cos_signal,
+        B => MAX_INPUT_I,
         S => I1_signal
     );
     
     MULT2: Multiplier_simplified 
-    generic map(data_width) 
+    generic map (
+        data_width => data_width
+    ) 
     port map (
-        A => sin_signal;
-        B => MAX_INPUT_Q;
+        A => sin_signal,
+        B => MAX_INPUT_Q,
         S => Q1_signal
     );
     
     MULT3: Multiplier_simplified 
-    generic map(data_width) 
+    generic map (
+        data_width => data_width
+    ) 
     port map (
-        A => sin_signal;
-        B => MAX_INPUT_I;
+        A => sin_signal,
+        B => MAX_INPUT_I,
         S => I2_signal
     );
     
     MULT4: Multiplier_simplified 
-    generic map(data_width) 
+    generic map (
+        data_width => data_width
+    ) 
     port map (
-        A => cos_signal;
-        B => MAX_INPUT_Q;
+        A => cos_signal,
+        B => MAX_INPUT_Q,
         S => Q2_signal
     );
     
     SUM_I: Somador 
-    generic map(data_width) 
+    generic map (
+        data_width => data_width
+    ) 
     port map (
-        A => I1_signal;
-        B => Q2_signal;
-        Cin => '0';
-        S => FFT_I_signal(data_width downto 0);
-        Cout => FFT_I_signal(23)
+        A => I1_signal,
+        B => Q2_signal,
+        Cin => '0',
+        S => FFT_I_signal(data_width downto 0),
+        Cout => open
     );
     
     SUM_Q: Somador 
-    generic map(data_width) 
+    generic map (
+        data_width => data_width
+    ) 
     port map (
-        A => I2_signal;
-        B => Q1_signal;
-        Cin => '0';
-        S => FFT_Q_signal(data_width downto 0);
-        Cout => FFT_Q_signal(23)
+        A => I2_signal,
+        B => Q1_signal,
+        Cin => '0',
+        S => FFT_Q_signal(data_width downto 0),
+        Cout => open
     );
     
     FFT_IQ: COREFFT_C0 
     port map (
-        CLK         => CLK;
-        DATAI_IM    => FFT_Q_signal;
-        DATAI_RE    => FFT_I_signal;
-        DATAI_VALID => MAX_INPUT_CLK;
-        NGRST       => '1';
-        READ_OUTP   => '1';
-        SLOWCLK     => MAX_INPUT_CLK;
-        BUF_READY   => open;
-        DATAO_IM    => FFT_X_signal;
-        DATAO_RE    => FFT_Y_signal;
-        DATAO_VALID => open;
+        CLK         => CLK,
+        DATAI_IM    => FFT_Q_signal,
+        DATAI_RE    => FFT_I_signal,
+        DATAI_VALID => MAX_INPUT_CLK,
+        NGRST       => '1',
+        READ_OUTP   => '1',
+        SLOWCLK     => MAX_INPUT_CLK,
+        BUF_READY   => open,
+        DATAO_IM    => FFT_X_signal,
+        DATAO_RE    => FFT_Y_signal,
+        DATAO_VALID => open,
         OUTP_READY  => open
     );
     
-    CA_CODE: L1_CA_generator port map(CLK,'0',PRN_bit,'1',PRN_valid,open,open,"completar com o SV"); --Verificar
+    CA_CODE: L1_CA_generator 
+    port map (
+        clk         => CLK,
+        rst	        => '0',		
+        PRN         => PRN_bit,			
+        ENABLE      => '1',
+        valid_out   => PRN_valid,
+        epoch       => open,
+        epoch_advce => open,
+        SAT         => SV
+    ); 
     
-    FFT_CA: COREFFT_C1 port map(MAX_INPUT_CLK,'0',FFT_CA_in,'1','1','1','1',open,FFT_CA_out_imag,FFT_CA_out_real,open,open); --Verificar
+    FFT_CA: COREFFT_C1 
+    port map (
+        CLK         => CLK,
+        DATAI_IM    => (others => '0'), -- ou open
+        DATAI_RE    => FFT_CA_in(7 downto 0),
+        DATAI_VALID => MAX_INPUT_CLK,
+        NGRST       => '1',
+        READ_OUTP   => '1',
+        SLOWCLK     => MAX_INPUT_CLK,
+        BUF_READY   => open,
+        DATAO_IM    => FFT_CA_out_imag,
+        DATAO_RE    => FFT_CA_out_real,
+        DATAO_VALID => open,
+        OUTP_READY  => open
+    );
     
-    MULT5: complex_multiplier_C0 port map (FFT_X_signal,FFT_Y_signal,"CA_CONJ_out_imag","CA_CONJ_out_real",MAX_INPUT_CLK,'1',IFFT_in_imag,IFFT_in_real); -- Verificar
+    MULT5: complex_multiplier_C0 
+    port map (
+        aimag_i  => FFT_X_signal,
+        areal_i  => FFT_Y_signal,
+        bimag_i  => FFT_CA_out_imag(15 downto 0),
+        breal_i  => FFT_CA_out_real(15 downto 0),
+        clock_i  => MAX_INPUT_CLK,
+        nreset_i => '1',
+        cimag_o  => IFFT_in_imag,
+        creal_o  => IFFT_in_real
+    );
     
-    IFFT: COREFFT_C2 port map(MAX_INPUT_CLK,IFFT_in_imag,IFFT_in_real,'1','1','1','0',open,IFFT_out_imag,IFFT_out_real,open,open); -- Verificar
+    IFFT: COREFFT_C2 
+    port map (
+        CLK         => CLK,
+        DATAI_IM    => IFFT_in_imag,
+        DATAI_RE    => IFFT_in_real,
+        DATAI_VALID => MAX_INPUT_CLK,
+        NGRST       => '1',
+        READ_OUTP   => '1',
+        SLOWCLK     => MAX_INPUT_CLK,
+        BUF_READY   => open,
+        DATAO_IM    => IFFT_out_imag,
+        DATAO_RE    => IFFT_out_real,
+        DATAO_VALID => open,
+        OUTP_READY  => open
+    );
     
 end architecture_Acquisition;
