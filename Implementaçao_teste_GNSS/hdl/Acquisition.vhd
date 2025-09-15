@@ -196,17 +196,93 @@ architecture architecture_Acquisition of Acquisition is
 begin
 
     -- architecture body
-    SINE_GENERATOR: COREDDS_C0 port map (CLK,Frequency_offset_data, '0','1','1','1',cos_signal,open,sin_signal);
-    MULT1: Multiplier_simplified generic map(data_width) port map(cos_signal,MAX_INPUT_I,I1_signal);
-    MULT2: Multiplier_simplified generic map(data_width) port map(sin_signal,MAX_INPUT_Q,Q1_signal);
-    MULT3: Multiplier_simplified generic map(data_width) port map(sin_signal,MAX_INPUT_I,I2_signal);
-    MULT4: Multiplier_simplified generic map(data_width) port map(cos_signal,MAX_INPUT_Q,I2_signal);
-    SUM_I: Somador generic map(data_width) port map(I1_signal,Q2_signal,'0',FFT_I_signal(data_width downto 0),FFT_I_signal(23));
-    SUM_Q: Somador generic map(data_width) port map(I2_signal,Q1_signal,'0',FFT_Q_signal(data_width downto 0),FFT_Q_signal(23));
-    FFT_IQ: COREFFT_C0 port map(MAX_INPUT_CLK,FFT_Q_signal,FFT_I_signal,'1','1','1','1',open,FFT_X_signal,FFT_Y_signal,open,open);
+    SINE_GENERATOR: COREDDS_C0 
+    port map (
+        CLK            => CLK;
+        FREQ_OFFSET    => Frequency_offset_data;
+        FREQ_OFFSET_WE => '0';
+        INIT           => '1';
+        NGRST          => '1';
+        RSTN           => '1';
+        COSINE         => cos_signal;
+        INIT_OVER      => open;
+        SINE           => sin_signal
+    );
+    
+    MULT1: Multiplier_simplified 
+    generic map(data_width) 
+    port map(
+        A => cos_signal;
+        B => MAX_INPUT_I;
+        S => I1_signal
+    );
+    
+    MULT2: Multiplier_simplified 
+    generic map(data_width) 
+    port map (
+        A => sin_signal;
+        B => MAX_INPUT_Q;
+        S => Q1_signal
+    );
+    
+    MULT3: Multiplier_simplified 
+    generic map(data_width) 
+    port map (
+        A => sin_signal;
+        B => MAX_INPUT_I;
+        S => I2_signal
+    );
+    
+    MULT4: Multiplier_simplified 
+    generic map(data_width) 
+    port map (
+        A => cos_signal;
+        B => MAX_INPUT_Q;
+        S => Q2_signal
+    );
+    
+    SUM_I: Somador 
+    generic map(data_width) 
+    port map (
+        A => I1_signal;
+        B => Q2_signal;
+        Cin => '0';
+        S => FFT_I_signal(data_width downto 0);
+        Cout => FFT_I_signal(23)
+    );
+    
+    SUM_Q: Somador 
+    generic map(data_width) 
+    port map (
+        A => I2_signal;
+        B => Q1_signal;
+        Cin => '0';
+        S => FFT_Q_signal(data_width downto 0);
+        Cout => FFT_Q_signal(23)
+    );
+    
+    FFT_IQ: COREFFT_C0 
+    port map (
+        CLK         => CLK;
+        DATAI_IM    => FFT_Q_signal;
+        DATAI_RE    => FFT_I_signal;
+        DATAI_VALID => MAX_INPUT_CLK;
+        NGRST       => '1';
+        READ_OUTP   => '1';
+        SLOWCLK     => MAX_INPUT_CLK;
+        BUF_READY   => open;
+        DATAO_IM    => FFT_X_signal;
+        DATAO_RE    => FFT_Y_signal;
+        DATAO_VALID => open;
+        OUTP_READY  => open
+    );
+    
     CA_CODE: L1_CA_generator port map(CLK,'0',PRN_bit,'1',PRN_valid,open,open,"completar com o SV"); --Verificar
+    
     FFT_CA: COREFFT_C1 port map(MAX_INPUT_CLK,'0',FFT_CA_in,'1','1','1','1',open,FFT_CA_out_imag,FFT_CA_out_real,open,open); --Verificar
+    
     MULT5: complex_multiplier_C0 port map (FFT_X_signal,FFT_Y_signal,"CA_CONJ_out_imag","CA_CONJ_out_real",MAX_INPUT_CLK,'1',IFFT_in_imag,IFFT_in_real); -- Verificar
+    
     IFFT: COREFFT_C2 port map(MAX_INPUT_CLK,IFFT_in_imag,IFFT_in_real,'1','1','1','0',open,IFFT_out_imag,IFFT_out_real,open,open); -- Verificar
     
 end architecture_Acquisition;

@@ -513,8 +513,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/hdl/Acquisition.vhd,hdl"
 STATE="utd"
-TIME="1757893285"
-SIZE="7717"
+TIME="1757946204"
+SIZE="8746"
 ENDFILE
 VALUE "<project>/hdl/Multiplier_simplified.vhd,hdl"
 STATE="utd"
@@ -676,11 +676,14 @@ ENDLIST
 LIST "COREDDS_C0::work","component/work/COREDDS_C0/COREDDS_C0.v","TRUE","FALSE"
 SUBBLOCK "COREDDS_C0_COREDDS_C0_0_COREDDS::COREDDS_LIB","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/core/DDS_TOP.v","FALSE","FALSE"
 ENDLIST
-LIST "COREFFT_C0::work","component/work/COREFFT_C0/COREFFT_C0.cxf","TRUE","FALSE"
+LIST "COREFFT_C0::work","component/work/COREFFT_C0/COREFFT_C0.v","TRUE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_COREFFT::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/COREFFT_TOP.v","FALSE","FALSE"
 ENDLIST
-LIST "COREFFT_C1::work","component/work/COREFFT_C1/COREFFT_C1.cxf","TRUE","FALSE"
+LIST "COREFFT_C1::work","component/work/COREFFT_C1/COREFFT_C1.v","TRUE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_COREFFT::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/COREFFT_TOP.v","FALSE","FALSE"
 ENDLIST
-LIST "COREFFT_C2::work","component/work/COREFFT_C2/COREFFT_C2.cxf","TRUE","FALSE"
+LIST "COREFFT_C2::work","component/work/COREFFT_C2/COREFFT_C2.v","TRUE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_COREFFT::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/COREFFT_TOP.v","FALSE","FALSE"
 ENDLIST
 LIST "Multiplier_simplified::work","hdl/Multiplier_simplified.vhd","FALSE","FALSE"
 ENDLIST
@@ -739,6 +742,171 @@ SUBBLOCK "dds_bhvTestVectIn::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/v
 SUBBLOCK "dds_bhvTestVectOut::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectOut.v","FALSE","TRUE"
 SUBBLOCK "bhvDelay::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v","FALSE","TRUE"
 SUBBLOCK "dds_kitCountS::COREDDS_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_COREFFT::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/COREFFT_TOP.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_COREFFT_STRM::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_COREFFT_INPLC::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/COREFFT.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_COREFFT_STRM::COREFFT_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_lsram_g5::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/COREFFT_C0_COREFFT_C0_0_lsram_g5.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_outBuff::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_ram_smGen::COREFFT_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_uram_g5::COREFFT_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_uram_smGen::COREFFT_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_lsram_g5::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/COREFFT_C0_COREFFT_C0_0_lsram_g5.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_ram_smGen::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_uram_g5::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_uram_smGen::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "fft_inpl_RAM_two_port::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_COREFFT::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/COREFFT_TOP.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_COREFFT_STRM::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_COREFFT_INPLC::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/COREFFT.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_COREFFT_STRM::COREFFT_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_lsram_g5::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/COREFFT_C1_COREFFT_C1_0_lsram_g5.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_outBuff::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_ram_smGen::COREFFT_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_uram_g5::COREFFT_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_uram_smGen::COREFFT_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_lsram_g5::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/COREFFT_C1_COREFFT_C1_0_lsram_g5.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_ram_smGen::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_uram_g5::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_uram_smGen::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "fft_inpl_RAM_two_port::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_COREFFT::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/COREFFT_TOP.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_COREFFT_STRM::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_COREFFT_INPLC::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/COREFFT.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_COREFFT_STRM::COREFFT_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_lsram_g5::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/COREFFT_C2_COREFFT_C2_0_lsram_g5.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_outBuff::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_ram_smGen::COREFFT_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_uram_g5::COREFFT_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_uram_smGen::COREFFT_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_lsram_g5::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/COREFFT_C2_COREFFT_C2_0_lsram_g5.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_ram_smGen::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_uram_g5::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_uram_smGen::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "fft_inpl_RAM_two_port::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_COREFFT_INPLC::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/COREFFT.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_outBuff::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_inPlace::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_twidLUT::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_twiddle::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/twiddle32.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_autoScale::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_bfly2::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_kitDelay_bit_reg::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_sm_top::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/fftSm.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_switch::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_kitDelay_reg::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_kitDelay_reg::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_inBuffer::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_inPlace::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_inBuffer::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_twiddle::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/twiddle32.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_twidLUT::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C0_COREFFT_C0_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_lsram_g5::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/COREFFT_C0_COREFFT_C0_0_lsram_g5.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_ram_smGen::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_uram_g5::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_uram_smGen::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "fft_inpl_RAM_two_port::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_COREFFT_INPLC::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/COREFFT.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_outBuff::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_inPlace::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_twidLUT::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_twiddle::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/twiddle32.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_autoScale::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_bfly2::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_kitDelay_bit_reg::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_sm_top::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/fftSm.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_switch::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_kitDelay_reg::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_kitDelay_reg::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_inBuffer::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_inPlace::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_inBuffer::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_twiddle::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/twiddle32.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_twidLUT::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C1_COREFFT_C1_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_lsram_g5::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/COREFFT_C1_COREFFT_C1_0_lsram_g5.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_ram_smGen::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_uram_g5::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_uram_smGen::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "fft_inpl_RAM_two_port::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_COREFFT_INPLC::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/COREFFT.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_outBuff::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_inPlace::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_twidLUT::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_twiddle::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/twiddle32.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_autoScale::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_bfly2::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_kitDelay_bit_reg::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_sm_top::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/fftSm.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_switch::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_kitDelay_reg::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+SUBBLOCK "fft_inpl_kitDelay_reg::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_inBuffer::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_inPlace::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_inBuffer::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_twiddle::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/twiddle32.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_twidLUT::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+ENDLIST
+LIST "COREFFT_C2_COREFFT_C2_0_wrapRam::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_lsram_g5::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/COREFFT_C2_COREFFT_C2_0_lsram_g5.v","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_ram_smGen::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_uram_g5::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_uram_smGen::COREFFT_LIB","","FALSE","FALSE"
+SUBBLOCK "fft_inpl_RAM_two_port::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
 ENDLIST
 LIST "fft_inpl_autoScale::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
 SUBBLOCK "fft_inpl_kitEdge::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
@@ -983,6 +1151,24 @@ LIST "fft_inpl_half_cmplx_18::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8
 SUBBLOCK "fft_inpl_kitDelay_reg::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
 SUBBLOCK "fft_inpl_mac18x18mx::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/mac_lib.v","FALSE","FALSE"
 SUBBLOCK "fft_inpl_signExt::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v","FALSE","FALSE"
+ENDLIST
+LIST "testbench::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v","FALSE","TRUE"
+SUBBLOCK "COREFFT_C0_COREFFT_C0_0_COREFFT::COREFFT_LIB","component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/COREFFT_TOP.v","FALSE","FALSE"
+SUBBLOCK "bhvClockGen::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+SUBBLOCK "bhvEdge::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+SUBBLOCK "bhvClockGen::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+ENDLIST
+LIST "testbench::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v","FALSE","TRUE"
+SUBBLOCK "COREFFT_C1_COREFFT_C1_0_COREFFT::COREFFT_LIB","component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/COREFFT_TOP.v","FALSE","FALSE"
+SUBBLOCK "bhvClockGen::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+SUBBLOCK "bhvEdge::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+SUBBLOCK "bhvClockGen::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+ENDLIST
+LIST "testbench::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v","FALSE","TRUE"
+SUBBLOCK "COREFFT_C2_COREFFT_C2_0_COREFFT::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/COREFFT_TOP.v","FALSE","FALSE"
+SUBBLOCK "bhvClockGen::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+SUBBLOCK "bhvEdge::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
+SUBBLOCK "bhvClockGen::COREFFT_LIB","component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v","FALSE","TRUE"
 ENDLIST
 LIST "balance_dly::COREDDS_LIB","component/Actel/DirectCore/COREDDS/4.0.108/rtl/vlog/core/dds_module.v","FALSE","FALSE"
 SUBBLOCK "dds_kitDelay_reg::COREDDS_LIB","component/Actel/DirectCore/COREDDS/4.0.108/rtl/vlog/core/dds_kit.v","FALSE","FALSE"
