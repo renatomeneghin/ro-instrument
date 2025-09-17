@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------
-// Created by Microsemi SmartDesign Wed Aug  6 15:10:23 2025
+// Created by Microsemi SmartDesign Wed Sep 17 15:32:16 2025
 // Parameters for COREDDS
 //--------------------------------------------------------------------
 
@@ -9,10 +9,10 @@ parameter COS_POLARITY = 0;
 parameter DIE_SIZE = 15;
 parameter FAMILY = 27;
 parameter FPGA_FAMILY = 27;
-parameter FREQ_OFFSET_BITS = 3;
+parameter FREQ_OFFSET_BITS = 10;
 parameter LATENCY = 0;
 parameter MAX_FULL_WAVE_LOGDEPTH = 9;
-parameter OUTPUT_BITS = 18;
+parameter OUTPUT_BITS = 8;
 parameter PH_ACC_BITS = 12;
 parameter PH_CORRECTION = 0;
 parameter PH_INC_LOWER = 1000000;

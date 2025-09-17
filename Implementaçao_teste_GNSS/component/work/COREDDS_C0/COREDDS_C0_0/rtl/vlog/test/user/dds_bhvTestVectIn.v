@@ -19,14 +19,44 @@ module dds_bhvTestVectIn (sample_num, freq_offset, freq_offset_we,
 
   always @ (sample_num) 
     case (sample_num)
-        0: begin
-             freq_offset = 3'd0;
+        1: begin
+             freq_offset = 10'd64;
              freq_offset_we = 1'b1;
              ph_offset = 3'd0;
              ph_offset_we = 1'b1;
            end
-        1: begin
-             freq_offset = 3'd0;
+       64: begin
+             freq_offset = 10'd76;
+             freq_offset_we = 1'b1;
+             ph_offset = 3'd0;
+             ph_offset_we = 1'b1;
+           end
+      119: begin
+             freq_offset = 10'd88;
+             freq_offset_we = 1'b1;
+             ph_offset = 3'd0;
+             ph_offset_we = 1'b1;
+           end
+      167: begin
+             freq_offset = 10'd100;
+             freq_offset_we = 1'b1;
+             ph_offset = 3'd0;
+             ph_offset_we = 1'b1;
+           end
+      209: begin
+             freq_offset = 10'd112;
+             freq_offset_we = 1'b1;
+             ph_offset = 3'd0;
+             ph_offset_we = 1'b1;
+           end
+      247: begin
+             freq_offset = 10'd124;
+             freq_offset_we = 1'b1;
+             ph_offset = 3'd0;
+             ph_offset_we = 1'b1;
+           end
+      282: begin
+             freq_offset = 10'd136;
              freq_offset_we = 1'b1;
              ph_offset = 3'd0;
              ph_offset_we = 1'b1;

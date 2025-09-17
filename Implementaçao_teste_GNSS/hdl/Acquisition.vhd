@@ -36,7 +36,7 @@ end Acquisition;
 architecture architecture_Acquisition of Acquisition is
    -- signal, component etc. declarations
 	signal Frequency_offset_data : std_logic_vector(9 downto 0);
-	signal cos_signal, sin_signal : std_logic_vector(data_width-1 downto 0);
+	signal cos_signal, sin_signal : std_logic_vector(7 downto 0);
 	signal I1_signal, Q1_signal, I2_signal, Q2_signal : std_logic_vector(data_width downto 0);
 	signal FFT_I_signal, FFT_Q_signal : std_logic_vector(7 downto 0); 
     signal FFT_X_signal, FFT_Y_signal : std_logic_vector(15 downto 0);
@@ -56,9 +56,9 @@ architecture architecture_Acquisition of Acquisition is
         NGRST          : in  std_logic;
         RSTN           : in  std_logic;
         -- Outputs
-        COSINE         : out std_logic_vector(11 downto 0);
+        COSINE         : out std_logic_vector(7 downto 0);
         INIT_OVER      : out std_logic;
-        SINE           : out std_logic_vector(11 downto 0)
+        SINE           : out std_logic_vector(7 downto 0)
     );
     end component;
     
@@ -155,7 +155,7 @@ architecture architecture_Acquisition of Acquisition is
     
     component Somador is
     generic(
-        data_width : integer := 64
+        data_width : integer := 10
     );
     port(	
         A:	in std_logic_vector(data_width-1 downto 0);
