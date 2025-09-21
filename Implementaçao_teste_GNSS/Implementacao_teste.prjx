@@ -513,8 +513,13 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/hdl/Acquisition.vhd,hdl"
 STATE="utd"
-TIME="1758462195"
-SIZE="10547"
+TIME="1758471836"
+SIZE="10661"
+ENDFILE
+VALUE "<project>/hdl/Acquisition_control.vhd,hdl"
+STATE="utd"
+TIME="1758471889"
+SIZE="1087"
 ENDFILE
 VALUE "<project>/hdl/Counter_DDS_CA.vhd,hdl"
 STATE="utd"
@@ -868,11 +873,14 @@ ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 HDL;hdl/Acquisition.vhd;0
-HDL;hdl/Controle.vhd;0
+HDL;hdl/Counter_DDS_CA.vhd;0
+HDL;hdl/Acquisition_control.vhd;0
 ACTIVEVIEW;hdl/Acquisition.vhd
 ENDLIST
 LIST ModuleSubBlockList
 LIST "Acquisition::work","hdl/Acquisition.vhd","FALSE","FALSE"
+ENDLIST
+LIST "Acquisition_control::work","hdl/Acquisition_control.vhd","FALSE","FALSE"
 ENDLIST
 LIST "COMPLEX_MULTIPLIER::work","component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/complex_multiplier.vhd","FALSE","FALSE"
 SUBBLOCK "round_SAT::work","component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/round_sat.vhd","FALSE","FALSE"

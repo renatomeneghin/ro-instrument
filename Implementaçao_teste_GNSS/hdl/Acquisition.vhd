@@ -35,13 +35,13 @@ end Acquisition;
 
 architecture architecture_Acquisition of Acquisition is
    -- signal, component etc. declarations
-    signal;
+    signal f_DDS : std_logic_vector(7 downto 0);
 	signal Frequency_offset_data : std_logic_vector(9 downto 0);
 	signal cos_signal, sin_signal : std_logic_vector(7 downto 0);
 	signal I1_signal, Q1_signal, I2_signal, Q2_signal : std_logic_vector(data_width downto 0);
 	signal FFT_I_signal, FFT_Q_signal : std_logic_vector(7 downto 0); 
     signal FFT_X_signal, FFT_Y_signal : std_logic_vector(15 downto 0);
-    signal;
+    signal f_CA : std_logic_vector(15 downto 7);
     signal FFT_CA_valid, PRN_bit, PRN_valid : std_logic;
     signal FFT_CA_in, FFT_CA_out_real, FFT_CA_out_imag : std_logic_vector(23 downto 0);
     signal IFFT_in_real, IFFT_in_imag, IFFT_out_real, IFFT_out_imag : std_logic_vector(23 downto 0);
@@ -215,7 +215,7 @@ begin
         reset =>,
         inc =>,
         freq_CA => open,
-        freq_DDS =>
+        freq_DDS => f_DDS
     );
     
     SINE_GENERATOR: COREDDS_C0 
@@ -223,7 +223,7 @@ begin
         CLK            => CLK,
         FREQ_OFFSET    => Frequency_offset_data,
         FREQ_OFFSET_WE => '0',
-        INIT           => '1',
+        INIT           => '1', --eh aqui que entra o f_DDS?
         NGRST          => '1',
         RSTN           => '1',
         COSINE         => cos_signal,
@@ -316,7 +316,7 @@ begin
         clk => CLK,
         reset =>,
         inc =>,
-        freq_CA =>,
+        freq_CA => f_CA,
         freq_DDS => open 
     );
     
