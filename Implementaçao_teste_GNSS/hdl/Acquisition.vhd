@@ -35,19 +35,21 @@ end Acquisition;
 
 architecture architecture_Acquisition of Acquisition is
    -- signal, component etc. declarations
+    signal;
 	signal Frequency_offset_data : std_logic_vector(9 downto 0);
 	signal cos_signal, sin_signal : std_logic_vector(7 downto 0);
 	signal I1_signal, Q1_signal, I2_signal, Q2_signal : std_logic_vector(data_width downto 0);
 	signal FFT_I_signal, FFT_Q_signal : std_logic_vector(7 downto 0); 
     signal FFT_X_signal, FFT_Y_signal : std_logic_vector(15 downto 0);
-    signal FFT_CA_in, FFT_CA_out_real, FFT_CA_out_imag : std_logic_vector(23 downto 0);
+    signal;
     signal FFT_CA_valid, PRN_bit, PRN_valid : std_logic;
+    signal FFT_CA_in, FFT_CA_out_real, FFT_CA_out_imag : std_logic_vector(23 downto 0);
     signal IFFT_in_real, IFFT_in_imag, IFFT_out_real, IFFT_out_imag : std_logic_vector(23 downto 0);
     signal SV : integer range 0 to 31 := 0;
     
     component COREDDS_C0 is
     -- Port list
-    port(
+    port (
         -- Inputs
         CLK            : in  std_logic;
         FREQ_OFFSET    : in  std_logic_vector(9 downto 0);
@@ -64,7 +66,7 @@ architecture architecture_Acquisition of Acquisition is
     
     component COREFFT_C0 is -- In-Place FFT
     -- Port list
-    port(
+    port (
         -- Inputs
         CLK         : in  std_logic;
         DATAI_IM    : in  std_logic_vector(7 downto 0);
@@ -84,7 +86,7 @@ architecture architecture_Acquisition of Acquisition is
     
     component COREFFT_C1 is -- In-Place FFT
     -- Port list
-    port(
+    port (
         -- Inputs
         CLK         : in  std_logic;
         DATAI_IM    : in  std_logic_vector(7 downto 0);
@@ -104,7 +106,7 @@ architecture architecture_Acquisition of Acquisition is
     
     component COREFFT_C2 is -- In-Place IFFT
     -- Port list
-    port(
+    port (
         -- Inputs
         CLK         : in  std_logic;
         DATAI_IM    : in  std_logic_vector(23 downto 0);
@@ -124,7 +126,7 @@ architecture architecture_Acquisition of Acquisition is
 
     component complex_multiplier_C0 is
     -- Port list
-    port(
+    port (
         --Inputs
         aimag_i  : in  std_logic_vector(15 downto 0);
         areal_i  : in  std_logic_vector(15 downto 0);
@@ -140,10 +142,10 @@ architecture architecture_Acquisition of Acquisition is
     end component;
     
     component Multiplier_simplified is
-    generic(
+    generic (
         data_width : integer := 12
     );
-    port(
+    port (
         -- 	Bit_Vector Inputs
         A :	in std_logic_vector(data_width-1 downto 0);
         B :	in std_logic_vector(1 downto 0);
@@ -154,10 +156,10 @@ architecture architecture_Acquisition of Acquisition is
     end component;
     
     component Somador is
-    generic(
+    generic (
         data_width : integer := 10
     );
-    port(	
+    port (	
         A:	in std_logic_vector(data_width-1 downto 0);
         B:	in std_logic_vector(data_width-1 downto 0);
         Cin:	in std_logic;
@@ -168,7 +170,7 @@ architecture architecture_Acquisition of Acquisition is
     end component;
     
     component L1_CA_generator is
-    port(
+    port (
         clk : in std_logic;
         rst	: in std_logic;		
         PRN : out std_logic;			
@@ -177,6 +179,16 @@ architecture architecture_Acquisition of Acquisition is
         epoch : out std_logic;
         epoch_advce : out std_logic;
         SAT : in integer range 0 to 31 -- 32 GPS
+    );
+    end component;
+    
+    component Counter_DDS_CA is
+    port (
+        clk      : in std_logic;
+        reset    : in std_logic;
+        inc      : in unsigned(15 downto 0);
+        freq_CA  : out unsigned(15 downto 7);
+        freq_DDS : out unsigned(7 downto 0)
     );
     end component;
     
@@ -196,6 +208,15 @@ begin
             end if;
         end if;
     end process;
+    
+    DDS_CONTROLLER: Counter_DDS_CA
+    port map (
+        clk => CLK,
+        reset =>,
+        inc =>,
+        freq_CA => open,
+        freq_DDS =>
+    );
     
     SINE_GENERATOR: COREDDS_C0 
     port map (
@@ -288,6 +309,15 @@ begin
         DATAO_RE    => FFT_Y_signal,
         DATAO_VALID => open,
         OUTP_READY  => open
+    );
+    
+    CA_CONTROLLER: Counter_DDS_CA
+    port map (
+        clk => CLK,
+        reset =>,
+        inc =>,
+        freq_CA =>,
+        freq_DDS => open 
     );
     
     CA_CODE: L1_CA_generator 
