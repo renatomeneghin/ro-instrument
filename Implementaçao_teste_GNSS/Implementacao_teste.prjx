@@ -518,8 +518,8 @@ SIZE="9916"
 ENDFILE
 VALUE "<project>/hdl/Counter_DDS_CA.vhd,hdl"
 STATE="utd"
-TIME="1758430939"
-SIZE="730"
+TIME="1758458907"
+SIZE="733"
 ENDFILE
 VALUE "<project>/hdl/Multiplier_simplified.vhd,hdl"
 STATE="utd"
@@ -869,7 +869,7 @@ LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 HDL;hdl/Acquisition.vhd;0
 HDL;hdl/Counter_DDS_CA.vhd;0
-ACTIVEVIEW;hdl/Acquisition.vhd
+ACTIVEVIEW;hdl/Counter_DDS_CA.vhd
 ENDLIST
 LIST ModuleSubBlockList
 LIST "Acquisition::work","hdl/Acquisition.vhd","FALSE","FALSE"
