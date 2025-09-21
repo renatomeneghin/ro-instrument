@@ -518,8 +518,8 @@ SIZE="9916"
 ENDFILE
 VALUE "<project>/hdl/Counter_DDS_CA.vhd,hdl"
 STATE="utd"
-TIME="1758135738"
-SIZE="1057"
+TIME="1758430939"
+SIZE="730"
 ENDFILE
 VALUE "<project>/hdl/Multiplier_simplified.vhd,hdl"
 STATE="utd"
@@ -869,7 +869,7 @@ LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 HDL;hdl/Acquisition.vhd;0
 HDL;hdl/Counter_DDS_CA.vhd;0
-ACTIVEVIEW;hdl/Counter_DDS_CA.vhd
+ACTIVEVIEW;hdl/Acquisition.vhd
 ENDLIST
 LIST ModuleSubBlockList
 LIST "Acquisition::work","hdl/Acquisition.vhd","FALSE","FALSE"
@@ -899,6 +899,8 @@ SUBBLOCK "COREFFT_C1_COREFFT_C1_0_COREFFT::COREFFT_LIB","component/work/COREFFT_
 ENDLIST
 LIST "COREFFT_C2::work","component/work/COREFFT_C2/COREFFT_C2.v","TRUE","FALSE"
 SUBBLOCK "COREFFT_C2_COREFFT_C2_0_COREFFT::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/COREFFT_TOP.v","FALSE","FALSE"
+ENDLIST
+LIST "Counter_DDS_CA::work","hdl/Counter_DDS_CA.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Somador::work","hdl/Somador.vhd","FALSE","FALSE"
 ENDLIST
