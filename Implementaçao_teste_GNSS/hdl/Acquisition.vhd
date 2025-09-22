@@ -35,7 +35,7 @@ end Acquisition;
 
 architecture architecture_Acquisition of Acquisition is
    -- signal, component etc. declarations
-    signal incremento : unsigned(15 downto 0); --Verificar
+    signal inc_DDS, inc_CA : unsigned(15 downto 0); --Verificar
     signal f_DDS : unsigned(7 downto 0); --Verificar
     signal f_CA : unsigned(15 downto 7); --Verificar
 	signal Frequency_offset_data : std_logic_vector(9 downto 0);
@@ -214,7 +214,7 @@ begin
     port map (
         clk => CLK,
         reset => '1',
-        inc => incremento,
+        inc => inc_DDS,
         freq_CA => open,
         freq_DDS => f_DDS
     );
@@ -308,7 +308,7 @@ begin
         BUF_READY   => open,
         DATAO_IM    => FFT_X_signal,
         DATAO_RE    => FFT_Y_signal,
-        DATAO_VALID => incremento, --Verificar
+        DATAO_VALID => open,
         OUTP_READY  => open
     );
     
@@ -316,7 +316,7 @@ begin
     port map (
         clk => CLK,
         reset => '1',
-        inc => incremento, 
+        inc => inc_CA, 
         freq_CA => f_CA,
         freq_DDS => open 
     );
@@ -374,7 +374,7 @@ begin
         DATAO_IM    => IFFT_out_imag,
         DATAO_RE    => IFFT_out_real,
         DATAO_VALID => open,
-        OUTP_READY  => open
+        OUTP_READY  => inc --Verificar
     );
     
 end architecture_Acquisition;
