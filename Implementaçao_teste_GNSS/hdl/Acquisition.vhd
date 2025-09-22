@@ -35,7 +35,7 @@ end Acquisition;
 
 architecture architecture_Acquisition of Acquisition is
    -- signal, component etc. declarations
-    signal inc_DDS, inc_CA : unsigned(15 downto 0); --Verificar
+    signal incremento : std_logic --Verificar
     signal f_DDS : unsigned(7 downto 0); --Verificar
     signal f_CA : unsigned(15 downto 7); --Verificar
 	signal Frequency_offset_data : std_logic_vector(9 downto 0);
@@ -187,7 +187,7 @@ architecture architecture_Acquisition of Acquisition is
     port (
         clk      : in std_logic;
         reset    : in std_logic;
-        inc      : in unsigned(15 downto 0);
+        inc      : in std_logic;
         freq_CA  : out unsigned(15 downto 7);
         freq_DDS : out unsigned(7 downto 0)
     );
@@ -210,12 +210,12 @@ begin
         end if;
     end process;
     
-    DDS_CONTROLLER: Counter_DDS_CA --Verificar
+    DDS_CA_CONTROLLER: Counter_DDS_CA --Verificar
     port map (
         clk => CLK,
-        reset => '1',
-        inc => inc_DDS,
-        freq_CA => open,
+        reset => '0',
+        inc => incremento,
+        freq_CA => f_DDS,
         freq_DDS => f_DDS
     );
     
@@ -312,15 +312,6 @@ begin
         OUTP_READY  => open
     );
     
-    CA_CONTROLLER: Counter_DDS_CA --Verificar
-    port map (
-        clk => CLK,
-        reset => '1',
-        inc => inc_CA, 
-        freq_CA => f_CA,
-        freq_DDS => open 
-    );
-    
     CA_CODE: L1_CA_generator --Conectar o contador
     port map (
         clk         => CLK,
@@ -374,7 +365,7 @@ begin
         DATAO_IM    => IFFT_out_imag,
         DATAO_RE    => IFFT_out_real,
         DATAO_VALID => open,
-        OUTP_READY  => inc --Verificar
+        OUTP_READY  => incremento --Verificar
     );
     
 end architecture_Acquisition;
