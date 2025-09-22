@@ -35,13 +35,14 @@ end Acquisition;
 
 architecture architecture_Acquisition of Acquisition is
    -- signal, component etc. declarations
-    signal f_DDS : std_logic_vector(7 downto 0);
+    signal incremento : unsigned(15 downto 0); --Verificar
+    signal f_DDS : unsigned(7 downto 0); --Verificar
+    signal f_CA : unsigned(15 downto 7); --Verificar
 	signal Frequency_offset_data : std_logic_vector(9 downto 0);
 	signal cos_signal, sin_signal : std_logic_vector(7 downto 0);
 	signal I1_signal, Q1_signal, I2_signal, Q2_signal : std_logic_vector(data_width downto 0);
 	signal FFT_I_signal, FFT_Q_signal : std_logic_vector(7 downto 0); 
     signal FFT_X_signal, FFT_Y_signal : std_logic_vector(15 downto 0);
-    signal f_CA : std_logic_vector(15 downto 7);
     signal FFT_CA_valid, PRN_bit, PRN_valid : std_logic;
     signal FFT_CA_in, FFT_CA_out_real, FFT_CA_out_imag : std_logic_vector(23 downto 0);
     signal IFFT_in_real, IFFT_in_imag, IFFT_out_real, IFFT_out_imag : std_logic_vector(23 downto 0);
@@ -209,21 +210,21 @@ begin
         end if;
     end process;
     
-    DDS_CONTROLLER: Counter_DDS_CA
+    DDS_CONTROLLER: Counter_DDS_CA --Verificar
     port map (
         clk => CLK,
-        reset =>,
-        inc =>,
+        reset => '1',
+        inc => incremento,
         freq_CA => open,
         freq_DDS => f_DDS
     );
     
-    SINE_GENERATOR: COREDDS_C0 
+    SINE_GENERATOR: COREDDS_C0 --Conectar o contador
     port map (
         CLK            => CLK,
         FREQ_OFFSET    => Frequency_offset_data,
         FREQ_OFFSET_WE => '0',
-        INIT           => '1', --eh aqui que entra o f_DDS?
+        INIT           => '1',
         NGRST          => '1',
         RSTN           => '1',
         COSINE         => cos_signal,
@@ -307,20 +308,20 @@ begin
         BUF_READY   => open,
         DATAO_IM    => FFT_X_signal,
         DATAO_RE    => FFT_Y_signal,
-        DATAO_VALID => open,
+        DATAO_VALID => incremento, --Verificar
         OUTP_READY  => open
     );
     
-    CA_CONTROLLER: Counter_DDS_CA
+    CA_CONTROLLER: Counter_DDS_CA --Verificar
     port map (
         clk => CLK,
-        reset =>,
-        inc =>,
+        reset => '1',
+        inc => incremento, 
         freq_CA => f_CA,
         freq_DDS => open 
     );
     
-    CA_CODE: L1_CA_generator 
+    CA_CODE: L1_CA_generator --Conectar o contador
     port map (
         clk         => CLK,
         rst	        => '0',		
