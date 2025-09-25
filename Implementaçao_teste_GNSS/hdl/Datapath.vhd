@@ -48,7 +48,7 @@ port(	clk: 	in std_logic;
 );
 end component;
 
-component UAL is
+component Somador is
 
 port(	
 	A:	in std_logic_vector(data_width-1 downto 0);
@@ -95,7 +95,7 @@ begin
 	Counter: 		contador 	port map(Ts, T_init, counts);
 	Zero:			Zero_detector	port map(counts, Tm);
 
-	Summer: 		UAL 		port map(MSB_Result, A, '0', sum, carry);
+	Summer: 		Somador 		port map(MSB_Result, A, '0', sum, carry);
 	Carrier:		Flip_Flop_D 	port map(carry, Tw_MSB, clk, serial_in_A);
 
 	Registrador_MSB: 	shift_reg64 	port map(MSB_en, clk, Tc, serial_in_A, Ts, sum, MSB_Result);

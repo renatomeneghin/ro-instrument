@@ -1,0 +1,35 @@
+Microchip Technology Inc. - Microchip Libero Software Release v2023.2 (Version 2023.2.0.8)
+
+Date      :  Thu Sep 25 11:01:52 2025
+Project   :  /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS
+Component :  COREFIFO_C0
+Family    :  PolarFireSoC
+
+
+HDL source files for all Synthesis and Simulation tools:
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0_0/rtl/vlog/core/COREFIFO.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0_0/rtl/vlog/core/corefifo_sync.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0_0/rtl/vlog/core/corefifo_sync_scntr.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0_0/rtl/vlog/core/corefifo_async.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0_0/rtl/vlog/core/corefifo_nstagessync.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0_0/rtl/vlog/core/corefifo_graytobinconv.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0_0/rtl/vlog/core/corefifo_fwft.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0.v
+
+Stimulus files for all Simulation tools:
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0_0/mti/scripts/wave.do
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0_0/mti/scripts/runall.do
+
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0_0/coreparameters.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0_0/rtl/vlog/test/user/top_define.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/clock_driver.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/fifo_driver.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/fifo_monitor.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/g4_dp_ext_mem.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0_0/rtl/vlog/test/user/testbench.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WeqR.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WgtR.v
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WltR.v
+
+Constraint files:
+    /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS/component/work/COREFIFO_C0/COREFIFO_C0_0/COREFIFO_C0_COREFIFO_C0_0_COREFIFO.sdc

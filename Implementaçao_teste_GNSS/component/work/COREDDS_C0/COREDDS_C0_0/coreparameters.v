@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------
-// Created by Microsemi SmartDesign Wed Sep 24 17:35:06 2025
+// Created by Microsemi SmartDesign Thu Sep 25 01:26:27 2025
 // Parameters for COREDDS
 //--------------------------------------------------------------------
 
@@ -22,7 +22,7 @@ parameter PH_OFFSET_BITS = 3;
 parameter PH_OFFSET_CONST_LOWER = 1;
 parameter PH_OFFSET_CONST_UPPER = 0;
 parameter PH_OFFSET_MODE = 0;
-parameter QUANTIZER_BITS = 8;
+parameter QUANTIZER_BITS = 12;
 parameter SIN_ON = 1;
 parameter SIN_POLARITY = 0;
 parameter testbench = 1;

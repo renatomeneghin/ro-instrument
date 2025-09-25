@@ -23,7 +23,7 @@ begin
         elsif rising_edge(clk) then 
             if inc = '1' then
                 count <= count + 1;
-                
+            end if;
         end if;
     end process;
     freq_CA  <= count(15 downto 7);

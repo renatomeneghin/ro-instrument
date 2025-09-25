@@ -36,7 +36,7 @@ end Acquisition;
 architecture architecture_Acquisition of Acquisition is
    -- signal, component etc. declarations
    --Verificar
-    signal incremento : std_logic
+    signal incremento : std_logic;
     signal counter_init : std_logic;
     signal count_state: std_logic_vector(9 downto 0);
     signal f_DDS : unsigned(7 downto 0); 
@@ -44,11 +44,12 @@ architecture architecture_Acquisition of Acquisition is
 	signal Frequency_offset_data : std_logic_vector(9 downto 0);
 	signal cos_signal, sin_signal : std_logic_vector(7 downto 0);
 	signal I1_signal, Q1_signal, I2_signal, Q2_signal : std_logic_vector(data_width downto 0);
-	signal FFT_I_signal, FFT_Q_signal : std_logic_vector(7 downto 0); 
-    signal FFT_X_signal, FFT_Y_signal : std_logic_vector(15 downto 0);
+	signal FFT_I_signal, FFT_Q_signal : std_logic_vector(9 downto 0);
+    signal FFT_X_signal, FFT_Y_signal : std_logic_vector(9 downto 0);
     signal CA_CLK,CA_RST,CA_PRN,CA_ENABLE,CA_valid,CA_epoch : std_logic;
     signal SV : integer range 0 to 31 := 0;
-    signal FFT_CA_in, FFT_CA_out_real, FFT_CA_out_imag : std_logic_vector(23 downto 0);
+    signal FFT_CA_valid : std_logic;
+    signal FFT_CA_in, FFT_CA_out_real, FFT_CA_out_imag : std_logic_vector(9 downto 0);
     signal IFFT_in_real, IFFT_in_imag, IFFT_out_real, IFFT_out_imag : std_logic_vector(23 downto 0);
     
     component COREDDS_C0 is
@@ -73,16 +74,16 @@ architecture architecture_Acquisition of Acquisition is
     port (
         -- Inputs
         CLK         : in  std_logic;
-        DATAI_IM    : in  std_logic_vector(7 downto 0);
-        DATAI_RE    : in  std_logic_vector(7 downto 0);
+        DATAI_IM    : in  std_logic_vector(9 downto 0);
+        DATAI_RE    : in  std_logic_vector(9 downto 0);
         DATAI_VALID : in  std_logic;
         NGRST       : in  std_logic;
         READ_OUTP   : in  std_logic;
         SLOWCLK     : in  std_logic;
         -- Outputs
         BUF_READY   : out std_logic;
-        DATAO_IM    : out std_logic_vector(7 downto 0);
-        DATAO_RE    : out std_logic_vector(7 downto 0);
+        DATAO_IM    : out std_logic_vector(9 downto 0);
+        DATAO_RE    : out std_logic_vector(9 downto 0);
         DATAO_VALID : out std_logic;
         OUTP_READY  : out std_logic
     );
@@ -93,16 +94,16 @@ architecture architecture_Acquisition of Acquisition is
     port (
         -- Inputs
         CLK         : in  std_logic;
-        DATAI_IM    : in  std_logic_vector(7 downto 0);
-        DATAI_RE    : in  std_logic_vector(7 downto 0);
+        DATAI_IM    : in  std_logic_vector(9 downto 0);
+        DATAI_RE    : in  std_logic_vector(9 downto 0);
         DATAI_VALID : in  std_logic;
         NGRST       : in  std_logic;
         READ_OUTP   : in  std_logic;
         SLOWCLK     : in  std_logic;
         -- Outputs
         BUF_READY   : out std_logic;
-        DATAO_IM    : out std_logic_vector(7 downto 0);
-        DATAO_RE    : out std_logic_vector(7 downto 0);
+        DATAO_IM    : out std_logic_vector(9 downto 0);
+        DATAO_RE    : out std_logic_vector(9 downto 0);
         DATAO_VALID : out std_logic;
         OUTP_READY  : out std_logic
     );
@@ -140,8 +141,8 @@ architecture architecture_Acquisition of Acquisition is
         nreset_i : in  std_logic;
         
         --Outputs
-        cimag_o  : out std_logic_vector(16 downto 0);
-        creal_o  : out std_logic_vector(16 downto 0)
+        cimag_o  : out std_logic_vector(20 downto 0);
+        creal_o  : out std_logic_vector(20 downto 0)
     );
     end component;
     
@@ -186,7 +187,7 @@ architecture architecture_Acquisition of Acquisition is
     );
     end component;
     
-    --Verificar
+    --Verificar necessidade
     component Counter_DDS_CA is
     port (
         clk      : in std_logic;
@@ -198,10 +199,13 @@ architecture architecture_Acquisition of Acquisition is
     end component;
     
     component contador is
+    generic (
+        data_width : integer := 10
+    );
     port (
         clk   : in std_logic;
         init  : in std_logic;
-        count : std_logic_vector(datawidth-1 downto 0)
+        count : std_logic_vector(data_width-1 downto 0)
     );
     end component;
     
@@ -236,7 +240,7 @@ begin
     FFT_IQ: COREFFT_C0 port map (CLK,FFT_Q_signal,FFT_I_signal,MAX_INPUT_CLK,'1','1',MAX_INPUT_CLK,open,FFT_X_signal,FFT_Y_signal,open,open);
     
     CA_CODE: L1_CA_generator port map (CA_CLK,CA_RST,CA_PRN,CA_ENABLE,CA_valid,CA_epoch,open,SV);
-    FFT_CA: COREFFT_C1 port map (CLK,open,FFT_CA_in(7 downto 0),FFT_CA_valid,'1','1',MAX_INPUT_CLK,open,FFT_CA_out_imag,FFT_CA_out_real,open,open);
+    FFT_CA: COREFFT_C1 port map (CLK,'0',FFT_CA_in,FFT_CA_valid,'1','1',MAX_INPUT_CLK,open,FFT_CA_out_imag,FFT_CA_out_real,open,open);
     
     MULT5: complex_multiplier_C0 port map (FFT_X_signal,FFT_Y_signal,FFT_CA_out_imag(15 downto 0),FFT_CA_out_real(15 downto 0),MAX_INPUT_CLK,'1',IFFT_in_imag,IFFT_in_real);
     

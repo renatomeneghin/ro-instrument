@@ -1,6 +1,6 @@
 Microchip Technology Inc. - Microchip Libero Software Release v2023.2 (Version 2023.2.0.8)
 
-Date      :  Sun Sep 14 20:39:38 2025
+Date      :  Thu Sep 25 10:37:33 2025
 Project   :  /home/arthur/Desktop/projects_gnss/ro-instrument/Implementaçao_teste_GNSS
 Component :  COREFFT_C2
 Family    :  PolarFireSoC

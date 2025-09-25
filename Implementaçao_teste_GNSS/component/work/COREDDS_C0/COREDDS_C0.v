@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Wed Sep 24 17:35:06 2025
+// Created by SmartDesign Thu Sep 25 01:26:27 2025
 // Version: 2023.2 2023.2.0.8
 //////////////////////////////////////////////////////////////////////
 
@@ -31,7 +31,7 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:COREDDS:4.0.108} -compone
 "PH_OFFSET_CONST_LOWER:1"  \
 "PH_OFFSET_CONST_UPPER:0"  \
 "PH_OFFSET_MODE:0"  \
-"QUANTIZER_BITS:8"  \
+"QUANTIZER_BITS:12"  \
 "SIN_ON:true"  \
 "SIN_POLARITY:false"  \
 "URAM_MAXDEPTH:0"   }
@@ -124,7 +124,7 @@ COREDDS_C0_COREDDS_C0_0_COREDDS #(
         .PH_OFFSET_CONST_LOWER  ( 1 ),
         .PH_OFFSET_CONST_UPPER  ( 0 ),
         .PH_OFFSET_MODE         ( 0 ),
-        .QUANTIZER_BITS         ( 8 ),
+        .QUANTIZER_BITS         ( 12 ),
         .SIN_ON                 ( 1 ),
         .SIN_POLARITY           ( 0 ),
         .URAM_MAXDEPTH          ( 0 ) )

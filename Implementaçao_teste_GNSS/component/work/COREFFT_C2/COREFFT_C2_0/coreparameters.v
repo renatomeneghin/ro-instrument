@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------
-// Created by Microsemi SmartDesign Sun Sep 14 20:39:38 2025
+// Created by Microsemi SmartDesign Thu Sep 25 10:37:33 2025
 // Parameters for COREFFT
 //--------------------------------------------------------------------
 
@@ -35,4 +35,4 @@ parameter STAGE_12 = 1;
 parameter testbench = 1;
 parameter TWID_BITS = 18;
 parameter URAM_MAXDEPTH = 0;
-parameter WIDTH = 32;
+parameter WIDTH = 21;
