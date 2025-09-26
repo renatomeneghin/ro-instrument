@@ -1387,8 +1387,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/hdl/Acquisition.vhd,hdl"
 STATE="utd"
-TIME="1758807743"
-SIZE="8855"
+TIME="1758906238"
+SIZE="8829"
 ENDFILE
 VALUE "<project>/hdl/Acquisition_control.vhd,hdl"
 STATE="utd"
@@ -1707,7 +1707,7 @@ LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 HDL;hdl/Acquisition.vhd;0
 HDL;hdl/Acquisition_control.vhd;0
-ACTIVEVIEW;hdl/Acquisition_control.vhd
+ACTIVEVIEW;hdl/Acquisition.vhd
 ENDLIST
 LIST ModuleSubBlockList
 LIST "Acquisition::work","hdl/Acquisition.vhd","FALSE","FALSE"

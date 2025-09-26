@@ -242,7 +242,7 @@ begin
     CA_CODE: L1_CA_generator port map (CA_CLK,CA_RST,CA_PRN,CA_ENABLE,CA_valid,CA_epoch,open,SV);
     FFT_CA: COREFFT_C1 port map (CLK,'0',FFT_CA_in,FFT_CA_valid,'1','1',MAX_INPUT_CLK,open,FFT_CA_out_imag,FFT_CA_out_real,open,open);
     
-    MULT5: complex_multiplier_C0 port map (FFT_X_signal,FFT_Y_signal,FFT_CA_out_imag(15 downto 0),FFT_CA_out_real(15 downto 0),MAX_INPUT_CLK,'1',IFFT_in_imag,IFFT_in_real);
+    MULT5: complex_multiplier_C0 port map (FFT_X_signal,FFT_Y_signal,FFT_CA_out_imag,FFT_CA_out_real,MAX_INPUT_CLK,'1',IFFT_in_imag,IFFT_in_real);
     
     IFFT: COREFFT_C2 port map (CLK,IFFT_in_imag,IFFT_in_real,MAX_INPUT_CLK,'1','1',MAX_INPUT_CLK,open,IFFT_out_imag,IFFT_out_real,open,incremento);
 
