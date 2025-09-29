@@ -46,7 +46,7 @@ architecture architecture_Acquisition of Acquisition is
     -- slower clk
     signal clk_div4, slw_clk : std_logic;
     signal NRST : std_logic;
-   
+    signal clkd : std_logic_vector(4 downto 0);
     -- Controle do processo
     signal count_state  : std_logic_vector(Contador_WIDTH-1 downto 0); -- example
 	signal Frequency_offset_data : std_logic_vector(Contador_WIDTH-6 downto 0); -- example
@@ -120,6 +120,15 @@ architecture architecture_Acquisition of Acquisition is
         DATAO_RE    : out std_logic_vector(FFT_Width-1 downto 0);
         DATAO_VALID : out std_logic;
         OUTP_READY  : out std_logic
+    );
+    end component;
+    
+    component Flip_Flop_D is
+    port(	
+        D:	in std_logic;
+        rst:	in std_logic;
+        clk:	in std_logic;
+        Q:	out std_logic
     );
     end component;
     
@@ -286,11 +295,16 @@ begin
     -- Correlação
     MULT5: complex_multiplier_C0 port map (FFT_X_signal, FFT_Y_signal, CA_CONJ_out_imag, FFT_CA_out_real, 
                                             CLK, NRST, IFFT_in_imag, IFFT_in_real); -- Verificar
+                                            
+    CLK_MULT_D: for i in 0 to 3 generate
+		delay_I: Flip_Flop_D port map(clkd(i),RST, CLK, clkd(i+1)); -- ainda a ser verificado
+	end generate;
+                                            
     IFFT: COREFFT_C3
 	port map (
-	    CLK         => CLK,                -- clock de processamento
+	    CLK         => clkd(4),                -- clock de processamento
 	    DATAI_IM    => IFFT_in_imag, -- parte imaginária (Q)
-	    DATAI_RE    => IFFT_in_real(21 downto 0), -- parte real (I)
+	    DATAI_RE    => IFFT_in_real, -- parte real (I)
 	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados válidos
 	    READ_OUTP   => '1',                -- habilita leitura da saída
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
