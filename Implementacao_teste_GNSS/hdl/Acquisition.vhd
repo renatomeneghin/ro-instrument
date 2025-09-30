@@ -303,7 +303,7 @@ begin
                                             
     IFFT: COREFFT_C3
 	port map (
-	    CLK         => clkd(4),                -- clock de processamento
+	    CLK         => clkd(3),                -- clock de processamento
 	    DATAI_IM    => IFFT_in_imag, -- parte imaginária (Q)
 	    DATAI_RE    => IFFT_in_real, -- parte real (I)
 	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados válidos
