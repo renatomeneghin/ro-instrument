@@ -29,7 +29,8 @@ port (
 	MAX_INPUT_I     : IN  std_logic_vector(1 downto 0); -- MAX INPUT IN PHASE SIGNAL
     MAX_INPUT_Q     : IN  std_logic_vector(1 downto 0); -- MAX INPUT QUADRATURE SIGNAL
     MAX_INPUT_CLK   : IN  std_logic; -- MAX INPUT CLOCK
-    READ_OUT_F      : OUT  std_logic; -- VALID OUTPUT
+    READ_OUT        : IN  std_logic; -- READ  OUTPUT
+    READ_OUT_V      : OUT  std_logic; -- VALID OUTPUT
     OUT_I           : OUT  std_logic_vector(23 downto 0); -- OUTPUT REAL PART
     OUT_Q           : OUT  std_logic_vector(23 downto 0) -- OUTPUT IMAG PART
 );
@@ -280,7 +281,7 @@ begin
 	    CLK         => CLK,                -- clock de processamento
 	    DATAI_IM    => FFT_CA_in_imag, -- parte imaginária (Q)
 	    DATAI_RE    => FFT_CA_in_real, -- parte real (I)
-	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados válidos
+	    DATAI_VALID => clkd(3),                -- sinaliza dados válidos
 	    READ_OUTP   => '1',                -- habilita leitura da saída
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
 	    NGRST       => NRST,                -- reset ativo baixo (não resetado)
@@ -306,13 +307,13 @@ begin
 	    DATAI_IM    => IFFT_in_imag, -- parte imaginária (Q)
 	    DATAI_RE    => IFFT_in_real, -- parte real (I)
 	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados válidos
-	    READ_OUTP   => '1',                -- habilita leitura da saída
+	    READ_OUTP   => READ_OUT,                -- habilita leitura da saída
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
 	    NGRST       => NRST,                -- reset ativo baixo (não resetado)
 	    BUF_READY   => open,               -- não usado aqui
 	    DATAO_IM    => OUT_Q, -- saída imag
 	    DATAO_RE    => OUT_I, -- saída real
-	    DATAO_VALID => READ_OUT_F,               -- válido quando saída ativa
+	    DATAO_VALID => READ_OUT_V,               -- válido quando saída ativa
 	    OUTP_READY  => open
 	);
     
