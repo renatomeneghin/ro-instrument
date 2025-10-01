@@ -24,15 +24,16 @@ use work.all;
 entity Acquisition is
 port (
     --<port_name> : <direction> <type>;
-	CLK : IN  std_logic; -- example
-    RST : IN    std_logic;
+	CLK             : IN  std_logic; -- example
+    CA_CLK         : IN std_logic;
+    RST             : IN    std_logic;
 	MAX_INPUT_I     : IN  std_logic_vector(1 downto 0); -- MAX INPUT IN PHASE SIGNAL
     MAX_INPUT_Q     : IN  std_logic_vector(1 downto 0); -- MAX INPUT QUADRATURE SIGNAL
     MAX_INPUT_CLK   : IN  std_logic; -- MAX INPUT CLOCK
     READ_OUT        : IN  std_logic; -- READ  OUTPUT
     READ_OUT_V      : OUT  std_logic; -- VALID OUTPUT
-    OUT_I           : OUT  std_logic_vector(23 downto 0); -- OUTPUT REAL PART
-    OUT_Q           : OUT  std_logic_vector(23 downto 0) -- OUTPUT IMAG PART
+    OUT_I           : OUT  std_logic_vector(20 downto 0); -- OUTPUT REAL PART
+    OUT_Q           : OUT  std_logic_vector(20 downto 0) -- OUTPUT IMAG PART
 );
 end Acquisition;
 
@@ -42,7 +43,7 @@ architecture architecture_Acquisition of Acquisition is
     constant DDS_Width          : integer := 8; -- Datawidth of the DDS
     constant SUM_Width          : integer := 9; -- Datawidth of the summer before the FFT
     constant FFT_Width          : integer := 10; -- Datawidth before the fft
-    constant IFFT_Width         : integer := 17; -- Datawidth before the ifft
+    constant IFFT_Width         : integer := 21; -- Datawidth before the ifft
     
     -- slower clk
     signal clk_div4, slw_clk : std_logic;
@@ -58,9 +59,8 @@ architecture architecture_Acquisition of Acquisition is
 	signal FFT_I_signal, FFT_Q_signal, FFT_X_signal, FFT_Y_signal : std_logic_vector(FFT_Width-1 downto 0); -- example
     
     -- Réplica sinal C/A
-    signal ca_prn, ca_clk, ca_rst : std_logic;
-    signal ca_enable, ca_valid : std_logic;
-    signal ca_epoch, counter_init : std_logic;
+    signal ca_prn : std_logic;
+    signal counter_init : std_logic;
     signal ca_counter : std_logic_vector(5 downto 0);
     signal sat_int: integer range 0 to 31; -- 32 GPS
     signal FFT_CA_in_real, FFT_CA_out_real, FFT_CA_in_imag, FFT_CA_out_imag : std_logic_vector (FFT_Width-1 downto 0); 
@@ -248,11 +248,11 @@ begin
 	CA_CODE: L1_CA_generator 
 	   port map(
 	     clk        => CA_CLK,
-	     rst        => CA_RST,
+	     rst        => RST,
 	     PRN        => CA_PRN,
-	     ENABLE     => CA_ENABLE,
-	     valid_out  => CA_valid,
-	     epoch      => CA_epoch,
+	     ENABLE     => '1',
+	     valid_out  => open,
+	     epoch      => open,
 	     epoch_advce => open,
 	     SAT        => SAT_int
 	   );
