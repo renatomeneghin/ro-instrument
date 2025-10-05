@@ -188,11 +188,11 @@ architecture architecture_Acquisition of Acquisition is
         data_width : integer := 64
     );
     port(	
-        A:	in std_logic_vector(DDS_Width-1 downto 0);
-        B:	in std_logic_vector(DDS_Width-1 downto 0);
+        A:	in std_logic_vector(data_width-1 downto 0);
+        B:	in std_logic_vector(data_width-1 downto 0);
         Cin:	in std_logic;
 
-        S:	out std_logic_vector(DDS_Width-1 downto 0);
+        S:	out std_logic_vector(data_width-1 downto 0);
         Cout:	out std_logic
     );
     end component;
