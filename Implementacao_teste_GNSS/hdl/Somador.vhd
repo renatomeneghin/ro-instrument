@@ -9,7 +9,7 @@ use work.all;
 
 --------------------------------------------------------------
 
-entity Somador is
+entity UAL is
 generic(
 	data_width : integer := 64
 );
@@ -21,10 +21,10 @@ port(
 	S:	out std_logic_vector(data_width-1 downto 0);
 	Cout:	out std_logic
 );
-end Somador;
+end UAL;
 
 --------------------------------------------------------------
-architecture arq_Somador of Somador is
+architecture arq_UAL of UAL is
 
 signal C: std_logic_vector(data_width downto 0);
 
@@ -34,7 +34,7 @@ begin
 		S(i) 	<= A(i) xor B(i) xor C(i);
 		C(i+1) 	<= (A(i) and B(i)) or (A(i) and C(i)) or (B(i) and C(i));
 	end generate;
-	Cout 	<= C(64);
-end arq_Somador;
+	Cout 	<= C(data_width);
+end arq_UAL;
 
 --------------------------------------------------------------

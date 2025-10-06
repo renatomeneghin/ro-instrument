@@ -288,7 +288,7 @@ begin
 	    BUF_READY   => open,               -- não usado aqui
 	    DATAO_IM    => FFT_CA_out_imag, -- saída imag
 	    DATAO_RE    => FFT_CA_out_real, -- saída real
-	    DATAO_VALID => open,               -- válido quando saída ativa
+	    DATAO_VALID => clkd(0),               -- válido quando saída ativa
 	    OUTP_READY  => open
 	);
     
@@ -300,13 +300,14 @@ begin
     CLK_MULT_D: for i in 0 to 3 generate
 		delay_I: Flip_Flop_D port map(clkd(i),RST, CLK, clkd(i+1)); -- ainda a ser verificado
 	end generate;
+    
                                             
     IFFT: COREFFT_C3
 	port map (
-	    CLK         => clkd(3),                -- clock de processamento
+	    CLK         => CLK,                -- clock de processamento
 	    DATAI_IM    => IFFT_in_imag, -- parte imaginária (Q)
 	    DATAI_RE    => IFFT_in_real, -- parte real (I)
-	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados válidos
+	    DATAI_VALID => clkd(4),                -- sinaliza dados válidos
 	    READ_OUTP   => READ_OUT,                -- habilita leitura da saída
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
 	    NGRST       => NRST,                -- reset ativo baixo (não resetado)
