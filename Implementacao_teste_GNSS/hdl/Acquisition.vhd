@@ -306,7 +306,11 @@ begin
 	    DATAO_RE    => FFT_CA_out_real, -- saída real
 	    DATAO_VALID => clkd(0),               -- válido quando saída ativa
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	    OUTP_READY  => open
+=======
+	    OUTP_READY  => OutReady(1)
+>>>>>>> Stashed changes
 =======
 	    OUTP_READY  => OutReady(1)
 >>>>>>> Stashed changes
@@ -328,7 +332,11 @@ begin
 	    DATAI_RE    => IFFT_in_real, -- parte real (I)
 	    DATAI_VALID => clkd(4),                -- sinaliza dados válidos
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	    READ_OUTP   => READ_OUT,                -- habilita leitura da saída
+=======
+	    READ_OUTP   => ReadPulse(1),                -- habilita leitura da saída
+>>>>>>> Stashed changes
 =======
 	    READ_OUTP   => ReadPulse(1),                -- habilita leitura da saída
 >>>>>>> Stashed changes
