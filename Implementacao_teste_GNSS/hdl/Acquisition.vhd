@@ -52,7 +52,7 @@ architecture architecture_Acquisition of Acquisition is
     -- Controle do processo
     signal count_state  : std_logic_vector(Contador_WIDTH-1 downto 0); -- example
 	signal Frequency_offset_data : std_logic_vector(Contador_WIDTH-6 downto 0); -- example
-    signal OutReady : std_logic_vector(2 downto 0);
+    signal OutReady, InReady : std_logic_vector(2 downto 0);
     signal ReadPulse : std_logic_vector (1 downto 0);
     -- Entrada do sinal 
     signal cos_signal, sin_signal : std_logic_vector(DDS_Width-1 downto 0) ; -- example
@@ -60,7 +60,7 @@ architecture architecture_Acquisition of Acquisition is
 	signal FFT_I_signal, FFT_Q_signal, FFT_X_signal, FFT_Y_signal : std_logic_vector(FFT_Width-1 downto 0); -- example
     
     -- Replica sinal C/A
-    signal ca_prn : std_logic;
+    signal ca_prn, Read_data : std_logic;
     signal counter_clk : std_logic;
     signal sat_int: integer range 0 to 31; -- 32 GPS
     signal FFT_CA_in_real, FFT_CA_out_real, FFT_CA_in_imag, FFT_CA_out_imag : std_logic_vector (FFT_Width-1 downto 0); 
@@ -281,11 +281,11 @@ begin
 	    CLK         => CLK,                -- clock de processamento
 	    DATAI_IM    => FFT_Q_signal, -- parte imaginaria (Q)
 	    DATAI_RE    => FFT_I_signal, -- parte real (I)
-	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados validos
+	    DATAI_VALID => Read_data,                -- sinaliza dados validos
 	    READ_OUTP   => ReadPulse(0),                -- habilita leitura da saida
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
 	    NGRST       => NRST,                -- reset ativo baixo (nao resetado)
-	    BUF_READY   => open,               -- nao usado aqui
+	    BUF_READY   => InReady(0),               -- nao usado aqui
 	    DATAO_IM    => FFT_X_signal, -- saida imag
 	    DATAO_RE    => FFT_Y_signal, -- saida real
 	    DATAO_VALID => open,               -- valido quando saida ativa
@@ -297,11 +297,11 @@ begin
 	    CLK         => CLK,                -- clock de processamento
 	    DATAI_IM    => FFT_CA_in_imag, -- parte imaginaria (Q)
 	    DATAI_RE    => FFT_CA_in_real, -- parte real (I)
-	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados validos
+	    DATAI_VALID => Read_data,                -- sinaliza dados validos
 	    READ_OUTP   => ReadPulse(0),                -- habilita leitura da saida
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
 	    NGRST       => NRST,                -- reset ativo baixo (nao resetado)
-	    BUF_READY   => open,               -- nao usado aqui
+	    BUF_READY   => InReady(1),               -- nao usado aqui
 	    DATAO_IM    => FFT_CA_out_imag, -- saida imag
 	    DATAO_RE    => FFT_CA_out_real, -- saida real
 	    DATAO_VALID => clkd(0),               -- valido quando saida ativa
@@ -326,7 +326,7 @@ begin
 	    READ_OUTP   => ReadPulse(1),                -- habilita leitura da saida
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
 	    NGRST       => NRST,                -- reset ativo baixo (nao resetado)
-	    BUF_READY   => open,               -- nao usado aqui
+	    BUF_READY   => InReady(2),               -- nao usado aqui
 	    DATAO_IM    => OUT_Q, -- saida imag
 	    DATAO_RE    => OUT_I, -- saida real
 	    DATAO_VALID => READ_OUT_V,               -- valido quando saida ativa
@@ -341,6 +341,7 @@ begin
     Frequency_offset_data <= count_state(Contador_WIDTH-6 downto 0);
     NRST <= not (RST);
     FFT_CA_in_imag <= (others => '0');
+    Read_data <= InReady(0) and InReady(1) and MAX_INPUT_CLK;
     ReadPulse(0) <= OutReady(0) and OutReady(1) and CLK;
     ReadPulse(1) <= OutReady(2) and READ_OUT;
     counter_clk  <= OutReady(0);
