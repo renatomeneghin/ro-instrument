@@ -313,7 +313,7 @@ begin
                                             CLK, NRST, IFFT_in_imag, IFFT_in_real); -- Verificar
                                             
     CLK_MULT_D: for i in 0 to 3 generate
-		delay_I: Flip_Flop_D port map(clkd(i),RST, CLK, clkd(i+1)); -- ainda a ser verificado
+		delay_I: Flip_Flop_D port map(clkd(i),RST, slw_clk, clkd(i+1)); -- ainda a ser verificado
 	end generate;
     
                                             
@@ -342,7 +342,7 @@ begin
     NRST <= not (RST);
     FFT_CA_in_imag <= (others => '0');
     Read_data <= InReady(0) and InReady(1) and MAX_INPUT_CLK;
-    ReadPulse(0) <= OutReady(0) and OutReady(1) and CLK;
+    ReadPulse(0) <= OutReady(0) and OutReady(1) and slw_clk;
     ReadPulse(1) <= OutReady(2) and READ_OUT;
     counter_clk  <= OutReady(0);
 
