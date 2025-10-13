@@ -305,22 +305,10 @@ begin
 	    DATAO_IM    => FFT_CA_out_imag, -- saida imag
 	    DATAO_RE    => FFT_CA_out_real, -- saida real
 	    DATAO_VALID => clkd(0),               -- valido quando saida ativa
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	    OUTP_READY  => open
-=======
 	    OUTP_READY  => OutReady(1)
->>>>>>> Stashed changes
-=======
-	    OUTP_READY  => OutReady(1)
->>>>>>> Stashed changes
-=======
-	    OUTP_READY  => OutReady(1)
->>>>>>> Stashed changes
 	);
     
-    -- Correlacao
+    -- Correlação
     MULT5: complex_multiplier_C0 port map (FFT_X_signal, FFT_Y_signal, CA_CONJ_out_imag, FFT_CA_out_real, 
                                             CLK, NRST, IFFT_in_imag, IFFT_in_real); -- Verificar
                                             
@@ -335,19 +323,7 @@ begin
 	    DATAI_IM    => IFFT_in_imag, -- parte imaginaria (Q)
 	    DATAI_RE    => IFFT_in_real, -- parte real (I)
 	    DATAI_VALID => clkd(4),                -- sinaliza dados validos
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	    READ_OUTP   => READ_OUT,                -- habilita leitura da saida
-=======
 	    READ_OUTP   => ReadPulse(1),                -- habilita leitura da saida
->>>>>>> Stashed changes
-=======
-	    READ_OUTP   => ReadPulse(1),                -- habilita leitura da saida
->>>>>>> Stashed changes
-=======
-	    READ_OUTP   => ReadPulse(1),                -- habilita leitura da saida
->>>>>>> Stashed changes
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
 	    NGRST       => NRST,                -- reset ativo baixo (nao resetado)
 	    BUF_READY   => open,               -- nao usado aqui
@@ -366,9 +342,7 @@ begin
     NRST <= not (RST);
     FFT_CA_in_imag <= (others => '0');
     ReadPulse(0) <= OutReady(0) and OutReady(1) and CLK;
-    ReadPulse(1) <= OutReady(2) and CLK;
+    ReadPulse(1) <= OutReady(2) and READ_OUT;
     counter_clk  <= OutReady(0);
-    
-    
 
 end architecture_Acquisition;
