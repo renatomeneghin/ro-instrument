@@ -25,7 +25,7 @@ entity Acquisition is
 port (
     --<port_name> : <direction> <type>;
 	CLK             : IN  std_logic; -- example
-    CA_CLK         : IN std_logic;
+    CA_CLK          : IN std_logic;
     RST             : IN    std_logic;
 	MAX_INPUT_I     : IN  std_logic_vector(1 downto 0); -- MAX INPUT IN PHASE SIGNAL
     MAX_INPUT_Q     : IN  std_logic_vector(1 downto 0); -- MAX INPUT QUADRATURE SIGNAL
@@ -52,7 +52,8 @@ architecture architecture_Acquisition of Acquisition is
     -- Controle do processo
     signal count_state  : std_logic_vector(Contador_WIDTH-1 downto 0); -- example
 	signal Frequency_offset_data : std_logic_vector(Contador_WIDTH-6 downto 0); -- example
-    
+    signal OutReady : std_logic_vector(2 downto 0);
+    signal ReadPulse : std_logic_vector (1 downto 0);
     -- Entrada do sinal 
     signal cos_signal, sin_signal : std_logic_vector(DDS_Width-1 downto 0) ; -- example
 	signal I1_signal, Q1_signal, I2_signal, Q2_signal, Q2_signal_n: std_logic_vector(SUM_Width-1 downto 0); -- example
@@ -60,8 +61,7 @@ architecture architecture_Acquisition of Acquisition is
     
     -- R�plica sinal C/A
     signal ca_prn : std_logic;
-    signal counter_init : std_logic;
-    signal ca_counter : std_logic_vector(5 downto 0);
+    signal counter_clk : std_logic;
     signal sat_int: integer range 0 to 31; -- 32 GPS
     signal FFT_CA_in_real, FFT_CA_out_real, FFT_CA_in_imag, FFT_CA_out_imag : std_logic_vector (FFT_Width-1 downto 0); 
     signal CA_CONJ_out_imag : std_logic_vector (FFT_Width-1 downto 0); 
@@ -72,19 +72,15 @@ architecture architecture_Acquisition of Acquisition is
         
     component PF_CLK_DIV_C0 is
     port(
-    -- Inputs
-    CLK_IN  : in  std_logic;
-    -- Outputs
-    CLK_OUT : out  std_logic
+        CLK_IN  : in  std_logic;
+        CLK_OUT : out  std_logic
     );
     end component;
     
     component PF_CLK_DIV_C1 is
     port(
-    -- Inputs
-    CLK_IN  : in  std_logic;
-    -- Outputs
-    CLK_OUT : out  std_logic
+        CLK_IN  : in  std_logic;
+        CLK_OUT : out  std_logic
     );
     end component;
     
@@ -134,6 +130,26 @@ architecture architecture_Acquisition of Acquisition is
     end component;
     
     component COREFFT_C3 is -- In-Place FFT
+    port(
+        -- Inputs
+        CLK         : in  std_logic;
+        DATAI_IM    : in  std_logic_vector(FFT_Width-1 downto 0);
+        DATAI_RE    : in  std_logic_vector(FFT_Width-1 downto 0);
+        DATAI_VALID : in  std_logic;
+        NGRST       : in  std_logic;
+        READ_OUTP   : in  std_logic;
+        SLOWCLK     : in  std_logic;
+        -- Outputs
+        BUF_READY   : out std_logic;
+        DATAO_IM    : out std_logic_vector(FFT_Width-1 downto 0);
+        DATAO_RE    : out std_logic_vector(FFT_Width-1 downto 0);
+        DATAO_VALID : out std_logic;
+        OUTP_READY  : out std_logic
+    );
+    end component;
+    
+    
+    component COREFFT_C4 is -- In-Place FFT
     port(
         -- Inputs
         CLK         : in  std_logic;
@@ -229,8 +245,8 @@ begin
     DIV8_CLK: PF_CLK_DIV_C1 port map(clk_div4, slw_clk);
     
     -- DDS e contador 
-    SINE_GENERATOR: COREDDS_C0 port map (CLK,Frequency_offset_data, '0','1',NRST,'1',cos_signal,open,sin_signal);
-    CONTADOR_ESTADO: contador generic map (Contador_WIDTH) port map(clk, counter_init, count_state);
+    SINE_GENERATOR: COREDDS_C0 port map (CLK,Frequency_offset_data, '0','0',NRST,'1',cos_signal,open,sin_signal);
+    CONTADOR_ESTADO: contador generic map (Contador_WIDTH) port map(counter_clk, RST, count_state);
     
     -- Entrada
     MULT1: Multiplier_simplified generic map(DDS_Width) port map(cos_signal,MAX_INPUT_I,I1_signal);
@@ -266,32 +282,35 @@ begin
 	    DATAI_IM    => FFT_Q_signal, -- parte imaginária (Q)
 	    DATAI_RE    => FFT_I_signal, -- parte real (I)
 	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados válidos
-	    READ_OUTP   => '1',                -- habilita leitura da saída
+	    READ_OUTP   => ReadPulse(0),                -- habilita leitura da saída
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
 	    NGRST       => NRST,                -- reset ativo baixo (não resetado)
 	    BUF_READY   => open,               -- não usado aqui
 	    DATAO_IM    => FFT_X_signal, -- saída imag
 	    DATAO_RE    => FFT_Y_signal, -- saída real
 	    DATAO_VALID => open,               -- válido quando saída ativa
-	    OUTP_READY  => open
+	    OUTP_READY  => OutReady(0)
 	);
 		
-    FFT_CA: COREFFT_C2
+    FFT_CA: COREFFT_C3
 	port map (
 	    CLK         => CLK,                -- clock de processamento
 	    DATAI_IM    => FFT_CA_in_imag, -- parte imaginária (Q)
 	    DATAI_RE    => FFT_CA_in_real, -- parte real (I)
-	    DATAI_VALID => clkd(3),                -- sinaliza dados válidos
-	    READ_OUTP   => '1',                -- habilita leitura da saída
+	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados válidos
+	    READ_OUTP   => ReadPulse(0),                -- habilita leitura da saída
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
 	    NGRST       => NRST,                -- reset ativo baixo (não resetado)
 	    BUF_READY   => open,               -- não usado aqui
 	    DATAO_IM    => FFT_CA_out_imag, -- saída imag
 	    DATAO_RE    => FFT_CA_out_real, -- saída real
 	    DATAO_VALID => clkd(0),               -- válido quando saída ativa
+<<<<<<< Updated upstream
 	    OUTP_READY  => open
+=======
+	    OUTP_READY  => OutReady(1)
+>>>>>>> Stashed changes
 	);
-    
     
     -- Correlação
     MULT5: complex_multiplier_C0 port map (FFT_X_signal, FFT_Y_signal, CA_CONJ_out_imag, FFT_CA_out_real, 
@@ -302,25 +321,38 @@ begin
 	end generate;
     
                                             
-    IFFT: COREFFT_C3
+    IFFT: COREFFT_C4
 	port map (
 	    CLK         => CLK,                -- clock de processamento
 	    DATAI_IM    => IFFT_in_imag, -- parte imaginária (Q)
 	    DATAI_RE    => IFFT_in_real, -- parte real (I)
 	    DATAI_VALID => clkd(4),                -- sinaliza dados válidos
+<<<<<<< Updated upstream
 	    READ_OUTP   => READ_OUT,                -- habilita leitura da saída
+=======
+	    READ_OUTP   => ReadPulse(1),                -- habilita leitura da saída
+>>>>>>> Stashed changes
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
 	    NGRST       => NRST,                -- reset ativo baixo (não resetado)
 	    BUF_READY   => open,               -- não usado aqui
 	    DATAO_IM    => OUT_Q, -- saída imag
 	    DATAO_RE    => OUT_I, -- saída real
 	    DATAO_VALID => READ_OUT_V,               -- válido quando saída ativa
-	    OUTP_READY  => open
+	    OUTP_READY  => OutReady(2)
 	);
     
-    CA_CONJ_out_imag <= std_logic_vector(resize(-signed(FFT_CA_out_imag), FFT_Width));
+    CA_CONJ: entity work.Negative_Integer generic map(data_width => FFT_Width) 
+                port map(SIG_IN  => FFT_CA_out_imag, SIG_OUT => CA_CONJ_out_imag);
+    
     SAT_int <= to_integer(unsigned(count_state(Contador_WIDTH-1 downto Contador_WIDTH-5)));
+    
     Frequency_offset_data <= count_state(Contador_WIDTH-6 downto 0);
     NRST <= not (RST);
+    FFT_CA_in_imag <= (others => '0');
+    ReadPulse(0) <= OutReady(0) and OutReady(1) and CLK;
+    ReadPulse(1) <= OutReady(2) and CLK;
+    counter_clk  <= OutReady(0);
+    
+    
 
 end architecture_Acquisition;
