@@ -310,7 +310,7 @@ begin
     
     -- Correlação
     MULT5: complex_multiplier_C0 port map (FFT_X_signal, FFT_Y_signal, CA_CONJ_out_imag, FFT_CA_out_real, 
-                                            CLK, NRST, IFFT_in_imag, IFFT_in_real); -- Verificar
+                                            slw_clk, NRST, IFFT_in_imag, IFFT_in_real); -- Verificar
                                             
     CLK_MULT_D: for i in 0 to 3 generate
 		delay_I: Flip_Flop_D port map(clkd(i),RST, slw_clk, clkd(i+1)); -- ainda a ser verificado
