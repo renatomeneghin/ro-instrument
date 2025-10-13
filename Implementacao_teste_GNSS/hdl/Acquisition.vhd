@@ -59,7 +59,7 @@ architecture architecture_Acquisition of Acquisition is
 	signal I1_signal, Q1_signal, I2_signal, Q2_signal, Q2_signal_n: std_logic_vector(SUM_Width-1 downto 0); -- example
 	signal FFT_I_signal, FFT_Q_signal, FFT_X_signal, FFT_Y_signal : std_logic_vector(FFT_Width-1 downto 0); -- example
     
-    -- R�plica sinal C/A
+    -- Replica sinal C/A
     signal ca_prn : std_logic;
     signal counter_clk : std_logic;
     signal sat_int: integer range 0 to 31; -- 32 GPS
@@ -279,32 +279,33 @@ begin
     FFT_IQ : COREFFT_C2
 	port map (
 	    CLK         => CLK,                -- clock de processamento
-	    DATAI_IM    => FFT_Q_signal, -- parte imaginária (Q)
+	    DATAI_IM    => FFT_Q_signal, -- parte imaginaria (Q)
 	    DATAI_RE    => FFT_I_signal, -- parte real (I)
-	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados válidos
-	    READ_OUTP   => ReadPulse(0),                -- habilita leitura da saída
+	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados validos
+	    READ_OUTP   => ReadPulse(0),                -- habilita leitura da saida
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
-	    NGRST       => NRST,                -- reset ativo baixo (não resetado)
-	    BUF_READY   => open,               -- não usado aqui
-	    DATAO_IM    => FFT_X_signal, -- saída imag
-	    DATAO_RE    => FFT_Y_signal, -- saída real
-	    DATAO_VALID => open,               -- válido quando saída ativa
+	    NGRST       => NRST,                -- reset ativo baixo (nao resetado)
+	    BUF_READY   => open,               -- nao usado aqui
+	    DATAO_IM    => FFT_X_signal, -- saida imag
+	    DATAO_RE    => FFT_Y_signal, -- saida real
+	    DATAO_VALID => open,               -- valido quando saida ativa
 	    OUTP_READY  => OutReady(0)
 	);
 		
     FFT_CA: COREFFT_C3
 	port map (
 	    CLK         => CLK,                -- clock de processamento
-	    DATAI_IM    => FFT_CA_in_imag, -- parte imaginária (Q)
+	    DATAI_IM    => FFT_CA_in_imag, -- parte imaginaria (Q)
 	    DATAI_RE    => FFT_CA_in_real, -- parte real (I)
-	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados válidos
-	    READ_OUTP   => ReadPulse(0),                -- habilita leitura da saída
+	    DATAI_VALID => MAX_INPUT_CLK,                -- sinaliza dados validos
+	    READ_OUTP   => ReadPulse(0),                -- habilita leitura da saida
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
-	    NGRST       => NRST,                -- reset ativo baixo (não resetado)
-	    BUF_READY   => open,               -- não usado aqui
-	    DATAO_IM    => FFT_CA_out_imag, -- saída imag
-	    DATAO_RE    => FFT_CA_out_real, -- saída real
-	    DATAO_VALID => clkd(0),               -- válido quando saída ativa
+	    NGRST       => NRST,                -- reset ativo baixo (nao resetado)
+	    BUF_READY   => open,               -- nao usado aqui
+	    DATAO_IM    => FFT_CA_out_imag, -- saida imag
+	    DATAO_RE    => FFT_CA_out_real, -- saida real
+	    DATAO_VALID => clkd(0),               -- valido quando saida ativa
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 	    OUTP_READY  => open
@@ -314,9 +315,12 @@ begin
 =======
 	    OUTP_READY  => OutReady(1)
 >>>>>>> Stashed changes
+=======
+	    OUTP_READY  => OutReady(1)
+>>>>>>> Stashed changes
 	);
     
-    -- Correlação
+    -- Correlacao
     MULT5: complex_multiplier_C0 port map (FFT_X_signal, FFT_Y_signal, CA_CONJ_out_imag, FFT_CA_out_real, 
                                             CLK, NRST, IFFT_in_imag, IFFT_in_real); -- Verificar
                                             
@@ -328,24 +332,28 @@ begin
     IFFT: COREFFT_C4
 	port map (
 	    CLK         => CLK,                -- clock de processamento
-	    DATAI_IM    => IFFT_in_imag, -- parte imaginária (Q)
+	    DATAI_IM    => IFFT_in_imag, -- parte imaginaria (Q)
 	    DATAI_RE    => IFFT_in_real, -- parte real (I)
-	    DATAI_VALID => clkd(4),                -- sinaliza dados válidos
+	    DATAI_VALID => clkd(4),                -- sinaliza dados validos
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-	    READ_OUTP   => READ_OUT,                -- habilita leitura da saída
+<<<<<<< Updated upstream
+	    READ_OUTP   => READ_OUT,                -- habilita leitura da saida
 =======
-	    READ_OUTP   => ReadPulse(1),                -- habilita leitura da saída
+	    READ_OUTP   => ReadPulse(1),                -- habilita leitura da saida
 >>>>>>> Stashed changes
 =======
-	    READ_OUTP   => ReadPulse(1),                -- habilita leitura da saída
+	    READ_OUTP   => ReadPulse(1),                -- habilita leitura da saida
+>>>>>>> Stashed changes
+=======
+	    READ_OUTP   => ReadPulse(1),                -- habilita leitura da saida
 >>>>>>> Stashed changes
 	    SLOWCLK     => slw_clk,      -- SLOWCLK
-	    NGRST       => NRST,                -- reset ativo baixo (não resetado)
-	    BUF_READY   => open,               -- não usado aqui
-	    DATAO_IM    => OUT_Q, -- saída imag
-	    DATAO_RE    => OUT_I, -- saída real
-	    DATAO_VALID => READ_OUT_V,               -- válido quando saída ativa
+	    NGRST       => NRST,                -- reset ativo baixo (nao resetado)
+	    BUF_READY   => open,               -- nao usado aqui
+	    DATAO_IM    => OUT_Q, -- saida imag
+	    DATAO_RE    => OUT_I, -- saida real
+	    DATAO_VALID => READ_OUT_V,               -- valido quando saida ativa
 	    OUTP_READY  => OutReady(2)
 	);
     
