@@ -46,9 +46,9 @@ architecture architecture_Acquisition of Acquisition is
     constant IFFT_Width         : integer := 21; -- Datawidth before the ifft
     
     -- slower clk
-    signal clk_div4, slw_clk : std_logic;
-    signal NRST : std_logic;
-    signal clkd : std_logic_vector(4 downto 0);
+    signal clk_div2, slw_clk, slw_clk_2 : std_logic;
+    signal NRST, MULT_RST : std_logic;
+    signal clkd : std_logic_vector(3 downto 0);
     -- Controle do processo
     signal count_state  : std_logic_vector(Contador_WIDTH-1 downto 0); -- example
 	signal Frequency_offset_data : std_logic_vector(Contador_WIDTH-6 downto 0); -- example
@@ -78,6 +78,13 @@ architecture architecture_Acquisition of Acquisition is
     end component;
     
     component PF_CLK_DIV_C1 is
+    port(
+        CLK_IN  : in  std_logic;
+        CLK_OUT : out  std_logic
+    );
+    end component;
+    
+    component PF_CLK_DIV_C2 is
     port(
         CLK_IN  : in  std_logic;
         CLK_OUT : out  std_logic
@@ -241,8 +248,9 @@ begin
 
     -- architecture body
     -- Divisor de clock
-    DIV4_CLK: PF_CLK_DIV_C0 port map(clk, clk_div4);
-    DIV8_CLK: PF_CLK_DIV_C1 port map(clk_div4, slw_clk);
+    DIV2_CLK: PF_CLK_DIV_C0 port map(clk, clk_div2);
+    DIV8_CLK: PF_CLK_DIV_C1 port map(clk_div2, slw_clk);
+    DIV16_CLK: PF_CLK_DIV_C1 port map(slw_clk, slw_clk_2);
     
     -- DDS e contador 
     SINE_GENERATOR: COREDDS_C0 port map (CLK,Frequency_offset_data, '0','0',NRST,'1',cos_signal,open,sin_signal);
@@ -310,21 +318,20 @@ begin
     
     -- Correlação
     MULT5: complex_multiplier_C0 port map (FFT_X_signal, FFT_Y_signal, CA_CONJ_out_imag, FFT_CA_out_real, 
-                                            slw_clk, NRST, IFFT_in_imag, IFFT_in_real); -- Verificar
-                                            
-    CLK_MULT_D: for i in 0 to 3 generate
-		delay_I: Flip_Flop_D port map(clkd(i),RST, slw_clk, clkd(i+1)); -- ainda a ser verificado
-	end generate;
+                                            slw_clk, MULT_RST, IFFT_in_imag, IFFT_in_real); -- Verificar
     
+    CLK_MULT_D: for i in 0 to 2 generate
+		delay_I: Flip_Flop_D port map(clkd(i),NRST, slw_clk, clkd(i+1)); -- ainda a ser verificado
+	end generate;	
                                             
     IFFT: COREFFT_C4
 	port map (
-	    CLK         => CLK,                -- clock de processamento
+	    CLK         => clk_div2,                -- clock de processamento
 	    DATAI_IM    => IFFT_in_imag, -- parte imaginaria (Q)
 	    DATAI_RE    => IFFT_in_real, -- parte real (I)
-	    DATAI_VALID => clkd(4),                -- sinaliza dados validos
+	    DATAI_VALID => clkd(3),                -- sinaliza dados validos
 	    READ_OUTP   => ReadPulse(1),                -- habilita leitura da saida
-	    SLOWCLK     => slw_clk,      -- SLOWCLK
+	    SLOWCLK     => slw_clk_2,      -- SLOWCLK
 	    NGRST       => NRST,                -- reset ativo baixo (nao resetado)
 	    BUF_READY   => InReady(2),               -- nao usado aqui
 	    DATAO_IM    => OUT_Q, -- saida imag
@@ -342,6 +349,7 @@ begin
     NRST <= not (RST);
     FFT_CA_in_imag <= (others => '0');
     Read_data <= InReady(0) and InReady(1) and MAX_INPUT_CLK;
+    MULT_RST <= NRST and ((OutReady(0) and OutReady(1)) or clkd(3));
     ReadPulse(0) <= OutReady(0) and OutReady(1) and slw_clk;
     ReadPulse(1) <= OutReady(2) and READ_OUT;
     counter_clk  <= OutReady(0);
