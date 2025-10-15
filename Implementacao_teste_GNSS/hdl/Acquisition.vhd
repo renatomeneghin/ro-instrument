@@ -70,21 +70,21 @@ architecture architecture_Acquisition of Acquisition is
     -- Sinais transformados
     signal IFFT_in_imag, IFFT_in_real : std_logic_vector (IFFT_Width-1 downto 0); 
         
-    component PF_CLK_DIV_C0 is
+    component PF_CLK_DIV_C3 is
     port(
         CLK_IN  : in  std_logic;
         CLK_OUT : out  std_logic
     );
     end component;
     
-    component PF_CLK_DIV_C1 is
+    component PF_CLK_DIV_C4 is
     port(
         CLK_IN  : in  std_logic;
         CLK_OUT : out  std_logic
     );
     end component;
     
-    component PF_CLK_DIV_C2 is
+    component PF_CLK_DIV_C5 is
     port(
         CLK_IN  : in  std_logic;
         CLK_OUT : out  std_logic
@@ -248,9 +248,9 @@ begin
 
     -- architecture body
     -- Divisor de clock
-    DIV2_CLK: PF_CLK_DIV_C0 port map(clk, clk_div2);
-    DIV8_CLK: PF_CLK_DIV_C1 port map(clk_div2, slw_clk);
-    DIV16_CLK: PF_CLK_DIV_C1 port map(slw_clk, slw_clk_2);
+    DIV2_CLK: PF_CLK_DIV_C3 port map(clk, clk_div2);
+    DIV8_CLK: PF_CLK_DIV_C4 port map(clk_div2, slw_clk);
+    DIV16_CLK: PF_CLK_DIV_C5 port map(slw_clk, slw_clk_2);
     
     -- DDS e contador 
     SINE_GENERATOR: COREDDS_C0 port map (CLK,Frequency_offset_data, '0','0',NRST,'1',cos_signal,open,sin_signal);
@@ -350,7 +350,7 @@ begin
     FFT_CA_in_imag <= (others => '0');
     Read_data <= InReady(0) and InReady(1) and MAX_INPUT_CLK;
     MULT_RST <= NRST and ((OutReady(0) and OutReady(1)) or clkd(3));
-    ReadPulse(0) <= OutReady(0) and OutReady(1) and slw_clk;
+    ReadPulse(0) <= OutReady(0) and OutReady(1) and slw_clk and InReady(2);
     ReadPulse(1) <= OutReady(2) and READ_OUT;
     counter_clk  <= OutReady(0);
 
