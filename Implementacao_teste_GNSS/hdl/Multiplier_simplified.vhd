@@ -19,6 +19,7 @@
 library IEEE;
 
 use IEEE.std_logic_1164.all;
+use work.all;
 
 entity Multiplier_simplified is
 generic(
@@ -39,13 +40,13 @@ port(
 end Multiplier_simplified;
 architecture architecture_Multiplier_simplified of Multiplier_simplified is
    -- signal, component etc. declarations
-	signal shift : std_logic_vector(data_width downto 0) ; -- example
-
+	signal shift, negative : std_logic_vector(data_width downto 0) ; -- example
 begin
    -- architecture body
-   shift <= A(data_width-1) & '0' & A(data_width-2 downto 0)        when B(0) = '0' else
+    shift <= A(data_width-1) & '0' & A(data_width-2 downto 0)        when B(0) = '0' else
             A(data_width-1 downto 0) & '0';
-   S <= shift   when B(1) = '0' else
-        not(shift);
+    Neg_Value: entity work.Negative_Integer generic map(data_width+1) port map(shift,negative);
+    S <= shift   when B(1) = '0' else
+        negative;
    
 end architecture_Multiplier_simplified;

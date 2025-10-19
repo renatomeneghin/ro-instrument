@@ -67,8 +67,15 @@ architecture architecture_Acquisition of Acquisition is
     signal CA_CONJ_out_imag : std_logic_vector (FFT_Width-1 downto 0); 
     --signal CA_NEG_out_imag : std_logic_vector (9 downto 0); 
     
+    -- Debug
+    signal dI_signal, dQ_signal, 
+           dFFT_I_signal, dFFT_Q_signal, 
+           dFFT_Re_CA_signal, dFFT_Im_CA_signal, 
+           dFFT_X_signal, dFFT_Y_signal, 
+           dIFFT_Re_signal, dIFFT_Im_signal  : integer; -- example
+    
     -- Sinais transformados
-    signal IFFT_in_imag, IFFT_in_real : std_logic_vector (IFFT_Width-1 downto 0); 
+    signal IFFT_in_imag, IFFT_in_real, IFFT_o_imag, IFFT_o_real : std_logic_vector (IFFT_Width-1 downto 0); 
         
     component PF_CLK_DIV_C3 is
     port(
@@ -334,8 +341,8 @@ begin
 	    SLOWCLK     => slw_clk_2,      -- SLOWCLK
 	    NGRST       => NRST,                -- reset ativo baixo (nao resetado)
 	    BUF_READY   => InReady(2),               -- nao usado aqui
-	    DATAO_IM    => OUT_Q, -- saida imag
-	    DATAO_RE    => OUT_I, -- saida real
+	    DATAO_IM    => IFFT_o_imag, -- saida imag
+	    DATAO_RE    => IFFT_o_real, -- saida real
 	    DATAO_VALID => READ_OUT_V,               -- valido quando saida ativa
 	    OUTP_READY  => OutReady(2)
 	);
@@ -353,5 +360,18 @@ begin
     ReadPulse(0) <= OutReady(0) and OutReady(1) and slw_clk and InReady(2);
     ReadPulse(1) <= OutReady(2) and READ_OUT;
     counter_clk  <= OutReady(0);
-
+    
+    --debug
+    dI_signal           <= to_integer(signed(FFT_I_signal));
+    dQ_signal           <= to_integer(signed(FFT_Q_signal));
+    dFFT_I_signal       <= to_integer(signed(FFT_Y_signal));
+    dFFT_Q_signal       <= to_integer(signed(FFT_X_signal));
+    dFFT_Re_CA_signal   <= to_integer(signed(FFT_CA_out_real));
+    dFFT_Im_CA_signal   <= to_integer(signed(CA_CONJ_out_imag));
+    dFFT_X_signal       <= to_integer(signed(IFFT_in_real));
+    dFFT_Y_signal       <= to_integer(signed(IFFT_in_imag));
+    dIFFT_Re_signal     <= to_integer(signed(IFFT_o_real));
+    dIFFT_Im_signal     <= to_integer(signed(IFFT_o_imag));
+    OUT_I               <= IFFT_o_real;
+    OUT_Q               <=IFFT_o_imag;
 end architecture_Acquisition;
