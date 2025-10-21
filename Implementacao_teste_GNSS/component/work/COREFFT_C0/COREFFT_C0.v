@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////
-// Created by SmartDesign Thu Sep 25 10:14:21 2025
+// Created by SmartDesign Tue Oct 21 08:33:44 2025
 // Version: 2023.2 2023.2.0.8
 //////////////////////////////////////////////////////////////////////
 
@@ -42,7 +42,7 @@ create_and_configure_core -core_vlnv {Actel:DirectCore:COREFFT:8.1.100} -compone
 "STAGE_11:false"  \
 "STAGE_12:false"  \
 "TWID_BITS:32"  \
-"URAM_MAXDEPTH:512"  \
+"URAM_MAXDEPTH:0"  \
 "WIDTH:10"   }
 # Exporting Component Description of COREFFT_C0 to TCL done
 */
@@ -151,7 +151,7 @@ COREFFT_C0_COREFFT_C0_0_COREFFT #(
         .SCALE_ON       ( 1 ),
         .SCALE_SCH      ( 683 ),
         .TWID_BITS      ( 32 ),
-        .URAM_MAXDEPTH  ( 512 ),
+        .URAM_MAXDEPTH  ( 0 ),
         .WIDTH          ( 10 ) )
 COREFFT_C0_0(
         // Inputs

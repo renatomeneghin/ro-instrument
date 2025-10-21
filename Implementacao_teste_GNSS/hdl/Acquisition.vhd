@@ -291,7 +291,7 @@ begin
     FFT_CA_in_real(FFT_Width-1 downto 1) <= (others => CA_PRN);
     
     --FFT
-    FFT_IQ : COREFFT_C2
+    FFT_IQ : COREFFT_C0
 	port map (
 	    CLK         => CLK,                -- clock de processamento
 	    DATAI_IM    => FFT_Q_signal, -- parte imaginaria (Q)
@@ -307,7 +307,7 @@ begin
 	    OUTP_READY  => OutReady(0)
 	);
 		
-    FFT_CA: COREFFT_C3
+    FFT_CA: COREFFT_C1
 	port map (
 	    CLK         => CLK,                -- clock de processamento
 	    DATAI_IM    => FFT_CA_in_imag, -- parte imaginaria (Q)
@@ -331,7 +331,7 @@ begin
 		delay_I: Flip_Flop_D port map(clkd(i),NRST, slw_clk, clkd(i+1)); -- ainda a ser verificado
 	end generate;	
                                             
-    IFFT: COREFFT_C4
+    IFFT: COREFFT_C2
 	port map (
 	    CLK         => clk_div2,                -- clock de processamento
 	    DATAI_IM    => IFFT_in_imag, -- parte imaginaria (Q)
