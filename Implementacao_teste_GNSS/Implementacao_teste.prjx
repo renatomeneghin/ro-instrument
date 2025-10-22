@@ -48,7 +48,8 @@ LIST REVISIONS
 VALUE="Impl1",NUM=1
 VALUE="Impl2",NUM=2
 VALUE="Impl3",NUM=3
-CURREV=3
+VALUE="Impl4",NUM=4
+CURREV=4
 ENDLIST
 LIST LIBRARIES
 COREFFT_LIB
@@ -1433,6 +1434,11 @@ STATE="utd"
 TIME="1761070090"
 SIZE="3467"
 ENDFILE
+VALUE "<project>/hdl/Code_Discriminator_test.vhd,hdl"
+STATE="utd"
+TIME="1761101709"
+SIZE="2993"
+ENDFILE
 VALUE "<project>/hdl/complex_multiplier_C0.vhd,hdl"
 STATE="utd"
 TIME="1761045308"
@@ -1462,6 +1468,11 @@ VALUE "<project>/hdl/Datapath.vhd,hdl"
 STATE="utd"
 TIME="1761045308"
 SIZE="2652"
+ENDFILE
+VALUE "<project>/hdl/Division_LUT.vhd,hdl"
+STATE="utd"
+TIME="1761100031"
+SIZE="667"
 ENDFILE
 VALUE "<project>/hdl/Flip_Flop_D.vhd,hdl"
 STATE="utd"
@@ -1507,6 +1518,11 @@ VALUE "<project>/hdl/Somador.vhd,hdl"
 STATE="utd"
 TIME="1761045308"
 SIZE="988"
+ENDFILE
+VALUE "<project>/hdl/Tracking_test.vhd,hdl"
+STATE="utd"
+TIME="1761074955"
+SIZE="1778"
 ENDFILE
 VALUE "<project>/hdl/Zero_detector.vhd,hdl"
 STATE="utd"
@@ -1598,6 +1614,16 @@ Used_File_List
 ENDUsed_File_List
 ENDLIST
 LIST Impl3
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl4
 ideSTIMULUS=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
@@ -1778,6 +1804,16 @@ ENDLIST
 Used_File_List
 ENDUsed_File_List
 ENDLIST
+LIST Impl4
+ideSTIMULUS=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
 ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
@@ -1792,9 +1828,10 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-HDL;hdl/Tracking/Tracking (copy 1).vhd;0
-HDL;hdl/Tracking/Tracking.vhd;0
-ACTIVEVIEW;hdl/Tracking/Tracking.vhd
+HDL;hdl/Code_Discriminator_test.vhd;0
+HDL;hdl/Division_LUT.vhd;0
+HDL;hdl/Tracking_test.vhd;0
+ACTIVEVIEW;hdl/Code_Discriminator_test.vhd
 ENDLIST
 LIST ModuleSubBlockList
 LIST "Acquisition::work","hdl/Acquisition.vhd","FALSE","FALSE"
@@ -2121,6 +2158,8 @@ LIST "shift_reg64::work","hdl/Register.vhd","FALSE","FALSE"
 ENDLIST
 LIST "Somador::work","","FALSE","FALSE"
 ENDLIST
+LIST "Tracking_test::work","hdl/Tracking_test.vhd","FALSE","FALSE"
+ENDLIST
 LIST "trn_bclksclk::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/trn_bclksclk.v","FALSE","FALSE"
 ENDLIST
 LIST "trn_cmd_addr::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/trn_cmdaddr.v","FALSE","FALSE"
@@ -2156,6 +2195,8 @@ LIST "bhvEdge::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/
 ENDLIST
 LIST "bhvRAM_fabric::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v","FALSE","TRUE"
 ENDLIST
+LIST "clock_driver::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/clock_driver.v","FALSE","TRUE"
+ENDLIST
 LIST "costas_loop_tb::work","component/Microchip/SolutionCore/costas_loop/1.1.0/Stimulus/costas_loop_tb.v","FALSE","TRUE"
 SUBBLOCK "costas_loop::work","component/Microchip/SolutionCore/costas_loop/1.1.0/Encrypted/costas_loop.v","FALSE","FALSE"
 ENDLIST
@@ -2178,6 +2219,21 @@ ENDLIST
 LIST "bhvDelay::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v","FALSE","TRUE"
 ENDLIST
 LIST "dds_kitCountS::COREDDS_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "fifo_driver::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/fifo_driver.v","FALSE","TRUE"
+ENDLIST
+LIST "fifo_monitor::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/fifo_monitor.v","FALSE","TRUE"
+ENDLIST
+LIST "g4_dp_ext_mem::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/g4_dp_ext_mem.v","FALSE","TRUE"
+SUBBLOCK "MEM_WeqR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WeqR.v","FALSE","TRUE"
+SUBBLOCK "MEM_WgtR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WgtR.v","FALSE","TRUE"
+SUBBLOCK "MEM_WltR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WltR.v","FALSE","TRUE"
+ENDLIST
+LIST "MEM_WeqR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WeqR.v","FALSE","TRUE"
+ENDLIST
+LIST "MEM_WgtR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WgtR.v","FALSE","TRUE"
+ENDLIST
+LIST "MEM_WltR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WltR.v","FALSE","TRUE"
 ENDLIST
 LIST "testbench::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/tb_dds.v","FALSE","TRUE"
 SUBBLOCK "COREDDS_C0_COREDDS_C0_0_COREDDS::COREDDS_LIB","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/core/DDS_TOP.v","FALSE","FALSE"
