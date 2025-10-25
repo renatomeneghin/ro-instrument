@@ -40,8 +40,8 @@ end Acquisition;
 architecture architecture_Acquisition of Acquisition is
     -- signal, component etc. declarations
     constant Contador_WIDTH     : integer := 10;
-    constant DDS_Width          : integer := 8; -- Datawidth of the DDS
-    constant SUM_Width          : integer := 9; -- Datawidth of the summer before the FFT
+    constant DDS_Width          : integer := 9; -- Datawidth of the DDS
+    constant SUM_Width          : integer := 10; -- Datawidth of the summer before the FFT
     constant FFT_Width          : integer := 10; -- Datawidth before the fft
     constant IFFT_Width         : integer := 21; -- Datawidth before the ifft
     
@@ -271,9 +271,9 @@ begin
 	Q2_signal_n <= not(Q2_signal);
     
     SUM_I: UAL generic map(SUM_Width) port map(I1_signal,Q2_signal_n,'1',
-                                FFT_I_signal(SUM_Width-1 downto 0),FFT_I_signal(SUM_Width));
+                                FFT_I_signal,open);
     SUM_Q: UAL generic map(SUM_Width) port map(I2_signal,Q1_signal,'0',
-                                FFT_Q_signal(SUM_Width-1 downto 0),FFT_Q_signal(SUM_Width));
+                                FFT_Q_signal,open);
     
     -- Código CA
 	CA_CODE: L1_CA_generator 
