@@ -2,7 +2,7 @@ BATCH:T
 MGNTIMER:F
 MGNCMPL:F
 GEN_BEHV_MODULE:F
-points=2048, uram_maxdepth=512
+points=2048, uram_maxdepth=0
 
 DESIGN:COREFFT_C0_COREFFT_C0_0_lsram_g5
 FAM:PolarFireSOC

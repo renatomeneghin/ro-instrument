@@ -16,117 +16,65 @@
 --
 --------------------------------------------------------------------------------
 
-library IEEE;
-use IEEE.std_logic_1164.all;
+--Detection and control logic
+library ieee ;
+use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity Acquisition_control is
-port (
-	clk : in std_logic;
-    rst : in std_logic;
-    FFT_IQ_done : in std_logic;
-    FFT_CA_done : in std_logic;
-    Mult_done :in std_logic;
-    IFFT_done : in std_logic;
-    Corr_value : in std_logic;
-    Corr_valid : in std_logic;
-    SV_state : out std_logic;
-    FFT_IQ_start : out std_logic;
-    CA_start : out std_logic;
-    FFT_CA_start : out std_logic;
-    Mult_start : out std_logic;
-    IFFT_start : out std_logic;
-    next_Doppler : out std_logic;
-    next_PRN : out std_logic
-);
+Port( 
+        clk : in std_logic;
+        reset : in std_logic;
+        OUT_I : in std_logic_vector(20 downto 0);
+        OUT_Q : in std_logic_vector(20 downto 0);
+        READ_OUT_V : out std_logic;
+        SAT_state : out std_logic;
+        idle : out std_logic
+    );
 end Acquisition_control;
 
-architecture architecture_Acquisition_control of Acquisition_control is
-    type sv_states is (reset,init,load_ca,fft_iq,fft_ca,complex_mult,ifft,correlation,threshold_valid,next_search,acquired);
-
-    signal state, next_state : sv_states;
-    constant threshold : integer := 5000;
+architecture Behavioral of Acquisition_control is
+    type sv_state is (acquired,not_acquired);
+    signal state : sv_state := not_acquired;
+    constant Threshold : integer := 5000;
+    signal magnitude : integer;
+    signal I_int,Q_int : integer;
     
 begin
-    process(clk,rst)
+    I_int <= to_integer(signed(OUT_I));
+    Q_int <= to_integer(signed(OUT_Q));
+    process(I_int,Q_int)
     begin
-        if rst = '1' then
-            state <= reset;
+       magnitude <= (I_int*I_int) + (Q_int*Q_int); 
+    end process;
+    
+    process(clk,reset,magnitude,state)
+    begin
+        if reset = '0' then
+            state <= not_acquired;
         elsif rising_edge(clk) then 
-            state <= next_state;
+            case state is
+                when not_acquired =>
+                    if READ_OUT_V = '1'then
+                        if magnitude >= Threshold then
+                            state <= acquired;
+                        else 
+                            state <= not_acquired;
+                        end if;
+                    end if;
+                    
+                when acquired =>
+                    if READ_OUT_V = '1' then
+                        if magnitude < (Threshold / 2) then
+                            state <= not_acquired;
+                        else
+                            state <= acquired;
+                        end if;
+                    end if;
+            end case;
         end if;
     end process;
     
-    process(state,FFT_IQ_done,FFT_CA_done,IFFT_done,Corr_valid,Corr_value)
-    begin
-        FFT_IQ_start <= '0';
-        FFT_IQ_CA <= '0';
-        Mult_start <= '0';
-        IFFT_start <= '0';
-        next_Doppler <= '0';
-        next_PRN <= '0';
-        SV_state <= '0';
-        next_state <= state;
-        
-        case state is
-            when reset =>
-                next_state <= init;
-            
-            when init =>
-                CA_start <= '1';
-                next_state <= load_ca;
-                
-            when load_ca =>
-                next_state <= fft_iq;
-                
-            when fft_iq =>
-                FFT_IQ_start <= '1';
-                if FFT_IQ_done = '1' then
-                    next_state <= fft_ca;
-                end if;
-                
-            when fft_ca =>
-                FFT_CA_start <= '1';
-                if FFT_CA_done = '1' then
-                    next_state <= complex_mult;
-                end if;
-            
-            when complex_mult =>
-                Mult_start <= '1';
-                if Mult_done = '1' then
-                    next_state <= ifft;
-                endif;
-                
-            when ifft =>
-                IFFT_start = '1';
-                if IFFT_done = '1' then
-                    next_state <= correlation;
-                end if;
-                
-            when correlation =>
-                if Corr_valid = '1' then
-                    next_state <= threshold_valid;
-                end if;
-            
-            when threshold_valid =>
-                if Corr_value >= threshold then
-                    SV_state <= '1';
-                    next_state <= acquired;
-                else
-                    next_state <= next_search;
-                end if;
-                
-            when next_search =>
-                next_Doppler = '1';
-                next_PRN = '1';
-                next_state <= init;
-                
-            when acquired =>
-                SV_state <= '1';
-                next_state <= acquired; -- Verificar
-                
-            -- Falta a parte de armazenamento
-            
-        end case;
-    end process;
-end architecture_Acquisition_control;
+    SAT_state <= '1' when state = acquired else '0';
+    idle <= '0' when state = acquired else '1';
+end Behavioral;
