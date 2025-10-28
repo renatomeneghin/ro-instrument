@@ -60,7 +60,7 @@ architecture architecture_Acquisition of Acquisition is
 	signal FFT_I_signal, FFT_Q_signal, FFT_X_signal, FFT_Y_signal : std_logic_vector(FFT_Width-1 downto 0); -- example
     
     -- Replica sinal C/A
-    signal ca_prn, Read_data : std_logic;
+    signal ca_prn, CA_RST, Read_data : std_logic;
     signal counter_clk : std_logic;
     signal sat_int: integer range 0 to 31; -- 32 GPS
     signal FFT_CA_in_real, FFT_CA_out_real, FFT_CA_in_imag, FFT_CA_out_imag : std_logic_vector (FFT_Width-1 downto 0); 
@@ -279,7 +279,7 @@ begin
 	CA_CODE: L1_CA_generator 
 	   port map(
 	     clk        => CA_CLK,
-	     rst        => RST,
+	     rst        => CA_RST,
 	     PRN        => CA_PRN,
 	     ENABLE     => '1',
 	     valid_out  => open,
@@ -360,6 +360,21 @@ begin
     ReadPulse(0) <= OutReady(0) and OutReady(1) and slw_clk and InReady(2);
     ReadPulse(1) <= OutReady(2) and READ_OUT;
     counter_clk  <= OutReady(0);
+    
+    process (RST, count_state(Contador_WIDTH-5), clk, CA_RST)
+    variable previous : std_logic;
+    begin
+        if RST = '1' then
+            CA_RST <= '1';
+            previous := '0';
+        elsif count_state(Contador_WIDTH-5)'event and previous = '0' then 
+            CA_RST <= '1';
+            previous := '1';
+        elsif previous = '1' and clk'event and clk = '1' then 
+            CA_RST <= '0';
+            previous := '0';
+        end if;
+    end process;
     
     --debug
     dI_signal           <= to_integer(signed(FFT_I_signal));
