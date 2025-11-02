@@ -258,9 +258,9 @@ begin
     DIV2_CLK: PF_CLK_DIV_C3 port map(clk, clk_div2);
     DIV8_CLK: PF_CLK_DIV_C4 port map(clk_div2, slw_clk);
     DIV16_CLK: PF_CLK_DIV_C5 port map(slw_clk, slw_clk_2);
-    
+        
     -- DDS e contador 
-    SINE_GENERATOR: COREDDS_C0 port map (CLK,Frequency_offset_data, '0','0',NRST,'1',cos_signal,open,sin_signal);
+    SINE_GENERATOR: COREDDS_C0 port map (CLK,Frequency_offset_data, '1','0',NRST,'1',cos_signal,open,sin_signal);
     CONTADOR_ESTADO: contador generic map (Contador_WIDTH) port map(counter_clk, RST, count_state);
     
     -- Entrada
@@ -366,7 +366,7 @@ begin
     begin
         if RST = '1' then
             CA_RST <= '1';
-            previous := '0';
+            previous := '1';
         elsif count_state(Contador_WIDTH-5)'event and previous = '0' then 
             CA_RST <= '1';
             previous := '1';

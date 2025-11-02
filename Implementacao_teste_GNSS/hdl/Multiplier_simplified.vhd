@@ -43,8 +43,7 @@ architecture architecture_Multiplier_simplified of Multiplier_simplified is
 	signal shift, negative : std_logic_vector(data_width downto 0) ; -- example
 begin
    -- architecture body
-    shift <=   (others => '0')      when B(0) = '0' else
-            A(data_width-1) & '0' & A(data_width-2 downto 0);
+    shift <=   (A & '0') when B(0) = '1' else (others => '0');
     Neg_Value: entity work.Negative_Integer generic map(data_width+1) port map(shift,negative);
     S <= shift   when B(1) = '0' else
         negative;
