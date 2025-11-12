@@ -32,18 +32,18 @@ port (
     MAX_INPUT_CLK   : IN  std_logic; -- MAX INPUT CLOCK
     READ_OUT        : IN  std_logic; -- READ  OUTPUT
     READ_OUT_V      : OUT  std_logic; -- VALID OUTPUT
-    OUT_I           : OUT  std_logic_vector(20 downto 0); -- OUTPUT REAL PART
-    OUT_Q           : OUT  std_logic_vector(20 downto 0) -- OUTPUT IMAG PART
+    OUT_I           : OUT  std_logic_vector(30 downto 0); -- OUTPUT REAL PART
+    OUT_Q           : OUT  std_logic_vector(30 downto 0) -- OUTPUT IMAG PART
 );
 end Acquisition;
 
 architecture architecture_Acquisition of Acquisition is
     -- signal, component etc. declarations
     constant Contador_WIDTH     : integer := 10;
-    constant DDS_Width          : integer := 9; -- Datawidth of the DDS
-    constant SUM_Width          : integer := 10; -- Datawidth of the summer before the FFT
-    constant FFT_Width          : integer := 10; -- Datawidth before the fft
-    constant IFFT_Width         : integer := 21; -- Datawidth before the ifft
+    constant DDS_Width          : integer := 14; -- Datawidth of the DDS
+    constant SUM_Width          : integer := 15; -- Datawidth of the summer before the FFT
+    constant FFT_Width          : integer := 15; -- Datawidth before the fft
+    constant IFFT_Width         : integer := 31; -- Datawidth before the ifft
     
     -- slower clk
     signal clk_div2, slw_clk, slw_clk_2 : std_logic;
