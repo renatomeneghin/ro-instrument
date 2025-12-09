@@ -21,7 +21,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use ieee.numeric_std.all;  
 use ieee.std_logic_arith.all;
 
-entity Code_Discriminator is
+entity Code_Discriminator_test is
 	generic(
 		Discriminator_Type : integer := 1
         data_width : integer := 16
@@ -35,23 +35,23 @@ entity Code_Discriminator is
 		QL_corr		: in  signed(data_width-1 downto 0);
 		discriminator   : out signed(data_width-1 downto 0)
 	);
-end Code_Discriminator;
+end Code_Discriminator_test;
 
-architecture Behavioral of Code_Discriminator is
+architecture Behavioral of Code_Discriminator_test is
 
     signal P_E, P_P, P_L : signed(2*data_width-1 downto 0);
     signal numerador, denominador : unsigned(data_width-1 downto 0);
     signal reciprocal : std_logic_vector(7 downto 0);
     signal mult_out : unsigned(data_width+7 downto 0);
-	
-begin
+    
     component Division_LUT is
     port(
         y     : in  std_logic_vector(3 downto 0);
         y_inv : out std_logic_vector(7 downto 0))
     );
     end component;
-    
+	
+begin
     P_E <= resize(IE_corr*IE_corr + QE_corr*QE_corr, 2*data_width);
     P_P <= resize(IP_corr*IP_corr + QP_corr*QP_corr, 2*data_width);
     P_L <= resize(IL_corr*IL_corr + QL_corr*QL_corr, 2*data_width);
@@ -72,7 +72,7 @@ begin
             );
         
         mult_out <= unsigned(numerador) * unsigned(reciprocal);
-        discriminator <= signed(resize(mult_out(mult_out'high downto 8), data_width)); --'high pega o maior indice do vetor
+        discriminator <= signed(resize(mult_out(mult_out'high downto 8), data_width)); --'high' pega o maior indice do vetor
         --shift right 8 bits
         --discriminator <= ((IE_corr*IE_corr + QE_corr*QE_corr) - (IL_corr*IL_corr + QL_corr*QL_corr))/((IE_corr*IE_corr + QE_corr*QE_corr) + (IL_corr*IL_corr + QL_corr*QL_corr));
 	end generate Discriminator_2;
