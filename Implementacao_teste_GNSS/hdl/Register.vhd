@@ -9,7 +9,7 @@ use work.all;
 
 --------------------------------------------------------------
 
-entity shift_reg64 is
+entity shift_reg is
 generic(
 	data_width : integer := 64
 );
@@ -27,10 +27,10 @@ port(
 	--	Bit_Vector Outputs
 	O:	out std_logic_vector(data_width-1 downto 0)
 );
-end shift_reg64;
+end shift_reg;
 
 --------------------------------------------------------------
-architecture arq_shift_reg64 of shift_reg64 is
+architecture arq_shift_reg of shift_reg is
 signal output: std_logic_vector(data_width-1 downto 0);
 begin
 
@@ -50,6 +50,6 @@ P1: process(clk, rst, en, shift)
 		end if;	
 	end process;
 O <= output;
-end arq_shift_reg64;
+end arq_shift_reg;
 
 --------------------------------------------------------------
