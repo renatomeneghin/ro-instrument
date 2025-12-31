@@ -9,7 +9,7 @@ use work.all;
 
 --------------------------------------------------------------
 
-entity contador is
+entity contador_d is
 generic(
 	data_width : integer := 16;
 	reset_bit  : std_logic := '0'
@@ -21,11 +21,11 @@ port(
 	dir:	in std_logic;
 	count:	out std_logic_vector(data_width-1 downto 0)
 );
-end contador;
+end contador_d;
 
 --------------------------------------------------------------
 
-architecture arq_contador of contador is
+architecture arq_contador_d of contador_d is
 
 signal EA, PE: std_logic_vector(data_width-1 downto 0);
 
@@ -41,8 +41,8 @@ begin
 		end if;
 	end process;
 	PE <= 	unsigned(EA) + 1 when dir = '1' else
-		unsigned(EA) - 1 when;
+		unsigned(EA) - 1;
 	count <= EA;
-end arq_contador;
+end arq_contador_d;
 
 --------------------------------------------------------------

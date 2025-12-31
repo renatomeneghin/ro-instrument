@@ -289,6 +289,7 @@ begin
     CLK_MULT_D2: for i in 0 to 2 generate
 		delay_II: Flip_Flop_D port map(clkd2(i),NRST, clk, clkd2(i+1)); -- ainda a ser verificado
 	end generate;
+    
     -- Código CA
 	CA_CODE: L1_CA_generator 
 	   port map(
