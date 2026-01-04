@@ -41,70 +41,39 @@ architecture Behavioral of dll is
 	);
 	end component;
 
-	component adder 
-	generic(
-		data_width : integer := WIDTH
-	);
-	port(	
-		A:	in std_logic_vector(data_width-1 downto 0);
-		B:	in std_logic_vector(data_width-1 downto 0);
-		Cin:	in std_logic;
+	component PLL_Discriminator is
+    generic (
+        acc_width : integer := 32;
+        DISC_TYPE : integer := 0   -- 0 = Costas, 1 = atan (future)
+    );
+    port (
+        IP : in std_logic_vector(acc_width-1 downto 0);
+        QP : in std_logic_vector(acc_width-1 downto 0);
 
-		S:	out std_logic_vector(data_width-1 downto 0);
-		Cout:	out std_logic
-	);
+        PLL_err : out std_logic_vector(acc_width-1 downto 0)
+    );
 	end component;
 
-	component shift_reg
-	generic(
-		data_width : integer := WIDTH
-	);
-	port(
-		-- 	Bit Inputs
-		en:	in std_logic;
-		clk:	in std_logic;
-		rst:	in std_logic;
-		serial:	in std_logic;
-		shift:	in std_logic;
-
-		-- 	Bit_Vector Inputs
-		I:	in std_logic_vector(data_width-1 downto 0);
-
-		--	Bit_Vector Outputs
-		O:	out std_logic_vector(data_width-1 downto 0)
+	component Loop_filter is
+    generic (
+        WIDTH     : integer := 16;
+        KP_SHIFT  : integer := 2;
+        USE_P   : boolean := true;
+        KI_SHIFT  : integer := 6;
+        USE_I   : boolean := true;
+        KD_SHIFT  : integer := 0;
+        USE_D   : boolean := true
+    );
+	Port ( 
+		clk             : in  std_logic;
+		reset           : in  std_logic;
+        update          : in  std_logic;
+		input_error     : in  std_logic_vector(WIDTH-1 downto 0);
+		filtered_out    : out std_logic_vector(WIDTH-1 downto 0)
 	);
 	end component;
 	
 begin
 
-	early_corr_data : contador 	generic map(data_width 	=> WIDTH, reset_bit => '0')
-				port map(clk => clk, rst => reset, en => '1', dir => early_dir, count => early_corr);
 
-	prompt_corr_data : contador	generic map(data_width => WIDTH, reset_bit => '0')
-				port map(clk => clk, rst => reset, en => '1', dir => prompt_dir, count => prompt_corr);
-
-	late_corr_data : contador	generic map(data_width => WIDTH, reset_bit => '0')
-				port map(clk => clk, rst => reset, en => '1', dir => late_dir, count => late_corr);
-	
-	freq_err_summer: adder generic map(data_width => WIDTH)
-			port map (A => early_corr, B => late_corr_negative, Cin => '1', S => freq_err, Cout => open);
-
-	nco_internal_sum: adder generic map(data_width => WIDTH)
-			port map (A => code_nco_internal, B => freq_err, Cin => '0', S => nco_error, Cout => open);
-
-	freq_error: adder generic map(data_width => WIDTH)
-			port map (A => code_nco_accum, B => nco_error, Cin => '0', S => code_nco_accum_in, Cout => open);
-
-	NCO_internal : shift_reg	generic map(data_width 	=> WIDTH)
-				port map(en => '1', clk => clk, rst => reset, serial => '0', 
-						shift  => '0', I => code_nco_accum_in, O => code_nco_accum);
-	
-	late_corr_negative <= not late_corr;
-	early_dir <= early_code xor not I_signal;
-	prompt_dir <= prompt_code xor not I_signal;
-	late_dir <= late_code xor not I_signal;
-
-	code_nco_internal <= "00000000" & code_nco_accum(WIDTH-1 downto 8);
-
-	code_nco <= code_nco_internal;
 end Behavioral;

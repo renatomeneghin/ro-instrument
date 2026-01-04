@@ -24,7 +24,7 @@ architecture arq_Flip_Flop_D of Flip_Flop_D is
 begin
 	process(rst, clk, D) is
 	begin
-		if rst = '1' then
+		if rst = '0' then
 			Q <= '0';
 		elsif clk'event and clk = '1' then
 			Q <= D;
