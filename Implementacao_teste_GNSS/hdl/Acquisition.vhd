@@ -67,7 +67,7 @@ architecture architecture_Acquisition of Acquisition is
     signal FFT_X_signal, FFT_Y_signal : std_logic_vector(FFT_Width-1 downto 0); -- example
     
     -- Replica sinal C/A
-    signal ca_prn, CA_RST, Read_data : std_logic;
+    signal ca_prn, CA_RST, Read_data, DDS_RSTN : std_logic;
     signal counter_clk : std_logic;
     signal sat_int: integer range 0 to 31; -- 32 GPS
     signal FFT_CA_in_real, FFT_CA_in_imag : std_logic_vector (FFT_Width-1 downto 0); 
