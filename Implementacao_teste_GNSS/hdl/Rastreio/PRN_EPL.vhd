@@ -16,8 +16,12 @@ Port (
 end PRN_Early_Prompt_Late;
 
 architecture Behavioral of PRN_Early_Prompt_Late is
-	signal early_data,  prompt_data, prn_clk : std_logic;  
 
+    signal ca_bit       : std_logic;
+    signal early_reg    : std_logic;
+    signal prompt_reg   : std_logic;
+    signal late_reg     : std_logic;
+    
 	component Flip_Flop_D
 		port(	
 			D:	in std_logic;
