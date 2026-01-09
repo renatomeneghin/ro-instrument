@@ -48,7 +48,7 @@ port(	clk: 	in std_logic;
 );
 end component;
 
-component Somador is
+component adder is
 
 port(	
 	A:	in std_logic_vector(data_width-1 downto 0);
@@ -59,7 +59,7 @@ port(
 );
 end component;
 
-component shift_reg64 is
+component shift_reg is
 
 port(	
 	-- 	Bit Inputs
@@ -95,11 +95,11 @@ begin
 	Counter: 		contador 	port map(Ts, T_init, counts);
 	Zero:			Zero_detector	port map(counts, Tm);
 
-	Summer: 		Somador 		port map(MSB_Result, A, '0', sum, carry);
+	Summer: 		adder 		port map(MSB_Result, A, '0', sum, carry);
 	Carrier:		Flip_Flop_D 	port map(carry, Tw_MSB, clk, serial_in_A);
 
-	Registrador_MSB: 	shift_reg64 	port map(MSB_en, clk, Tc, serial_in_A, Ts, sum, MSB_Result);
-	Registrador_LSB: 	shift_reg64 	port map(T_init, clk, Tc, serial_in_Q, Ts, B  , LSB_Result);
+	Registrador_MSB: 	shift_reg 	port map(MSB_en, clk, Tc, serial_in_A, Ts, sum, MSB_Result);
+	Registrador_LSB: 	shift_reg 	port map(T_init, clk, Tc, serial_in_Q, Ts, B  , LSB_Result);
 
 MSB_en 		<= (Tw_MSB and LSB_Result(0));
 serial_in_Q 	<= MSB_Result(0);

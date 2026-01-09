@@ -2,109 +2,168 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;   
 use ieee.std_logic_arith.all;
 
-entity dll is
-	generic (
-		WIDTH : integer := 16
-		);
-    Port ( 
-        clk        : in  std_logic;
-        reset      : in  std_logic;
-        I_signal   : in  std_logic;
-        early_code : in  std_logic;
-        prompt_code: in  std_logic;
-        late_code  : in  std_logic;
-        code_nco   : out std_logic_vector(WIDTH-1 downto 0)
-        );
-end dll;
+entity DLL is
+generic (
+    ------------------------------------------------------------------
+    -- Precision
+    ------------------------------------------------------------------
+    DATA_WIDTH : integer := 32;
+    PHASE_W    : integer := 24;
+    CNT_WIDTH  : integer := 6;
+    
+------------------------------------------------------------------
+    -- DLL Discriminator
+    ------------------------------------------------------------------
+    DISC_TYPE : integer := 0;
+    ------------------------------------------------------------------
+    -- Loop filter configuration
+    ------------------------------------------------------------------
+    KP_SHIFT   : integer := 2;
+    KI_SHIFT   : integer := 6;
+    KD_SHIFT   : integer := 0;
 
+    USE_P      : boolean := true;
+    USE_I      : boolean := true;
+    USE_D      : boolean := false;
+
+    ------------------------------------------------------------------
+    -- Lock detector thresholds
+    ------------------------------------------------------------------
+    LOCK_TH    : std_logic_vector(DATA_WIDTH-1 downto 0);
+    UNLOCK_TH  : std_logic_vector(DATA_WIDTH-1 downto 0)
+);
+port (
+    clk       : in  std_logic;
+    rst       : in  std_logic;
+
+    -- Correlator outputs (from tracking channels)
+    IE, QE : in std_logic_vector(DATA_WIDTH-1 downto 0);
+    IP, QP : in std_logic_vector(DATA_WIDTH-1 downto 0);
+    IL, QL : in std_logic_vector(DATA_WIDTH-1 downto 0);
+    -- Outputs
+    code_lock : out std_logic
+);
+end DLL;
 architecture Behavioral of dll is
-	signal early_dir,  prompt_dir,  late_dir : std_logic;  
-	signal early_corr, prompt_corr, late_corr : std_logic_vector(WIDTH-1 downto 0);
-	signal late_corr_negative : std_logic_vector(WIDTH-1 downto 0);
-	signal freq_err : std_logic_vector(WIDTH-1 downto 0);
-	signal nco_error : std_logic_vector(WIDTH-1 downto 0); 
-	signal code_nco_accum : std_logic_vector(WIDTH-1 downto 0); 
-	signal code_nco_accum_in : std_logic_vector(WIDTH-1 downto 0);
-	signal code_nco_internal : std_logic_vector(WIDTH-1 downto 0); 
+    -- ================================
+    -- Internal signals
+    -- ================================
+    signal chip_en_1x  : std_logic;
+    signal chip_en_2x  : std_logic;
 
-	component contador 
-	generic(
-		data_width : integer := WIDTH;
-		reset_bit  : std_logic := '0'
-	);
-	port(	
-		clk: 	in std_logic;
-		rst:	in std_logic;
-		en:		in std_logic;
-		dir:	in std_logic;
-		count:	out std_logic_vector(data_width-1 downto 0)
-	);
-	end component;
+    signal early_code  : std_logic;
+    signal prompt_code : std_logic;
+    signal late_code   : std_logic;
 
-	component adder 
-	generic(
-		data_width : integer := WIDTH
-	);
-	port(	
-		A:	in std_logic_vector(data_width-1 downto 0);
-		B:	in std_logic_vector(data_width-1 downto 0);
-		Cin:	in std_logic;
+    signal err_code    : std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal phase_inc   : std_logic_vector(DATA_WIDTH-1 downto 0);
 
-		S:	out std_logic_vector(data_width-1 downto 0);
-		Cout:	out std_logic
-	);
-	end component;
-
-	component shift_reg
-	generic(
-		data_width : integer := WIDTH
-	);
-	port(
-		-- 	Bit Inputs
-		en:	in std_logic;
-		clk:	in std_logic;
-		rst:	in std_logic;
-		serial:	in std_logic;
-		shift:	in std_logic;
-
-		-- 	Bit_Vector Inputs
-		I:	in std_logic_vector(data_width-1 downto 0);
-
-		--	Bit_Vector Outputs
-		O:	out std_logic_vector(data_width-1 downto 0)
-	);
-	end component;
+    signal code_lock_i : std_logic;
 	
 begin
+    -- ================================
+    -- PRN generator (E/P/L)
+    -- ================================
+    PRN_GEN : entity work.PRN_Early_Prompt_Late
+        port map (
+            clk         => clk,
+            reset       => rst,
+            chip_en_1x  => chip_en_1x,
+            chip_en_2x  => chip_en_2x,
+            early_code  => early_code,
+            prompt_code => prompt_code,
+            late_code   => late_code,
+            valid_out   => open,
+            SAT         => SAT
+        );
 
-	early_corr_data : contador 	generic map(data_width 	=> WIDTH, reset_bit => '0')
-				port map(clk => clk, rst => reset, en => '1', dir => early_dir, count => early_corr);
+    -- ================================
+    -- Correlators (I/Q not shown here)
+    -- ================================
+    -- You already have these blocks
 
-	prompt_corr_data : contador	generic map(data_width => WIDTH, reset_bit => '0')
-				port map(clk => clk, rst => reset, en => '1', dir => prompt_dir, count => prompt_corr);
+    -- ================================
+    -- Code discriminator
+    -- ================================
+    DISCR : entity work.Code_Discriminator
+        generic map (
+            DATA_WIDTH => DATA_WIDTH,
+            DISC_TYPE  => DISC_TYPE
+        )
+        port map (
+            clk      => clk,
+            rst      => rst,
+            IE       => IE,
+            QE       => QE,
+            IL       => IL,
+            QL       => QL,
+            IP       => IP,
+            QP       => QP,
+            err_out  => err_code
+        );
 
-	late_corr_data : contador	generic map(data_width => WIDTH, reset_bit => '0')
-				port map(clk => clk, rst => reset, en => '1', dir => late_dir, count => late_corr);
-	
-	freq_err_summer: adder generic map(data_width => WIDTH)
-			port map (A => early_corr, B => late_corr_negative, Cin => '1', S => freq_err, Cout => open);
+    -- ================================
+    -- Loop filter (PI)
+    -- ================================
+    U_LOOP_FILTER : entity work.Loop_filter
+        generic map (
+            WIDTH     => DATA_WIDTH,
+            KP_SHIFT  => KP_SHIFT,
+            KI_SHIFT  => KI_SHIFT,
+            KD_SHIFT  => KD_SHIFT,
+            USE_P     => USE_P,
+            USE_I     => USE_I,
+            USE_D     => USE_D
+        )
+        port map (
+            clk          => clk,
+            reset        => rst,
+            update       => chip_en_1x,
+            input_error  => err_code,
+            filtered_out => phase_inc
+        );
 
-	nco_internal_sum: adder generic map(data_width => WIDTH)
-			port map (A => code_nco_internal, B => freq_err, Cin => '0', S => nco_error, Cout => open);
+    -- ================================
+    -- DCO / NCO
+    -- ================================
+    DCO_INST : entity work.DCO
+        generic map (
+            PHASE_W => PHASE_W
+        )
+        port map (
+            clk         => clk,
+            reset       => rst,
+            phase_inc   => phase_inc(PHASE_W-1 downto 0),
+            chip_en_1x  => chip_en_1x,
+            chip_en_2x  => chip_en_2x
+        );
 
-	freq_error: adder generic map(data_width => WIDTH)
-			port map (A => code_nco_accum, B => nco_error, Cin => '0', S => code_nco_accum_in, Cout => open);
+    -- ================================
+    -- Code lock detector
+    -- ================================
+    LOCK_DET : entity work.Code_Lock_Detector
+        generic map (
+            DATA_WIDTH => DATA_WIDTH,
+            CNT_WIDTH  => CNT_WIDTH
+        )
+        port map (
+            clk        => clk,
+            rst        => rst,
+            chip_en    => chip_en_1x,
+            err_in     => err_code,
+            lock_th    => LOCK_TH,
+            unlock_th  => UNLOCK_TH,
+            code_lock  => code_lock_i
+        );
 
-	NCO_internal : shift_reg	generic map(data_width 	=> WIDTH)
-				port map(en => '1', clk => clk, rst => reset, serial => '0', 
-						shift  => '0', I => code_nco_accum_in, O => code_nco_accum);
-	
-	late_corr_negative <= not late_corr;
-	early_dir <= early_code xor not I_signal;
-	prompt_dir <= prompt_code xor not I_signal;
-	late_dir <= late_code xor not I_signal;
+    code_lock <= code_lock_i;
+    
+    assert (DISC_TYPE >= 0 and DISC_TYPE <= 3)
+    report "Illegal DISC_TYPE"
+    severity FAILURE;
+    
+    assert not (USE_D = true and KD_SHIFT = 0)
+    report "Derivative enabled with zero shift"
+    severity WARNING;
 
-	code_nco_internal <= "00000000" & code_nco_accum(WIDTH-1 downto 8);
-
-	code_nco <= code_nco_internal;
 end Behavioral;
