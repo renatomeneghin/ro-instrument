@@ -47,12 +47,10 @@ module Divider_Signed #(
             state <= IDLE;
             done_op <= 1'b0;
         end else begin
-            done_op <= 1'b0;
-            
             case (state)
-            
                 IDLE: begin
                     if (start) state <= INIT;
+                    done_op <= 1'b1;
                 end
                 
                 INIT: begin
@@ -62,6 +60,7 @@ module Divider_Signed #(
                     
                     quotient    <= 0;
                     remainder   <= 0;
+                    done_op     <= 1'b0;
                     count       <= WIDTH;
                     state       <= DIV;
                 end
@@ -78,6 +77,7 @@ module Divider_Signed #(
                     end
                     
                     count <= count - 1;
+                    done_op <= 1'b0;
                     if (count == 1)
                         state <= FIX;
                     end

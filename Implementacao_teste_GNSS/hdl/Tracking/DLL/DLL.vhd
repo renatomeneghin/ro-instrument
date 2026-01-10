@@ -1,6 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;   
-use ieee.std_logic_arith.all;
+use ieee.numeric_std.all;
 
 entity DLL is
 generic (
@@ -24,13 +24,7 @@ generic (
 
     USE_P      : boolean := true;
     USE_I      : boolean := true;
-    USE_D      : boolean := false;
-
-    ------------------------------------------------------------------
-    -- Lock detector thresholds
-    ------------------------------------------------------------------
-    LOCK_TH    : std_logic_vector(DATA_WIDTH-1 downto 0);
-    UNLOCK_TH  : std_logic_vector(DATA_WIDTH-1 downto 0)
+    USE_D      : boolean := false    
 );
 port (
     clk       : in  std_logic;
@@ -40,11 +34,18 @@ port (
     IE, QE : in std_logic_vector(DATA_WIDTH-1 downto 0);
     IP, QP : in std_logic_vector(DATA_WIDTH-1 downto 0);
     IL, QL : in std_logic_vector(DATA_WIDTH-1 downto 0);
+    ------------------------------------------------------------------
+    -- Lock detector thresholds
+    ------------------------------------------------------------------
+    LOCK_TH    : in std_logic_vector(DATA_WIDTH-1 downto 0);
+    UNLOCK_TH  : in std_logic_vector(DATA_WIDTH-1 downto 0);
+    
+    SAT     : in std_logic_vector(4 downto 0);
     -- Outputs
     code_lock : out std_logic
 );
 end DLL;
-architecture Behavioral of dll is
+architecture Behavioral of DLL is
     -- ================================
     -- Internal signals
     -- ================================
@@ -57,7 +58,9 @@ architecture Behavioral of dll is
 
     signal err_code    : std_logic_vector(DATA_WIDTH-1 downto 0);
     signal phase_inc   : std_logic_vector(DATA_WIDTH-1 downto 0);
-
+    
+    signal SAT_int : integer range 0 to 31;
+    
     signal code_lock_i : std_logic;
 	
 begin
@@ -74,9 +77,9 @@ begin
             prompt_code => prompt_code,
             late_code   => late_code,
             valid_out   => open,
-            SAT         => SAT
+            SAT         => SAT_int
         );
-
+    SAT_int <= to_integer(unsigned(SAT));
     -- ================================
     -- Correlators (I/Q not shown here)
     -- ================================

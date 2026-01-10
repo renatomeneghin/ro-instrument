@@ -11,7 +11,7 @@ use work.all;
 
 entity Multiplier is
 generic(
-	data_width : integer := 12
+	data_width : integer := 64
 );
 port(
 	-- 	Bit Inputs
@@ -38,7 +38,8 @@ signal 	clear
 	,write 
 	,counter
 	,init 
-	,shift 
+	,shift
+	,Q 
 		: std_logic;
 
 component Controle is
@@ -47,6 +48,7 @@ port(
 	go:	in std_logic;
 	clk:	in std_logic;
 	Tm:	in std_logic;
+	Q0:	in std_logic;
 	rst: 	in std_logic;
 
 	--	Bit Outputs
@@ -70,6 +72,7 @@ port(
 
 	--	Bit Outputs
 	Tm:	out std_logic;
+	Q0:	out std_logic;
 
 	-- 	Bit_Vector Inputs
 	A:	in std_logic_vector(data_width-1 downto 0);
@@ -81,8 +84,8 @@ port(
 end component;
 
 begin
-	Control: Controle 	port map(go, clk, counter, rst, write, clear, init, shift, idle);
-	Dados: Datapath 	port map(write, clear, init, clk, shift, counter, A, B, MSB, LSB);
+	Control: Controle 	port map(go, clk, counter, Q, rst, write, clear, init, shift, idle);
+	Dados: Datapath 	port map(write, clear, init, clk, shift, counter, Q, A, B, MSB, LSB);
 end arq_Multiplier;
 
 --------------------------------------------------------------

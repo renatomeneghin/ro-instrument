@@ -23,6 +23,7 @@ port(
 
 	--	Bit Outputs
 	Tm:		out std_logic;
+	Q0:		out std_logic;
 
 	-- 	Bit_Vector Inputs
 	A:		in std_logic_vector(data_width-1 downto 0);
@@ -36,19 +37,21 @@ end Datapath;
 --------------------------------------------------------------
 architecture arq_Datapath of Datapath is
 
-signal MSB_en, carry, serial_in_A, serial_in_Q: std_logic;
+signal carry, serial_in_A, serial_in_Q: std_logic;
 signal counts: std_logic_vector(5 downto 0);
 signal sum, MSB_Result, LSB_Result: std_logic_vector(data_width-1 downto 0);
 
 component contador is
 
-port(	clk: 	in std_logic;
+port(	
+	clk: 	in std_logic;
+	en:	in std_logic;
 	init:	in std_logic;
 	count:	out std_logic_vector(5 downto 0)
 );
 end component;
 
-component adder is
+component UAL is
 
 port(	
 	A:	in std_logic_vector(data_width-1 downto 0);
@@ -59,7 +62,7 @@ port(
 );
 end component;
 
-component shift_reg is
+component shift_reg64 is
 
 port(	
 	-- 	Bit Inputs
@@ -92,25 +95,20 @@ end component;
 
 begin
 
-	Counter: 		contador 	port map(Ts, T_init, counts);
+	Counter: 		contador 	port map(clk, Ts, T_init, counts);
 	Zero:			Zero_detector	port map(counts, Tm);
 
-	Summer: 		adder 		port map(MSB_Result, A, '0', sum, carry);
-	Carrier:		Flip_Flop_D 	port map(carry, Tw_MSB, clk, serial_in_A);
+	Summer: 		UAL 		port map(MSB_Result, A, '0', sum, carry);
+	Carrier:		Flip_Flop_D 	port map(carry, Tc, clk, serial_in_A);
 
-	Registrador_MSB: 	shift_reg 	port map(MSB_en, clk, Tc, serial_in_A, Ts, sum, MSB_Result);
-	Registrador_LSB: 	shift_reg 	port map(T_init, clk, Tc, serial_in_Q, Ts, B  , LSB_Result);
+	Registrador_MSB: 	shift_reg64 	port map(Tw_MSB, clk, T_init, serial_in_A, Ts, sum, MSB_Result);
+	Registrador_LSB: 	shift_reg64 	port map(T_init, clk, '0', serial_in_Q, Ts, B  , LSB_Result);
 
-MSB_en 		<= (Tw_MSB and LSB_Result(0));
+
 serial_in_Q 	<= MSB_Result(0);
-
-process(MSB_Result, LSB_Result, Tc) is
-begin
-	if Tc = '1' then
-		MSB 		<= MSB_Result;
-		LSB 		<= LSB_Result;
-	end if;
-end process;
+MSB 		<= MSB_Result;
+LSB 		<= LSB_Result;
+Q0		<= LSB_Result(0);
 
 end arq_Datapath;
 
