@@ -15,7 +15,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity Multiply_Accumulate is
+entity Accumulator is
     generic (
         input_width  : integer := 64;
         output_width : integer := 64
@@ -29,9 +29,9 @@ entity Multiply_Accumulate is
         data_in : in  std_logic_vector(input_width-1 downto 0);
         result  : out std_logic_vector(output_width-1 downto 0)
     );
-end entity Multiply_Accumulate;
+end entity Accumulator;
 
-architecture architecture_Multiply_Accumulate of Multiply_Accumulate is
+architecture architecture_Accumulate of Accumulator is
 
     --------------------------------------------------------------------
     -- Internal signals
@@ -127,4 +127,4 @@ begin
     --------------------------------------------------------------------
     result <= acc_reg;
 
-end architecture architecture_Multiply_Accumulate;
+end architecture architecture_Accumulate;

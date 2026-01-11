@@ -62,7 +62,7 @@ port(
 );
 end component;
 
-component shift_reg64 is
+component shift_reg is
 
 port(	
 	-- 	Bit Inputs
@@ -101,8 +101,8 @@ begin
 	Summer: 		UAL 		port map(MSB_Result, A, '0', sum, carry);
 	Carrier:		Flip_Flop_D 	port map(carry, Tc, clk, serial_in_A);
 
-	Registrador_MSB: 	shift_reg64 	port map(Tw_MSB, clk, T_init, serial_in_A, Ts, sum, MSB_Result);
-	Registrador_LSB: 	shift_reg64 	port map(T_init, clk, '0', serial_in_Q, Ts, B  , LSB_Result);
+	Registrador_MSB: 	shift_reg 	port map(Tw_MSB, clk, T_init, serial_in_A, Ts, sum, MSB_Result);
+	Registrador_LSB: 	shift_reg 	port map(T_init, clk, '0', serial_in_Q, Ts, B  , LSB_Result);
 
 
 serial_in_Q 	<= MSB_Result(0);

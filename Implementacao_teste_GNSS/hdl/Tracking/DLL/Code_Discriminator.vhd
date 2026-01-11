@@ -307,7 +307,7 @@ begin
     -- Divider (only when needed)
     ------------------------------------------------------------------
     gen_div : if DISC_TYPE /= 0 generate
-        DIV : entity work.signed_divider
+        DIV : entity work.Divider_Signed
             generic map ( WIDTH => DATA_WIDTH )
             port map (
                 clk   => clk,
@@ -317,7 +317,7 @@ begin
                 den   => den_val,
                 quot  => err_out,
                 rema  => open,
-                done  => div_done
+                done_op  => div_done
             );
     end generate;
 
