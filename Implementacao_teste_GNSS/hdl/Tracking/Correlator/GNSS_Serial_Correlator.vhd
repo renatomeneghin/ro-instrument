@@ -63,7 +63,7 @@ architecture architecture_GNSS_Serial_Correlator of GNSS_Serial_Correlator is
         );
     end component;
 
-    component Multiply_Accumulate is
+    component Accumulator is
         generic (
             input_width  : integer := 64;
             output_width : integer := 64
@@ -111,7 +111,7 @@ begin
     --------------------------------------------------------------------
     -- I-channel correlator (MAC)
     --------------------------------------------------------------------
-    MAC_I : Multiply_Accumulate
+    MAC_I : Accumulator
         generic map (
             input_width  => input_width,
             output_width => output_width
@@ -128,7 +128,7 @@ begin
     --------------------------------------------------------------------
     -- Q-channel correlator (MAC)
     --------------------------------------------------------------------
-    MAC_Q : Multiply_Accumulate
+    MAC_Q : Accumulator
         generic map (
             input_width  => input_width,
             output_width => output_width

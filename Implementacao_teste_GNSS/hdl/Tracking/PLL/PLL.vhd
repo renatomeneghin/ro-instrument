@@ -85,7 +85,7 @@ architecture architecture_PLL of PLL is
         );
     end component;
     
-    component Multiply_Accumulate is
+    component Accumulator is
     generic (
         input_width  : integer := 64;
         output_width : integer := 64
@@ -145,7 +145,7 @@ begin
                     filtered_out    => PH_increment
                 );
                 
-    Freq_accumulator: Multiply_Accumulate
+    Freq_accumulator: Accumulator
                 generic map (
                     input_width     => INPUT_WIDTH,
                     output_width    => DDS_WIDTH
