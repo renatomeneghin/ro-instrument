@@ -98,7 +98,7 @@ begin
             den   => div_den,
             quot  => div_out,
             rema  => open,
-            done_op  => div_done
+            idle  => div_done
         );
 
     ------------------------------------------------------------------

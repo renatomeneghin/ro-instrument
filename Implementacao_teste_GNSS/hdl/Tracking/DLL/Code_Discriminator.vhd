@@ -317,7 +317,7 @@ begin
                 den   => den_val,
                 quot  => err_out,
                 rema  => open,
-                done_op  => div_done
+                idle  => div_done
             );
     end generate;
 
