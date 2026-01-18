@@ -2,9 +2,12 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;   
 use ieee.std_logic_arith.all;
 
+library polarfire;
+use polarfire.all;
+
 entity PLL_Discriminator_DP is
 generic (
-    DATA_WIDTH : integer := 32
+    DATA_WIDTH : integer := 18
 );
 port (
     clk : in std_logic;
@@ -29,8 +32,11 @@ architecture rtl of PLL_Discriminator_DP is
     ------------------------------------------------------------------
     -- Internal signals
     ------------------------------------------------------------------
+    signal NRST           : std_logic;
     signal IP_neg, QP_neg : std_logic_vector(DATA_WIDTH-1 downto 0);
     signal IP_abs, Costas : std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal mul_pipe       : std_logic_vector(1 downto 0);
+
 
     signal mul_out        : std_logic_vector(DATA_WIDTH-1 downto 0);
     signal mul_idle       : std_logic;
@@ -38,9 +44,79 @@ architecture rtl of PLL_Discriminator_DP is
     signal div_num        : std_logic_vector(DATA_WIDTH-1 downto 0);
     signal div_den        : std_logic_vector(DATA_WIDTH-1 downto 0);
     signal div_out        : std_logic_vector(DATA_WIDTH-1 downto 0);
+    
+    signal ZERO18         : std_logic_vector(17 downto 0);
+    signal ZERO48         : std_logic_vector(47 downto 0);
+    
+    component MACC_wrapper is
+    -- Port list
+    port(
+        -- Inputs
+        A                    : in  std_logic_vector(17 downto 0);
+        AL_N                 : in  std_logic;
+        ARSHFT17             : in  std_logic;
+        ARSHFT17_AD_N        : in  std_logic;
+        ARSHFT17_BYPASS      : in  std_logic;
+        ARSHFT17_EN          : in  std_logic;
+        ARSHFT17_SD_N        : in  std_logic;
+        ARSHFT17_SL_N        : in  std_logic;
+        A_BYPASS             : in  std_logic;
+        A_EN                 : in  std_logic;
+        A_SRTN_N             : in  std_logic;
+        B                    : in  std_logic_vector(17 downto 0);
+        B_BYPASS             : in  std_logic;
+        B_EN                 : in  std_logic;
+        B_SRST_N             : in  std_logic;
+        C                    : in  std_logic_vector(47 downto 0);
+        CARRYIN              : in  std_logic;
+        CDIN                 : in  std_logic_vector(47 downto 0);
+        CDIN_FDBK_SEL        : in  std_logic_vector(1 downto 0);
+        CDIN_FDBK_SEL_AD_N   : in  std_logic_vector(1 downto 0);
+        CDIN_FDBK_SEL_BYPASS : in  std_logic;
+        CDIN_FDBK_SEL_EN     : in  std_logic;
+        CDIN_FDBK_SEL_SD_N   : in  std_logic_vector(1 downto 0);
+        CDIN_FDBK_SEL_SL_N   : in  std_logic;
+        CLK                  : in  std_logic;
+        C_ARST_N             : in  std_logic;
+        C_BYPASS             : in  std_logic;
+        C_EN                 : in  std_logic;
+        C_SRST_N             : in  std_logic;
+        D                    : in  std_logic_vector(17 downto 0);
+        DOTP                 : in  std_logic;
+        D_ARST_N             : in  std_logic;
+        D_BYPASS             : in  std_logic;
+        D_EN                 : in  std_logic;
+        D_SRST_N             : in  std_logic;
+        OVFL_CARRYOUT_SEL    : in  std_logic;
+        PASUB                : in  std_logic;
+        PASUB_AD_N           : in  std_logic;
+        PASUB_BYPASS         : in  std_logic;
+        PASUB_EN             : in  std_logic;
+        PASUB_SD_N           : in  std_logic;
+        PASUB_SL_N           : in  std_logic;
+        P_BYPASS             : in  std_logic;
+        P_EN                 : in  std_logic;
+        P_SRST_N             : in  std_logic;
+        SIMD                 : in  std_logic;
+        SUB                  : in  std_logic;
+        SUB_AD_N             : in  std_logic;
+        SUB_BYPASS           : in  std_logic;
+        SUB_EN               : in  std_logic;
+        SUB_SD_N             : in  std_logic;
+        SUB_SL_N             : in  std_logic;
+        -- Outputs
+        CDOUT                : out std_logic_vector(47 downto 0);
+        OVFL_CARRYOUT        : out std_logic;
+        P                    : out std_logic_vector(47 downto 0)
+        );
+    end component;
 
 begin
-
+    
+    NRST <= not rst;
+    ZERO18 <= (others => '0');
+    ZERO48 <= (others => '0');
+    
     ------------------------------------------------------------------
     -- Negation blocks
     ------------------------------------------------------------------
@@ -60,22 +136,127 @@ begin
 
     ------------------------------------------------------------------
     -- Multiplier: IP × QP
-    ------------------------------------------------------------------
-    MUL : entity work.Multiplier
-        generic map (data_width => DATA_WIDTH)
-        port map (
-            clk  => clk,
-            rst  => rst,
-            go   => mul_go,
-            A    => IP,
-            B    => QP,
-            idle => mul_idle,
-            MSB  => open,
-            LSB  => mul_out
+    ------------------------------------------------------------------     
+    MUL: MACC_wrapper 
+    -- Port list
+    port map(
+
+        -- =========================
+        -- Clock
+        -- =========================
+        CLK => clk,
+        
+        -- =========================
+        -- Asynchronous load
+        -- =========================
+        AL_N => '1',
+
+        -- =========================
+        -- A input path
+        -- =========================
+        A         => IP,
+        A_EN      => mul_go,
+        A_BYPASS  => '0',
+        A_SRTN_N  => NRST,
+
+        
+        -- =========================
+        -- B input path
+        -- =========================
+        B         => QP,
+        B_EN      => mul_go,
+        B_BYPASS  => '0',
+        B_SRST_N  => NRST,
+
+        -- =========================
+        -- D path (unused)
+        -- =========================
+        D         => ZERO18,
+        D_EN      => '0',
+        D_BYPASS  => '1',
+        D_SRST_N  => '0',
+        D_ARST_N  => '0',
+
+        -- =========================
+        -- C / Accumulator path
+        -- =========================
+        C         => ZERO48,
+        C_EN      => '0',
+        C_BYPASS  => '1',
+        C_SRST_N  => '0',
+        C_ARST_N  => '0',
+        CARRYIN  => '0',
+
+        -- =========================
+        -- Feedback path (disabled)
+        -- =========================
+        CDIN                  => ZERO48,
+        CDIN_FDBK_SEL         => "00",
+        CDIN_FDBK_SEL_EN      => '0',
+        CDIN_FDBK_SEL_BYPASS  => '1',
+        CDIN_FDBK_SEL_AD_N    => "11",
+        CDIN_FDBK_SEL_SD_N    => "11",
+        CDIN_FDBK_SEL_SL_N    => '1',
+
+        -- Disable Arithmetic shifts 
+        ARSHFT17          => '0',
+        ARSHFT17_EN       => '0',
+        ARSHFT17_BYPASS   => '1',
+        ARSHFT17_AD_N     => '1',
+        ARSHFT17_SD_N     => '1',
+        ARSHFT17_SL_N     => '1',      
+        
+        -- =========================
+        -- Arithmetic control
+        -- =========================
+        PASUB         => '0',
+        PASUB_EN      => '0',
+        PASUB_BYPASS  => '1',
+        PASUB_AD_N    => '1',
+        PASUB_SD_N    => '1',
+        PASUB_SL_N    => '1',
+
+        SUB           => '0',
+        SUB_EN        => '1',
+        SUB_BYPASS    => '1',
+        SUB_AD_N      => '1',
+        SUB_SD_N      => '1',
+        SUB_SL_N      => '1',
+
+        -- =========================
+        -- Special modes
+        -- =========================
+        DOTP   => '0',
+        SIMD   => '0',
+
+        -- =========================
+        -- Output stage
+        -- =========================
+        P_EN     => '1',
+        P_BYPASS => '0',
+        P_SRST_N => NRST,
+
+        OVFL_CARRYOUT_SEL => '0',
+
+        -- =========================
+        -- Outputs
+        -- =========================
+        P                => mul_out,
+        CDOUT            => open,
+        OVFL_CARRYOUT    => open
         );
-
-    mul_done <= mul_idle;
-
+        
+    GEN_MUL_DELAY : for i in 0 to mul_pipe'left-1 generate
+        FF_MUL : entity work.Flip_Flop_D
+            port map (
+                D   => mul_pipe(i),
+                RST => rst,
+                CLK => clk,
+                Q   => mul_pipe(i+1)
+            );
+    end generate;
+    mul_pipe(0) <= mul_go;
+    mul_done    <= mul_pipe(mul_pipe'left);
     ------------------------------------------------------------------
     -- Divider input selection
     ------------------------------------------------------------------

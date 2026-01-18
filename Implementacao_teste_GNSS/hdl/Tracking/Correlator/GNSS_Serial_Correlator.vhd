@@ -44,12 +44,15 @@ architecture architecture_GNSS_Serial_Correlator of GNSS_Serial_Correlator is
     --------------------------------------------------------------------
     -- Internal signals
     --------------------------------------------------------------------
-    signal I_neg, Q_neg : std_logic_vector(input_width-1 downto 0);
-    signal I_sel, Q_sel : std_logic_vector(input_width-1 downto 0);
+    type IQ_in  is array (0 to 1) of std_logic_vector(input_width-1 downto 0);
+    type IQ_out is array (0 to 1) of std_logic_vector(output_width-1 downto 0);
+    
+    signal IQ_dat       : IQ_in;
+    signal IQ_neg       : IQ_in;
+    signal IQ_sel       : IQ_in;
 
-    signal I_mac_out    : std_logic_vector(output_width-1 downto 0);
-    signal Q_mac_out    : std_logic_vector(output_width-1 downto 0);
-
+    signal IQ_acc_out   : IQ_out;
+    
     --------------------------------------------------------------------
     -- Components
     --------------------------------------------------------------------
@@ -81,70 +84,47 @@ architecture architecture_GNSS_Serial_Correlator of GNSS_Serial_Correlator is
 
 begin
 
+    IQ_dat(0) <= I_Real;
+    IQ_dat(1) <= Q_Real;
+    
+    IQ_PRN: for i in 0 to 1 generate
     --------------------------------------------------------------------
     -- Negation blocks (PRN = 1 ? subtract)
     --------------------------------------------------------------------
-    NEG_I : Negative_Integer
-        generic map (
-            data_width => input_width
-        )
-        port map (
-            SIG_IN  => I_Real,
-            SIG_OUT => I_neg
-        );
-
-    NEG_Q : Negative_Integer
-        generic map (
-            data_width => input_width
-        )
-        port map (
-            SIG_IN  => Q_Real,
-            SIG_OUT => Q_neg
-        );
-
-    --------------------------------------------------------------------
-    -- PRN-controlled selection
-    --------------------------------------------------------------------
-    I_sel <= I_Real when PRN = '0' else I_neg;
-    Q_sel <= Q_Real when PRN = '0' else Q_neg;
-
-    --------------------------------------------------------------------
-    -- I-channel correlator (MAC)
-    --------------------------------------------------------------------
-    MAC_I : Accumulator
-        generic map (
-            input_width  => input_width,
-            output_width => output_width
-        )
-        port map (
-            clk     => clk,
-            rst     => rst,
-            en      => en,
-            dump    => dump,
-            data_in => I_sel,
-            result  => I_mac_out
-        );
-
-    --------------------------------------------------------------------
-    -- Q-channel correlator (MAC)
-    --------------------------------------------------------------------
-    MAC_Q : Accumulator
-        generic map (
-            input_width  => input_width,
-            output_width => output_width
-        )
-        port map (
-            clk     => clk,
-            rst     => rst,
-            en      => en,
-            dump    => dump,
-            data_in => Q_sel,
-            result  => Q_mac_out
-        );
-
+        NEG_I : Negative_Integer
+            generic map (
+                data_width => input_width
+            )
+            port map (
+                SIG_IN  => IQ_dat(i),
+                SIG_OUT => IQ_neg(i)
+            );
+        --------------------------------------------------------------------
+        -- PRN-controlled selection
+        --------------------------------------------------------------------
+        IQ_sel(i) <= IQ_dat(i) when PRN = '0' 
+                    else IQ_neg(i);
+        --------------------------------------------------------------------
+        -- IQ-channel correlator (ACC)
+        --------------------------------------------------------------------
+        ACC: Accumulator
+            generic map (
+                input_width  => input_width,
+                output_width => output_width
+            )
+            port map (
+                clk     => clk,
+                rst     => rst,
+                en      => en,
+                dump    => dump,
+                data_in => IQ_sel(i),
+                result  => IQ_acc_out(i)
+            );
+    end generate;
+    
     --------------------------------------------------------------------
     -- Outputs (valid on dump cycle)
     --------------------------------------------------------------------
-    I_acc <= I_mac_out;
-    Q_acc <= Q_mac_out;
+    I_acc <= IQ_acc_out(0);
+    Q_acc <= IQ_acc_out(1);
 end architecture_GNSS_Serial_Correlator;
