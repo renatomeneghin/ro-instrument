@@ -112,7 +112,6 @@ architecture rtl of PLL_Discriminator_DP is
     end component;
 
 begin
-    
     NRST <= not rst;
     ZERO18 <= (others => '0');
     ZERO48 <= (others => '0');
@@ -128,6 +127,9 @@ begin
         generic map (data_width => DATA_WIDTH)
         port map (SIG_IN => QP, SIG_OUT => QP_neg);
 
+    ------------------------------------------------------------------
+    -- Err = Qp x sign(Ip)
+    ------------------------------------------------------------------
     Costas <= QP when IP(DATA_WIDTH-1) = '0' else QP_neg;
     ------------------------------------------------------------------
     -- |IP|

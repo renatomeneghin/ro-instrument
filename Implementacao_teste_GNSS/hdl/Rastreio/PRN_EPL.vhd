@@ -22,9 +22,7 @@ end PRN_Early_Prompt_Late;
 
 
 architecture Behavioral of PRN_Early_Prompt_Late is
-
     signal ca_bit       : std_logic;
-
     type shift_array_t is array (0 to 2) of std_logic;
     signal shift_reg : shift_array_t;
     

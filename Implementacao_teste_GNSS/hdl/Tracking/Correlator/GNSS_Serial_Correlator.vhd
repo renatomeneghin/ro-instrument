@@ -21,8 +21,8 @@ use ieee.std_logic_1164.all;
 
 entity GNSS_Serial_Correlator is
     generic (
-        input_width  : integer := 10;
-        output_width : integer := 32
+        input_width  : integer := 6;
+        output_width : integer := 18
     );
     port (
         clk    : in  std_logic;
