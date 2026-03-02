@@ -76,15 +76,7 @@ begin
 		end if;
 	end process;
     
-    U1: entity work.UAL
-        generic map ( data_width => data_width )
-        port map (
-            A    => EA,
-            B    => inc,
-            Cin  => '0',
-            S    => PE,
-            Cout => open
-        );
+    PE <= unsigned(EA) + unsigned(inc);
         
     inc(inc'left downto 1) <= (others => dir);
     inc(0) <= '1';

@@ -30,6 +30,7 @@ architecture Behavioral of PRN_Early_Prompt_Late is
     port(	
         D:	in std_logic;
         rst:	in std_logic;
+        set:    in std_logic;
         clk:	in std_logic;
         en:     in std_logic;
         Q:	out std_logic
@@ -77,6 +78,7 @@ begin
             port map (
                 D   => ca_bit,
                 rst => reset,
+                set => '1',
                 clk => clk,
                 en  => chip_en_2x,
                 Q   => shift_reg(i)
@@ -89,6 +91,7 @@ begin
             port map (
                 D   => shift_reg(i-1),
                 rst => reset,
+                set => '1',
                 clk => clk,
                 en  => chip_en_2x,
                 Q   => shift_reg(i)

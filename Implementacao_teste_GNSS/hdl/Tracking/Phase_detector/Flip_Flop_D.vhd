@@ -44,6 +44,7 @@ use work.all;
 entity Flip_Flop_D_en is
 port(	
 	D:	in std_logic;
+    set:    in std_logic;
 	rst:	in std_logic;
 	clk:	in std_logic;
     en:     in std_logic;
@@ -59,6 +60,8 @@ begin
 	begin
 		if rst = '0' then
 			Q <= '0';
+        elsif set = '0' then
+            Q <= '1';
 		elsif clk'event and clk = '1' then
             if en = '1' then 
                 Q <= D;
