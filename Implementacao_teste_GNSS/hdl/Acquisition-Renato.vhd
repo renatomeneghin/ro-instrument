@@ -38,7 +38,8 @@ port (
 end Acquisition;
 
 architecture architecture_Acquisition of Acquisition is
-    -- signal, component etc. declarations
+    -- signal, component etc. de/clarations
+    constant MIXER_TYPE         : integer := 0;
     constant Contador_WIDTH     : integer := 9;
     constant DDS_Width          : integer := 13; -- Datawidth of the DDS
     constant FFT_Width          : integer := 16; -- Datawidth before the fft
@@ -275,22 +276,40 @@ begin
     SINE_GENERATOR: COREDDS_C0 port map (CLK,Frequency_offset_data, '1','0',NRST,'1',cos_signal,open,sin_signal);
     CONTADOR_ESTADO: contador generic map (Contador_WIDTH) port map(counter_clk, RST, count_state);
     
-    -- Entrada
-    I_MAX_IN <= "001" when MAX_INPUT_I = "00" else
-                "010" when MAX_INPUT_I = "01" else
-                "111" when MAX_INPUT_I = "10" else
-                "110";
-    Q_MAX_IN <= "001" when MAX_INPUT_Q = "00" else
-                "010" when MAX_INPUT_Q = "01" else
-                "111" when MAX_INPUT_Q = "10" else
-                "110";
-    MULT_IN: complex_multiplier_C2 port map (sin_signal, cos_signal, Q_MAX_IN, I_MAX_IN, 
+
+                
+    MIXER_MULT_CMPX: if MIXER_TYPE = 0 generate
+        -- Entrada
+        I_MAX_IN <= "001" when MAX_INPUT_I = "00" else
+                    "010" when MAX_INPUT_I = "01" else
+                    "111" when MAX_INPUT_I = "10" else
+                    "110";
+        Q_MAX_IN <= "001" when MAX_INPUT_Q = "00" else
+                    "010" when MAX_INPUT_Q = "01" else
+                    "111" when MAX_INPUT_Q = "10" else
+                    "110";
+
+        MULT_IN: complex_multiplier_C2 port map (sin_signal, cos_signal, Q_MAX_IN, I_MAX_IN, 
                                             clk, MULT_RST_IN, FFT_Q_signal, FFT_I_signal);
+        
+        clkd2(0) <= InReady(0) and InReady(1) and MAX_INPUT_CLK;
+        CLK_MULT_D2: for i in 0 to 2 generate
+            delay_II: Flip_Flop_D port map(clkd2(i),NRST, clk, clkd2(i+1)); -- ainda a ser verificado
+        end generate;
+    end generate;
     
-    clkd2(0) <= InReady(0) and InReady(1) and MAX_INPUT_CLK;
-    CLK_MULT_D2: for i in 0 to 2 generate
-		delay_II: Flip_Flop_D port map(clkd2(i),NRST, clk, clkd2(i+1)); -- ainda a ser verificado
-	end generate;
+    MIXER_MULT_CMPX: if MIXER_TYPE = 1 generate
+        MULT1: Multiplier_simplified generic map(DDS_Width) port map(cos_signal,I_MAX_IN,I1_signal);
+        MULT2: Multiplier_simplified generic map(DDS_Width) port map(sin_signal,I_MAX_IN,I2_signal);
+        MULT3: Multiplier_simplified generic map(DDS_Width) port map(sin_signal,Q_MAX_IN,Q2_signal);
+        MULT4: Multiplier_simplified generic map(DDS_Width) port map(cos_signal,Q_MAX_IN,Q1_signal);
+        Q2_signal_n <= not(Q2_signal);
+        
+        SUM_I: UAL generic map(SUM_Width) port map(I1_signal,Q2_signal_n,'1',
+                    FFT_I_signal(SUM_Width-1 downto 0),FFT_I_signal(SUM_Width));
+        SUM_Q: UAL generic map(SUM_Width) port map(I2_signal,Q1_signal,'0',
+                    FFT_Q_signal(SUM_Width-1 downto 0),FFT_Q_signal(SUM_Width));
+    end generate;    
     
     -- CÃ³digo CA
 	CA_CODE: L1_CA_generator 
@@ -389,7 +408,7 @@ begin
         elsif CLK'event and clk = '1' then
             count_bit_d1 <= count_state(Contador_WIDTH-5);
             count_bit_d2 <= count_bit_d1;
-            -- Detecta mudança no bit monitorado
+            -- Detecta mudanï¿½a no bit monitorado
             if count_state(Contador_WIDTH-5) xor count_bit_d2 then
                 ca_rst_pulse  <= '1';
             else
