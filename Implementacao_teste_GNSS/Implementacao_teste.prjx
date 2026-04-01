@@ -32,7 +32,7 @@ KEY VendorTechnology_VCCI_1.8_VOLTR "EXT"
 KEY VendorTechnology_VCCI_2.5_VOLTR "EXT"
 KEY VendorTechnology_VCCI_3.3_VOLTR "EXT"
 KEY VendorTechnology_VOLTR "EXT"
-KEY ProjectLocation "/home/flatsat/Desktop/ro-instrument/Implementacao_teste_GNSS"
+KEY ProjectLocation "/home/tuzinho/Desktop/ro-instrument/Implementacao_teste_GNSS"
 KEY ProjectDescription ""
 KEY UseRootLocationForLinkedFiles "FALSE"
 KEY RootLocationENVForLinkedFiles ""
@@ -44,14 +44,14 @@ KEY LossOfDataDRCSeverity "TRUE"
 KEY IdWidthMismatchDRCSeverity "TRUE"
 KEY SimulationType "VERILOG"
 KEY Vendor "Actel"
-KEY ActiveRoot "Acquisition_top::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
 VALUE="Impl2",NUM=2
 VALUE="Impl3",NUM=3
 VALUE="Impl4",NUM=4
 VALUE="Impl5",NUM=5
-CURREV=5
+VALUE="Impl6",NUM=6
+CURREV=6
 ENDLIST
 LIST LIBRARIES
 COREFFT_LIB
@@ -72,40 +72,40 @@ ENDLIST
 LIST FileManager
 VALUE "<project>/component/Actel/DirectCore/CoreDDRMemCtrlr/2.3.101/CoreDDRMemCtrlr.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="372"
 PARENT="<project>/component/work/PF_LPDDR3_C0/PF_LPDDR3_C0.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4135"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/APB_IF.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="10659"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/APB_IOG_CTRL_SM.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="15606"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/CoreDDR_TIP_INT.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="77142"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/CoreDDR_TIP_SIM.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="67822"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 BEGIN_USE_CONSTRAINT
@@ -116,7 +116,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/CoreDDR_TIP_SYN.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="42958"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 BEGIN_USE_CONSTRAINT
@@ -128,21 +128,21 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/ddr4_vref.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="5471"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/ddr_init_iterator.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="2184"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/ddr_no_training.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="54282"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 BEGIN_USE_CONSTRAINT
@@ -153,77 +153,77 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/DELAY_CTRL.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1573"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/DLL_MON.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="806"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/dq_align_dqs_optimization.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="61312"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/FIFO_BLK.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="5670"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/flag_generator.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1733"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/gate_training.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="110647"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/IOG_IF.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="11825"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/LANE_ALIGNMENT.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="6719"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/LANE_CTRL.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1653"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/LEVELLING.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="19448"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/OE_GLUE_LOGIC.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1398"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 BEGIN_USE_CONSTRAINT
@@ -234,141 +234,141 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/PHY_SIG_MOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="33725"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/ram_simple_dp.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3011"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/RDLVL.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="9007"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/RDLVL_SMS.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="12579"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/RDLVL_TRAIN.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="11852"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/register_bank.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="23632"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/TIP_CTRL_BLK.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="42641"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/trn_bclksclk.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="11374"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/TRN_CLK.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="19800"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/trn_cmdaddr.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="21185"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/TRN_COMPLETE.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="10342"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/trn_dqsw.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="12939"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/VREF_TR.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1992"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/write_callibrator.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="25559"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/WRLVL.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="5584"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/WRLVL_BOT.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="9912"
 PARENT="<project>/component/Actel/DirectCore/COREDDR_TIP/2.1.101/COREDDR_TIP.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDS/4.0.108/COREDDS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774966325"
 SIZE="864"
 PARENT="<project>/component/work/COREDDS_C0/COREDDS_C0.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDS/4.0.108/rtl/vlog/core/dds_kit.v,hdl"
 STATE="utd"
-TIME="1761144824"
-SIZE="20631"
+TIME="1774966325"
+SIZE="21215"
 LIBRARY="COREDDS_LIB"
 PARENT="<project>/component/Actel/DirectCore/COREDDS/4.0.108/COREDDS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREDDS/4.0.108/rtl/vlog/core/dds_module.v,hdl"
 STATE="utd"
-TIME="1761144824"
-SIZE="51885"
+TIME="1774966325"
+SIZE="53363"
 LIBRARY="COREDDS_LIB"
 PARENT="<project>/component/Actel/DirectCore/COREDDS/4.0.108/COREDDS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/COREFFT.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1467"
 PARENT="<project>/component/work/COREFFT_C0/COREFFT_C0.cxf"
 PARENT="<project>/component/work/COREFFT_C1/COREFFT_C1.cxf"
@@ -376,7 +376,7 @@ PARENT="<project>/component/work/COREFFT_C2/COREFFT_C2.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/cmplx.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="18706"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/Actel/DirectCore/COREFFT/8.1.100/COREFFT.cxf"
@@ -384,7 +384,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/fftSm.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="25330"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/Actel/DirectCore/COREFFT/8.1.100/COREFFT.cxf"
@@ -392,7 +392,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/kit.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="19296"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/Actel/DirectCore/COREFFT/8.1.100/COREFFT.cxf"
@@ -400,7 +400,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/core/mac_lib.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="12979"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/Actel/DirectCore/COREFFT/8.1.100/COREFFT.cxf"
@@ -408,7 +408,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="11104"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/Actel/DirectCore/COREFFT/8.1.100/COREFFT.cxf"
@@ -419,166 +419,166 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/clock_driver.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="697"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/fifo_driver.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="13496"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/fifo_monitor.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="22096"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/g4_dp_ext_mem.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3801"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WeqR.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="2194"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WgtR.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="2287"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WltR.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1981"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/SgCore/PF_CCC/2.2.220/PF_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="279"
 PARENT="<project>/component/work/PF_LPDDR3_C0/PF_LPDDR3_C0.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SgCore/PF_DDR_CFG_INIT/1.0.100/cfg_init.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="40782"
 PARENT="<project>/component/Actel/SgCore/PF_DDR_CFG_INIT/1.0.100/PF_DDR_CFG_INIT.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Actel/SgCore/PF_DDR_CFG_INIT/1.0.100/PF_DDR_CFG_INIT.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="458"
 PARENT="<project>/component/work/PF_LPDDR3_C0/PF_LPDDR3_C0.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SgCore/PF_IOD/1.0.218/PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="243"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/Actel/SgCore/PF_LANECTRL/2.0.102/PF_LANECTRL.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="364"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/Microchip/SolutionCore/costas_loop/1.1.0/costas_loop.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="696"
 PARENT="<project>/component/work/costas_loop_C0/costas_loop_C0.cxf"
 ENDFILE
 VALUE "<project>/component/Microchip/SolutionCore/costas_loop/1.1.0/Encrypted/costas_loop.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="89222"
 PARENT="<project>/component/Microchip/SolutionCore/costas_loop/1.1.0/costas_loop.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Microchip/SolutionCore/costas_loop/1.1.0/Stimulus/costas_loop_tb.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="19535"
 PARENT="<project>/component/Microchip/SolutionCore/costas_loop/1.1.0/costas_loop.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Microsemi/SolutionCore/complex_multiplier/1.0.27/complex_multiplier.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="799"
 PARENT="<project>/component/work/complex_multiplier_C0/complex_multiplier_C0.cxf"
 ENDFILE
 VALUE "<project>/component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/complex_multiplier.vhd,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="12631"
 PARENT="<project>/component/Microsemi/SolutionCore/complex_multiplier/1.0.27/complex_multiplier.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/round_sat.vhd,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1540"
 PARENT="<project>/component/Microsemi/SolutionCore/complex_multiplier/1.0.27/complex_multiplier.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/complex_multiplier_C0/complex_multiplier_C0.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3254"
 ENDFILE
 VALUE "<project>/component/work/complex_multiplier_C0/complex_multiplier_C0.vhd,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4549"
 PARENT="<project>/component/work/complex_multiplier_C0/complex_multiplier_C0.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774966325"
 SIZE="4422"
 ENDFILE
 VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0.v,hdl"
 STATE="utd"
-TIME="1761144824"
-SIZE="4907"
+TIME="1774966325"
+SIZE="4908"
 PARENT="<project>/component/work/COREDDS_C0/COREDDS_C0.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/COREDDS_C0_COREDDS_C0_0_COREDDS.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774966325"
 SIZE="2654"
 PARENT="<project>/component/work/COREDDS_C0/COREDDS_C0.cxf"
 ENDFILE
 VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/COREDDS_C0_COREDDS_C0_0_dds_qrtr_cos.v,hdl"
 STATE="utd"
-TIME="1761144824"
-SIZE="26364"
+TIME="1774966324"
+SIZE="24316"
 LIBRARY="COREDDS_LIB"
 PARENT="<project>/component/work/COREDDS_C0/COREDDS_C0_0/COREDDS_C0_COREDDS_C0_0_COREDDS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/COREDDS_C0_COREDDS_C0_0_dds_qrtr_sin.v,hdl"
 STATE="utd"
-TIME="1761144824"
-SIZE="25334"
+TIME="1774966324"
+SIZE="23286"
 LIBRARY="COREDDS_LIB"
 PARENT="<project>/component/work/COREDDS_C0/COREDDS_C0_0/COREDDS_C0_COREDDS_C0_0_COREDDS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/coreparameters.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774966325"
 SIZE="892"
 PARENT="<project>/component/work/COREDDS_C0/COREDDS_C0_0/COREDDS_C0_COREDDS_C0_0_COREDDS.cxf"
 IS_READONLY="TRUE"
@@ -586,23 +586,23 @@ IS_INCLUDED="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/core/COREDDS_C0_COREDDS_C0_0_dds_g5_lsram.v,hdl"
 STATE="utd"
-TIME="1761144824"
-SIZE="2236"
+TIME="1774966324"
+SIZE="2225"
 LIBRARY="COREDDS_LIB"
 PARENT="<project>/component/work/COREDDS_C0/COREDDS_C0_0/COREDDS_C0_COREDDS_C0_0_COREDDS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/core/DDS_TOP.v,hdl"
 STATE="utd"
-TIME="1761144824"
-SIZE="7788"
+TIME="1774966325"
+SIZE="7980"
 LIBRARY="COREDDS_LIB"
 PARENT="<project>/component/work/COREDDS_C0/COREDDS_C0_0/COREDDS_C0_COREDDS_C0_0_COREDDS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/core/lut.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774966325"
 SIZE="16833"
 LIBRARY="COREDDS_LIB"
 PARENT="<project>/component/work/COREDDS_C0/COREDDS_C0_0/COREDDS_C0_COREDDS_C0_0_COREDDS.cxf"
@@ -610,53 +610,53 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
-SIZE="16680"
+TIME="1774966325"
+SIZE="17311"
 PARENT="<project>/component/work/COREDDS_C0/COREDDS_C0_0/COREDDS_C0_COREDDS_C0_0_COREDDS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectIn.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774966324"
 SIZE="1188"
 PARENT="<project>/component/work/COREDDS_C0/COREDDS_C0_0/COREDDS_C0_COREDDS_C0_0_COREDDS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectOut.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
-SIZE="47887"
+TIME="1774966324"
+SIZE="47377"
 PARENT="<project>/component/work/COREDDS_C0/COREDDS_C0_0/COREDDS_C0_COREDDS_C0_0_COREDDS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/tb_dds.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774966325"
 SIZE="11781"
 PARENT="<project>/component/work/COREDDS_C0/COREDDS_C0_0/COREDDS_C0_COREDDS_C0_0_COREDDS.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C0/COREFFT_C0.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="5328"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C0/COREFFT_C0.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="6868"
 PARENT="<project>/component/work/COREFFT_C0/COREFFT_C0.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C0/COREFFT_C0_0/COREFFT_C0_COREFFT_C0_0_COREFFT.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="2222"
 PARENT="<project>/component/work/COREFFT_C0/COREFFT_C0.cxf"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C0/COREFFT_C0_0/COREFFT_C0_COREFFT_C0_0_lsram_g5.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4162"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C0/COREFFT_C0_0/COREFFT_C0_COREFFT_C0_0_COREFFT.cxf"
@@ -664,7 +664,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C0/COREFFT_C0_0/coreparameters.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1018"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C0/COREFFT_C0_0/COREFFT_C0_COREFFT_C0_0_COREFFT.cxf"
@@ -672,7 +672,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C0/COREFFT_C0_0/fft_tb_inc32.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1093763"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C0/COREFFT_C0_0/COREFFT_C0_COREFFT_C0_0_COREFFT.cxf"
@@ -680,7 +680,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/COREFFT.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="9966"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C0/COREFFT_C0_0/COREFFT_C0_COREFFT_C0_0_COREFFT.cxf"
@@ -688,7 +688,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/COREFFT_TOP.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="10985"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C0/COREFFT_C0_0/COREFFT_C0_COREFFT_C0_0_COREFFT.cxf"
@@ -696,7 +696,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/core/fftDp.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="12324"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C0/COREFFT_C0_0/COREFFT_C0_COREFFT_C0_0_COREFFT.cxf"
@@ -704,7 +704,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="7928"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C0/COREFFT_C0_0/COREFFT_C0_COREFFT_C0_0_COREFFT.cxf"
@@ -712,7 +712,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C0/COREFFT_C0_0/twiddle32.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="121520"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C0/COREFFT_C0_0/COREFFT_C0_COREFFT_C0_0_COREFFT.cxf"
@@ -720,25 +720,25 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C1/COREFFT_C1.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="5328"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C1/COREFFT_C1.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="6859"
 PARENT="<project>/component/work/COREFFT_C1/COREFFT_C1.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C1/COREFFT_C1_0/COREFFT_C1_COREFFT_C1_0_COREFFT.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="2222"
 PARENT="<project>/component/work/COREFFT_C1/COREFFT_C1.cxf"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C1/COREFFT_C1_0/COREFFT_C1_COREFFT_C1_0_lsram_g5.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4162"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C1/COREFFT_C1_0/COREFFT_C1_COREFFT_C1_0_COREFFT.cxf"
@@ -746,7 +746,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C1/COREFFT_C1_0/coreparameters.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1017"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C1/COREFFT_C1_0/COREFFT_C1_COREFFT_C1_0_COREFFT.cxf"
@@ -754,7 +754,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C1/COREFFT_C1_0/fft_tb_inc32.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1093763"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C1/COREFFT_C1_0/COREFFT_C1_COREFFT_C1_0_COREFFT.cxf"
@@ -762,7 +762,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/COREFFT.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="9966"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C1/COREFFT_C1_0/COREFFT_C1_COREFFT_C1_0_COREFFT.cxf"
@@ -770,7 +770,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/COREFFT_TOP.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="10985"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C1/COREFFT_C1_0/COREFFT_C1_COREFFT_C1_0_COREFFT.cxf"
@@ -778,7 +778,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/core/fftDp.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="12324"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C1/COREFFT_C1_0/COREFFT_C1_COREFFT_C1_0_COREFFT.cxf"
@@ -786,7 +786,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="7928"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C1/COREFFT_C1_0/COREFFT_C1_COREFFT_C1_0_COREFFT.cxf"
@@ -794,7 +794,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C1/COREFFT_C1_0/twiddle32.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="121520"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C1/COREFFT_C1_0/COREFFT_C1_COREFFT_C1_0_COREFFT.cxf"
@@ -802,25 +802,25 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="5325"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="6885"
 PARENT="<project>/component/work/COREFFT_C2/COREFFT_C2.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/COREFFT_C2_COREFFT_C2_0_COREFFT.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="2222"
 PARENT="<project>/component/work/COREFFT_C2/COREFFT_C2.cxf"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/COREFFT_C2_COREFFT_C2_0_lsram_g5.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="9292"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C2/COREFFT_C2_0/COREFFT_C2_COREFFT_C2_0_COREFFT.cxf"
@@ -828,7 +828,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/coreparameters.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1017"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C2/COREFFT_C2_0/COREFFT_C2_COREFFT_C2_0_COREFFT.cxf"
@@ -836,7 +836,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/fft_tb_inc32.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1480408"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C2/COREFFT_C2_0/COREFFT_C2_COREFFT_C2_0_COREFFT.cxf"
@@ -844,7 +844,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/COREFFT.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="9966"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C2/COREFFT_C2_0/COREFFT_C2_COREFFT_C2_0_COREFFT.cxf"
@@ -852,7 +852,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/COREFFT_TOP.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="10985"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C2/COREFFT_C2_0/COREFFT_C2_COREFFT_C2_0_COREFFT.cxf"
@@ -860,7 +860,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/fftDp.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="12324"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C2/COREFFT_C2_0/COREFFT_C2_COREFFT_C2_0_COREFFT.cxf"
@@ -868,7 +868,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="7928"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C2/COREFFT_C2_0/COREFFT_C2_COREFFT_C2_0_COREFFT.cxf"
@@ -876,7 +876,7 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/twiddle32.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="172237"
 LIBRARY="COREFFT_LIB"
 PARENT="<project>/component/work/COREFFT_C2/COREFFT_C2_0/COREFFT_C2_COREFFT_C2_0_COREFFT.cxf"
@@ -884,661 +884,561 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/costas_loop_C0/costas_loop_C0.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4293"
 ENDFILE
 VALUE "<project>/component/work/costas_loop_C0/costas_loop_C0.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3482"
 PARENT="<project>/component/work/costas_loop_C0/costas_loop_C0.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/nomw_generico/nomw_generico.cxf,actgen_cxf"
 STATE="utd"
-TIME="1774622074"
+TIME="1774633871"
 SIZE="629"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0/CCC_0/PF_LPDDR3_C0_CCC_0_PF_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="451"
 PARENT="<project>/component/work/PF_LPDDR3_C0/PF_LPDDR3_C0.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0/CCC_0/PF_LPDDR3_C0_CCC_0_PF_CCC.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4631"
 PARENT="<project>/component/work/PF_LPDDR3_C0/CCC_0/PF_LPDDR3_C0_CCC_0_PF_CCC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0/DDRCTRL_0/CoreDDRMemCtrlr_0.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="7040264"
 PARENT="<project>/component/work/PF_LPDDR3_C0/DDRCTRL_0/PF_LPDDR3_C0_DDRCTRL_0_CoreDDRMemCtrlr.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0/DDRCTRL_0/DDRCTRL_0.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="431"
 PARENT="<project>/component/work/PF_LPDDR3_C0/PF_LPDDR3_C0.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0/DDRCTRL_0/PF_LPDDR3_C0_DDRCTRL_0_CoreDDRMemCtrlr.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="503"
 PARENT="<project>/component/work/PF_LPDDR3_C0/PF_LPDDR3_C0.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0/DDRCTRL_0/sdram_lb_defines_0.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="2212"
 PARENT="<project>/component/work/PF_LPDDR3_C0/DDRCTRL_0/DDRCTRL_0.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0/DLL_0/PF_LPDDR3_C0_DLL_0_PF_CCC.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="451"
 PARENT="<project>/component/work/PF_LPDDR3_C0/PF_LPDDR3_C0.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0/DLL_0/PF_LPDDR3_C0_DLL_0_PF_CCC.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="2596"
 PARENT="<project>/component/work/PF_LPDDR3_C0/DLL_0/PF_LPDDR3_C0_DLL_0_PF_CCC.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0/PF_LPDDR3_C0.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="17946"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0/PF_LPDDR3_C0.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="185050"
 PARENT="<project>/component/work/PF_LPDDR3_C0/PF_LPDDR3_C0.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_A_8_0/PF_LPDDR3_C0_DDRPHY_BLK_IOD_A_8_0_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="481"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_A_8_0/PF_LPDDR3_C0_DDRPHY_BLK_IOD_A_8_0_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="30896"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_A_8_0/PF_LPDDR3_C0_DDRPHY_BLK_IOD_A_8_0_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_A_9/PF_LPDDR3_C0_DDRPHY_BLK_IOD_A_9_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="477"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_A_9/PF_LPDDR3_C0_DDRPHY_BLK_IOD_A_9_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4077"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_A_9/PF_LPDDR3_C0_DDRPHY_BLK_IOD_A_9_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_BCLK_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_IOD_BCLK_TRAINING_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="497"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_BCLK_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_IOD_BCLK_TRAINING_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3799"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_BCLK_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_IOD_BCLK_TRAINING_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_CKE/PF_LPDDR3_C0_DDRPHY_BLK_IOD_CKE_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="477"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_CKE/PF_LPDDR3_C0_DDRPHY_BLK_IOD_CKE_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3786"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_CKE/PF_LPDDR3_C0_DDRPHY_BLK_IOD_CKE_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_CS_N/PF_LPDDR3_C0_DDRPHY_BLK_IOD_CS_N_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="479"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_CS_N/PF_LPDDR3_C0_DDRPHY_BLK_IOD_CS_N_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3788"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_CS_N/PF_LPDDR3_C0_DDRPHY_BLK_IOD_CS_N_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_ODT/PF_LPDDR3_C0_DDRPHY_BLK_IOD_ODT_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="477"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_ODT/PF_LPDDR3_C0_DDRPHY_BLK_IOD_ODT_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3786"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_ODT/PF_LPDDR3_C0_DDRPHY_BLK_IOD_ODT_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_REF_CLK_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_IOD_REF_CLK_TRAINING_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="503"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_REF_CLK_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_IOD_REF_CLK_TRAINING_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3734"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/IOD_REF_CLK_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_IOD_REF_CLK_TRAINING_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANECTRL_ADDR_CMD_0/PF_LANECTRL_PAUSE_SYNC.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3582"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANECTRL_ADDR_CMD_0/PF_LPDDR3_C0_DDRPHY_BLK_LANECTRL_ADDR_CMD_0_PF_LANECTRL.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANECTRL_ADDR_CMD_0/PF_LPDDR3_C0_DDRPHY_BLK_LANECTRL_ADDR_CMD_0_PF_LANECTRL.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="653"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANECTRL_ADDR_CMD_0/PF_LPDDR3_C0_DDRPHY_BLK_LANECTRL_ADDR_CMD_0_PF_LANECTRL.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4833"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANECTRL_ADDR_CMD_0/PF_LPDDR3_C0_DDRPHY_BLK_LANECTRL_ADDR_CMD_0_PF_LANECTRL.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_CTRL/PF_LANECTRL_PAUSE_SYNC.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3574"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_CTRL_PF_LANECTRL.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_CTRL_PF_LANECTRL.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="637"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_CTRL_PF_LANECTRL.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="5080"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_CTRL_PF_LANECTRL.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_DM/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_DM_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="489"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_DM/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_DM_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3974"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_DM/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_DM_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_DQ/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_DQ_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="489"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_DQ/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_DQ_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="32182"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_DQ/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_DQ_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_DQS/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_DQS_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="491"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_DQS/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_DQS_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4733"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_DQS/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_DQS_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_DQSW_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_DQSW_TRAINING_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="511"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_DQSW_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_DQSW_TRAINING_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3836"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_DQSW_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_DQSW_TRAINING_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_READ_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_READ_TRAINING_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="511"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_READ_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_READ_TRAINING_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4264"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_0_IOD_READ_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_0_IOD_READ_TRAINING_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_CTRL/PF_LANECTRL_PAUSE_SYNC.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3574"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_CTRL_PF_LANECTRL.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_CTRL_PF_LANECTRL.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="637"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_CTRL_PF_LANECTRL.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="5080"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_CTRL_PF_LANECTRL.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_DM/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_DM_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="489"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_DM/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_DM_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3974"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_DM/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_DM_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_DQ/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_DQ_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="489"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_DQ/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_DQ_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="32188"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_DQ/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_DQ_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_DQS/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_DQS_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="491"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_DQS/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_DQS_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4733"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_DQS/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_DQS_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_DQSW_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_DQSW_TRAINING_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="511"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_DQSW_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_DQSW_TRAINING_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3836"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_DQSW_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_DQSW_TRAINING_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_READ_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_READ_TRAINING_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="511"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_READ_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_READ_TRAINING_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4264"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_1_IOD_READ_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_1_IOD_READ_TRAINING_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_CTRL/PF_LANECTRL_PAUSE_SYNC.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3574"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_CTRL_PF_LANECTRL.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_CTRL_PF_LANECTRL.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="637"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_CTRL_PF_LANECTRL.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="5080"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_CTRL_PF_LANECTRL.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_DM/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_DM_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="489"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_DM/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_DM_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3974"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_DM/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_DM_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_DQ/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_DQ_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="489"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_DQ/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_DQ_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="32190"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_DQ/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_DQ_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_DQS/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_DQS_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="491"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_DQS/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_DQS_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4733"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_DQS/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_DQS_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_DQSW_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_DQSW_TRAINING_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="511"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_DQSW_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_DQSW_TRAINING_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3836"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_DQSW_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_DQSW_TRAINING_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_READ_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_READ_TRAINING_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="511"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_READ_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_READ_TRAINING_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4264"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_2_IOD_READ_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_2_IOD_READ_TRAINING_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_CTRL/PF_LANECTRL_PAUSE_SYNC.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3574"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_CTRL_PF_LANECTRL.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_CTRL_PF_LANECTRL.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="637"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_CTRL_PF_LANECTRL.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="5080"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_CTRL/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_CTRL_PF_LANECTRL.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_DM/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_DM_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="489"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_DM/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_DM_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3974"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_DM/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_DM_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_DQ/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_DQ_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="489"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_DQ/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_DQ_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="32190"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_DQ/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_DQ_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_DQS/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_DQS_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="491"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_DQS/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_DQS_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4733"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_DQS/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_DQS_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_DQSW_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_DQSW_TRAINING_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="511"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_DQSW_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_DQSW_TRAINING_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="3836"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_DQSW_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_DQSW_TRAINING_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_READ_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_READ_TRAINING_PF_IOD.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="511"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_READ_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_READ_TRAINING_PF_IOD.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4264"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/LANE_3_IOD_READ_TRAINING/PF_LPDDR3_C0_DDRPHY_BLK_LANE_3_IOD_READ_TRAINING_PF_IOD.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf,actgen_cxf"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="37228"
 ENDFILE
 VALUE "<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.v,hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="1030200"
 PARENT="<project>/component/work/PF_LPDDR3_C0_DDRPHY_BLK/PF_LPDDR3_C0_DDRPHY_BLK.cxf"
 IS_READONLY="TRUE"
 ENDFILE
-VALUE "<project>/hdl/Acquisition-Renato.vhd,hdl"
-STATE="utd"
-TIME="1774621864"
-SIZE="15879"
-ENDFILE
-VALUE "<project>/hdl/Acquisition.vhd,hdl"
-STATE="utd"
-TIME="1774532665"
-SIZE="15637"
-ENDFILE
-VALUE "<project>/hdl/Acquisition_control.vhd,hdl"
-STATE="utd"
-TIME="1761144824"
-SIZE="2419"
-ENDFILE
-VALUE "<project>/hdl/Acquisition_top.vhd,hdl"
-STATE="utd"
-TIME="1761144824"
-SIZE="3467"
-ENDFILE
-VALUE "<project>/hdl/complex_multiplier_C0.vhd,hdl"
-STATE="utd"
-TIME="1761144824"
-SIZE="4543"
-ENDFILE
-VALUE "<project>/hdl/contador.vhd,hdl"
-STATE="utd"
-TIME="1774532665"
-SIZE="1858"
-ENDFILE
-VALUE "<project>/hdl/Controle.vhd,hdl"
-STATE="utd"
-TIME="1774532665"
-SIZE="1641"
-ENDFILE
-VALUE "<project>/hdl/COREDDS_C0.vhd,hdl"
-STATE="utd"
-TIME="1761144824"
-SIZE="7073"
-ENDFILE
-VALUE "<project>/hdl/Counter_DDS_CA.vhd,hdl"
-STATE="utd"
-TIME="1761144824"
-SIZE="773"
-ENDFILE
-VALUE "<project>/hdl/Datapath.vhd,hdl"
-STATE="utd"
-TIME="1774532665"
-SIZE="2571"
-ENDFILE
-VALUE "<project>/hdl/Flip_Flop_D.vhd,hdl"
-STATE="utd"
-TIME="1761144824"
-SIZE="759"
-ENDFILE
-VALUE "<project>/hdl/L1_CA_generator.vhd,hdl"
-STATE="utd"
-TIME="1761144824"
-SIZE="6812"
-ENDFILE
-VALUE "<project>/hdl/LFSR_generator.vhd,hdl"
-STATE="utd"
-TIME="1761144824"
-SIZE="5805"
-ENDFILE
-VALUE "<project>/hdl/MAX_2771_In.vhd,hdl"
-STATE="utd"
-TIME="1761144824"
-SIZE="1418"
-ENDFILE
-VALUE "<project>/hdl/Multiplier.vhd,hdl"
-STATE="utd"
-TIME="1774532665"
-SIZE="1866"
-ENDFILE
-VALUE "<project>/hdl/Multiplier_simplified.vhd,hdl"
-STATE="utd"
-TIME="1774532665"
-SIZE="1422"
-ENDFILE
-VALUE "<project>/hdl/Negative_Integer.vhd,hdl"
-STATE="utd"
-TIME="1761144824"
-SIZE="1378"
-ENDFILE
-VALUE "<project>/hdl/Register.vhd,hdl"
-STATE="utd"
-TIME="1774532665"
-SIZE="1255"
-ENDFILE
-VALUE "<project>/hdl/Somador.vhd,hdl"
-STATE="utd"
-TIME="1761144824"
-SIZE="988"
-ENDFILE
-VALUE "<project>/hdl/Zero_detector.vhd,hdl"
-STATE="utd"
-TIME="1761144824"
-SIZE="751"
-ENDFILE
 VALUE "<project>/simulation/Acquisition_TestBench_presynth_simulation.log,log"
 STATE="utd"
-TIME="1774620484"
-SIZE="654"
+TIME="1774633871"
+SIZE="705"
 ENDFILE
 VALUE "<project>/simulation/run.do,do"
 STATE="utd"
-TIME="1774620481"
+TIME="1774633871"
 SIZE="3911"
 ENDFILE
 VALUE "<project>/stimulus/Acquisition_TestBench.vhd,tb_hdl"
 STATE="utd"
-TIME="1761144824"
+TIME="1774633871"
 SIZE="4228"
 ENDFILE
 ENDLIST
@@ -1583,84 +1483,8 @@ VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/test/u
 VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/coreparameters.v,tb_hdl"
 ENDLIST
 ENDLIST
-LIST "COREDDS_C0_COREDDS_C0_0_COREDDS::COREDDS_LIB"
-FILE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/core/DDS_TOP.v,hdl"
-LIST Other_Association
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectIn.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectOut.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/coreparameters.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/tb_dds.v,tb_hdl"
 ENDLIST
 LIST AssociatedStimulus
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectIn.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectOut.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/coreparameters.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/tb_dds.v,tb_hdl"
-ENDLIST
-LIST ProjectState5.1
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl4
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl5
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
-ENDLIST
-ENDLIST
-LIST AssociatedStimulus
-LIST COREDDS_C0_COREDDS_C0_0_COREDDS
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectIn.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectOut.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/coreparameters.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/tb_dds.v,tb_hdl"
-ENDLIST
 ENDLIST
 LIST Other_Association
 LIST PF_LPDDR3_C0_DDRPHY_BLK
@@ -1671,6 +1495,11 @@ ENDLIST
 LIST costas_loop
 VALUE "<project>/component/Microchip/SolutionCore/costas_loop/1.1.0/Stimulus/costas_loop_tb.v,tb_hdl"
 ENDLIST
+LIST COREFFT_C2_COREFFT_C2_0_COREFFT
+VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/coreparameters.v,tb_hdl"
+ENDLIST
 LIST COREFFT_C1_COREFFT_C1_0_COREFFT
 VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
 VALUE "<project>/component/work/COREFFT_C1/COREFFT_C1_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
@@ -1680,18 +1509,6 @@ LIST COREFFT_C0_COREFFT_C0_0_COREFFT
 VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
 VALUE "<project>/component/work/COREFFT_C0/COREFFT_C0_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
 VALUE "<project>/component/work/COREFFT_C0/COREFFT_C0_0/coreparameters.v,tb_hdl"
-ENDLIST
-LIST COREDDS_C0_COREDDS_C0_0_COREDDS
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectIn.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectOut.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/coreparameters.v,tb_hdl"
-VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/tb_dds.v,tb_hdl"
-ENDLIST
-LIST COREFFT_C2_COREFFT_C2_0_COREFFT
-VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
-VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
-VALUE "<project>/component/work/COREFFT_C2/COREFFT_C2_0/coreparameters.v,tb_hdl"
 ENDLIST
 ENDLIST
 LIST SimulationOptions
@@ -1719,7 +1536,7 @@ TimeUnitBase=ns
 Precision=100
 PrecisionBase=ps
 SdfCorner=slow_lv_ht
-PliPath=/home/flatsat/Microchip/Libero_SoC_2025.1/Libero_SoC/Designer/lib/modelsimpro/pli/pf_crypto_lin_me_pli.so
+PliPath=/home/tuzinho/Microchip/Libero_SoC_2025.1/Libero_SoC/Designer/lib/modelsimpro/pli/pf_crypto_lin_me_pli.so
 UseCustomPliPath=false
 ENDLIST
 LIST ModelSimLibPath
@@ -1764,7 +1581,7 @@ EndProfile
 NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
-LOCATION="/home/flatsat/Microchip/Libero_SoC_2025.1/Libero_SoC/Synplify_Pro/bin/synplify_pro"
+LOCATION="/home/tuzinho/Microchip/Libero_SoC_2025.1/Libero_SoC/Synplify_Pro/bin/synplify_pro"
 PARAM=""
 BATCH=0
 LICENSE=""
@@ -1773,8 +1590,8 @@ EndProfile
 NAME="ModelSim ME Pro"
 FUNCTION="Simulation"
 TOOL="ModelSim Pro Edition"
-LOCATION="/home/flatsat/Microchip/Libero_SoC_2025.1/Libero_SoC/ModelSim_Pro/linuxacoem/vsim"
-PARAM=" -l Acquisition_TestBench_presynth_simulation.log "
+LOCATION="/home/tuzinho/Microchip/Libero_SoC_2025.1/Libero_SoC/ModelSim_Pro/linuxacoem/vsim"
+PARAM=""
 BATCH=0
 LICENSE=""
 IS32BIT="1"
@@ -1782,7 +1599,7 @@ EndProfile
 NAME="Identify Debugger"
 FUNCTION="IdentifyDebugger"
 TOOL="Identify Debugger"
-LOCATION="/home/flatsat/Microchip/Libero_SoC_2025.1/Libero_SoC/Identify/bin/identify_debugger"
+LOCATION="/home/tuzinho/Microchip/Libero_SoC_2025.1/Libero_SoC/Identify/bin/identify_debugger"
 PARAM=""
 BATCH=0
 LICENSE=""
@@ -1790,58 +1607,6 @@ IS32BIT="1"
 EndProfile
 ENDLIST
 LIST ProjectState5.1
-LIST "COREDDS_C0_COREDDS_C0_0_COREDDS::COREDDS_LIB"
-LIST Impl1
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl3
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl4
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl5
-ideSTIMULUS=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
-ENDUsed_File_List
-ENDLIST
-ENDLIST
 ENDLIST
 LIST ExcludePackageForSimulation
 ENDLIST
@@ -1855,38 +1620,13 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-HDL;hdl/Acquisition-Renato.vhd;0
-HDL;hdl/Tracking/PLL/Phase_Discriminator.vhd;0
-ACTIVEVIEW;hdl/Acquisition-Renato.vhd
+StartPage;StartPage;0
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
-LIST "Acquisition::work","hdl/Acquisition-Renato.vhd","FALSE","FALSE"
-SUBBLOCK "COREDDS_C0::work","hdl/COREDDS_C0.vhd","FALSE","FALSE"
-SUBBLOCK "COREFFT_C2::work","component/work/COREFFT_C2/COREFFT_C2.v","TRUE","FALSE"
-SUBBLOCK "COREFFT_C3::work","","FALSE","FALSE"
-SUBBLOCK "COREFFT_C4::work","","FALSE","FALSE"
-SUBBLOCK "Flip_Flop_D::work","hdl/Flip_Flop_D.vhd","FALSE","FALSE"
-SUBBLOCK "L1_CA_generator::work","hdl/L1_CA_generator.vhd","FALSE","FALSE"
-SUBBLOCK "PF_CLK_DIV_C3::work","","FALSE","FALSE"
-SUBBLOCK "PF_CLK_DIV_C4::work","","FALSE","FALSE"
-SUBBLOCK "PF_CLK_DIV_C5::work","","FALSE","FALSE"
-SUBBLOCK "complex_multiplier_C0::work","hdl/complex_multiplier_C0.vhd","FALSE","FALSE"
-SUBBLOCK "complex_multiplier_C2::work","","FALSE","FALSE"
-SUBBLOCK "Negative_Integer::work","hdl/Negative_Integer.vhd","FALSE","FALSE"
-SUBBLOCK "contador::work","hdl/contador.vhd","FALSE","FALSE"
-SUBBLOCK "Negative_Integer::work","hdl/Negative_Integer.vhd","FALSE","FALSE"
-ENDLIST
-LIST "Acquisition_control::work","hdl/Acquisition_control.vhd","FALSE","FALSE"
-ENDLIST
-LIST "Acquisition_top::work","hdl/Acquisition_top.vhd","FALSE","FALSE"
-SUBBLOCK "Acquisition::work","hdl/Acquisition-Renato.vhd","FALSE","FALSE"
-SUBBLOCK "Acquisition_control::work","hdl/Acquisition_control.vhd","FALSE","FALSE"
-ENDLIST
 LIST "APB_IF::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/APB_IF.v","FALSE","FALSE"
 ENDLIST
 LIST "APB_IOG_CTRL_SM::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/APB_IOG_CTRL_SM.v","FALSE","FALSE"
-ENDLIST
-LIST "complex_multiplier::work","","FALSE","FALSE"
 ENDLIST
 LIST "COMPLEX_MULTIPLIER::work","component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/complex_multiplier.vhd","FALSE","FALSE"
 SUBBLOCK "round_SAT::work","component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/round_sat.vhd","FALSE","FALSE"
@@ -1894,21 +1634,7 @@ ENDLIST
 LIST "complex_multiplier_C0::work","component/work/complex_multiplier_C0/complex_multiplier_C0.vhd","TRUE","FALSE"
 SUBBLOCK "COMPLEX_MULTIPLIER::work","component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/complex_multiplier.vhd","FALSE","FALSE"
 ENDLIST
-LIST "complex_multiplier_C0::work","hdl/complex_multiplier_C0.vhd","FALSE","FALSE"
-SUBBLOCK "complex_multiplier::work","","FALSE","FALSE"
-ENDLIST
-LIST "complex_multiplier_C2::work","","FALSE","FALSE"
-ENDLIST
-LIST "contador::work","hdl/contador.vhd","FALSE","FALSE"
-ENDLIST
-LIST "contador_ud_en::work","hdl/contador.vhd","FALSE","FALSE"
-ENDLIST
-LIST "Controle::work","hdl/Controle.vhd","FALSE","FALSE"
-ENDLIST
 LIST "COREDDS_C0::work","component/work/COREDDS_C0/COREDDS_C0.v","TRUE","FALSE"
-SUBBLOCK "COREDDS_C0_COREDDS_C0_0_COREDDS::COREDDS_LIB","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/core/DDS_TOP.v","FALSE","FALSE"
-ENDLIST
-LIST "COREDDS_C0::work","hdl/COREDDS_C0.vhd","FALSE","FALSE"
 SUBBLOCK "COREDDS_C0_COREDDS_C0_0_COREDDS::COREDDS_LIB","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/core/DDS_TOP.v","FALSE","FALSE"
 ENDLIST
 LIST "COREFFT_C0::work","component/work/COREFFT_C0/COREFFT_C0.v","TRUE","FALSE"
@@ -1920,23 +1646,10 @@ ENDLIST
 LIST "COREFFT_C2::work","component/work/COREFFT_C2/COREFFT_C2.v","TRUE","FALSE"
 SUBBLOCK "COREFFT_C2_COREFFT_C2_0_COREFFT::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C2_0/rtl/in_place/vlog/core/COREFFT_TOP.v","FALSE","FALSE"
 ENDLIST
-LIST "COREFFT_C3::work","","FALSE","FALSE"
-ENDLIST
-LIST "COREFFT_C4::work","","FALSE","FALSE"
-ENDLIST
 LIST "costas_loop::work","component/Microchip/SolutionCore/costas_loop/1.1.0/Encrypted/costas_loop.v","FALSE","FALSE"
 ENDLIST
 LIST "costas_loop_C0::work","component/work/costas_loop_C0/costas_loop_C0.v","TRUE","FALSE"
 SUBBLOCK "costas_loop::work","component/Microchip/SolutionCore/costas_loop/1.1.0/Encrypted/costas_loop.v","FALSE","FALSE"
-ENDLIST
-LIST "Counter_DDS_CA::work","hdl/Counter_DDS_CA.vhd","FALSE","FALSE"
-ENDLIST
-LIST "Datapath::work","hdl/Datapath.vhd","FALSE","FALSE"
-SUBBLOCK "Flip_Flop_D::work","hdl/Flip_Flop_D.vhd","FALSE","FALSE"
-SUBBLOCK "UAL::work","hdl/Somador.vhd","FALSE","FALSE"
-SUBBLOCK "Zero_detector::work","hdl/Zero_detector.vhd","FALSE","FALSE"
-SUBBLOCK "contador::work","hdl/contador.vhd","FALSE","FALSE"
-SUBBLOCK "shift_reg::work","hdl/Register.vhd","FALSE","FALSE"
 ENDLIST
 LIST "ddr4_vref::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/ddr4_vref.v","FALSE","FALSE"
 ENDLIST
@@ -1945,8 +1658,6 @@ ENDLIST
 LIST "DLL_MON::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/DLL_MON.v","FALSE","FALSE"
 ENDLIST
 LIST "dq_align_dqs_optimization::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/dq_align_dqs_optimization.v","FALSE","FALSE"
-ENDLIST
-LIST "contador::work","hdl/contador.vhd","FALSE","FALSE"
 ENDLIST
 LIST "COREDDR_TIP::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/CoreDDR_TIP_SYN.v","FALSE","FALSE"
 SUBBLOCK "COREDDR_TIP_INT::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/CoreDDR_TIP_INT.v","FALSE","FALSE"
@@ -1981,10 +1692,6 @@ SUBBLOCK "RDLVL::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/
 SUBBLOCK "TRN_COMPLETE::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/TRN_COMPLETE.v","FALSE","FALSE"
 SUBBLOCK "VREF_TR::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/VREF_TR.v","FALSE","FALSE"
 SUBBLOCK "WRLVL::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/WRLVL.v","FALSE","FALSE"
-ENDLIST
-LIST "LFSR_generator::work","hdl/LFSR_generator.vhd","FALSE","FALSE"
-ENDLIST
-LIST "Negative_Integer::work","hdl/Negative_Integer.vhd","FALSE","FALSE"
 ENDLIST
 LIST "noisy_data_detector::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/flag_generator.v","FALSE","FALSE"
 ENDLIST
@@ -2026,34 +1733,12 @@ ENDLIST
 LIST "WRLVL::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/WRLVL.v","FALSE","FALSE"
 SUBBLOCK "WRLVL_BOT::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/WRLVL_BOT.v","FALSE","FALSE"
 ENDLIST
-LIST "Negative_Integer::work","hdl/Negative_Integer.vhd","FALSE","FALSE"
-ENDLIST
 LIST "FIFO_BLK::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/FIFO_BLK.v","FALSE","FALSE"
 SUBBLOCK "ram_simple_dp::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/ram_simple_dp.v","FALSE","FALSE"
 ENDLIST
-LIST "Flip_Flop_D::work","hdl/Flip_Flop_D.vhd","FALSE","FALSE"
-ENDLIST
 LIST "gate_training::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/gate_training.v","FALSE","FALSE"
 ENDLIST
-LIST "L1_CA_generator::work","hdl/L1_CA_generator.vhd","FALSE","FALSE"
-SUBBLOCK "LFSR_generator::work","hdl/LFSR_generator.vhd","FALSE","FALSE"
-ENDLIST
-LIST "MAX_2771_In::work","hdl/MAX_2771_In.vhd","FALSE","FALSE"
-ENDLIST
-LIST "Multiplier::work","hdl/Multiplier.vhd","FALSE","FALSE"
-SUBBLOCK "Controle::work","hdl/Controle.vhd","FALSE","FALSE"
-SUBBLOCK "Datapath::work","hdl/Datapath.vhd","FALSE","FALSE"
-ENDLIST
-LIST "Multiplier_simplified::work","hdl/Multiplier_simplified.vhd","FALSE","FALSE"
-SUBBLOCK "Negative_Integer::work","hdl/Negative_Integer.vhd","FALSE","FALSE"
-ENDLIST
 LIST "nomw_generico::work","component/work/nomw_generico/nomw_generico.cxf","TRUE","FALSE"
-ENDLIST
-LIST "PF_CLK_DIV_C3::work","","FALSE","FALSE"
-ENDLIST
-LIST "PF_CLK_DIV_C4::work","","FALSE","FALSE"
-ENDLIST
-LIST "PF_CLK_DIV_C5::work","","FALSE","FALSE"
 ENDLIST
 LIST "PF_LPDDR3_C0::work","component/work/PF_LPDDR3_C0/PF_LPDDR3_C0.v","TRUE","FALSE"
 SUBBLOCK "PF_LPDDR3_C0_CCC_0_PF_CCC::work","component/work/PF_LPDDR3_C0/CCC_0/PF_LPDDR3_C0_CCC_0_PF_CCC.v","FALSE","FALSE"
@@ -2188,23 +1873,19 @@ SUBBLOCK "gate_training::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/r
 ENDLIST
 LIST "round_SAT::work","component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/round_sat.vhd","FALSE","FALSE"
 ENDLIST
-LIST "shift_reg::work","hdl/Register.vhd","FALSE","FALSE"
-ENDLIST
 LIST "trn_bclksclk::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/trn_bclksclk.v","FALSE","FALSE"
 ENDLIST
 LIST "trn_cmd_addr::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/trn_cmdaddr.v","FALSE","FALSE"
 ENDLIST
 LIST "trn_dqsw::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/trn_dqsw.v","FALSE","FALSE"
 ENDLIST
-LIST "UAL::work","hdl/Somador.vhd","FALSE","FALSE"
-ENDLIST
 LIST "WRLVL_BOT::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/WRLVL_BOT.v","FALSE","FALSE"
 ENDLIST
-LIST "Zero_detector::work","hdl/Zero_detector.vhd","FALSE","FALSE"
+LIST "Acquisition::work","","FALSE","FALSE"
 ENDLIST
 LIST "Acquisition_TestBench::work","stimulus/Acquisition_TestBench.vhd","FALSE","TRUE"
-SUBBLOCK "Acquisition::work","hdl/Acquisition-Renato.vhd","FALSE","FALSE"
-SUBBLOCK "L1_CA_generator::work","hdl/L1_CA_generator.vhd","FALSE","FALSE"
+SUBBLOCK "Acquisition::work","","FALSE","FALSE"
+SUBBLOCK "L1_CA_generator::work","","FALSE","FALSE"
 ENDLIST
 LIST "bhv_coef_gen::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v","FALSE","TRUE"
 ENDLIST
@@ -2226,6 +1907,8 @@ ENDLIST
 LIST "bhvEdge::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v","FALSE","TRUE"
 ENDLIST
 LIST "bhvRAM_fabric::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v","FALSE","TRUE"
+ENDLIST
+LIST "clock_driver::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/clock_driver.v","FALSE","TRUE"
 ENDLIST
 LIST "costas_loop_tb::work","component/Microchip/SolutionCore/costas_loop/1.1.0/Stimulus/costas_loop_tb.v","FALSE","TRUE"
 SUBBLOCK "costas_loop::work","component/Microchip/SolutionCore/costas_loop/1.1.0/Encrypted/costas_loop.v","FALSE","FALSE"
@@ -2249,6 +1932,23 @@ ENDLIST
 LIST "bhvDelay::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v","FALSE","TRUE"
 ENDLIST
 LIST "dds_kitCountS::COREDDS_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "fifo_driver::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/fifo_driver.v","FALSE","TRUE"
+ENDLIST
+LIST "fifo_monitor::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/fifo_monitor.v","FALSE","TRUE"
+ENDLIST
+LIST "g4_dp_ext_mem::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/g4_dp_ext_mem.v","FALSE","TRUE"
+SUBBLOCK "MEM_WeqR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WeqR.v","FALSE","TRUE"
+SUBBLOCK "MEM_WgtR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WgtR.v","FALSE","TRUE"
+SUBBLOCK "MEM_WltR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WltR.v","FALSE","TRUE"
+ENDLIST
+LIST "L1_CA_generator::work","","FALSE","FALSE"
+ENDLIST
+LIST "MEM_WeqR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WeqR.v","FALSE","TRUE"
+ENDLIST
+LIST "MEM_WgtR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WgtR.v","FALSE","TRUE"
+ENDLIST
+LIST "MEM_WltR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WltR.v","FALSE","TRUE"
 ENDLIST
 LIST "testbench::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/tb_dds.v","FALSE","TRUE"
 SUBBLOCK "COREDDS_C0_COREDDS_C0_0_COREDDS::COREDDS_LIB","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/core/DDS_TOP.v","FALSE","FALSE"

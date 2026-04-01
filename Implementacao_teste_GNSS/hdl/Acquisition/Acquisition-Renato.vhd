@@ -41,7 +41,7 @@ architecture architecture_Acquisition of Acquisition is
     -- signal, component etc. de/clarations
     constant MIXER_TYPE         : integer := 0;
     constant Contador_WIDTH     : integer := 9;
-    constant DDS_Width          : integer := 13; -- Datawidth of the DDS
+    constant DDS_Width          : integer := 4;  -- Datawidth of the DDS
     constant FFT_Width          : integer := 16; -- Datawidth before the fft
     constant IFFT_Width         : integer := 32; -- Datawidth before the ifft
     
