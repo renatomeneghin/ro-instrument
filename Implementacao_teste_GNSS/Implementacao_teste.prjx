@@ -1620,8 +1620,9 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-StartPage;StartPage;0
-ACTIVEVIEW;StartPage
+HDL;hdl/Acquisition/Acquisition-Renato.vhd;0
+HDL;hdl/Acquisition/Acquisition.vhd;0
+ACTIVEVIEW;hdl/Acquisition/Acquisition.vhd
 ENDLIST
 LIST ModuleSubBlockList
 LIST "APB_IF::work","component/Actel/DirectCore/COREDDR_TIP/2.1.101/rtl/vlog/core/APB_IF.v","FALSE","FALSE"
