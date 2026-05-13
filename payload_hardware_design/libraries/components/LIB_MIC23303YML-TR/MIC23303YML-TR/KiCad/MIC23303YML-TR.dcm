@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MIC23303YML-TR
+D Conv DC-DC 2.7V to 5.5V Synchronous Step Down Single-Out 0.65V to 3.6V 3A 12-Pin DFN EP T/R
+K
+F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en580343
+$ENDCMP
+#
+#End Doc Library

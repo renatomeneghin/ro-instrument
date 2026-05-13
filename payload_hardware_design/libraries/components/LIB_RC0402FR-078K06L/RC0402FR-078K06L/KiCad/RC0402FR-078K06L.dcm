@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP RC0402FR-078K06L
+D RESISTOR, 0402 8.06K Ohms +/-1% 1/16 W
+K
+F http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6_r.pdf
+$ENDCMP
+#
+#End Doc Library

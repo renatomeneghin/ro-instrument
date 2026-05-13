@@ -1,0 +1,9 @@
+Manufacturer=Yageo Group
+PartNumber=RC0402JR-07510RL
+PartCategory=Resistor
+PackageCategory=Resistor Chip
+PinCount=2
+Version=3.1
+Released=2023-03-07 10:37:17
+Downloaded=2026-05-10 02:55:30
+3D=Y

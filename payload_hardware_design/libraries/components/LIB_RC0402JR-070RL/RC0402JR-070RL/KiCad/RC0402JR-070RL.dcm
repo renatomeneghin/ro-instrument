@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP RC0402JR-070RL
+D 0 Ohms Jumper Chip Resistor 0402 (1005 Metric) Moisture Resistant Thick Film
+K
+F https://www.yageo.com/upload/media/product/products/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf
+$ENDCMP
+#
+#End Doc Library

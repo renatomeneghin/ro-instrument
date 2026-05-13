@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'MAX2771ETI_'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Analog Devices", "MAX2771ETI+" (!) = "", "QFN50P500X500X80-29N", "Quad Flat No-Lead", "700-MAX2771ETI+", "https://www.mouser.co.uk/ProductDetail/Maxim-Integrated/MAX2771ETI%2b?qs=lc2O%252BfHJPVYuzqxyqJXfmg%3D%3D", "MAXIM INTEGRATED PRODUCTS - MAX2771ETI+ - GNSS RX, 1.57542GHZ, -40 TO 85DEG C", "", "0.8 mm"
+END_PART
+
+END.

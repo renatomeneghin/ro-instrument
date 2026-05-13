@@ -1,0 +1,23 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model RC0402JR-070RL
+#/16883527/1743273/2.50/2/3/Resistor
+DEF RC0402JR-070RL R 0 30 Y Y 1 F N
+F0 "R" 550 250 50 H V L CNN
+F1 "RC0402JR-070RL" 550 150 50 H V L CNN
+F2 "RESC1005X40N" 550 50 50 H I L CNN
+F3 "https://www.yageo.com/upload/media/product/products/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf" 550 -50 50 H I L CNN
+F4 "0 Ohms Jumper Chip Resistor 0402 (1005 Metric) Moisture Resistant Thick Film" 550 -150 50 H I L CNN "Description"
+F5 "0.4" 550 -250 50 H I L CNN "Height"
+F6 "603-RC0402JR-070RL" 550 -350 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/YAGEO/RC0402JR-070RL?qs=5Bml4Cp94iv7ykKkzPrwpQ%3D%3D" 550 -450 50 H I L CNN "Mouser Price/Stock"
+F8 "Yageo Group" 550 -550 50 H I L CNN "Manufacturer_Name"
+F9 "RC0402JR-070RL" 550 -650 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X ~ 1 0 0 200 R 50 50 0 0 P
+X ~ 2 700 0 200 L 50 50 0 0 P
+P 5 0 1 6 200 50 500 50 500 -50 200 -50 200 50 N
+ENDDRAW
+ENDDEF
+#
+#End Library

@@ -1,0 +1,16 @@
+.MAX2771ETI-plus- :1 ;MAXIM INTEGRATED PRODUCTS - MAX2771ETI+ - GNSS RX, 1.57542GHZ, -40 TO 85DEG C
+QFN50P500X500X80-29N
+*STM IC
+*NGS
+*PLB 1="CPOUT" 2="VCCCP" 3="XTAL" 4="CLKOUT" 5="ADC_CLKIN" 6="VCCD" 7="SDATA" 8="SCLK" 9="CSN" 10="Q1" 11="Q0" 12="I0" 13="I1" 14="VCCADC" 15="ANAIPOUT" 16="ANAINOUT" 17="LD" 18="SHDN" 19="LNAIN_HI" 20="LNAIN_LO" 21="N.C." 22="VCCRF" 23="LNAOUT_LO" 24="LNAOUT_HI" 25="MIXIN_HI" 26="MIXIN_LO" 27="VCCIF" 28="VCCVCO" 29="GND"
+*MXP 29
+*DFN MAX2771ETI-plus-
+~!Mouser Part Number (700-MAX2771ETI+)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Maxim-Integrated/MAX2771ETI%2b?qs=lc2O%252BfHJPVYuzqxyqJXfmg%3D%3D)
+~!Manufacturer_Name (Analog Devices)
+~!Manufacturer_Part_Number (MAX2771ETI+)
+~!Link Datasheet (-)
+~!Height (0.8mm)
+~!3D_Model (MAX2771ETI+)
+MAX2771ETI-plus-
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 6.1!U 7.1!U 8.1!U 9.1!U 10.1!U 11.1!U 12.1!U 13.1!U 14.1!U 21.1!U 20.1!U 19.1!U 18.1!U 17.1!U 16.1!U 15.1!U 29.1!U 28.1!U 27.1!U 26.1!U 25.1!U 24.1!U 23.1!U 22.1!U 

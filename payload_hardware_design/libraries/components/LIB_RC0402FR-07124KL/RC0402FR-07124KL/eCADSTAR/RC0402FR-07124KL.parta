@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_603755"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2023-03-07-09:50:42)
+    (utime 2026-01-26-13:06:26)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "RC0402FR-07124KL")
+)
+
+
+(pinAssign "ECS_603755"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2023-03-07-09:50:42)
+    (utime 2026-01-26-13:06:26)
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_603755")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "RC0402FR-07124KL")
+)
+
+
+(part "RC0402FR-07124KL"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2023-03-07-09:50:42)
+    (utime 2026-01-26-13:06:26)
+    (packageRef "RC0402FR-07124KL")
+    (pinAssignRef "ECS_603755")
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "R")
+    (property "description" "RESISTOR, 0402 124K Ohms +/-1% 1/16 W")
+    (property "Mouser_Part_Number" "603-RC0402FR-07124KL")
+    (property "Mouser_Price/Stock" "https://www.mouser.com/Search/Refine.aspx?Keyword=603-RC0402FR-07124KL")
+    (property "Manufacturer_Name" "Yageo Group")
+    (property "Manufacturer_Part_Number" "RC0402FR-07124KL")
+    (property "Datasheet_Link" "https://componentsearchengine.com/Datasheets/1/RC0402FR-07124KL.pdf")
+    (property "compAreaTopHeight" 0.4)
+)
+
+

@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'MIC23303YML_TR'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Microchip", "MIC23303YML-TR" (!) = "", "SON50P300X300X90-13N-D", "Small Outline No-lead", "998-MIC23303YMLTR", "https://www.mouser.co.uk/ProductDetail/Microchip-Technology-Micrel/MIC23303YML-TR?qs=Y3Q3JoKAO1Rutw%2FCoJCU2w%3D%3D", "Conv DC-DC 2.7V to 5.5V Synchronous Step Down Single-Out 0.65V to 3.6V 3A 12-Pin DFN EP T/R", "http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en580343", "0.9 mm"
+END_PART
+
+END.
