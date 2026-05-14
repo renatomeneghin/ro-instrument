@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "MCP3464RT-E_NC"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2021-07-20-06:36:33)
+    (mountForm default
+        (footprintRef "QFN40P300X300X60-21N-D")
+        (spec "System")
+    )
+)

@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'LQM2HPN4R7MG0L'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Murata Electronics", "LQM2HPN4R7MG0L" (!) = "", "LQM2HPN1R0MG0L", "Other", "81-LQM2HPN4R7MG0L", "https://www.mouser.co.uk/ProductDetail/Murata-Electronics/LQM2HPN4R7MG0L?qs=%2F%252BYoplLUB5jnkqM2%2FFTc3g%3D%3D", "Inductor SMD 1008 shielded 4.7uH Murata LQM2HP_G0 Series 4700 nH +/-20% Ferrite Multilayer SMD Inductor, 1008 Case, SRF: 0.025GHz 1.1A dc 138m Rdc", "https://search.murata.co.jp/Ceramy/image/img/P02/JELF243B-0019.pdf", "1 mm"
+END_PART
+
+END.

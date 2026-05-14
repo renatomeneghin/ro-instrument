@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "CC0805MKX5R5BB476"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2026-02-03-00:36:00)
+    (mountForm default
+        (footprintRef "CAPC2012X145N")
+        (spec "System")
+    )
+)

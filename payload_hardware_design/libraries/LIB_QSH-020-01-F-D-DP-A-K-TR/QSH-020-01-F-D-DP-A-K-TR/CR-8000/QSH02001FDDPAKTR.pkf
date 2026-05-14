@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "QSH02001FDDPAKTR"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "QSH02001FDDPAKTR")
+        (spec "default")
+    )
+)

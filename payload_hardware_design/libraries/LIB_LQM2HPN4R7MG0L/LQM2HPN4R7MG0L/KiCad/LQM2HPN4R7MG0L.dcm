@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LQM2HPN4R7MG0L
+D Inductor SMD 1008 shielded 4.7uH Murata LQM2HP_G0 Series 4700 nH +/-20% Ferrite Multilayer SMD Inductor, 1008 Case, SRF: 0.025GHz 1.1A dc 138m Rdc
+K
+F https://search.murata.co.jp/Ceramy/image/img/P02/JELF243B-0019.pdf
+$ENDCMP
+#
+#End Doc Library

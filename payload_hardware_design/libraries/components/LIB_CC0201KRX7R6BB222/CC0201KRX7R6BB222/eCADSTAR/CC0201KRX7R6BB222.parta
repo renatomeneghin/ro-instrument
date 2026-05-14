@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_17449104"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2026-03-06-04:35:33)
+    (utime 2026-03-06-04:35:33)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "CC0201KRX7R6BB222")
+)
+
+
+(pinAssign "ECS_17449104"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2026-03-06-04:35:33)
+    (utime 2026-03-06-04:35:33)
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_17449104")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "CC0201KRX7R6BB222")
+)
+
+
+(part "CC0201KRX7R6BB222"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2026-03-06-04:35:33)
+    (utime 2026-03-06-04:35:33)
+    (packageRef "CC0201KRX7R6BB222")
+    (pinAssignRef "ECS_17449104")
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "C")
+    (property "description" "2200 pF +/-10% 10V Ceramic Capacitor X7R 0201 (0603 Metric) , -55C ~ 125C")
+    (property "Mouser_Part_Number" "603-CC0201KR6BB222")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/YAGEO/CC0201KRX7R6BB222?qs=tS%2FAHvPQ%2F57AvPsikpGQtQ%3D%3D")
+    (property "Manufacturer_Name" "Yageo Group")
+    (property "Manufacturer_Part_Number" "CC0201KRX7R6BB222")
+    (property "Datasheet_Link" "https://yageogroup.com/component-documentation/download/specsheet/CC0201KRX7R6BB222?lang=en")
+    (property "compAreaTopHeight" 0.33)
+)
+
+

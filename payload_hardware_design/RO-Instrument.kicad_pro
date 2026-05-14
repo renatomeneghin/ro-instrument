@@ -460,9 +460,19 @@
         "filename": "adc.kicad_sch",
         "name": "ADC",
         "uuid": "3661bb60-d4dc-43e0-9778-5170ef54b0b0"
+      },
+      {
+        "filename": "emmc.kicad_sch",
+        "name": "eMMC",
+        "uuid": "824b1e7b-823c-4796-91f5-4d92071a0ffc"
+      },
+      {
+        "filename": "usb.kicad_sch",
+        "name": "USB",
+        "uuid": "2c0f4380-7c46-46eb-9200-0adfff38889f"
       }
     ],
-    "used_designators": "TP13-14,R51,#PWR96-98,C52,U5",
+    "used_designators": "#PWR103,R89-90",
     "variants": []
   },
   "sheets": [
@@ -489,6 +499,14 @@
     [
       "3661bb60-d4dc-43e0-9778-5170ef54b0b0",
       "ADC"
+    ],
+    [
+      "824b1e7b-823c-4796-91f5-4d92071a0ffc",
+      "eMMC"
+    ],
+    [
+      "2c0f4380-7c46-46eb-9200-0adfff38889f",
+      "USB"
     ]
   ],
   "text_variables": {},

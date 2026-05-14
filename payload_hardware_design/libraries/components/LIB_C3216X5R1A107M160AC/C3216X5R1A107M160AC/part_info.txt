@@ -1,0 +1,9 @@
+Manufacturer=TDK
+PartNumber=C3216X5R1A107M160AC
+PartCategory=Capacitor
+PackageCategory=Capacitor Chip Non-polarised
+PinCount=2
+Version=7.1
+Released=2023-03-07 09:28:28
+Downloaded=2026-05-13 14:27:35
+3D=Y

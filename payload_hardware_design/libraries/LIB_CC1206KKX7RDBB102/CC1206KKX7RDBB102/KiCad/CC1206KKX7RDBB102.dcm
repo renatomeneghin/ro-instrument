@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP CC1206KKX7RDBB102
+D YAGEO - CC1206KKX7RDBB102 - SMD Multilayer Ceramic Capacitor, 1000 pF, 2 kV, 1206 [3216 Metric], +/- 10%, X7R, CC Series
+K
+F https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-NP0X7R_HV_500V-to-3KV_15.pdf
+$ENDCMP
+#
+#End Doc Library

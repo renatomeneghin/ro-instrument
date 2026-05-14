@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_16179423"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2022-05-14-04:41:28)
+    (utime 2026-02-04-14:20:06)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "CC1206KKX7RDBB102")
+)
+
+
+(pinAssign "ECS_16179423"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2022-05-14-04:41:28)
+    (utime 2026-02-04-14:20:06)
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_16179423")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "CC1206KKX7RDBB102")
+)
+
+
+(part "CC1206KKX7RDBB102"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2022-05-14-04:41:28)
+    (utime 2026-02-04-14:20:06)
+    (packageRef "CC1206KKX7RDBB102")
+    (pinAssignRef "ECS_16179423")
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "C")
+    (property "description" "YAGEO - CC1206KKX7RDBB102 - SMD Multilayer Ceramic Capacitor, 1000 pF, 2 kV, 1206 [3216 Metric], +/- 10%, X7R, CC Series")
+    (property "Mouser_Part_Number" "603-CC206KKX7RDBB102")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/YAGEO/CC1206KKX7RDBB102?qs=vTakOoo5QyK%2FBV1e3XHXiQ%3D%3D")
+    (property "Manufacturer_Name" "Yageo Group")
+    (property "Manufacturer_Part_Number" "CC1206KKX7RDBB102")
+    (property "Datasheet_Link" "https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-NP0X7R_HV_500V-to-3KV_15.pdf")
+    (property "compAreaTopHeight" 1.45)
+)
+
+

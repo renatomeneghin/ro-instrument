@@ -1,0 +1,96 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "CC0201KRX7R6BB222"
+   (description "2200 pF +/-10% 10V Ceramic Capacitor X7R 0201 (0603 Metric) , -55C ~ 125C")
+   (family "CAP")
+   (package "CAPC0603X33N")
+   (attribute "Datasheet Link" "https://yageogroup.com/component-documentation/download/specsheet/CC0201KRX7R6BB222?lang=en")
+   (attribute "Geometry.Height" "0.33mm")
+   (attribute "Mouser Part Number" "603-CC0201KR6BB222")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/YAGEO/CC0201KRX7R6BB222?qs=tS%2FAHvPQ%2F57AvPsikpGQtQ%3D%3D")
+   (attribute "Manufacturer_Name" "Yageo Group")
+   (attribute "Manufacturer_Part_Number" "CC0201KRX7R6BB222")
+   (gate
+    (symbol "CC0201KRX7R6BB222")
+    (pin "1" 1 PS)
+    (pin "2" 2 PS)
+   )
+  )
+  (symbol "CC0201KRX7R6BB222"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 220 100) (pt 220 -100))
+   )
+   (graphic
+    (stroke 10)
+    (path (pt 280 100) (pt 280 -100))
+   )
+   (graphic
+    (stroke 10)
+    (path (pt 200 0) (pt 220 0))
+   )
+   (graphic
+    (stroke 10)
+    (path (pt 280 0) (pt 300 0))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 0 -10) (rot 0) (just TOP LEFT) (visible false))
+    (number (pt 0 10) (rot 0) (just BOTTOM LEFT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 500 0) (rot 0) (mir X) (visible true))
+    (name (pt 0 -10) (rot 0) (just TOP LEFT) (visible false))
+    (number (pt 0 10) (rot 0) (just BOTTOM LEFT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "CAPC0603X33N"
+   (units MM)
+   (layer OCCA
+    (graphic
+     (stroke 0.05)
+     (path
+      (closed true)
+      (pt -0.71 0.36)
+      (pt 0.71 0.36)
+      (pt 0.71 -0.36)
+      (pt -0.71 -0.36)
+      (pt -0.71 0.36))))
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -0.3 0.15)
+      (pt 0.3 0.15)
+      (pt 0.3 -0.15)
+      (pt -0.3 -0.15)
+      (pt -0.3 0.15))))
+   (leg 1 (pt -0.33 0) (padstack 0))
+   (leg 2 (pt 0.33 0) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 0.42 0.46 0 0 0))
+   )
+   (model "CC0201KRX7R6BB222.stp"
+    (euler 90 0 0)
+    (offset -0.3100000023841858 -0.17000000178813934 0)
+   )
+  )
+ )
+)

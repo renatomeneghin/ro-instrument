@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP CC0805MKX5R5BB476
+D Yageo, 0805 (2012M) 47uF MLCC 6.3V dc +/- 20% , SMD CC0805MKX5R5BB476
+K
+F https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-GPHC_X5R_4V-to-50V_26.pdf
+$ENDCMP
+#
+#End Doc Library

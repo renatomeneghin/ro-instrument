@@ -1,0 +1,16 @@
+.SMBJ5.0A-TR :1 ;ESD Suppressors / TVS Diodes 600W 5.0V Unidirect
+SMBJ12A
+*STM D
+*NGS
+*PLB 1="K" 2="A"
+*MXP 2
+*DFN SMBJ5.0A-TR
+~!Mouser Part Number (511-SMBJ5.0A)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/STMicroelectronics/SMBJ5.0A-TR?qs=QR0jAJXDF2ih8aaSsBQmUg%3D%3D)
+~!Manufacturer_Name (STMicroelectronics)
+~!Manufacturer_Part_Number (SMBJ5.0A-TR)
+~!Link Datasheet (https://www.st.com/resource/en/datasheet/smbj58ca.pdf)
+~!Height (2.45mm)
+~!3D_Model (SMBJ5.0A-TR)
+SMBJ5.0A-TR
+1.1!U 2.1!U 

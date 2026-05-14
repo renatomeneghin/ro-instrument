@@ -1,0 +1,16 @@
+.MCP3464RT-E_NC :1 ;Analog to Digital Converters - ADC 16-bit delta-sigma ADC w/Vref, Quad channel, 3V
+QFN40P300X300X60-21N-D
+*STM IC
+*NGS
+*PLB 1="REFIN-" 2="REFIN+/OUT" 3="CH0" 4="CH1" 5="CH2" 6="CH3" 7="CH4" 8="CH5" 9="CH6" 10="CH7" 11="'CS'" 12="SCK" 13="SDI" 14="SDO" 15="'IRQ'/MDAT" 16="MCLK" 17="DGND" 18="DVDD" 19="AVDD" 20="AGND" 21="EP"
+*MXP 21
+*DFN MCP3464RT-E_NC
+~!Mouser Part Number (579-MCP3464RT-E/NC)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Microchip-Technology/MCP3464RT-E-NC?qs=W%2FMpXkg%252BdQ5Ehc3kIRQ52g%3D%3D)
+~!Manufacturer_Name (Microchip)
+~!Manufacturer_Part_Number (MCP3464RT-E/NC)
+~!Link Datasheet (https://componentsearchengine.com/Datasheets/2/MCP3464RT-E_NC.pdf)
+~!Height (0.6mm)
+~!3D_Model (MCP3464RT-E_NC)
+MCP3464RT-E_NC
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 6.1!U 7.1!U 8.1!U 9.1!U 10.1!U 15.1!U 14.1!U 13.1!U 12.1!U 11.1!U 21.1!U 20.1!U 19.1!U 18.1!U 17.1!U 16.1!U 

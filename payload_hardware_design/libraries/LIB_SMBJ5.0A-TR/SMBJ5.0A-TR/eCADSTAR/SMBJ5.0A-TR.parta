@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_13001891"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2015-07-22-14:41:32)
+    (utime 2026-01-08-14:31:13)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "SMBJ5_0A-TR")
+)
+
+
+(pinAssign "ECS_13001891"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2015-07-22-14:41:32)
+    (utime 2026-01-08-14:31:13)
+    (interface
+        (port "1" (symbPinId 1) (portName "K") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "A") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_13001891")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "SMBJ5_0A-TR")
+)
+
+
+(part "SMBJ5_0A-TR"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2015-07-22-14:41:32)
+    (utime 2026-01-08-14:31:13)
+    (packageRef "SMBJ5_0A-TR")
+    (pinAssignRef "ECS_13001891")
+    (interface
+        (port "1" (symbPinId 1) (portName "K") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "A") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "D")
+    (property "description" "ESD Suppressors / TVS Diodes 600W 5.0V Unidirect")
+    (property "Mouser_Part_Number" "511-SMBJ5.0A")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/SMBJ5.0A-TR?qs=QR0jAJXDF2ih8aaSsBQmUg%3D%3D")
+    (property "Manufacturer_Name" "STMicroelectronics")
+    (property "Manufacturer_Part_Number" "SMBJ5.0A-TR")
+    (property "Datasheet_Link" "https://www.st.com/resource/en/datasheet/smbj58ca.pdf")
+    (property "compAreaTopHeight" 2.45)
+)
+
+

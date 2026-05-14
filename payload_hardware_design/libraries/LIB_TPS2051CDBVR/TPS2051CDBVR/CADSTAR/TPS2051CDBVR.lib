@@ -1,0 +1,16 @@
+.TPS2051CDBVR :1 ;Single Channel, Current-Limited USB Power Distribution Switch
+SOT95P280X145-5N
+*STM IC
+*NGS
+*PLB 1="OUT" 2="GND" 3="'FLT'" 4="EN/'EN'" 5="IN"
+*MXP 5
+*DFN TPS2051CDBVR
+~!Mouser Part Number (595-TPS2051CDBVR)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPS2051CDBVR?qs=PF3AD18CSE5vi2HeWLJCmw%3D%3D)
+~!Manufacturer_Name (Texas Instruments)
+~!Manufacturer_Part_Number (TPS2051CDBVR)
+~!Link Datasheet (http://www.ti.com/lit/gpn/tps2051c)
+~!Height (1.45mm)
+~!3D_Model (TPS2051CDBVR)
+TPS2051CDBVR
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 

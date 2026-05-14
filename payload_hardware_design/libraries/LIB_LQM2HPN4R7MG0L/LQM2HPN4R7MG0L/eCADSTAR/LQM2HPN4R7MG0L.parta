@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_318370"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2017-05-24-08:20:32)
+    (utime 2025-01-03-15:31:59)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "LQM2HPN4R7MG0L")
+)
+
+
+(pinAssign "ECS_318370"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2017-05-24-08:20:32)
+    (utime 2025-01-03-15:31:59)
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_318370")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "LQM2HPN4R7MG0L")
+)
+
+
+(part "LQM2HPN4R7MG0L"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2017-05-24-08:20:32)
+    (utime 2025-01-03-15:31:59)
+    (packageRef "LQM2HPN4R7MG0L")
+    (pinAssignRef "ECS_318370")
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "L")
+    (property "description" "Inductor SMD 1008 shielded 4.7uH Murata LQM2HP_G0 Series 4700 nH +/-20% Ferrite Multilayer SMD Inductor, 1008 Case, SRF: 0.025GHz 1.1A dc 138m Rdc")
+    (property "Mouser_Part_Number" "81-LQM2HPN4R7MG0L")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/Murata-Electronics/LQM2HPN4R7MG0L?qs=%2F%252BYoplLUB5jnkqM2%2FFTc3g%3D%3D")
+    (property "Manufacturer_Name" "Murata Electronics")
+    (property "Manufacturer_Part_Number" "LQM2HPN4R7MG0L")
+    (property "Datasheet_Link" "https://search.murata.co.jp/Ceramy/image/img/P02/JELF243B-0019.pdf")
+    (property "compAreaTopHeight" 1)
+)
+
+

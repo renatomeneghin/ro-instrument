@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'TPS2051CDBVR'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Texas Instruments", "TPS2051CDBVR" (!) = "", "SOT95P280X145-5N", "SOT23 (5-Pin)", "595-TPS2051CDBVR", "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPS2051CDBVR?qs=PF3AD18CSE5vi2HeWLJCmw%3D%3D", "Single Channel, Current-Limited USB Power Distribution Switch", "http://www.ti.com/lit/gpn/tps2051c", "1.45 mm"
+END_PART
+
+END.

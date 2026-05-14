@@ -1,0 +1,9 @@
+Manufacturer=Texas Instruments
+PartNumber=TPS2051CDBVR
+PartCategory=Integrated Circuit
+PackageCategory=SOT23 (5-Pin)
+PinCount=5
+Version=1.2
+Released=2020-02-27 07:20:04
+Downloaded=2026-05-13 14:52:10
+3D=Y

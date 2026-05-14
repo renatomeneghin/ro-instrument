@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_336518"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2023-03-07-08:51:47)
+    (utime 2025-01-03-17:06:55)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "GRM1555C1H6R8CA01D")
+)
+
+
+(pinAssign "ECS_336518"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2023-03-07-08:51:47)
+    (utime 2025-01-03-17:06:55)
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_336518")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "GRM1555C1H6R8CA01D")
+)
+
+
+(part "GRM1555C1H6R8CA01D"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2023-03-07-08:51:47)
+    (utime 2025-01-03-17:06:55)
+    (packageRef "GRM1555C1H6R8CA01D")
+    (pinAssignRef "ECS_336518")
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "C")
+    (property "description" "Murata 0402 GRM 6.8pF Ceramic Multilayer Capacitor, 50 V dc, +125C, C0G Dielectric, +/-0.25pF")
+    (property "Mouser_Part_Number" "81-GRM1555C1H6R8CA1D")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/Murata-Electronics/GRM1555C1H6R8CA01D?qs=q312vENifzChk4Wux6WqXA%3D%3D")
+    (property "Manufacturer_Name" "Murata Electronics")
+    (property "Manufacturer_Part_Number" "GRM1555C1H6R8CA01D")
+    (property "Datasheet_Link" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM1555C1H6R8CA01-01A.pdf")
+    (property "compAreaTopHeight" 0.7)
+)
+
+
