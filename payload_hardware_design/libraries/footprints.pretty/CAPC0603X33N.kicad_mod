@@ -1,5 +1,5 @@
 (module "CAPC0603X33N" (layer F.Cu)
-  (descr "0201 (0603 Metric)_2025")
+  (descr "GRM03_0.03 L=0.6mm W=0.3mm T=0.3mm")
   (tags "Capacitor")
   (attr smd)
   (fp_text reference C** (at 0 0) (layer F.SilkS)
@@ -21,9 +21,9 @@
   (fp_line (start -0.3 0.15) (end -0.3 -0.15) (layer F.Fab) (width 0.1))
   (pad 1 smd rect (at -0.33 0 90) (size 0.42 0.46) (layers F.Cu F.Paste F.Mask))
   (pad 2 smd rect (at 0.33 0 90) (size 0.42 0.46) (layers F.Cu F.Paste F.Mask))
-  (model CC0201KRX7R6BB222.stp
-    (at (xyz -0.012204724503314 -0.006692913456226 0))
+  (model GRM033R71E332KA12D.stp
+    (at (xyz 0 0 0))
     (scale (xyz 1 1 1))
-    (rotate (xyz -90 0 0))
+    (rotate (xyz 0 0 0))
   )
 )
