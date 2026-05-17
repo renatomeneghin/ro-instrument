@@ -1,3 +1,4 @@
+@ -1,424 +0,0 @@
 --------------------------------------------------------------------------------
 -- Company: <Name>
 --
@@ -38,31 +39,36 @@ port (
 end Acquisition;
 
 architecture architecture_Acquisition of Acquisition is
-    -- signal, component etc. de/clarations
-    constant MIXER_TYPE         : integer := 0;
-    constant Contador_WIDTH     : integer := 9;
-    constant DDS_Width          : integer := 4;  -- Datawidth of the DDS
+    -- signal, component etc. declarations
+    constant Contador_WIDTH     : integer := 10;
+    constant DDS_Width          : integer := 13; -- Datawidth of the DDS
     constant FFT_Width          : integer := 16; -- Datawidth before the fft
     constant IFFT_Width         : integer := 32; -- Datawidth before the ifft
     
     -- slower clk
-    signal clk_div2, slw_clk, slw_clk_2 : std_logic;
+    signal clk_div2, slw_clk, slw_clk_2, doppler_dir  : std_logic;
     signal NRST, MULT_RST, MULT_RST_IN, count_bit_d1, count_bit_d2, ca_rst_pulse  : std_logic;
     signal clkd, clkd2 : std_logic_vector(3 downto 0);
     -- Controle do processo
+    -- count_state layout (MSB -> LSB)
+    -- [9:5] Satellite index (0�31)
+    -- [4]   Doppler direction (0 = +, 1 = -)
+    -- [3:0] DDS frequency bin
+    
     signal count_state  : std_logic_vector(Contador_WIDTH-1 downto 0); -- example
 	signal Frequency_offset_data : std_logic_vector(Contador_WIDTH-6 downto 0); -- example
+    signal DDS_Frequency: std_logic_vector(Contador_WIDTH-7 downto 0);
     signal OutReady, InReady, I_MAX_IN, Q_MAX_IN : std_logic_vector(2 downto 0);
     signal ReadPulse : std_logic_vector (1 downto 0);
+    
     -- Entrada do sinal 
     signal cos_signal, sin_signal : std_logic_vector(DDS_Width-1 downto 0) ; -- example
-    -- signal sin_signal_neg, sin_signal_mux : std_logic_vector(DDS_Width-1 downto 0);
-    -- signal doppler_dir    : std_logic;
+    signal sin_signal_neg, sin_signal_mux : std_logic_vector(DDS_Width-1 downto 0) ;
 	signal FFT_I_signal, FFT_Q_signal : std_logic_vector(FFT_Width downto 0);
     signal FFT_X_signal, FFT_Y_signal : std_logic_vector(FFT_Width-1 downto 0); -- example
     
     -- Replica sinal C/A
-    signal ca_prn, CA_RST, Read_data : std_logic;
+    signal ca_prn, CA_RST, Read_data, DDS_RSTN : std_logic;
     signal counter_clk : std_logic;
     signal sat_int: integer range 0 to 31; -- 32 GPS
     signal FFT_CA_in_real, FFT_CA_in_imag : std_logic_vector (FFT_Width-1 downto 0); 
@@ -273,43 +279,35 @@ begin
     DIV16_CLK: PF_CLK_DIV_C5 port map(slw_clk, slw_clk_2);
         
     -- DDS e contador 
-    SINE_GENERATOR: COREDDS_C0 port map (CLK,Frequency_offset_data, '1','0',NRST,'1',cos_signal,open,sin_signal);
+    SINE_GENERATOR: COREDDS_C0 port map (CLK,DDS_Frequency, '1','0',NRST,DDS_RSTN,cos_signal,open,sin_signal);
+    SIN_NEG: entity work.Negative_Integer generic map (data_width => DDS_Width)
+                port map (
+                    SIG_IN  => sin_signal,
+                    SIG_OUT => sin_signal_neg
+                );
+                
+    sin_signal_mux <= sin_signal when doppler_dir = '0' else sin_signal_neg;
+                
     CONTADOR_ESTADO: contador generic map (Contador_WIDTH) port map(counter_clk, RST, count_state);
     
-
-                
-    MIXER_MULT_CMPX: if MIXER_TYPE = 0 generate
-        -- Entrada
-        I_MAX_IN <= "001" when MAX_INPUT_I = "00" else
-                    "010" when MAX_INPUT_I = "01" else
-                    "111" when MAX_INPUT_I = "10" else
-                    "110";
-        Q_MAX_IN <= "001" when MAX_INPUT_Q = "00" else
-                    "010" when MAX_INPUT_Q = "01" else
-                    "111" when MAX_INPUT_Q = "10" else
-                    "110";
-
-        MULT_IN: complex_multiplier_C2 port map (sin_signal, cos_signal, Q_MAX_IN, I_MAX_IN, 
-                                            clk, MULT_RST_IN, FFT_Q_signal, FFT_I_signal);
-        
-        clkd2(0) <= InReady(0) and InReady(1) and MAX_INPUT_CLK;
-        CLK_MULT_D2: for i in 0 to 2 generate
-            delay_II: Flip_Flop_D port map(clkd2(i),NRST, clk, clkd2(i+1)); -- ainda a ser verificado
-        end generate;
-    end generate;
+    -- Entrada
+    I_MAX_IN <= "001" when MAX_INPUT_I = "00" else
+                "010" when MAX_INPUT_I = "01" else
+                "111" when MAX_INPUT_I = "10" else
+                "110";
+    Q_MAX_IN <= "001" when MAX_INPUT_Q = "00" else
+                "010" when MAX_INPUT_Q = "01" else
+                "111" when MAX_INPUT_Q = "10" else
+                "110";
     
-    MIXER_MULT_CMPX: if MIXER_TYPE = 1 generate
-        MULT1: Multiplier_simplified generic map(DDS_Width) port map(cos_signal,I_MAX_IN,I1_signal);
-        MULT2: Multiplier_simplified generic map(DDS_Width) port map(sin_signal,I_MAX_IN,I2_signal);
-        MULT3: Multiplier_simplified generic map(DDS_Width) port map(sin_signal,Q_MAX_IN,Q2_signal);
-        MULT4: Multiplier_simplified generic map(DDS_Width) port map(cos_signal,Q_MAX_IN,Q1_signal);
-        Q2_signal_n <= not(Q2_signal);
-        
-        SUM_I: UAL generic map(SUM_Width) port map(I1_signal,Q2_signal_n,'1',
-                    FFT_I_signal(SUM_Width-1 downto 0),FFT_I_signal(SUM_Width));
-        SUM_Q: UAL generic map(SUM_Width) port map(I2_signal,Q1_signal,'0',
-                    FFT_Q_signal(SUM_Width-1 downto 0),FFT_Q_signal(SUM_Width));
-    end generate;    
+    MULT_IN: complex_multiplier_C2 port map (sin_signal_mux, cos_signal, Q_MAX_IN, I_MAX_IN, 
+                                            clk, MULT_RST_IN, FFT_Q_signal, FFT_I_signal);
+    
+    clkd2(0) <= InReady(0) and InReady(1) and MAX_INPUT_CLK;
+    
+    CLK_MULT_D2: for i in 0 to 2 generate
+		delay_II: Flip_Flop_D port map(clkd2(i),NRST, clk, clkd2(i+1)); -- ainda a ser verificado
+	end generate;
     
     -- Código CA
 	CA_CODE: L1_CA_generator 
@@ -391,6 +389,9 @@ begin
     SAT_int <= to_integer(unsigned(count_state(Contador_WIDTH-1 downto Contador_WIDTH-5)));
     
     Frequency_offset_data <= count_state(Contador_WIDTH-6 downto 0);
+    doppler_dir <= Frequency_offset_data(Contador_WIDTH-6);
+    DDS_Frequency <= Frequency_offset_data(Contador_WIDTH-7 downto 0) when 
+                    doppler_dir = '0' else not Frequency_offset_data(Contador_WIDTH-7 downto 0);
     NRST <= not (RST);
     Read_data <= clkd2(3);
     MULT_RST <= NRST and ((OutReady(0) and OutReady(1)) or clkd(3) or clkd(1));
@@ -402,7 +403,7 @@ begin
     process(CLK, RST, count_state, count_bit_d1, count_bit_d2, ca_rst_pulse)
     begin
         if RST = '1' then
-            ca_rst_pulse       <= '1';
+            ca_rst_pulse <= '1';
             count_bit_d1 <= '0';
             count_bit_d2 <= '0';
         elsif CLK'event and clk = '1' then
@@ -418,6 +419,7 @@ begin
 end process;
     
     CA_RST <= ca_rst_pulse;
+    DDS_RSTN <= not CA_RST;
     OUT_I               <=  IFFT_o_real;
     OUT_Q               <=  IFFT_o_imag;
 end architecture_Acquisition;
