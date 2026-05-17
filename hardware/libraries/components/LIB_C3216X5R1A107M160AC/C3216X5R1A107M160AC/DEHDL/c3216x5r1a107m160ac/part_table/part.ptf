@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'C3216X5R1A107M160AC'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "TDK", "C3216X5R1A107M160AC" (!) = "", "CAPC3216X180N", "Capacitor Chip Non-polarised", "810-C3216X5R1A107M", "https://www.mouser.co.uk/ProductDetail/TDK/C3216X5R1A107M160AC?qs=NRhsANhppD%252B0MpDu1pf9NA%3D%3D", "1206 X5R ceramic capacitor 100uF 10V TDK 1206 C 100uF Ceramic Multilayer Capacitor, 10 V dc, +85degC, X5R Dielectric,  /-20% SMD", "https://product.tdk.com/info/en/catalog/datasheets/mlcc_commercial_midvoltage_en.pdf", "1.8 mm"
+END_PART
+
+END.

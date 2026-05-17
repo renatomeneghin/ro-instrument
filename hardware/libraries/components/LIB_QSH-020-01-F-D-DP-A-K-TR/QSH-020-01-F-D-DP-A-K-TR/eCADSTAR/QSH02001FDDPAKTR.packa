@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "QSH-020-01-F-D-DP-A-K-TR"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2019-09-26-10:50:23)
+    (mountForm default
+        (footprintRef "QSH02001FDDPAKTR")
+        (spec "System")
+    )
+)

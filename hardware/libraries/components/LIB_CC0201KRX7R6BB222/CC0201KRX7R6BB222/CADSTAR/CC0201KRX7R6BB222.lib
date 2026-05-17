@@ -1,0 +1,16 @@
+.CC0201KRX7R6BB222 :1 ;2200 pF +/-10% 10V Ceramic Capacitor X7R 0201 (0603 Metric) , -55C ~ 125C
+CAPC0603X33N
+*STM C
+*NGS
+*PLB 1="1" 2="2"
+*MXP 2
+*DFN CC0201KRX7R6BB222
+~!Mouser Part Number (603-CC0201KR6BB222)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/YAGEO/CC0201KRX7R6BB222?qs=tS%2FAHvPQ%2F57AvPsikpGQtQ%3D%3D)
+~!Manufacturer_Name (Yageo Group)
+~!Manufacturer_Part_Number (CC0201KRX7R6BB222)
+~!Link Datasheet (https://yageogroup.com/component-documentation/download/specsheet/CC0201KRX7R6BB222?lang=en)
+~!Height (0.33mm)
+~!3D_Model (CC0201KRX7R6BB222)
+CC0201KRX7R6BB222
+1.1!U 2.1!U 

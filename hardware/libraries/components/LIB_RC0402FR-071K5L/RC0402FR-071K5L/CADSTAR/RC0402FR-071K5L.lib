@@ -1,0 +1,16 @@
+.RC0402FR-071K5L :1 ;Resistor Thick film 0402 1% 1K5
+RESC1005X40N
+*STM R
+*NGS
+*PLB 1="1" 2="2"
+*MXP 2
+*DFN RC0402FR-071K5L
+~!Mouser Part Number (603-RC0402FR-071K5L)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/YAGEO/RC0402FR-071K5L?qs=V1yeUXFNrkl%252BoQJTjz%252B4zQ%3D%3D)
+~!Manufacturer_Name (Yageo Group)
+~!Manufacturer_Part_Number (RC0402FR-071K5L)
+~!Link Datasheet (https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf)
+~!Height (0.4mm)
+~!3D_Model (RC0402FR-071K5L)
+RC0402FR-071K5L
+1.1!U 2.1!U 

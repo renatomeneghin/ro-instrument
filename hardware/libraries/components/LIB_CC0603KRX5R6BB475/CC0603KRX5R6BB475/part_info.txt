@@ -1,0 +1,9 @@
+Manufacturer=Yageo Group
+PartNumber=CC0603KRX5R6BB475
+PartCategory=Capacitor
+PackageCategory=Capacitor Chip Non-polarised
+PinCount=2
+Version=1.1
+Released=2017-07-27 16:12:22
+Downloaded=2026-05-13 13:10:26
+3D=Y

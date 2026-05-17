@@ -1,0 +1,9 @@
+Manufacturer=Murata Electronics
+PartNumber=GRM033R71E332KA12D
+PartCategory=Capacitor
+PackageCategory=Capacitor Chip Non-polarised
+PinCount=2
+Version=4.1
+Released=2023-03-07 09:32:53
+Downloaded=2026-05-13 14:23:44
+3D=Y

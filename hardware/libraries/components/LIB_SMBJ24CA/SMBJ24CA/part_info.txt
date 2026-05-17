@@ -1,0 +1,9 @@
+Manufacturer=LITTELFUSE
+PartNumber=SMBJ24CA
+PartCategory=TVS Diode (Bi-directional)
+PackageCategory=Diodes Moulded
+PinCount=2
+Version=2.2
+Released=2023-01-03 02:54:53
+Downloaded=2026-05-12 14:16:05
+3D=Y

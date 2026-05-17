@@ -1,0 +1,123 @@
+
+(EDIF
+  (rename &SMBJ5_0A_TR "SMBJ5_0A_TR")
+  (EDIFVersion 2 0 0)
+  (EDIFLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timestamp 2026 05 13 14 41 57)
+      (dataOrigin "13001891/1743273/2.50/2/2/TVS Diode (Uni-directional)")
+      (program "SamacSys ECAD Model SMBJ5_0A_TR"
+        (version "6.2"))))
+  (library
+  (rename &SMBJ5_0A_TR "SMBJ5_0A_TR")
+    (EDIFLevel 0)
+    (technology
+      (numberDefinition (scale 1 (e 254 -6) (unit DISTANCE)))
+      (userData GRIDRESOLUTION (integer 50 50))
+      (figureGroup DEFAULT (pathWidth 10) (textHeight 100))
+      (figureGroup PROPERTY (pathWidth 10) (textHeight 90))
+      (figureGroup PINNUMBER (pathWidth 10) (textHeight 90))
+      (figureGroup PINNAME (pathWidth 10) (textHeight 90))
+      (figureGroup COMMENT (pathWidth 10) (textHeight 90))
+      (figureGroup PIN (pathWidth 10) (textHeight 90))
+      (figureGroup GRAPHIC (pathWidth 10) (textHeight 100))
+    )
+    (cell
+      (rename &SMBJ5_0A_TR "SMBJ5_0A_TR")
+      (cellType GENERIC)
+      (view
+        (rename NORMAL "Normal")
+        (viewType SCHEMATIC)
+        (interface
+          (designator "D")
+          (property (rename PACKAGENAME "PackageName") (string "SMBJ5_0A_TR"))
+          (property (rename ISHETEROGENEOUS "IsHeterogeneous") (string "False"))
+          (property (rename DEVICESINVIEW "DevicesInView") (string "1"))
+          (property (rename DEVICESINPACKAGE "DevicesInPackage") (string "1"))
+          (property (rename DEVICEDESIGNATOR "DeviceDesignator") (string "A"))
+          (property (rename DEVICENUMBERING "DeviceNumbering") (string "Alpha"))
+          (property (rename PCB_32_FOOTPRINT "PCB Footprint") (string "SMBJ12A"))
+          (property (rename &Mouser_Part_Number "Mouser Part Number") (string "511-SMBJ5.0A"))
+          (property (rename &Mouser_Price_Stock "Mouser Price/Stock") (string "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/SMBJ5.0A-TR?qs=QR0jAJXDF2ih8aaSsBQmUg%3D%3D"))
+          (property (rename &Manufacturer_Name "Manufacturer_Name") (string "STMicroelectronics"))
+          (property (rename &Manufacturer_Part_Number "Manufacturer_Part_Number") (string "SMBJ5.0A-TR"))
+          (property (rename &Description "Description") (string "ESD Suppressors / TVS Diodes 600W 5.0V Unidirect"))
+          (property (rename &Datasheet_Link "Datasheet Link") (string "https://www.st.com/resource/en/datasheet/smbj58ca.pdf"))
+          (property (rename &Height "Height") (string "2.45 mm"))
+          (property (rename &_60__32_VALUE_32__62_ "Value") (string "SMBJ5_0A_TR"))
+          (property (rename VALUE "Value") (string "Value"))
+          (port
+            (rename &K "K")
+            (designator "1")
+            (property (rename ORDER "Order") (string "0") (owner "OrCAD"))
+          )
+          (port
+            (rename &A "A")
+            (designator "2")
+            (property (rename ORDER "Order") (string "1") (owner "OrCAD"))
+          )
+          (symbol
+            (portImplementation
+              (name &K)
+              (keywordDisplay DESIGNATOR (display PINNUMBER))
+              (figure PIN (path (pointList (pt -200 -100) (pt 0 -100))))
+              (connectLocation (figure GRAPHIC (dot (pt -200 -100))))
+            )
+            (portImplementation
+              (name &A)
+              (keywordDisplay DESIGNATOR (display PINNUMBER))
+              (figure PIN (path (pointList (pt 200 -100) (pt 400 -100))))
+              (connectLocation (figure GRAPHIC (dot (pt 400 -100))))
+            )
+            (figure GRAPHIC
+              (figureGroupOverride GRAPHIC
+                (pathWidth 10))
+              (path
+                (pointList
+                  (pt 0 -100)
+                  (pt 200 0)
+                  (pt 200 -200)
+                  (pt 0 -100)
+                )
+              )
+            )
+            (figure GRAPHIC
+              (figureGroupOverride GRAPHIC
+                (pathWidth 10))
+              (path
+                (pointList
+                  (pt 0 -180)
+                  (pt 40 -200)
+                )
+              )
+            )
+            (figure GRAPHIC
+              (figureGroupOverride GRAPHIC
+                (pathWidth 10))
+              (path
+                (pointList
+                  (pt 0 -180)
+                  (pt 0 -20)
+                )
+              )
+            )
+            (figure GRAPHIC
+              (figureGroupOverride GRAPHIC
+                (pathWidth 10))
+              (path
+                (pointList
+                  (pt -40 0)
+                  (pt 0 -20)
+                )
+              )
+            )
+            (keywordDisplay DESIGNATOR (display PROPERTY (justify LOWERLEFT) (orientation R0) (origin (pt 200 180))))
+            (propertyDisplay &_60__32_VALUE_32__62_ (display PROPERTY (justify LOWERLEFT) (orientation R0) (origin (pt 200 80))))
+          )
+        )
+      )
+    )
+  )
+)

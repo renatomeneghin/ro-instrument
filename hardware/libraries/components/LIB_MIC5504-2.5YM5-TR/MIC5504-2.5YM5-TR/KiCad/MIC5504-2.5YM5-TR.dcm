@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MIC5504-2.5YM5-TR
+D LDO Voltage Regulators Single 300mA LDO with Enable Pull-Down & Auto Discharge
+K
+F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en580292
+$ENDCMP
+#
+#End Doc Library

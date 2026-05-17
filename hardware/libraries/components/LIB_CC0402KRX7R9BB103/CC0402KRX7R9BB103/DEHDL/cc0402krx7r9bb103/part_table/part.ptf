@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'CC0402KRX7R9BB103'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Yageo Group", "CC0402KRX7R9BB103" (!) = "", "CAPC1005X55N", "Capacitor Chip Non-polarised", "603-CC402KRX7R9BB103", "https://www.mouser.co.uk/ProductDetail/YAGEO/CC0402KRX7R9BB103?qs=rEZiXmXGZa%252BpBmDCpwG%252B9w%3D%3D", "Multilayer Ceramic Capacitors MLCC - SMD/SMT 50V 0.01uF X7R 0402 10%", "https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-GPHC_X7R_6.3V-to-250V_23.pdf", "0.55 mm"
+END_PART
+
+END.

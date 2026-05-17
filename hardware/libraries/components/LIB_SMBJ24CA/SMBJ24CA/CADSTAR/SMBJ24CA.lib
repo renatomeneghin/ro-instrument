@@ -1,0 +1,16 @@
+.SMBJ24CA :1 ;Littelfuse SMBJ24CA, Bi-Directional TVS Diode, 600W, 2-Pin DO-214AA
+DIOM5436X244N
+*STM D
+*NGS
+*PLB 1="1" 2="2"
+*MXP 2
+*DFN SMBJ24CA
+~!Mouser Part Number (576-SMBJ24CA)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Littelfuse/SMBJ24CA?qs=JJML70Qc14u3Wc4gmMep1w%3D%3D)
+~!Manufacturer_Name (LITTELFUSE)
+~!Manufacturer_Part_Number (SMBJ24CA)
+~!Link Datasheet (https://m.littelfuse.com/~/media/electronics/datasheets/tvs_diodes/littelfuse_tvs_diode_smbj_datasheet.pdf.pdf)
+~!Height (2.44mm)
+~!3D_Model (SMBJ24CA)
+SMBJ24CA
+1.1!U 2.1!U 

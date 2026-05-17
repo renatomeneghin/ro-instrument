@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--/225764/1743273/2.50/3/2/Transistor BJT PNP/-->
+<quadcept_library>
+  <setting unit="mil" />
+  <textstyle name="Default" height="47.244094488189" strokewidth="7.8740157480315" charwidth="47.244094488189" />
+  <textstyle name="Dimension" height="19.6850393700787" strokewidth="0" charwidth="19.6850393700787" />
+  <textstyle name="H127W0635TH00762" height="50" strokewidth="3" charwidth="25" />
+  <textstyle name="H15W15TH02" height="59.0551181102362" strokewidth="7.8740157480315" charwidth="59.0551181102362" />
+  <padstyle name="r100_60" surface="True" plated="False" isvia="False" nopaste="False" nomask="True" complex="False" holesize="0">
+    <padshape layer="TOP" shape="rectangle" width="23.622047244094" height="39.370078740157" />
+    <padshape layer="TOP_SOLDER_MASK" shape="rectangle" width="31.496062992126" height="47.244094488188" />
+    <padshape layer="TOP_SOLDER_PASTE" shape="rectangle" width="23.622047244094" height="39.370078740157" />
+  </padstyle>
+  <footprint name="SOT96P237X111-3N" originx="0" originy="0" pickpointx="0" pickpointy="0">
+    <pcbpin number="1" name="1" style="r100_60" originx="-47.244094488188" originy="37.59842519685" rotation="90" />
+    <pcbpin number="2" name="2" style="r100_60" originx="-47.244094488188" originy="-37.59842519685" rotation="90" />
+    <pcbpin number="3" name="3" style="r100_60" originx="47.244094488188" originy="0" rotation="90" />
+    <line layer="TOP_PLACE_BOUND" originx="-76.771653543306" originy="69.685039370078" endx="76.771653543306" endy="69.685039370078" width="1.9685039370079" />
+    <line layer="TOP_PLACE_BOUND" originx="76.771653543306" originy="69.685039370078" endx="76.771653543306" endy="-69.685039370078" width="1.9685039370079" />
+    <line layer="TOP_PLACE_BOUND" originx="76.771653543306" originy="-69.685039370078" endx="-76.771653543306" endy="-69.685039370078" width="1.9685039370079" />
+    <line layer="TOP_PLACE_BOUND" originx="-76.771653543306" originy="-69.685039370078" endx="-76.771653543306" endy="69.685039370078" width="1.9685039370079" />
+    <line layer="TOP_ASSEMBLY" originx="-25.590551181102" originy="57.480314960629" endx="25.590551181102" endy="57.480314960629" width="3.9370078740157" />
+    <line layer="TOP_ASSEMBLY" originx="25.590551181102" originy="57.480314960629" endx="25.590551181102" endy="-57.480314960629" width="3.9370078740157" />
+    <line layer="TOP_ASSEMBLY" originx="25.590551181102" originy="-57.480314960629" endx="-25.590551181102" endy="-57.480314960629" width="3.9370078740157" />
+    <line layer="TOP_ASSEMBLY" originx="-25.590551181102" originy="-57.480314960629" endx="-25.590551181102" endy="57.480314960629" width="3.9370078740157" />
+    <line layer="TOP_ASSEMBLY" originx="-25.590551181102" originy="19.881889763779" endx="12.007874015748" endy="57.480314960629" width="3.9370078740157" />
+    <line layer="TOP_SILKSCREEN" originx="-13.779527559055" originy="57.480314960629" endx="13.779527559055" endy="57.480314960629" width="7.8740157480314" />
+    <line layer="TOP_SILKSCREEN" originx="13.779527559055" originy="57.480314960629" endx="13.779527559055" endy="-57.480314960629" width="7.8740157480314" />
+    <line layer="TOP_SILKSCREEN" originx="13.779527559055" originy="-57.480314960629" endx="-13.779527559055" endy="-57.480314960629" width="7.8740157480314" />
+    <line layer="TOP_SILKSCREEN" originx="-13.779527559055" originy="-57.480314960629" endx="-13.779527559055" endy="57.480314960629" width="7.8740157480314" />
+    <line layer="TOP_SILKSCREEN" originx="-66.929133858267" originy="59.251968503936" endx="-27.55905511811" endy="59.251968503936" width="7.8740157480314" />
+  </footprint>
+  <symbol name="MMBT3906LT3G" originx="0" originy="0">
+    <line originx="300" originy="100" endx="300" endy="-100" width="0" />
+    <line originx="300" originy="50" endx="400" endy="150" width="0" />
+    <line originx="300" originy="-50" endx="400" endy="-150" width="0" />
+    <line originx="400" originy="-150" endx="400" endy="-200" width="0" />
+    <line originx="400" originy="150" endx="400" endy="200" width="0" />
+    <line originx="100" originy="0" endx="300" endy="0" width="0" />
+    <arc originx="350" originy="0" startangle="180" sweepangle="180" radius="158.114" width="0" />
+    <arc originx="350" originy="0" startangle="180" sweepangle="-180" radius="158.114" width="0" />
+    <sympin number="1" originx="100" originy="0" rotation="180" length="100" width="7.8740157480315" flipped="False">
+      <text name="pinname" originx="0" originy="-20" style="Default" rotation="0" justify="upperleft" flipped="False" hidden="True" data="B" />
+      <text name="pindes" originx="0" originy="20" style="Default" rotation="0" justify="lowerleft" flipped="False" hidden="False" data="1" />
+    </sympin>
+    <sympin number="2" originx="400" originy="-200" rotation="270" length="100" width="7.8740157480315" flipped="False">
+      <text name="pinname" originx="420" originy="-300" style="Default" rotation="90" justify="lowerleft" flipped="False" hidden="True" data="E" />
+      <text name="pindes" originx="380" originy="-300" style="Default" rotation="90" justify="lowerright" flipped="False" hidden="False" data="2" />
+    </sympin>
+    <sympin number="3" originx="400" originy="200" rotation="90" length="100" width="7.8740157480315" flipped="False">
+      <text name="pinname" originx="420" originy="300" style="Default" rotation="90" justify="upperleft" flipped="False" hidden="True" data="C" />
+      <text name="pindes" originx="380" originy="300" style="Default" rotation="90" justify="upperright" flipped="False" hidden="False" data="3" />
+    </sympin>
+    <polygon type="polygon">
+      <point x="380" y="-110" />
+      <point x="360" y="-130" />
+      <point x="340" y="-90" />
+    </polygon>
+  </symbol>
+  <component name="MMBT3906LT3G" designatorprefix="Q" height="43.700787401574" footprint="SOT96P237X111-3N">
+    <comppin designator="1" sympin="1" pinswap="0" gateswap="0" gate="1" group="1" side="" type="Any" name="B" />
+    <comppin designator="2" sympin="2" pinswap="0" gateswap="0" gate="1" group="1" side="" type="Any" name="E" />
+    <comppin designator="3" sympin="3" pinswap="0" gateswap="0" gate="1" group="1" side="" type="Any" name="C" />
+    <attached_symbol gate="1" name="MMBT3906LT3G" />
+    <pinmap designator="1" footprintpin="1" />
+    <pinmap designator="2" footprintpin="2" />
+    <pinmap designator="3" footprintpin="3" />
+    <text name="Datasheet" originx="0" originy="0" style="Default" rotation="0" justify="" flipped="False" hidden="True" data="https://www.onsemi.com/pub/Collateral/MMBT3906LT1-D.PDF" />
+    <text name="Description" originx="0" originy="0" style="Default" rotation="0" justify="" flipped="False" hidden="True" data="These Devices are Pb-Free, Halogen Free/BFR Free and are RoHS Compliant; S Prefix for Automotive and Other Applications Requiring Unique Site and Control Change Requirements; AEC-Q101 Qualified and PPAP Capable" />
+    <text name="Mouser Part Number" originx="0" originy="0" style="Default" rotation="0" justify="" flipped="False" hidden="True" data="863-MMBT3906LT3G" />
+    <text name="Mouser Price/Stock" originx="0" originy="0" style="Default" rotation="0" justify="" flipped="False" hidden="True" data="https://www.mouser.co.uk/ProductDetail/onsemi/MMBT3906LT3G?qs=HVbQlW5zcXX6Jyx0WYl8Eg%3D%3D" />
+    <text name="Manufacturer_Name" originx="0" originy="0" style="Default" rotation="0" justify="" flipped="False" hidden="True" data="onsemi" />
+    <text name="Manufacturer_Part_Number" originx="550" originy="-50" style="Default" rotation="0" justify="left" flipped="False" hidden="False" data="MMBT3906LT3G" />
+  </component>
+</quadcept_library>

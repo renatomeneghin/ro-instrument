@@ -1,0 +1,15 @@
+.RC0402FR-072K2L :1 ;YAGEO (PHYCOMP) - RC0402FR-072K2L - RES, THICK FILM, 2K2, 1%, 0.063W, 0402
+RESC1005X40N
+*STM R
+*NGS
+*PLB 1="1" 2="2"
+*MXP 2
+*DFN RC0402FR-072K2L
+~!Mouser Part Number (603-RC0402FR-072K2L)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/YAGEO/RC0402FR-072K2L?qs=YUgVZYePFqCtk4LkRUkHoA%3D%3D)
+~!Manufacturer_Name (Yageo Group)
+~!Manufacturer_Part_Number (RC0402FR-072K2L)
+~!Link Datasheet (http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6_r.pdf)
+~!Height (0.4mm)
+RC0402FR-072K2L
+1.1!U 2.1!U 

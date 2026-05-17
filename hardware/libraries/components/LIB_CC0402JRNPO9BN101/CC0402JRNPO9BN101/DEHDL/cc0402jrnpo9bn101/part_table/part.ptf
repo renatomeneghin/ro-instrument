@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'CC0402JRNPO9BN101'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Yageo Group", "CC0402JRNPO9BN101" (!) = "", "CAPC1005X55N", "Capacitor Chip Non-polarised", "603-CC402JRNPO9BN101", "https://www.mouser.co.uk/ProductDetail/YAGEO/CC0402JRNPO9BN101?qs=AgBp2OyFlx996m5MagFg3g%3D%3D", "YAGEO - CC0402JRNPO9BN101 - SMD Multilayer Ceramic Capacitor, 100 pF, 50 V, 0402 [1005 Metric], +/- 5%, C0G / NP0, CC Series", "https://ad.componentsearchengine.com/Datasheets/2/CC0402JRNPO9BN101.pdf", "0.55 mm"
+END_PART
+
+END.

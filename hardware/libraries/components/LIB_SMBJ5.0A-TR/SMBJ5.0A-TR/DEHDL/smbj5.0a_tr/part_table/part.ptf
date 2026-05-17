@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'SMBJ5.0A_TR'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "STMicroelectronics", "SMBJ5.0A-TR" (!) = "", "SMBJ12A", "Other", "511-SMBJ5.0A", "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/SMBJ5.0A-TR?qs=QR0jAJXDF2ih8aaSsBQmUg%3D%3D", "ESD Suppressors / TVS Diodes 600W 5.0V Unidirect", "https://www.st.com/resource/en/datasheet/smbj58ca.pdf", "2.45 mm"
+END_PART
+
+END.

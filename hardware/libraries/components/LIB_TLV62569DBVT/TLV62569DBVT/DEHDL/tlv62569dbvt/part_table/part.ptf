@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'TLV62569DBVT'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Texas Instruments", "TLV62569DBVT" (!) = "", "SOT95P280X145-5N", "SOT23 (5-Pin)", "595-TLV62569DBVT", "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TLV62569DBVT?qs=0C8XhJW8e4qp9%2F3ZjhGIMQ%3D%3D", "2.5V-5.5V input, 2-A high efficiency step-down buck converter in SOT23 and SOT563 package", "http://www.ti.com/lit/gpn/TLV62569", "1.45 mm"
+END_PART
+
+END.

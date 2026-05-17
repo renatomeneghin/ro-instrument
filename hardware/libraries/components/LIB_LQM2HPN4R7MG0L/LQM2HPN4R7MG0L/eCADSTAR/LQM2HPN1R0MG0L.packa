@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "LQM2HPN4R7MG0L"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2020-05-19-13:54:35)
+    (mountForm default
+        (footprintRef "LQM2HPN1R0MG0L")
+        (spec "System")
+    )
+)

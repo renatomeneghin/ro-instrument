@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "SMBJ5_0A-TR"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2022-11-14-14:00:21)
+    (mountForm default
+        (footprintRef "SMBJ12A")
+        (spec "System")
+    )
+)

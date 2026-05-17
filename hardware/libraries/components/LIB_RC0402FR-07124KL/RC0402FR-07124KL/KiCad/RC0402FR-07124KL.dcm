@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP RC0402FR-07124KL
+D RESISTOR, 0402 124K Ohms +/-1% 1/16 W
+K
+F https://componentsearchengine.com/Datasheets/1/RC0402FR-07124KL.pdf
+$ENDCMP
+#
+#End Doc Library

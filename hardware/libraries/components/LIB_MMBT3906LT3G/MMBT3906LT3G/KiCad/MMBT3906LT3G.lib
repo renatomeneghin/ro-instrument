@@ -1,0 +1,31 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model MMBT3906LT3G
+#/225764/1743273/2.50/3/2/Transistor BJT PNP
+DEF MMBT3906LT3G Q 0 30 Y Y 1 F N
+F0 "Q" 550 50 50 H V L CNN
+F1 "MMBT3906LT3G" 550 -50 50 H V L CNN
+F2 "SOT96P237X111-3N" 550 -150 50 H I L CNN
+F3 "https://www.onsemi.com/pub/Collateral/MMBT3906LT1-D.PDF" 550 -250 50 H I L CNN
+F4 "These Devices are Pb-Free, Halogen Free/BFR Free and are RoHS Compliant; S Prefix for Automotive and Other Applications Requiring Unique Site and Control Change Requirements; AEC-Q101 Qualified and PPAP Capable" 550 -350 50 H I L CNN "Description"
+F5 "1.11" 550 -450 50 H I L CNN "Height"
+F6 "863-MMBT3906LT3G" 550 -550 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/onsemi/MMBT3906LT3G?qs=HVbQlW5zcXX6Jyx0WYl8Eg%3D%3D" 550 -650 50 H I L CNN "Mouser Price/Stock"
+F8 "onsemi" 550 -750 50 H I L CNN "Manufacturer_Name"
+F9 "MMBT3906LT3G" 550 -850 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X ~ 1 0 0 100 R 50 50 0 0 P
+X ~ 2 400 -300 100 U 50 50 0 0 P
+X ~ 3 400 300 100 D 50 50 0 0 P
+P 2 0 1 20 300 100 300 -100 N
+P 2 0 1 6 300 50 400 150 N
+P 2 0 1 6 300 -50 400 -150 N
+P 2 0 1 6 400 -150 400 -200 N
+P 2 0 1 6 400 150 400 200 N
+P 2 0 1 6 100 0 300 0 N
+C 350 0 158 0 1 10 N
+P 4 0 1 10 380 -110 360 -130 340 -90 380 -110 F
+ENDDRAW
+ENDDEF
+#
+#End Library

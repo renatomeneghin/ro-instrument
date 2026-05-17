@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP CC0201KRX7R6BB222
+D 2200 pF +/-10% 10V Ceramic Capacitor X7R 0201 (0603 Metric) , -55C ~ 125C
+K
+F https://yageogroup.com/component-documentation/download/specsheet/CC0201KRX7R6BB222?lang=en
+$ENDCMP
+#
+#End Doc Library

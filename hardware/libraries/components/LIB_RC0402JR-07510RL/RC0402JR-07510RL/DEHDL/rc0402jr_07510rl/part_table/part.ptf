@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'RC0402JR_07510RL'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Yageo Group", "RC0402JR-07510RL" (!) = "", "RESC1005X40N", "Resistor Chip", "603-RC0402JR-07510RL", "https://www.mouser.com/Search/Refine.aspx?Keyword=603-RC0402JR-07510RL", "RESISTOR, 0402 510 Ohms +/-5% 1/16 W", "https://componentsearchengine.com/Datasheets/1/RC0402JR-07510RL.pdf", "0.4 mm"
+END_PART
+
+END.

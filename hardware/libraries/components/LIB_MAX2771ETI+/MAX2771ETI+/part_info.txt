@@ -1,0 +1,9 @@
+Manufacturer=Analog Devices
+PartNumber=MAX2771ETI+
+PartCategory=Integrated Circuit
+PackageCategory=Quad Flat No-Lead
+PinCount=29
+Version=2.1
+Released=2018-12-16 05:14:35
+Downloaded=2026-05-13 13:00:13
+3D=Y

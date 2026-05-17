@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_603824"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2023-03-07-09:51:20)
+    (utime 2026-01-26-13:06:26)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "RC0402FR-078K06L")
+)
+
+
+(pinAssign "ECS_603824"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2023-03-07-09:51:20)
+    (utime 2026-01-26-13:06:26)
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_603824")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "RC0402FR-078K06L")
+)
+
+
+(part "RC0402FR-078K06L"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2023-03-07-09:51:20)
+    (utime 2026-01-26-13:06:26)
+    (packageRef "RC0402FR-078K06L")
+    (pinAssignRef "ECS_603824")
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "R")
+    (property "description" "RESISTOR, 0402 8.06K Ohms +/-1% 1/16 W")
+    (property "Mouser_Part_Number" "")
+    (property "Mouser_Price/Stock" "")
+    (property "Manufacturer_Name" "Yageo Group")
+    (property "Manufacturer_Part_Number" "RC0402FR-078K06L")
+    (property "Datasheet_Link" "http://www.yageo.com/documents/recent/PYu-RC0402_51_RoHS_L_6_r.pdf")
+    (property "compAreaTopHeight" 0.4)
+)
+
+

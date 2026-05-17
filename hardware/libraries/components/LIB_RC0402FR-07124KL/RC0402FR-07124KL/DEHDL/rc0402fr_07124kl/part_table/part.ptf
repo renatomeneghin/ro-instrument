@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'RC0402FR_07124KL'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Yageo Group", "RC0402FR-07124KL" (!) = "", "RESC1005X40N", "Resistor Chip", "603-RC0402FR-07124KL", "https://www.mouser.com/Search/Refine.aspx?Keyword=603-RC0402FR-07124KL", "RESISTOR, 0402 124K Ohms +/-1% 1/16 W", "https://componentsearchengine.com/Datasheets/1/RC0402FR-07124KL.pdf", "0.4 mm"
+END_PART
+
+END.

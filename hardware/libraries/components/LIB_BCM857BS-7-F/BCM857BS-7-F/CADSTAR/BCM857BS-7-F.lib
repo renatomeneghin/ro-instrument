@@ -1,0 +1,16 @@
+.BCM857BS-7-F :1 ;Bipolar Transistors - BJT 45V Matched Pair PNP Bvceo -45V -100mA
+SOT65P210X110-6N
+*STM IC
+*NGS
+*PLB 1="E1" 2="B1" 3="C2" 4="E2" 5="B2" 6="C1"
+*MXP 6
+*DFN BCM857BS-7-F
+~!Mouser Part Number (621-BCM857BS-7-F)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/BCM857BS-7-F?qs=60RJRzIpcl83Pda4UUWqGw%3D%3D)
+~!Manufacturer_Name (Diodes Incorporated)
+~!Manufacturer_Part_Number (BCM857BS-7-F)
+~!Link Datasheet (-)
+~!Height (1.1mm)
+~!3D_Model (BCM857BS-7-F)
+BCM857BS-7-F
+1.1!U 2.1!U 3.1!U 6.1!U 5.1!U 4.1!U 

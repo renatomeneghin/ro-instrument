@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'RC0402FR_071K5L'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Yageo Group", "RC0402FR-071K5L" (!) = "", "RESC1005X40N", "Resistor Chip", "603-RC0402FR-071K5L", "https://www.mouser.co.uk/ProductDetail/YAGEO/RC0402FR-071K5L?qs=V1yeUXFNrkl%252BoQJTjz%252B4zQ%3D%3D", "Resistor Thick film 0402 1% 1K5", "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf", "0.4 mm"
+END_PART
+
+END.

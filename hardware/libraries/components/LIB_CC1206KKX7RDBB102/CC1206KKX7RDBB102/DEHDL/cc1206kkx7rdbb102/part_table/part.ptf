@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'CC1206KKX7RDBB102'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Yageo Group", "CC1206KKX7RDBB102" (!) = "", "CAPC3216X145N", "Capacitor Chip Non-polarised", "603-CC206KKX7RDBB102", "https://www.mouser.co.uk/ProductDetail/YAGEO/CC1206KKX7RDBB102?qs=vTakOoo5QyK%2FBV1e3XHXiQ%3D%3D", "YAGEO - CC1206KKX7RDBB102 - SMD Multilayer Ceramic Capacitor, 1000 pF, 2 kV, 1206 [3216 Metric], +/- 10%, X7R, CC Series", "https://www.yageo.com/upload/media/product/productsearch/datasheet/mlcc/UPY-NP0X7R_HV_500V-to-3KV_15.pdf", "1.45 mm"
+END_PART
+
+END.

@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TLV62569DBVT
+D 2.5V-5.5V input, 2-A high efficiency step-down buck converter in SOT23 and SOT563 package
+K
+F http://www.ti.com/lit/gpn/TLV62569
+$ENDCMP
+#
+#End Doc Library
