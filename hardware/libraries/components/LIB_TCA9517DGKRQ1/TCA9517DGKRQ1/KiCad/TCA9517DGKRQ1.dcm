@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TCA9517DGKRQ1
+D Automotive, Level-Shifting I2C Bus Repeater
+K
+F http://www.ti.com/lit/gpn/tca9517-q1
+$ENDCMP
+#
+#End Doc Library

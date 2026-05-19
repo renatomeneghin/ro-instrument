@@ -734,54 +734,6 @@
 				)
 			)
 			(symbol "MCP1754ST-3302E_CB_0_1"
-				(polyline
-					(pts
-						(xy 21.59 5.08) (xy 21.59 -5.08)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 21.59 -5.08) (xy 34.29 -5.08)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 34.29 5.08) (xy 21.59 5.08)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 34.29 -5.08) (xy 34.29 5.08)
-					)
-					(stroke
-						(width 0.127)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(pin power_in line
 					(at 27.94 -12.7 90)
 					(length 7.62)
@@ -834,6 +786,19 @@
 								(size 1.27 1.27)
 							)
 						)
+					)
+				)
+			)
+			(symbol "MCP1754ST-3302E_CB_1_1"
+				(rectangle
+					(start 21.59 5.08)
+					(end 34.29 -5.08)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
 					)
 				)
 			)

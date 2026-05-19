@@ -1,0 +1,16 @@
+.TCA9517DGKRQ1 :1 ;Automotive, Level-Shifting I2C Bus Repeater
+SOP65P490X110-8N
+*STM IC
+*NGS
+*PLB 1="VCCA" 2="SCLA" 3="SDAA" 4="GND" 5="EN" 6="SDAB" 7="SCLB" 8="VCCB"
+*MXP 8
+*DFN TCA9517DGKRQ1
+~!Mouser Part Number (595-TCA9517DGKRQ1)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TCA9517DGKRQ1?qs=%252BEew9%252B0nqrBZmTVyzm%252B7dQ%3D%3D)
+~!Manufacturer_Name (Texas Instruments)
+~!Manufacturer_Part_Number (TCA9517DGKRQ1)
+~!Link Datasheet (http://www.ti.com/lit/gpn/tca9517-q1)
+~!Height (1.1mm)
+~!3D_Model (TCA9517DGKRQ1)
+TCA9517DGKRQ1
+1.1!U 2.1!U 3.1!U 4.1!U 8.1!U 7.1!U 6.1!U 5.1!U 

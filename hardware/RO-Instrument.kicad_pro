@@ -475,9 +475,14 @@
         "filename": "soc_2.kicad_sch",
         "name": "SoC 2",
         "uuid": "c583dc71-b62b-403e-8742-2886e1d142c2"
+      },
+      {
+        "filename": "RO-Instrument.kicad_sch",
+        "name": "I2C/CAN",
+        "uuid": "2afd324a-e823-4cbe-bb80-de2f68d7c8f2"
       }
     ],
-    "used_designators": "R79-90,C60-67,C85-88,#PWR104-111",
+    "used_designators": "U8,IC9-10,R92-104,C89-92,#PWR107,#PWR123-128",
     "variants": []
   },
   "sheets": [
@@ -516,6 +521,10 @@
     [
       "1b019b3c-bb85-464b-9592-d957470b2156",
       "POWER SUPPLY"
+    ],
+    [
+      "2afd324a-e823-4cbe-bb80-de2f68d7c8f2",
+      "I2C/CAN"
     ]
   ],
   "text_variables": {},

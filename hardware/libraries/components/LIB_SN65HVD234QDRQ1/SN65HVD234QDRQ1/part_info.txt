@@ -1,0 +1,9 @@
+Manufacturer=Texas Instruments
+PartNumber=SN65HVD234QDRQ1
+PartCategory=Undefined or Miscellaneous
+PackageCategory=Small Outline Packages
+PinCount=8
+Version=1.1
+Released=2020-09-04 06:05:06
+Downloaded=2026-05-18 22:35:55
+3D=Y
