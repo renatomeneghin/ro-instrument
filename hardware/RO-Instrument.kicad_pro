@@ -477,12 +477,22 @@
         "uuid": "c583dc71-b62b-403e-8742-2886e1d142c2"
       },
       {
-        "filename": "RO-Instrument.kicad_sch",
-        "name": "I2C/CAN",
-        "uuid": "2afd324a-e823-4cbe-bb80-de2f68d7c8f2"
+        "filename": "communication.kicad_sch",
+        "name": "COMMUNICATION",
+        "uuid": "af22d418-7fff-4166-9017-37d3553243aa"
+      },
+      {
+        "filename": "interfaces.kicad_sch",
+        "name": "INTERFACES",
+        "uuid": "defc9901-5360-4164-a1eb-2ba4e3032e9d"
+      },
+      {
+        "filename": "fpga_power_banks.kicad_sch",
+        "name": "FPGA POWER BANKS",
+        "uuid": "8fd513a2-d037-490f-a8ba-53c34aac8915"
       }
     ],
-    "used_designators": "U8,IC9-10,R92-104,C89-92,#PWR107,#PWR123-128",
+    "used_designators": "",
     "variants": []
   },
   "sheets": [
@@ -523,8 +533,16 @@
       "POWER SUPPLY"
     ],
     [
-      "2afd324a-e823-4cbe-bb80-de2f68d7c8f2",
-      "I2C/CAN"
+      "af22d418-7fff-4166-9017-37d3553243aa",
+      "COMMUNICATION"
+    ],
+    [
+      "defc9901-5360-4164-a1eb-2ba4e3032e9d",
+      "INTERFACES"
+    ],
+    [
+      "8fd513a2-d037-490f-a8ba-53c34aac8915",
+      "FPGA POWER BANKS"
     ]
   ],
   "text_variables": {},
