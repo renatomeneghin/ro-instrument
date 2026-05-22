@@ -472,11 +472,6 @@
         "uuid": "2c0f4380-7c46-46eb-9200-0adfff38889f"
       },
       {
-        "filename": "soc_2.kicad_sch",
-        "name": "SoC 2",
-        "uuid": "c583dc71-b62b-403e-8742-2886e1d142c2"
-      },
-      {
         "filename": "communication.kicad_sch",
         "name": "COMMUNICATION",
         "uuid": "af22d418-7fff-4166-9017-37d3553243aa"
@@ -492,7 +487,7 @@
         "uuid": "8fd513a2-d037-490f-a8ba-53c34aac8915"
       }
     ],
-    "used_designators": "",
+    "used_designators": "U9",
     "variants": []
   },
   "sheets": [
@@ -503,10 +498,6 @@
     [
       "129439af-2a9d-472e-bef2-dccbe0504c78",
       "SoC 1"
-    ],
-    [
-      "c583dc71-b62b-403e-8742-2886e1d142c2",
-      "SoC 2"
     ],
     [
       "192867d8-95aa-4271-9e49-4cd2e69b7fea",
