@@ -605,13 +605,8 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>/hdl/Complex_multiplier.vhd,hdl"
 STATE="utd"
-TIME="1779730937"
-SIZE="3046"
-ENDFILE
-VALUE "<project>/hdl/Multiplier_test.vhd,hdl"
-STATE="utd"
-TIME="1779732858"
-SIZE="1433"
+TIME="1779738120"
+SIZE="3006"
 ENDFILE
 VALUE "<project>/simulation/Acquisition_TestBench_presynth_simulation.log,log"
 STATE="utd"
@@ -760,13 +755,11 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-HDL;hdl/Complex_multiplier.vhd;0
-HDL;hdl/Acquisition/Somador.vhd;0
-HDL;hdl/Acquisition/Negative_Integer.vhd;0
-HDL;hdl/Multiplier_test.vhd;0
-ACTIVEVIEW;hdl/Complex_multiplier.vhd
 ENDLIST
 LIST ModuleSubBlockList
+LIST "Complex_multiplier::work","hdl/Complex_multiplier.vhd","FALSE","FALSE"
+SUBBLOCK "UAL::work","","FALSE","FALSE"
+ENDLIST
 LIST "COMPLEX_MULTIPLIER::work","component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/complex_multiplier.vhd","FALSE","FALSE"
 SUBBLOCK "round_SAT::work","component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/round_sat.vhd","FALSE","FALSE"
 ENDLIST
@@ -794,6 +787,8 @@ LIST "costas_loop_C0::work","component/work/costas_loop_C0/costas_loop_C0.v","TR
 SUBBLOCK "costas_loop::work","component/Microchip/SolutionCore/costas_loop/1.1.0/Encrypted/costas_loop.v","FALSE","FALSE"
 ENDLIST
 LIST "round_SAT::work","component/Microsemi/SolutionCore/complex_multiplier/1.0.27/obfuscate/round_sat.vhd","FALSE","FALSE"
+ENDLIST
+LIST "UAL::work","","FALSE","FALSE"
 ENDLIST
 LIST "Acquisition::work","","FALSE","FALSE"
 ENDLIST
