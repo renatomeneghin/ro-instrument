@@ -36,7 +36,7 @@ begin
     process(clk, rst, en)
     begin
         if rst = '1' then
-            Q <= (others => 0);
+            Q <= (others => '0');
         elsif rising_edge(clk) then
             if en = '1' then
                 Q <= D;

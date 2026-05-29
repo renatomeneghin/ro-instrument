@@ -23,7 +23,7 @@ use ieee.numeric_std.all;
 
 entity Complex_multiplier is
 generic(
-    mult_width : integer := 16
+    mult_width : integer := 8
 );
 port (
     clk : in std_logic;
@@ -36,14 +36,14 @@ port (
     a_imag : in std_logic_vector(mult_width-1 downto 0); 
 	b_real : in std_logic_vector(mult_width-1 downto 0);
     b_imag : in std_logic_vector(mult_width-1 downto 0);
-	p_real : out std_logic_vector(2*mult_width downto 0);
-    p_imag : out std_logic_vector(2*mult_width downto 0);
-    overflow : out std_logic;
+	p_real : out std_logic_vector(2*mult_width-1 downto 0);
+    p_imag : out std_logic_vector(2*mult_width-1 downto 0);
+    overflow : out std_logic
 );
 end Complex_multiplier;
 
 architecture architecture_Complex_multiplier of Complex_multiplier is
-    signal a, b, ai, bi: signed(mult_width -1 downto 0)
+    signal a, b, ai, bi: signed(mult_width-1 downto 0);
 	signal k1, k2, k3, p, pi : signed(2*mult_width-1 downto 0);
     signal of_k1, of_k2, of_k3, of_p, of_pi : std_logic;
     signal aai, aia, bbi : signed(mult_width-1 downto 0);
