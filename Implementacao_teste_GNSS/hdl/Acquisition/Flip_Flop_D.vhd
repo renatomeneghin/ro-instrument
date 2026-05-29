@@ -10,10 +10,11 @@ use work.all;
 --------------------------------------------------------------
 
 entity Flip_Flop_D is
-port(	D:	in std_logic;
-	rst:	in std_logic;
-	clk:	in std_logic;
-	Q:	out std_logic
+port(
+    D :	    in std_logic;
+	rst :	in std_logic;
+	clk :	in std_logic;
+	Q :	    out std_logic
 );
 end Flip_Flop_D;
 

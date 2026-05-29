@@ -41,9 +41,9 @@ end Acquisition;
 architecture architecture_Acquisition of Acquisition is
     -- signal, component etc. declarations
     constant Contador_WIDTH     : integer := 10;
-    constant DDS_Width          : integer := 13; -- Datawidth of the DDS
-    constant FFT_Width          : integer := 16; -- Datawidth before the fft
-    constant IFFT_Width         : integer := 32; -- Datawidth before the ifft
+    constant DDS_Width          : integer := 4; -- Datawidth of the DDS
+    constant FFT_Width          : integer := 8; -- Datawidth before the fft
+    constant IFFT_Width         : integer := 16; -- Datawidth before the ifft
     
     -- slower clk
     signal clk_div2, slw_clk, slw_clk_2, doppler_dir  : std_logic;
@@ -281,11 +281,11 @@ begin
     -- DDS e contador 
     SINE_GENERATOR: COREDDS_C0 port map (CLK,DDS_Frequency, '1','0',NRST,DDS_RSTN,cos_signal,open,sin_signal);
     SIN_NEG: entity work.Negative_Integer generic map (data_width => DDS_Width)
-                port map (
-                    SIG_IN  => sin_signal,
-                    SIG_OUT => sin_signal_neg
-                );
-                
+        port map (
+            SIG_IN  => sin_signal,
+            SIG_OUT => sin_signal_neg
+        );
+    
     sin_signal_mux <= sin_signal when doppler_dir = '0' else sin_signal_neg;
                 
     CONTADOR_ESTADO: contador generic map (Contador_WIDTH) port map(counter_clk, RST, count_state);
@@ -299,9 +299,19 @@ begin
                 "010" when MAX_INPUT_Q = "01" else
                 "111" when MAX_INPUT_Q = "10" else
                 "110";
+                
+    ---Ajuste para o multiplicador simplificado
     
-    MULT_IN: complex_multiplier_C2 port map (sin_signal_mux, cos_signal, Q_MAX_IN, I_MAX_IN, 
-                                            clk, MULT_RST_IN, FFT_Q_signal, FFT_I_signal);
+    MULT_IN1: work.Multiplier_simplified generic map (data_width => DDS_Width) port map (cos_signal,        MAX_INPUT_I, I1_mult);
+    MULT_IN2: work.Multiplier_simplified generic map (data_width => DDS_Width) port map (sin_signal_mux,    MAX_INPUT_I, I2_mult);
+    MULT_IN3: work.Multiplier_simplified generic map (data_width => DDS_Width) port map (cos_signal,        MAX_INPUT_Q, Q1_mult);
+    MULT_IN4: work.Multiplier_simplified generic map (data_width => DDS_Width) port map (sin_signal_mux,    MAX_INPUT_Q, Q2_mult);
+    
+    ADDER_INPUT1: UAL generic map(data_width => FFT_Width) port map (I1_mult, not Q2_mult,   '1', FFT_I_signal);
+    ADDER_INPUT2: UAL generic map(data_width => FFT_Width) port map (I2_mult, Q1_mult,       '0', FFT_Q_signal);
+    
+    ---     
+    MULT_IN: complex_multiplier_C2 port map (sin_signal_mux, cos_signal, Q_MAX_IN, I_MAX_IN, clk, MULT_RST_IN, FFT_Q_signal, FFT_I_signal);
     
     clkd2(0) <= InReady(0) and InReady(1) and MAX_INPUT_CLK;
     
@@ -360,8 +370,7 @@ begin
 	);
     
     -- Correlação
-    MULT5: complex_multiplier_C0 port map (FFT_Y_signal, FFT_X_signal, CA_CONJ_out_imag, FFT_CA_out_real, 
-                                            slw_clk, MULT_RST, IFFT_in_imag, IFFT_in_real); -- Verificar
+    MULT5: complex_multiplier_C0 port map (FFT_Y_signal, FFT_X_signal, CA_CONJ_out_imag, FFT_CA_out_real, slw_clk, MULT_RST, IFFT_in_imag, IFFT_in_real); -- Verificar
     
     CLK_MULT_D: for i in 0 to 2 generate
 		delay_I: Flip_Flop_D port map(clkd(i),NRST, clk_div2, clkd(i+1)); -- ainda a ser verificado
@@ -384,14 +393,15 @@ begin
 	);
     
     CA_CONJ: entity work.Negative_Integer generic map(data_width => FFT_Width) 
-                port map(SIG_IN  => FFT_CA_out_imag, SIG_OUT => CA_CONJ_out_imag);
+        port map(SIG_IN  => FFT_CA_out_imag, SIG_OUT => CA_CONJ_out_imag);
     
+    --Utilizar isso no bloco de controle e ajustar
     SAT_int <= to_integer(unsigned(count_state(Contador_WIDTH-1 downto Contador_WIDTH-5)));
     
     Frequency_offset_data <= count_state(Contador_WIDTH-6 downto 0);
     doppler_dir <= Frequency_offset_data(Contador_WIDTH-6);
     DDS_Frequency <= Frequency_offset_data(Contador_WIDTH-7 downto 0) when 
-                    doppler_dir = '0' else not Frequency_offset_data(Contador_WIDTH-7 downto 0);
+    doppler_dir = '0' else not Frequency_offset_data(Contador_WIDTH-7 downto 0);
     NRST <= not (RST);
     Read_data <= clkd2(3);
     MULT_RST <= NRST and ((OutReady(0) and OutReady(1)) or clkd(3) or clkd(1));
@@ -416,7 +426,7 @@ begin
                 ca_rst_pulse  <= '0';
             end if;
         end if;
-end process;
+    end process;
     
     CA_RST <= ca_rst_pulse;
     DDS_RSTN <= not CA_RST;
