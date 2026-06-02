@@ -1,0 +1,9 @@
+Manufacturer=Texas Instruments
+PartNumber=INA226AQDGSRQ1
+PartCategory=Integrated Circuit
+PackageCategory=Small Outline Packages
+PinCount=10
+Version=1.1
+Released=2019-05-31 11:52:33
+Downloaded=2026-06-02 20:24:22
+3D=Y

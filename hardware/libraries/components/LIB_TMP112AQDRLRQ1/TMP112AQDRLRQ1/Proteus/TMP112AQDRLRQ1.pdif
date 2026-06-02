@@ -1,0 +1,132 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "TMP112AQDRLRQ1"
+   (description "Automotive Grade, 1.4V-Capable +/-0.5C Temperature Sensor with Alert Function and I2C/SMBus")
+   (family "ANA")
+   (package "SOTFL50P160X60-6N")
+   (attribute "Datasheet Link" "http://www.ti.com/lit/gpn/tmp112-q1")
+   (attribute "Geometry.Height" "0.6mm")
+   (attribute "Mouser Part Number" "595-TMP112AQDRLRQ1")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TMP112AQDRLRQ1?qs=asCBFxFfL1Q5YmJCm%252BGnCQ%3D%3D")
+   (attribute "Manufacturer_Name" "Texas Instruments")
+   (attribute "Manufacturer_Part_Number" "TMP112AQDRLRQ1")
+   (gate
+    (symbol "TMP112AQDRLRQ1")
+    (pin "SCL" 1 PS)
+    (pin "GND" 2 PS)
+    (pin "ALERT" 3 PS)
+    (pin "ADD0" 4 PS)
+    (pin "V+" 5 PS)
+    (pin "SDA" 6 PS)
+   )
+  )
+  (symbol "TMP112AQDRLRQ1"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 1000 100) (pt 1000 -300) (pt 200 -300) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -200) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -100) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -200) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "SOTFL50P160X60-6N"
+   (units MM)
+   (layer OCCA
+    (graphic
+     (stroke 0.05)
+     (path
+      (closed true)
+      (pt -1.225 1)
+      (pt 1.225 1)
+      (pt 1.225 -1)
+      (pt -1.225 -1)
+      (pt -1.225 1))))
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -0.6 0.8)
+      (pt 0.6 0.8)
+      (pt 0.6 -0.8)
+      (pt -0.6 -0.8)
+      (pt -0.6 0.8))))
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -0.6 0.3)
+      (pt -0.1 0.8))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -0.25 0.8)
+      (pt 0.25 0.8)
+      (pt 0.25 -0.8)
+      (pt -0.25 -0.8)
+      (pt -0.25 0.8))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -1.075 0.9)
+      (pt -0.6 0.9))))
+   (leg 1 (pt -0.838 0.5) (padstack 0))
+   (leg 2 (pt -0.838 0) (padstack 0))
+   (leg 3 (pt -0.838 -0.5) (padstack 0))
+   (leg 4 (pt 0.838 -0.5) (padstack 0))
+   (leg 5 (pt 0.838 0) (padstack 0))
+   (leg 6 (pt 0.838 0.5) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 0.3 0.475 0 0 0))
+   )
+   (model "TMP112AQDRLRQ1.stp"
+    (euler 0 0 0)
+    (offset 0 0 0)
+   )
+  )
+ )
+)

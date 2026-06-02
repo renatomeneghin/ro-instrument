@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP INA226AQDGSRQ1
+D AEC-Q100, 36V, Bi-Directional, High Accuracy, Low-/High-Side, I2C Out Current/Power Monitor w/Alert
+K
+F http://www.ti.com/lit/gpn/ina226-q1
+$ENDCMP
+#
+#End Doc Library

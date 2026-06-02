@@ -18851,12 +18851,6 @@
 		)
 		(instances
 			(project "RO-Instrument"
-				(path "/3bfbcad7-6eb5-40e8-8974-b9f303bf9569"
-					(reference "U9")
-					(unit 10)
-				)
-			)
-			(project "RO-Instrument"
 				(path "/824b1e7b-823c-4796-91f5-4d92071a0ffc"
 					(reference "U9")
 					(unit 10)

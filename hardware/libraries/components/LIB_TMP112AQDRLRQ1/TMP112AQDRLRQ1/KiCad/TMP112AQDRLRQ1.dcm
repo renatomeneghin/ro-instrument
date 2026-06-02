@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TMP112AQDRLRQ1
+D Automotive Grade, 1.4V-Capable +/-0.5C Temperature Sensor with Alert Function and I2C/SMBus
+K
+F http://www.ti.com/lit/gpn/tmp112-q1
+$ENDCMP
+#
+#End Doc Library

@@ -1,0 +1,16 @@
+.TMP112AQDRLRQ1 :1 ;Automotive Grade, 1.4V-Capable +/-0.5C Temperature Sensor with Alert Function and I2C/SMBus
+SOTFL50P160X60-6N
+*STM IC
+*NGS
+*PLB 1="SCL" 2="GND" 3="ALERT" 4="ADD0" 5="V+" 6="SDA"
+*MXP 6
+*DFN TMP112AQDRLRQ1
+~!Mouser Part Number (595-TMP112AQDRLRQ1)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TMP112AQDRLRQ1?qs=asCBFxFfL1Q5YmJCm%252BGnCQ%3D%3D)
+~!Manufacturer_Name (Texas Instruments)
+~!Manufacturer_Part_Number (TMP112AQDRLRQ1)
+~!Link Datasheet (http://www.ti.com/lit/gpn/tmp112-q1)
+~!Height (0.6mm)
+~!3D_Model (TMP112AQDRLRQ1)
+TMP112AQDRLRQ1
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 6.1!U 

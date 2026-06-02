@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "TMP112AQDRLRQ1"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2019-07-22-09:38:26)
+    (mountForm default
+        (footprintRef "SOTFL50P160X60-6N")
+        (spec "System")
+    )
+)

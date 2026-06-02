@@ -500,9 +500,14 @@
         "filename": "unused_banks.kicad_sch",
         "name": "UNUSED BANKS",
         "uuid": "83dbbb8b-f704-4de4-903f-2754e556f9c9"
+      },
+      {
+        "filename": "sensing.kicad_sch",
+        "name": "SENSING",
+        "uuid": "5337db32-22c1-4efb-902e-4f77e772cb4f"
       }
     ],
-    "used_designators": "C93-252,#PWR129-164,TP16,R105-119,IC11-12,U9-15",
+    "used_designators": "U16",
     "variants": []
   },
   "sheets": [
@@ -561,6 +566,10 @@
     [
       "83dbbb8b-f704-4de4-903f-2754e556f9c9",
       "UNUSED BANKS"
+    ],
+    [
+      "5337db32-22c1-4efb-902e-4f77e772cb4f",
+      "SENSING"
     ]
   ],
   "text_variables": {},

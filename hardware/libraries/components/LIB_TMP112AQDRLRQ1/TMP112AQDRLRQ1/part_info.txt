@@ -1,0 +1,9 @@
+Manufacturer=Texas Instruments
+PartNumber=TMP112AQDRLRQ1
+PartCategory=Integrated Circuit
+PackageCategory=SO Transistor Flat Lead
+PinCount=6
+Version=1.1
+Released=2019-07-22 09:38:26
+Downloaded=2026-06-02 20:24:04
+3D=Y
