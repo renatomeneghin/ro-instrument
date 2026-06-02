@@ -1,9 +1,0 @@
-Manufacturer=Yageo Group
-PartNumber=CC0402JRNPO9BN101
-PartCategory=Capacitor
-PackageCategory=Capacitor Chip Non-polarised
-PinCount=2
-Version=1.1
-Released=2023-11-10 09:46:51
-Downloaded=2026-05-11 14:30:48
-3D=Y

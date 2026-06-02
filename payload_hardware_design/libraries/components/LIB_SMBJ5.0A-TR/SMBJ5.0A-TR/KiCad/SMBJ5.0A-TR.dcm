@@ -1,9 +1,0 @@
-EESchema-DOCLIB  Version 2.0
-#
-$CMP SMBJ5.0A-TR
-D ESD Suppressors / TVS Diodes 600W 5.0V Unidirect
-K
-F https://www.st.com/resource/en/datasheet/smbj58ca.pdf
-$ENDCMP
-#
-#End Doc Library

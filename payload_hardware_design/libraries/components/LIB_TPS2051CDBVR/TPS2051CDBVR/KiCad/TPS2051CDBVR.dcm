@@ -1,9 +1,0 @@
-EESchema-DOCLIB  Version 2.0
-#
-$CMP TPS2051CDBVR
-D Single Channel, Current-Limited USB Power Distribution Switch
-K
-F http://www.ti.com/lit/gpn/tps2051c
-$ENDCMP
-#
-#End Doc Library

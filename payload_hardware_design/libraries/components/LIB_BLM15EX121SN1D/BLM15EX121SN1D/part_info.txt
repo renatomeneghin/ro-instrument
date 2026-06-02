@@ -1,9 +1,0 @@
-Manufacturer=Murata Electronics
-PartNumber=BLM15EX121SN1D
-PartCategory=Ferrite Bead
-PackageCategory=Other
-PinCount=2
-Version=2.5
-Released=2023-03-07 11:24:26
-Downloaded=2026-05-13 14:40:42
-3D=Y

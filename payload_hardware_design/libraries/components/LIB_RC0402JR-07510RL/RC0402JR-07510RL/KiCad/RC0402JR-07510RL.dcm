@@ -1,9 +1,0 @@
-EESchema-DOCLIB  Version 2.0
-#
-$CMP RC0402JR-07510RL
-D RESISTOR, 0402 510 Ohms +/-5% 1/16 W
-K
-F https://componentsearchengine.com/Datasheets/1/RC0402JR-07510RL.pdf
-$ENDCMP
-#
-#End Doc Library

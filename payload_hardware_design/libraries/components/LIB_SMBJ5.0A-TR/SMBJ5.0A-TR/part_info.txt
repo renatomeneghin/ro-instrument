@@ -1,9 +1,0 @@
-Manufacturer=STMicroelectronics
-PartNumber=SMBJ5.0A-TR
-PartCategory=TVS Diode (Uni-directional)
-PackageCategory=Other
-PinCount=2
-Version=6.2
-Released=2015-07-22 14:41:32
-Downloaded=2026-05-13 14:41:57
-3D=Y

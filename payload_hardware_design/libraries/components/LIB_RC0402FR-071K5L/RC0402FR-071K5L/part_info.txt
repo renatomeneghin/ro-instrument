@@ -1,9 +1,0 @@
-Manufacturer=Yageo Group
-PartNumber=RC0402FR-071K5L
-PartCategory=Resistor
-PackageCategory=Resistor Chip
-PinCount=2
-Version=1.1
-Released=2023-02-25 04:00:10
-Downloaded=2026-05-11 13:59:04
-3D=Y

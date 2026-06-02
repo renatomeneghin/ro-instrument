@@ -1,9 +1,0 @@
-Manufacturer=Diodes Incorporated
-PartNumber=BCM857BS-7-F
-PartCategory=Integrated Circuit
-PackageCategory=SOT23 (6-Pin)
-PinCount=6
-Version=2.1
-Released=2022-10-27 03:09:48
-Downloaded=2026-05-12 14:48:30
-3D=Y

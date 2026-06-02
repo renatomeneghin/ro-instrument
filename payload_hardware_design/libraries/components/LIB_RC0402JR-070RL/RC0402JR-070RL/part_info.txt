@@ -1,9 +1,0 @@
-Manufacturer=Yageo Group
-PartNumber=RC0402JR-070RL
-PartCategory=Resistor
-PackageCategory=Resistor Chip
-PinCount=2
-Version=1.1
-Released=2024-11-01 03:20:50
-Downloaded=2026-05-11 13:52:53
-3D=Y

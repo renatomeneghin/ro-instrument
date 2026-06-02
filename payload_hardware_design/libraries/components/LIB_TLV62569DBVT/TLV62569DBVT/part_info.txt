@@ -1,9 +1,0 @@
-Manufacturer=Texas Instruments
-PartNumber=TLV62569DBVT
-PartCategory=Integrated Circuit
-PackageCategory=SOT23 (5-Pin)
-PinCount=5
-Version=1.1
-Released=2020-05-03 05:50:50
-Downloaded=2026-05-12 18:24:31
-3D=Y

@@ -1,9 +1,0 @@
-Manufacturer=Yageo Group
-PartNumber=RC0402FR-0749K9L
-PartCategory=Resistor
-PackageCategory=Resistor Chip
-PinCount=2
-Version=4.1
-Released=2023-03-07 09:51:09
-Downloaded=2026-05-11 13:45:56
-3D=Y

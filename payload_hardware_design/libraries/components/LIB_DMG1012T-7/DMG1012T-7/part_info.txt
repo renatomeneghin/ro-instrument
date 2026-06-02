@@ -1,9 +1,0 @@
-Manufacturer=Diodes Incorporated
-PartNumber=DMG1012T-7
-PartCategory=MOSFET (N-Channel)
-PackageCategory=SOT23 (3-Pin)
-PinCount=3
-Version=5.1
-Released=2017-07-18 11:16:30
-Downloaded=2026-05-13 14:47:51
-3D=Y

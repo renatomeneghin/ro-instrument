@@ -1,9 +1,0 @@
-Manufacturer=Yageo Group
-PartNumber=RC0402FR-072K2L
-PartCategory=Resistor
-PackageCategory=Resistor Chip
-PinCount=2
-Version=3.1
-Released=2023-03-07 09:50:57
-Downloaded=2026-05-11 14:04:11
-3D=N

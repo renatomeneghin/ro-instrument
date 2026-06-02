@@ -1,9 +1,0 @@
-Manufacturer=Yageo Group
-PartNumber=CC1206KKX7RDBB102
-PartCategory=Capacitor
-PackageCategory=Capacitor Chip Non-polarised
-PinCount=2
-Version=1.1
-Released=2022-05-14 04:41:28
-Downloaded=2026-05-13 14:30:50
-3D=Y

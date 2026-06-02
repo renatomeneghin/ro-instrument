@@ -1,9 +1,0 @@
-Manufacturer=Microchip
-PartNumber=MIC5504-2.5YM5-TR
-PartCategory=Integrated Circuit
-PackageCategory=SOT23 (5-Pin)
-PinCount=5
-Version=4.2
-Released=2020-03-30 04:08:31
-Downloaded=2026-05-12 15:18:23
-3D=Y

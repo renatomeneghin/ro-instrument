@@ -1,9 +1,0 @@
-Manufacturer=Yageo Group
-PartNumber=CC0805MKX5R5BB476
-PartCategory=Capacitor
-PackageCategory=Capacitor Chip Non-polarised
-PinCount=2
-Version=1.1
-Released=2022-08-15 07:26:12
-Downloaded=2026-05-13 13:21:00
-3D=Y

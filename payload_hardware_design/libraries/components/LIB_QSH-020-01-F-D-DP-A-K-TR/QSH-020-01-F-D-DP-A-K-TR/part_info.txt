@@ -1,9 +1,0 @@
-Manufacturer=SAMTEC
-PartNumber=QSH-020-01-F-D-DP-A-K-TR
-PartCategory=Connector
-PackageCategory=Other
-PinCount=44
-Version=1.2
-Released=2019-09-26 10:50:23
-Downloaded=2026-05-13 18:06:48
-3D=Y

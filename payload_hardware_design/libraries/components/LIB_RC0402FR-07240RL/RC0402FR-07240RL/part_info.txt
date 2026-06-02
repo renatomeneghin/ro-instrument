@@ -1,9 +1,0 @@
-Manufacturer=Yageo Group
-PartNumber=RC0402FR-07240RL
-PartCategory=Resistor
-PackageCategory=Resistor Chip
-PinCount=2
-Version=4.1
-Released=2023-03-07 09:50:54
-Downloaded=2026-05-11 14:12:42
-3D=Y
