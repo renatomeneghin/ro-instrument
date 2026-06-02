@@ -19439,12 +19439,6 @@
 					(unit 5)
 				)
 			)
-			(project "RO-Instrument"
-				(path "/8fd513a2-d037-490f-a8ba-53c34aac8915"
-					(reference "U4")
-					(unit 5)
-				)
-			)
 			(project ""
 				(path "/c583dc71-b62b-403e-8742-2886e1d142c2"
 					(reference "U4")
@@ -20975,12 +20969,6 @@
 		(instances
 			(project "RO-Instrument"
 				(path "/129439af-2a9d-472e-bef2-dccbe0504c78"
-					(reference "U4")
-					(unit 4)
-				)
-			)
-			(project "RO-Instrument"
-				(path "/8fd513a2-d037-490f-a8ba-53c34aac8915"
 					(reference "U4")
 					(unit 4)
 				)

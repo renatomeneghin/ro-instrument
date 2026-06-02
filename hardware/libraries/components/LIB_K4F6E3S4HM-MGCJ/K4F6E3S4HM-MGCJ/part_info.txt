@@ -1,0 +1,9 @@
+Manufacturer=SAMSUNG
+PartNumber=K4F6E3S4HM-MGCJ
+PartCategory=Integrated Circuit
+PackageCategory=BGA
+PinCount=200
+Version=3.1
+Released=2019-06-02 23:00:12
+Downloaded=2026-06-02 01:34:37
+3D=Y

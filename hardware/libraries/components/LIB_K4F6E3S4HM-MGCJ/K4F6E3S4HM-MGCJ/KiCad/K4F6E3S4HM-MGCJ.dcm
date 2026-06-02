@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP K4F6E3S4HM-MGCJ
+D 16Gb LPDDR4 SDRAM 200FBGA, 10x15 64Mb x16DQ x8banks x2channels
+K
+F https://static6.arrow.com/aropdfconversion/1c2c2d924dafbdcc4bed550b169d2aeac4e8cfe7/k4f6e3s4hm-mgcj.pdf
+$ENDCMP
+#
+#End Doc Library

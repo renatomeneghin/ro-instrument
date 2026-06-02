@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "K4F6E3S4HM-MGCJ"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2022-12-27-16:53:32)
+    (mountForm default
+        (footprintRef "BGA200C65P12X22_1000X1500X100")
+        (spec "System")
+    )
+)

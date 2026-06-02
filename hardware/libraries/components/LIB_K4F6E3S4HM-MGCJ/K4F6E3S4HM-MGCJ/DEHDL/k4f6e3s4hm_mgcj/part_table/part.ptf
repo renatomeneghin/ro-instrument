@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'K4F6E3S4HM_MGCJ'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "IC_COMPONENTS_PART_NUMBER", "IC_COMPONENTS_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "SAMSUNG", "K4F6E3S4HM-MGCJ" (!) = "", "BGA200C65P12X22_1000X1500X100", "BGA", "", "", "16Gb LPDDR4 SDRAM 200FBGA, 10x15 64Mb x16DQ x8banks x2channels", "https://static6.arrow.com/aropdfconversion/1c2c2d924dafbdcc4bed550b169d2aeac4e8cfe7/k4f6e3s4hm-mgcj.pdf", "1 mm"
+END_PART
+
+END.

@@ -485,9 +485,14 @@
         "filename": "fpga_power_banks.kicad_sch",
         "name": "FPGA POWER BANKS",
         "uuid": "8fd513a2-d037-490f-a8ba-53c34aac8915"
+      },
+      {
+        "filename": "lpddr4.kicad_sch",
+        "name": "LPDDR4",
+        "uuid": "3bfbcad7-6eb5-40e8-8974-b9f303bf9569"
       }
     ],
-    "used_designators": "U9",
+    "used_designators": "IC11-12,U9-10",
     "variants": []
   },
   "sheets": [
@@ -498,6 +503,10 @@
     [
       "129439af-2a9d-472e-bef2-dccbe0504c78",
       "SoC 1"
+    ],
+    [
+      "3bfbcad7-6eb5-40e8-8974-b9f303bf9569",
+      "LPDDR4"
     ],
     [
       "192867d8-95aa-4271-9e49-4cd2e69b7fea",
