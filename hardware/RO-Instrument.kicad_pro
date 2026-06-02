@@ -490,9 +490,19 @@
         "filename": "lpddr4.kicad_sch",
         "name": "LPDDR4",
         "uuid": "3bfbcad7-6eb5-40e8-8974-b9f303bf9569"
+      },
+      {
+        "filename": "level_translators.kicad_sch",
+        "name": "LEVEL TRANSLATORS",
+        "uuid": "ffb442c5-ffd1-4efa-a6fc-c35cfd4b76ad"
+      },
+      {
+        "filename": "unused_banks.kicad_sch",
+        "name": "UNUSED BANKS",
+        "uuid": "83dbbb8b-f704-4de4-903f-2754e556f9c9"
       }
     ],
-    "used_designators": "IC11-12,U9-10",
+    "used_designators": "C93-252,#PWR129-164,TP16,R105-119,IC11-12,U9-15",
     "variants": []
   },
   "sheets": [
@@ -543,6 +553,14 @@
     [
       "8fd513a2-d037-490f-a8ba-53c34aac8915",
       "FPGA POWER BANKS"
+    ],
+    [
+      "ffb442c5-ffd1-4efa-a6fc-c35cfd4b76ad",
+      "LEVEL TRANSLATORS"
+    ],
+    [
+      "83dbbb8b-f704-4de4-903f-2754e556f9c9",
+      "UNUSED BANKS"
     ]
   ],
   "text_variables": {},

@@ -4513,8 +4513,7 @@
 		(effects
 			(font
 				(size 3.81 3.81)
-				(thickness 1.016)
-				(bold yes)
+				(thickness 0.4763)
 			)
 		)
 		(uuid "164e3f84-17bd-4c24-aa8c-4bc2adf38b36")
@@ -4525,8 +4524,7 @@
 		(effects
 			(font
 				(size 3.81 3.81)
-				(thickness 1.016)
-				(bold yes)
+				(thickness 0.4763)
 			)
 		)
 		(uuid "17f20d01-6e31-4491-83ca-1f5040698130")
@@ -4537,8 +4535,7 @@
 		(effects
 			(font
 				(size 3.81 3.81)
-				(thickness 1.016)
-				(bold yes)
+				(thickness 0.4763)
 			)
 		)
 		(uuid "25ea9668-ab07-44a1-9e9e-b51da6fc6c50")
@@ -4549,20 +4546,18 @@
 		(effects
 			(font
 				(size 3.81 3.81)
-				(thickness 1.016)
-				(bold yes)
+				(thickness 0.4763)
 			)
 		)
 		(uuid "342a2449-15cb-4c2f-948f-94f4d7ef5a7e")
 	)
 	(text "VIO_ENABLE"
 		(exclude_from_sim no)
-		(at 253.492 24.892 0)
+		(at 322.58 18.034 0)
 		(effects
 			(font
 				(size 3.81 3.81)
-				(thickness 1.016)
-				(bold yes)
+				(thickness 0.4763)
 			)
 		)
 		(uuid "39846d5f-c085-4d18-9f2e-7e81ae001e96")
@@ -4573,8 +4568,7 @@
 		(effects
 			(font
 				(size 3.81 3.81)
-				(thickness 1.016)
-				(bold yes)
+				(thickness 0.4763)
 			)
 		)
 		(uuid "70ef5a1c-2264-4e11-b008-fd51e5e07d1e")
@@ -4585,8 +4579,7 @@
 		(effects
 			(font
 				(size 3.81 3.81)
-				(thickness 1.016)
-				(bold yes)
+				(thickness 0.4763)
 			)
 		)
 		(uuid "7cd4a1f5-6212-47d7-813b-6c548dbcbe6b")
@@ -4597,8 +4590,7 @@
 		(effects
 			(font
 				(size 3.81 3.81)
-				(thickness 1.016)
-				(bold yes)
+				(thickness 0.4763)
 			)
 		)
 		(uuid "ced6e493-a2fc-4c49-b8da-be2daf128e53")
@@ -4609,8 +4601,7 @@
 		(effects
 			(font
 				(size 3.81 3.81)
-				(thickness 1.016)
-				(bold yes)
+				(thickness 0.4763)
 			)
 		)
 		(uuid "dfe506fd-2506-475f-9bfa-8d64474aa0d3")
