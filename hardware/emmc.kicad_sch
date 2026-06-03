@@ -15349,6 +15349,18 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "eMMC FPGA BANK"
+		(exclude_from_sim no)
+		(at 114.808 174.498 0)
+		(effects
+			(font
+				(size 3.81 3.81)
+				(thickness 1.016)
+				(bold yes)
+			)
+		)
+		(uuid "01bfc355-0feb-46e9-bd18-646486b2c1c8")
+	)
 	(text "EMMC\n"
 		(exclude_from_sim no)
 		(at 216.154 35.052 0)

@@ -830,6 +830,18 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "3V3 TO 1V8 LEVEL TRANSLATOR\n"
+		(exclude_from_sim no)
+		(at 203.454 33.782 0)
+		(effects
+			(font
+				(size 3.81 3.81)
+				(thickness 1.016)
+				(bold yes)
+			)
+		)
+		(uuid "a3f7ca92-aa8b-410d-93ea-dacddfd17ec1")
+	)
 	(junction
 		(at 111.76 194.31)
 		(diameter 0)
