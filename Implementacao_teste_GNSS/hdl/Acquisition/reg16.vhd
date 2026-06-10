@@ -27,8 +27,8 @@ port (
     clk : in  std_logic;
     rst : in  std_logic;
     en  : in  std_logic;
-    D   : in  std_logic;
-    Q   : out std_logic
+    D   : in  std_logic_vector(reg_width-1 downto 0);
+    Q   : out std_logic_vector(reg_width-1 downto 0)
 );
 end reg_gen;
 architecture architecture_reg_gen of reg_gen is

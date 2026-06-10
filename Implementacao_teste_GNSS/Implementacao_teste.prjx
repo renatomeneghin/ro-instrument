@@ -32,7 +32,7 @@ KEY VendorTechnology_VCCI_1.8_VOLTR "EXT"
 KEY VendorTechnology_VCCI_2.5_VOLTR "EXT"
 KEY VendorTechnology_VCCI_3.3_VOLTR "EXT"
 KEY VendorTechnology_VOLTR "EXT"
-KEY ProjectLocation "/home/tuzinho/Desktop/ro-instrument/Implementacao_teste_GNSS"
+KEY ProjectLocation "/home/tuzinho/Desktop/SpaceLab/ro-instrument/Implementacao_teste_GNSS"
 KEY ProjectDescription ""
 KEY UseRootLocationForLinkedFiles "FALSE"
 KEY RootLocationENVForLinkedFiles ""
@@ -624,6 +624,11 @@ STATE="utd"
 TIME="1780075975"
 SIZE="4228"
 ENDFILE
+VALUE "<project>/stimulus/Testbench_Complex_multiplier.vhd,tb_hdl"
+STATE="utd"
+TIME="1781103002"
+SIZE="5391"
+ENDFILE
 ENDLIST
 LIST UsedFile
 ENDLIST
@@ -634,12 +639,112 @@ LIST Other_Association
 VALUE "<project>/component/Microchip/SolutionCore/costas_loop/1.1.0/Stimulus/costas_loop_tb.v,tb_hdl"
 ENDLIST
 ENDLIST
+LIST "COREFFT_C2_COREFFT_C0_0_COREFFT::COREFFT_LIB"
+FILE "<project>/component/work/COREFFT_C2/COREFFT_C0_0/rtl/in_place/vlog/core/COREFFT_TOP.v,hdl"
+LIST Other_Association
+VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C2/COREFFT_C0_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C2/COREFFT_C0_0/coreparameters.v,tb_hdl"
 ENDLIST
 LIST AssociatedStimulus
+VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C2/COREFFT_C0_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C2/COREFFT_C0_0/coreparameters.v,tb_hdl"
+ENDLIST
+ENDLIST
+LIST "COREFFT_C3_COREFFT_C1_0_COREFFT::COREFFT_LIB"
+FILE "<project>/component/work/COREFFT_C3/COREFFT_C1_0/rtl/in_place/vlog/core/COREFFT_TOP.v,hdl"
+LIST Other_Association
+VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C3/COREFFT_C1_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C3/COREFFT_C1_0/coreparameters.v,tb_hdl"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C3/COREFFT_C1_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C3/COREFFT_C1_0/coreparameters.v,tb_hdl"
+ENDLIST
+ENDLIST
+LIST "COREFFT_C4_COREFFT_C4_0_COREFFT::COREFFT_LIB"
+FILE "<project>/component/work/COREFFT_C4/COREFFT_C4_0/rtl/in_place/vlog/core/COREFFT_TOP.v,hdl"
+LIST Other_Association
+VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C4/COREFFT_C4_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C4/COREFFT_C4_0/coreparameters.v,tb_hdl"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C4/COREFFT_C4_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C4/COREFFT_C4_0/coreparameters.v,tb_hdl"
+ENDLIST
+ENDLIST
+LIST "COREDDS_C0_COREDDS_C0_0_COREDDS::COREDDS_LIB"
+FILE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/core/DDS_TOP.v,hdl"
+LIST Other_Association
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectIn.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectOut.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/coreparameters.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/tb_dds.v,tb_hdl"
+ENDLIST
+LIST AssociatedStimulus
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectIn.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectOut.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/coreparameters.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/tb_dds.v,tb_hdl"
+ENDLIST
+ENDLIST
+ENDLIST
+LIST AssociatedStimulus
+LIST COREFFT_C4_COREFFT_C4_0_COREFFT
+VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C4/COREFFT_C4_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C4/COREFFT_C4_0/coreparameters.v,tb_hdl"
+ENDLIST
+LIST COREFFT_C3_COREFFT_C1_0_COREFFT
+VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C3/COREFFT_C1_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C3/COREFFT_C1_0/coreparameters.v,tb_hdl"
+ENDLIST
+LIST COREFFT_C2_COREFFT_C0_0_COREFFT
+VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C2/COREFFT_C0_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C2/COREFFT_C0_0/coreparameters.v,tb_hdl"
+ENDLIST
+LIST COREDDS_C0_COREDDS_C0_0_COREDDS
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectIn.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectOut.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/coreparameters.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/tb_dds.v,tb_hdl"
+ENDLIST
 ENDLIST
 LIST Other_Association
 LIST costas_loop
 VALUE "<project>/component/Microchip/SolutionCore/costas_loop/1.1.0/Stimulus/costas_loop_tb.v,tb_hdl"
+ENDLIST
+LIST COREFFT_C4_COREFFT_C4_0_COREFFT
+VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C4/COREFFT_C4_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C4/COREFFT_C4_0/coreparameters.v,tb_hdl"
+ENDLIST
+LIST COREFFT_C3_COREFFT_C1_0_COREFFT
+VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C3/COREFFT_C1_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C3/COREFFT_C1_0/coreparameters.v,tb_hdl"
+ENDLIST
+LIST COREFFT_C2_COREFFT_C0_0_COREFFT
+VALUE "<project>/component/Actel/DirectCore/COREFFT/8.1.100/rtl/in_place/vlog/test/user/bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C2/COREFFT_C0_0/rtl/in_place/vlog/test/user/in_place_FFT_tb.v,tb_hdl"
+VALUE "<project>/component/work/COREFFT_C2/COREFFT_C0_0/coreparameters.v,tb_hdl"
+ENDLIST
+LIST COREDDS_C0_COREDDS_C0_0_COREDDS
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectIn.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectOut.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/coreparameters.v,tb_hdl"
+VALUE "<project>/component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/tb_dds.v,tb_hdl"
 ENDLIST
 ENDLIST
 LIST SimulationOptions
@@ -753,6 +858,8 @@ LIST OpenedFileList
 ORIENTATION;HORIZONTAL
 HDL;hdl/Acquisition/Acquisition-Renato.vhd;0
 HDL;hdl/Acquisition/Complex_multiplier.vhd;0
+HDL;hdl/Acquisition/reg16.vhd;0
+StartPage;StartPage;0
 ACTIVEVIEW;hdl/Acquisition/Complex_multiplier.vhd
 ENDLIST
 LIST ModuleSubBlockList
@@ -811,7 +918,7 @@ LIST "bhvEdge::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/
 ENDLIST
 LIST "bhvRAM_fabric::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v","FALSE","TRUE"
 ENDLIST
-LIST "clock_driver::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/clock_driver.v","FALSE","TRUE"
+LIST "Complex_multiplier::work","","FALSE","FALSE"
 ENDLIST
 LIST "costas_loop_tb::work","component/Microchip/SolutionCore/costas_loop/1.1.0/Stimulus/costas_loop_tb.v","FALSE","TRUE"
 SUBBLOCK "costas_loop::work","component/Microchip/SolutionCore/costas_loop/1.1.0/Encrypted/costas_loop.v","FALSE","FALSE"
@@ -836,22 +943,7 @@ LIST "bhvDelay::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user
 ENDLIST
 LIST "dds_kitCountS::COREDDS_LIB","","FALSE","FALSE"
 ENDLIST
-LIST "fifo_driver::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/fifo_driver.v","FALSE","TRUE"
-ENDLIST
-LIST "fifo_monitor::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/fifo_monitor.v","FALSE","TRUE"
-ENDLIST
-LIST "g4_dp_ext_mem::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/g4_dp_ext_mem.v","FALSE","TRUE"
-SUBBLOCK "MEM_WeqR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WeqR.v","FALSE","TRUE"
-SUBBLOCK "MEM_WgtR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WgtR.v","FALSE","TRUE"
-SUBBLOCK "MEM_WltR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WltR.v","FALSE","TRUE"
-ENDLIST
 LIST "L1_CA_generator::work","","FALSE","FALSE"
-ENDLIST
-LIST "MEM_WeqR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WeqR.v","FALSE","TRUE"
-ENDLIST
-LIST "MEM_WgtR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WgtR.v","FALSE","TRUE"
-ENDLIST
-LIST "MEM_WltR::work","component/Actel/DirectCore/COREFIFO/3.1.101/rtl/vlog/test/user/MEM_WltR.v","FALSE","TRUE"
 ENDLIST
 LIST "testbench::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/tb_dds.v","FALSE","TRUE"
 SUBBLOCK "COREDDS_C0_COREDDS_C0_0_COREDDS::COREDDS_LIB","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/core/DDS_TOP.v","FALSE","FALSE"
@@ -863,6 +955,9 @@ SUBBLOCK "dds_bhvTestVectIn::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/v
 SUBBLOCK "dds_bhvTestVectOut::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvTestVectOut.v","FALSE","TRUE"
 SUBBLOCK "bhvDelay::work","component/work/COREDDS_C0/COREDDS_C0_0/rtl/vlog/test/user/dds_bhvKit.v","FALSE","TRUE"
 SUBBLOCK "dds_kitCountS::COREDDS_LIB","","FALSE","FALSE"
+ENDLIST
+LIST "Testbench_Complex_multiplier::work","stimulus/Testbench_Complex_multiplier.vhd","FALSE","TRUE"
+SUBBLOCK "Complex_multiplier::work","","FALSE","FALSE"
 ENDLIST
 LIST "COREFFT_C2_COREFFT_C0_0_COREFFT::COREFFT_LIB","component/work/COREFFT_C2/COREFFT_C0_0/rtl/in_place/vlog/core/COREFFT_TOP.v","FALSE","FALSE"
 SUBBLOCK "COREFFT_C2_COREFFT_C0_0_COREFFT_STRM::COREFFT_LIB","","FALSE","FALSE"
