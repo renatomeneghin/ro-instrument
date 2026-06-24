@@ -1,0 +1,67 @@
+function sv= satv(SV)
+if SV == 1
+    sv = [2 6];
+elseif SV == 2
+    sv = [3 7];
+elseif SV == 3
+    sv = [4 8];
+elseif SV == 4
+    sv = [5 9];
+elseif SV == 5
+    sv = [1 9];
+elseif SV == 6
+    sv = [2 10];
+elseif SV == 7
+    sv = [1 8];
+elseif SV == 8
+    sv = [2 9];
+elseif SV == 9
+    sv = [3 10];
+elseif SV == 10
+    sv = [2 3];
+elseif SV == 11
+    sv = [3 4];
+elseif SV == 12
+    sv = [5 6];    
+elseif SV == 13
+    sv = [6 7];    
+elseif SV == 14
+    sv = [7 8];    
+elseif SV == 15
+    sv = [8 9];    
+elseif SV == 16
+    sv = [9 10];    
+elseif SV == 17
+    sv = [1 4];    
+elseif SV == 18
+    sv = [2 5];    
+elseif SV == 19
+    sv = [3 6];    
+elseif SV == 20
+    sv = [4 7];    
+elseif SV == 21
+    sv = [5 8];    
+elseif SV == 22
+    sv = [6 9];    
+elseif SV == 23
+    sv = [1 3];    
+elseif SV == 24
+    sv = [4 6];    
+elseif SV == 25
+    sv = [5 7];    
+elseif SV == 26
+    sv = [6 8];    
+elseif SV == 27
+    sv = [7 9];    
+elseif SV == 28
+    sv = [8 10];    
+elseif SV == 29
+    sv = [1 6];    
+elseif SV == 30
+    sv = [2 7];    
+elseif SV == 31
+    sv = [3 8];    
+elseif SV == 32
+    sv = [4 9];    
+end
+end
