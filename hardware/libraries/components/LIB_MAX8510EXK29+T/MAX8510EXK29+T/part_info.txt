@@ -1,0 +1,9 @@
+Manufacturer=Analog Devices
+PartNumber=MAX8510EXK29+T
+PartCategory=Integrated Circuit
+PackageCategory=SOT23 (5-Pin)
+PinCount=5
+Version=2.1
+Released=2023-10-05 08:57:37
+Downloaded=2026-07-16 14:59:22
+3D=Y

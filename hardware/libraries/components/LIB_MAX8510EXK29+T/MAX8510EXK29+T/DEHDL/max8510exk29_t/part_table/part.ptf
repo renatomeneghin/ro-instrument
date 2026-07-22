@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'MAX8510EXK29_T'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Analog Devices", "MAX8510EXK29+T" (!) = "", "SOT65P210X110-5N", "SOT23 (5-Pin)", "700-MAX8510EXK29T", "https://www.mouser.co.uk/ProductDetail/Maxim-Integrated/MAX8510EXK29%2bT?qs=Jw2w9zrI6w%252BbZa1dXLYLrw%3D%3D", "Fixed LDO Voltage Regulator, 2V-6V in, 135mV Dropout, 2.85V/120mA out, SC-70-5", "https://www.analog.com/media/en/technical-documentation/data-sheets/max8510-max8512.pdf", "1.1 mm"
+END_PART
+
+END.

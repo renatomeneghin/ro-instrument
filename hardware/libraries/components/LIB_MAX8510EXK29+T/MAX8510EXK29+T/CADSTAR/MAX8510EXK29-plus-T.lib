@@ -1,0 +1,16 @@
+.MAX8510EXK29-plus-T :1 ;Fixed LDO Voltage Regulator, 2V-6V in, 135mV Dropout, 2.85V/120mA out, SC-70-5
+SOT65P210X110-5N
+*STM IC
+*NGS
+*PLB 1="IN" 2="GND" 3="'SHDN'" 4="BP" 5="OUT"
+*MXP 5
+*DFN MAX8510EXK29-plus-T
+~!Mouser Part Number (700-MAX8510EXK29T)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Maxim-Integrated/MAX8510EXK29%2bT?qs=Jw2w9zrI6w%252BbZa1dXLYLrw%3D%3D)
+~!Manufacturer_Name (Analog Devices)
+~!Manufacturer_Part_Number (MAX8510EXK29+T)
+~!Link Datasheet (https://www.analog.com/media/en/technical-documentation/data-sheets/max8510-max8512.pdf)
+~!Height (1.1mm)
+~!3D_Model (MAX8510EXK29+T)
+MAX8510EXK29-plus-T
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 
